@@ -1,4 +1,4 @@
-baseURL = "https://charl-potgieter.github.io/AustralianSchoolMaths"
+baseURL = "https://charl-potgieter.github.io/AustralianSchoolMaths/"
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'hugo-book'
