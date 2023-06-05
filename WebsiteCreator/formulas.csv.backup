@@ -1,0 +1,35 @@
+Category, Sub-category,Description,Key,Formula,Year,On formula sheet,Comment
+Indices,Index Rules,Multiplying terms with same base,, $a^m \times a^n = a^{m+n}$,9, False,
+Indices,Index Rules,Dividing terms with same base,, $a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$,9, False,
+Indices,Index Rules,Power of a power,, $(a^m)^n = a^{m \times n}$,9, False,
+Indices,Index Rules,Powers of products,, $(ab)^n = a^nb^n$,9, False,
+Indices,Index Rules,Powers of quotients,, $\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$,9, False,
+Indices,Index Rules,Power of zero,, $a^0=1$,9, False,
+Indices,Index Rules,Negative powers,, $a^{-n}=\dfrac{1}{a^n}$,9, False,
+Indices,Index Rules,Negative powers of quotients,, $\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$,9, False,
+Indices,Index Rules,Fractional powers,, $a^{\frac{m}{n}} =\sqrt[n]{a^m}$,9, False,
+Differentiation,,,$y=f(x)^n$, $\dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$,12, True,
+Integration,,,$y=f(x)^n$, $ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c \text{ where }n  \neq 1$,12, True, What happens when n is -1?
+Differentiation,,,$y=sinf(x)$, $\dfrac{dy}{dx} = f'(x)cos f(x)$,12, True,
+Integration,,,$y=sinf(x)$, $ {\Large\int} f'(x)cosf(x)dx = sin f(x) + c$,12, True,
+Differentiation,,,$y=cosf(x)$, $ \dfrac{dy}{dx} = -f'(x)sin f(x)$,12, True,
+Integration,,,$y=cosf(x)$, $ {\Large\int} f'(x)sin f(x)dx = -cos f(x) + c$,12, True,
+Differentiation,,,$y=tan f(x)$, $ \dfrac{dy}{dx} = f'(x)sec^2 f(x)$,12, True,
+Integration,,,$y=tan f(x)$, $ {\Large\int} f'(x)sec^2 f(x)dx = tan f(x) + c$,12, True,
+Differentiation,,,$y=e^{f(x)}$, $ \dfrac{dy}{dx} = f'(x) e^{f(x)}$,12, True,
+Integration,,,$y=e^{f(x)}$, $ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$,12, True,
+Differentiation,,,$y=ln f(x)$, $ \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$,12, True,
+Integration,,,$y=ln f(x)$, $ {\Large\int} \dfrac{f'(x)}{f(x)}dx = ln|f(x)| + c$,12, True,Why absolute value?
+Differentiation,,,$y=a^{f(x)}$, $ \dfrac{dy}{dx} = (ln \thinspace a)f'(x)a^{f(x)}$,12, True,
+Integration,,,$y=a^{f(x)}$, $ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{ln \thinspace a} +c$,12, True,ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.
+Differentiation,,,$y=log _{a} f(x)$, $ \dfrac{dy}{dx} = \dfrac{f'(x)}{(ln \thinspace a) f(x)}$,12, True,This formula is not really needed on formula sheet as original function can easily be rewritten as $\dfrac{ln \thinspace f(x)}{ln \thinspace a}$ where $\dfrac{1}{ln \thinspace a}$ is a constant therefore the derivative rules for $y=\text{constant }\times ln \thinspace f(x)$ can be followed.  No equivalent integral is provided on formula sheet but can be easily derived.
+Differentiation,,,$y=uv$, $ \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$,12, True,
+Integration,,,$y=uv$, $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$,12,
+Differentiation,,,$y=\dfrac{u}{v}$, $ \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$,12, True,
+Differentiation,,,$y=g(u) \text { where } u = f(x)$, $ \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx}$,12, True,
+Differentiation,,,$y=sin^{-1}f(x)$, $ \dfrac{dy}{dx} =  \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$,12, True,
+Integration,,,$y=sin^{-1}f(x)$, $ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = sin^{-1} \dfrac{f(x)}{a} + c$,12, True,
+Differentiation,,,$y=cos^{-1}f(x)$, $ \dfrac{dy}{dx} =  - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$,12, True,Note the minus in front of fraction. Why no integral equivalent?
+Differentiation,,,$y=tan^{-1}f(x)$, $ \dfrac{dy}{dx} =  - \dfrac{f'(x)} {1 + (f(x))^2}$,12, No square root as per inverse sin and inverse cos derivatives and plus sign
+Integration,,,$y=tan^{-1}f(x)$, $ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} + c$,12, True,  No square root as per inverse sin and inverse cos derivatives and plus sign
+Integration,,,$\text {approximate integral}$, $ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}} \text { where } a=x_0 \text{ and } b=x_n $,12, True,
