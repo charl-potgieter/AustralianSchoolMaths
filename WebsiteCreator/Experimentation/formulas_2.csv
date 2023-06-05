@@ -1,3 +1,0 @@
-﻿Category ,Sub-category ,Description ,formula ,On formula sheet ,Comment
-Indices ,NaN ,Multiplying terms with same base ,$a^m\times a^n = a^{m+n}$,False ,NaN
-Indices ,NaN ,Dividing terms with same base ,$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$,,
