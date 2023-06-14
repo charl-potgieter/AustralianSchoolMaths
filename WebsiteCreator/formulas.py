@@ -5,20 +5,7 @@ import shutil
 from IPython.display import Markdown, clear_output
 
    
-
-def create_formula_directories(docs_dir, sub_paths):
-    """Creates 2 directories under docs directory namely 'formulas by year'
-    and 'formulas cumulative'.  Under each of these directories create subdirectories for each item in
-    sub_paths where sub_paths is a numpy array containing different levels of directory path"""
-
-    formulas_by_year_path = docs_dir + os.path.sep + 'formulas by year'
-    formulas_cumulative_path = docs_dir + os.path.sep + 'formulas cumulative'
-    for path in sub_paths:
-        os.makedirs(formulas_by_year_path + os.path.sep + os.path.sep.join(path))
-        os.makedirs(formulas_cumulative_path + os.path.sep + os.path.sep.join(path))
-
-    
-def create_formula_index_files(docs_dir, df_sort_orders):
+ def create_formula_index_files(docs_dir, df_sort_orders):
     """Creates _index.md files in relevant folder under root_dir to manage nested website menu """
     
     formulas_by_year_path = docs_dir + os.path.sep + 'formulas by year'
@@ -197,12 +184,4 @@ def is_on_formula_sheet_formatting(formula, formula_sheet):
     else:
         return (None)
 
-        
-def get_sort_orders():
-    """returns a combined dataframe of sort orders for states, subject codes and categories as per csv files"""
-    df_state_order =  pd.read_csv(filepath_or_buffer='order_states.csv', header = 0, names = ['sort value'])
-    df_subject_order =  pd.read_csv(filepath_or_buffer='order_subjects.csv', header = 0, names = ['sort value'])
-    df_sorted = pd.concat([df_state_order, df_subject_order])
-    #Start index to enable use for sorting menus in hugo-book via weight setting (doesnt seem to work with weight starting from zero)
-    df_sorted.index+=1
-    return(df_sorted)
+    
