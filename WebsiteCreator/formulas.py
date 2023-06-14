@@ -20,45 +20,6 @@ def get_formula_by_year_summary_df(df_formulas):
     return(return_df)
 
 
-def create_formula_index_files(docs_dir, df_sort_orders):
-    """Creates _index.md files in relevant folder under root_dir to manage nested website menu """
-    
-    formulas_by_year_path = docs_dir + os.path.sep + 'formulas by year'
-    formulas_cumulative_path = docs_dir + os.path.sep + 'formulas cumulative'
-    
-    with open(formulas_by_year_path + os.path.sep + '_index.md', "w") as text_file:
-        text_file.write("---\n" + 
-                        "bookCollapseSection: true\n" +
-                        "weight: 1\n" +
-                        "---\n\n" +
-                       "This section of the website includes current year / course formulas only.")
-
-    with open(formulas_cumulative_path + os.path.sep + '_index.md', "w") as text_file:
-        text_file.write("---\n" + 
-                        "bookCollapseSection: true\n" +
-                        "weight: 2\n" +
-                        "---\n\n" +
-                       "This section of the website includes both formulas covered in current and previous years \ courses")
-
-    for root,dirs,files in os.walk(formulas_by_year_path):
-        #Exclude formulas_by_year_path as index file is already created above
-        if root != formulas_by_year_path:
-            sort_order = df_sort_orders[df_sort_orders['sort value'] == os.path.basename(root)].index.tolist()[0]
-            with open(root + os.path.sep + '_index.md', "w") as text_file:
-                text_file.write("---\n" + 
-                                "bookCollapseSection: true\n" + 
-                                "weight: " + str(sort_order) + "\n" +
-                                "---")
-
-    for root,dirs,files in os.walk(formulas_cumulative_path):
-        #Exclude formulas_cumulative_path as index file is already created above
-        if root!=formulas_cumulative_path:
-            sort_order = df_sort_orders[df_sort_orders['sort value'] == os.path.basename(root)].index.tolist()[0]
-            with open(root + os.path.sep + '_index.md', "w") as text_file:
-                text_file.write("---\n" + 
-                                "bookCollapseSection: true\n" + 
-                                "weight: " + str(sort_order) + "\n" +
-                                "---")
 
 def create_formula_files(docs_dir, df_formulas):
     """Creates formula files in markdown format.  Files are created per state / subject  / category

@@ -16,15 +16,15 @@ def delete_directory_if_it_exists(dir_to_delete):
 
 
 def get_sort_orders(order_file_dir):
-    """Returns a one column dataframe with header 'sort_value' formed by the concatenation of all csv files in
-    order_file_dir.  Dataframe index is not reset and is set to commence from 1 for each file that is concatenated"""
+    """Returns a pandas series formed by the concatenation of all csv files in
+    order_file_dir.  The index is not reset and is set to commence from 1 for each file that is concatenated"""
     order_file_paths = csv_files_in_dir(order_file_dir) 
-    return_df = pd.DataFrame()
+    df_working = pd.DataFrame()
     for filepath in order_file_paths:
-        df_order = pd.read_csv(filepath_or_buffer=filepath, header = 0, names = ['sort value'])
-        return_df = pd.concat([return_df, df_order])
-    return_df.index+=1
-    return(return_df)
+        df_read = pd.read_csv(filepath_or_buffer=filepath, header = 0, names = ['sort value'])
+        df_working = pd.concat([df_working, df_read])
+    df_working.index+=1
+    return(df_working['sort value'])
 
 
 def get_formulas(filepath):
@@ -50,3 +50,23 @@ def csv_files_in_dir(dir):
         if file_ext.upper() == '.CSV':
             return_list.append(dir + os.path.sep + item)
     return(return_list)
+
+
+def create_index_files(base_dir, book_collapse=False, sort_orders=None):
+    """Creates _index.md files recursively inside base_dir optionally adding content dependent on
+    optional parameters provided"""
+
+    for root,dirs,files in os.walk(base_dir):
+        string_to_write = "---\n"
+        
+        if book_collapse:
+            string_to_write = string_to_write + "bookCollapseSection: true\n"
+        
+        if not sort_orders is None:
+            sort_order = sort_orders[sort_orders == os.path.basename(root)].index[0]
+            string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"
+            
+        string_to_write = string_to_write + "---"
+        
+        with open(root + os.path.sep + '_index.md', "w") as text_file:
+            text_file.write(string_to_write)
