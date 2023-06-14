@@ -4,8 +4,23 @@ import os
 import shutil
 from IPython.display import Markdown, clear_output
 
-   
- def create_formula_index_files(docs_dir, df_sort_orders):
+
+def get_formula_by_year_summary_df(df_formulas):
+    """Returns a dataframe summary of df_formulas containing unique set of below columns
+    in order:
+         - df_formulas['State']
+         - new column 'Sub category 1' containing text 'Formulas'
+         - new column 'Sub category 2' containing text 'By Year'
+         - df['Subject code']
+         - df['Category']"""
+    return_df = df_formulas[['State', 'Subject code', 'Category']].drop_duplicates()
+    return_df['Sub category 1'] = 'Formulas'
+    return_df['Sub category 2'] = 'By Year'
+    return_df = return_df[['State', 'Sub category 1', 'Sub category 2', 'Subject code', 'Category']]
+    return(return_df)
+
+
+def create_formula_index_files(docs_dir, df_sort_orders):
     """Creates _index.md files in relevant folder under root_dir to manage nested website menu """
     
     formulas_by_year_path = docs_dir + os.path.sep + 'formulas by year'
@@ -184,4 +199,5 @@ def is_on_formula_sheet_formatting(formula, formula_sheet):
     else:
         return (None)
 
-    
+
+

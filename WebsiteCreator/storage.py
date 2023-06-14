@@ -32,11 +32,12 @@ def get_formulas(filepath):
     return(pd.read_csv(filepath))
 
 
-def create_sub_directories(base_dir, sub_paths):
-    """Creates (potentially multi-level) directories under base_dir where sub_paths is a numpy array
-    with each row contains different levels of sub directory directory path.  No action taken if the
-    directory already exiss"""
-    for path in sub_paths:
+def create_sub_directories(base_dir, sub_paths_df):
+    """Creates (potentially multi-level) directories under base_dir where sub_paths_df is a pandas dataframe
+    where each dataframe row contains different levels of sub-directory path.  No action taken if the
+    directory already exists"""
+    sub_paths_array=sub_paths_df.to_numpy(dtype = str)
+    for path in sub_paths_array:
         fname = base_dir + os.path.sep + os.path.sep.join(path)
         os.makedirs(fname, exist_ok=True)
 

@@ -4,20 +4,22 @@ import os
 import shutil
 from IPython.display import Markdown, clear_output
 
-   
 
-def create_formula_directories(docs_dir, sub_paths):
-    """Creates 2 directories under docs directory namely 'formulas by year'
-    and 'formulas cumulative'.  Under each of these directories create subdirectories for each item in
-    sub_paths where sub_paths is a numpy array containing different levels of directory path"""
+def get_formula_by_year_summary_df(df_formulas):
+    """Returns a dataframe summary of df_formulas containing unique set of below columns
+    in order:
+         - df_formulas['State']
+         - new column 'Sub category 1' containing text 'Formulas'
+         - new column 'Sub category 2' containing text 'By Year'
+         - df['Subject code']
+         - df['Category']"""
+    return_df = df_formulas[['State', 'Subject code', 'Category']].drop_duplicates()
+    return_df['Sub category 1'] = 'Formulas'
+    return_df['Sub category 2'] = 'By Year'
+    return_df = return_df[['State', 'Sub category 1', 'Sub category 2', 'Subject code', 'Category']]
+    return(return_df)
 
-    formulas_by_year_path = docs_dir + os.path.sep + 'formulas by year'
-    formulas_cumulative_path = docs_dir + os.path.sep + 'formulas cumulative'
-    for path in sub_paths:
-        os.makedirs(formulas_by_year_path + os.path.sep + os.path.sep.join(path))
-        os.makedirs(formulas_cumulative_path + os.path.sep + os.path.sep.join(path))
 
-    
 def create_formula_index_files(docs_dir, df_sort_orders):
     """Creates _index.md files in relevant folder under root_dir to manage nested website menu """
     
@@ -197,4 +199,5 @@ def is_on_formula_sheet_formatting(formula, formula_sheet):
     else:
         return (None)
 
-    
+
+
