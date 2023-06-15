@@ -21,6 +21,22 @@ def _convert_path_to_list(path, exclude_regex=None):
     return(return_list)
 
 
+def _get_sort_order_by_level(df_sort_orders, level):
+    """Parameter level is an integer. Pandas dataframe df_sort_orders is filtered
+    where column number level+1 is null and column number level is not null
+    The first level number of columns are returned and the index is reset and started 
+    from one.
+    """
+    df_filtered = df_sort_orders[
+        df_sort_orders.iloc[:,level+1].isnull() & 
+        df_sort_orders.iloc[:,level]]
+    df_select_cols = df_filtered.iloc[:,:level+1]
+    df_reindex = df_select_cols.reset_index(drop=True)
+    df_reindex.index +=1
+    
+    return(df_reindex)
+            
+
 def get_docs_path(website_creator_path):
     """Returns the docs directory used to generate hugo webiste content.  The directory 
     path is determined by relative reference to the website_creator_path"""
