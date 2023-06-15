@@ -1,6 +1,7 @@
 import os
 import shutil
 import pandas as pd
+import re
 
 
 def get_docs_path(website_creator_path):
@@ -52,21 +53,31 @@ def csv_files_in_dir(dir):
     return(return_list)
 
 
-def create_index_files(base_dir, book_collapse=False, sort_orders=None):
-    """Creates _index.md files recursively inside base_dir optionally adding content dependent on
-    optional parameters provided"""
+def _first_index_of_item_in_series(string_to_find, series_to_search):
+    """returns the first index where string_to_find is found in pandas series_to_search.
+    Case insensitive.  Return none if note found."""
+
+    matching_indices = series_to_search[series_to_search.str.upper() == string_to_find.upper()].index
+    if len(matching_indices):
+        return(matching_indices[0])
+    else:
+        return (None)
+
+
+def create_index_files(base_dir, folder_regex='.*', book_collapse=False, sort_orders=None):
+    """Creates _index.md files recursively inside base_dir when folder_regex is contained in the 
+    root folder name.  Optionally add content to the _index.md file based on other optional 
+    parameters provided"""
 
     for root,dirs,files in os.walk(base_dir):
-        string_to_write = "---\n"
-        
-        if book_collapse:
-            string_to_write = string_to_write + "bookCollapseSection: true\n"
-        
-        if not sort_orders is None:
-            sort_order = sort_orders[sort_orders == os.path.basename(root)].index[0]
-            string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"
-            
-        string_to_write = string_to_write + "---"
-        
-        with open(root + os.path.sep + '_index.md', "w") as text_file:
-            text_file.write(string_to_write)
+        generate_index_in_folder = len(re.findall(base_dir + folder_regex, root))>0
+        if generate_index_in_folder:
+            string_to_write = "---\n"            
+            if book_collapse:
+                string_to_write = string_to_write + "bookCollapseSection: true\n"
+            sort_order=_first_index_of_item_in_series(os.path.basename(root), sort_orders)
+            if sort_order:
+                string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"                
+            string_to_write = string_to_write + "---"            
+            with open(root + os.path.sep + '_index.md', "w") as text_file:
+                text_file.write(string_to_write)
