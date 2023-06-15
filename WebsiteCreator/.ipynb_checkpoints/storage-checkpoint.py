@@ -4,6 +4,23 @@ import pandas as pd
 import re
 
 
+def _convert_path_to_list(path, exclude_regex=None):
+    """Converts file path to a list where each component of path is converted to a seperate
+    item in the list.  Optionally exclude_regex is removed from path before converting to a list"""
+
+    if exclude_regex:
+        path_to_convert = re.sub(pattern=exclude_regex, repl='', string=path)
+    else:
+        path_to_convert = path
+        
+    return_list = path_to_convert.split(sep=os.path.sep)
+    
+    #Remove empty string that arises at start of list at first delimit
+    return_list = list(filter(lambda item:item!='', return_list))
+    
+    return(return_list)
+
+
 def get_docs_path(website_creator_path):
     """Returns the docs directory used to generate hugo webiste content.  The directory 
     path is determined by relative reference to the website_creator_path"""
@@ -53,6 +70,17 @@ def csv_files_in_dir(dir):
     return(return_list)
 
 
+def _first_index_of_item_in_series(string_to_find, series_to_search):
+    """returns the first index where string_to_find is found in pandas series_to_search.
+    Case insensitive.  Return none if note found."""
+
+    matching_indices = series_to_search[series_to_search.str.upper() == string_to_find.upper()].index
+    if len(matching_indices):
+        return(matching_indices[0])
+    else:
+        return (None)
+
+
 def create_index_files(base_dir, folder_regex='.*', book_collapse=False, sort_orders=None):
     """Creates _index.md files recursively inside base_dir when folder_regex is contained in the 
     root folder name.  Optionally add content to the _index.md file based on other optional 
@@ -64,8 +92,8 @@ def create_index_files(base_dir, folder_regex='.*', book_collapse=False, sort_or
             string_to_write = "---\n"            
             if book_collapse:
                 string_to_write = string_to_write + "bookCollapseSection: true\n"
-            if not sort_orders is None:
-                sort_order = sort_orders[sort_orders.str.upper() == os.path.basename(root).upper()].index[0]
+            sort_order=_first_index_of_item_in_series(os.path.basename(root), sort_orders)
+            if sort_order:
                 string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"                
             string_to_write = string_to_write + "---"            
             with open(root + os.path.sep + '_index.md', "w") as text_file:

@@ -4,6 +4,23 @@ import pandas as pd
 import re
 
 
+def _convert_path_to_list(path, exclude_regex=None):
+    """Converts file path to a list where each component of path is converted to a seperate
+    item in the list.  Optionally exclude_regex is removed from path before converting to a list"""
+
+    if exclude_regex:
+        path_to_convert = re.sub(pattern=exclude_regex, repl='', string=path)
+    else:
+        path_to_convert = path
+        
+    return_list = path_to_convert.split(sep=os.path.sep)
+    
+    #Remove empty string that arises at start of list at first delimit
+    return_list = list(filter(lambda item:item!='', return_list))
+    
+    return(return_list)
+
+
 def get_docs_path(website_creator_path):
     """Returns the docs directory used to generate hugo webiste content.  The directory 
     path is determined by relative reference to the website_creator_path"""
