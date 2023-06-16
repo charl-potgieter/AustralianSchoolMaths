@@ -4,24 +4,6 @@ import pandas as pd
 import re
 
 
-# def _convert_path_to_list(path, exclude_regex=None):
-#     """Converts file path to a list where each component of path is converted to a seperate
-#     item in the list.  Optionally exclude_regex is removed from path before converting to a list"""
-
-#     if exclude_regex:
-#         path_to_convert = re.sub(pattern=exclude_regex, repl='', string=path)
-#     else:
-#         path_to_convert = path
-        
-#     return_list = path_to_convert.split(sep=os.path.sep)
-    
-#     #Remove empty string that arises at start of list at first delimit
-#     return_list = list(filter(lambda item:item!='', return_list))
-    
-#     return(return_list)
-
-
-
 def get_docs_path(website_creator_path):
     """Returns the docs directory used to generate hugo webiste content.  The directory 
     path is determined by relative reference to the website_creator_path"""
@@ -102,24 +84,58 @@ def _convert_df_to_series_of_paths(df):
     series_of_paths = series_of_path_lists.str.join(os.path.sep)
     return (series_of_paths)
 
+
+def _directory_ex_base(dir, base_dir):
+    """returns a sub-dir calcualted from dir with the removal of 
+    base_dir from the start of dir.  Any path seperator is removed 
+    from start and end of the resulting path before it is returned"""
+    dir_ex_base = re.sub(pattern='^'+base_dir, repl='', string=dir)
+    if dir_ex_base[0] == os.path.sep:
+        dir_ex_base = dir_ex_base[1:]
+    if dir_ex_base[-1] == os.path.sep:
+        dir_ex_base = dir_ex_base[:-1]
+    return(dir_ex_base)
+
+
+def _number_of_levels_in_dir(dir):
+    """Returns number of levels (folders) in directory dir"""
+    return (dir.count(os.path.sep)+1)
+    
+    
+def _get_sort_order_for_directory(dir, base_dir, sort_orders):
+    """Returns a sort order for dir excluding base_dir by a lookup into sort_orders
+    which ia a ordered list of dataframes containing sort orders for various directory
+    path lengths (depths)"""
+    
+    dir_ex_base = _directory_ex_base(dir, base_dir)
+    number_of_levels_in_dir_ex_base = _number_of_levels_in_dir(dir_ex_base)
+    
+    sort_orders_for_level_number = sort_orders[number_of_levels_in_dir_ex_base-1]
+    sort_orders_as_series_of_paths = _convert_df_to_series_of_paths(sort_orders_for_level_number)
+    index_of_matched_sort_orders = sort_orders_as_series_of_paths[sort_orders_as_series_of_paths == dir_ex_base].index
+    if len(index_of_matched_sort_orders)==0:
+        sort_order = None
+    else:
+        sort_order = index_of_matched_sort_orders[0]
+    return(sort_order)
+
+
 def create_index_files(base_dir, folder_regex='.*', book_collapse=False, sort_orders=None):
     """Creates _index.md files recursively inside base_dir when folder_regex is contained in the 
      folder name.  Optionally add content to the _index.md file based on other optional 
     parameters provided"""
 
     for root,dirs,files in os.walk(base_dir):
-        index_to_be_generated = len(re.findall(base_dir + folder_regex, root))>0
-        if index_to_be_generated:
-            string_to_write = "---\n"            
-            
+        index_to_be_generated_in_current_dir = len(re.findall(base_dir + folder_regex, root))>0
+        if index_to_be_generated_in_current_dir:
+            string_to_write = "---\n"                        
             if book_collapse:
                 string_to_write = string_to_write + "bookCollapseSection: true\n"
-            
-                # sort_order=_first_index_of_item_in_series(os.path.basename(root), sort_orders)
-            # if sort_order:
-            #     string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"                
-            
+            if sort_orders:
+                print (root)
+                sort_order = _get_sort_order_for_directory(root, base_dir, sort_orders)
+                if sort_order:
+                    string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"                
             string_to_write = string_to_write + "---"            
-            
             with open(root + os.path.sep + '_index.md', "w") as text_file:
                 text_file.write(string_to_write)
