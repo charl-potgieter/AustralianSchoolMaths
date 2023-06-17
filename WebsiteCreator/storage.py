@@ -73,10 +73,6 @@ def _get_sort_order_for_directory(dir, base_dir, sort_orders):
     sort_orders_as_series_of_paths = _convert_df_to_series_of_paths(sort_orders_for_level_number)
     index_of_matched_sort_orders = sort_orders_as_series_of_paths[
         sort_orders_as_series_of_paths.str.upper() == dir_ex_base.upper()].index
-
-    display(dir_ex_base)
-    display(sort_orders_as_series_of_paths)
-
     
     if len(index_of_matched_sort_orders)==0:
         sort_order = None
@@ -130,8 +126,6 @@ def _number_of_levels_in_dir(dir):
     return (dir.count(os.path.sep)+1)
     
     
-
-
 def create_index_files(base_dir, folder_regex='.*', book_collapse=False, sort_orders=None):
     """Creates _index.md files recursively inside base_dir when folder_regex is contained in the 
      folder name.  Optionally add content to the _index.md file based on other optional 
