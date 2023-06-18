@@ -3,7 +3,7 @@ import shutil
 import pandas as pd
 import re
 
-
+ 
 def get_docs_path(website_creator_path):
     """Returns the docs directory used to generate hugo webiste content.  The directory 
     path is determined by relative reference to the website_creator_path"""
@@ -20,14 +20,14 @@ def get_formulas_by_year_df(filepath):
     return(pd.read_csv(filepath))
 
 
-def _get_data_frame_populated_to_column_number(df_input, column_number):
+def _get_data_frame_filtered_to_column_number(df_input, column_number):
     """Pandas dataframe df_input is filtered where 'column_number' is not null  and
     'column_number+1' is null or does not exist. The first 'column_number' number of 
     columns are returned and the index is reset and started from one.  If the 
-    column number is out of range a datframe with headers and no rows is returned"""
+    column number is out of range or the filtered result is empty then None is returned"""
+    
     if column_number >= len(df_input.columns):
-        empty_df_with_headers =  pd.DataFrame(columns= df_input.columns)
-        return(empty_df_with_headers)
+        return(None)
     elif column_number == len(df_input.columns) -1: 
         df_filtered = df_input[pd.notnull(df_input.iloc[:,column_number])]    
     else:
@@ -35,51 +35,15 @@ def _get_data_frame_populated_to_column_number(df_input, column_number):
             df_input.iloc[:,column_number+1].isnull() & 
             pd.notnull(df_input.iloc[:,column_number])]
         df_filtered = df_filtered.iloc[:,:column_number+1]
-    
-    df_filtered = df_filtered.reset_index(drop=True)
-    df_filtered.index +=1
-    
-    return(df_filtered)
-            
 
-def get_list_of_data_frames_by_populated_to_column_number(file_path):
-    """Reads csv at file_path into a data frame and calls function
-    _get_data_frame_populated_to_column_number for each column number and returns 
-    results in a list"""  
-    sort_orders_raw_inputs = pd.read_csv(file_path)
-    sort_orders_by_level = []
-    for level in range(0, len(sort_orders_raw_inputs.columns)):
-        sort_orders_by_level.append(_get_data_frame_populated_to_column_number(sort_orders_raw_inputs, level))
-    return (sort_orders_by_level)
-
-
-def _get_sort_order_for_directory(dir, base_dir, sort_orders):
-    """Returns a sort order for dir excluding base_dir by a lookup into sort_orders
-    which ia a ordered list of dataframes containing sort orders for various directory
-    path lengths (depths).  Returns None if no match found"""
-    
-    dir_ex_base = _directory_ex_base(dir, base_dir)
-    number_of_levels_in_dir_ex_base = _number_of_levels_in_dir(dir_ex_base)
-
-    if number_of_levels_in_dir_ex_base > len(sort_orders):
+    if len(df_filtered.index) ==0:
+        # There is no data after filter is apppled
         return (None)
-    
-    sort_orders_for_level_number = sort_orders[number_of_levels_in_dir_ex_base-1]
-    number_of_rows_of_sort_orders = len(sort_orders_for_level_number.index)
-
-    if number_of_rows_of_sort_orders==0:
-        return(None)
-
-    sort_orders_as_series_of_paths = _convert_df_to_series_of_paths(sort_orders_for_level_number)
-    index_of_matched_sort_orders = sort_orders_as_series_of_paths[
-        sort_orders_as_series_of_paths.str.upper() == dir_ex_base.upper()].index
-    
-    if len(index_of_matched_sort_orders)==0:
-        sort_order = None
     else:
-        sort_order = index_of_matched_sort_orders[0]
-    return(sort_order)
-
+        df_filtered = df_filtered.reset_index(drop=True)
+        df_filtered.index +=1    
+        return(df_filtered)
+            
 
 def create_sub_directories(base_dir, sub_paths_df):
     """Creates (potentially multi-level) directories under base_dir where sub_paths_df is a pandas dataframe
@@ -103,10 +67,14 @@ def csv_files_in_dir(dir):
 
 def _convert_df_to_series_of_paths(df):
     """Returns a series where each item in series is generated from each row in df dataframe
-    by joining content of each column in row with a path seperator"""
-    series_of_path_lists=df.apply(func  = lambda x:list(x), axis=1)
-    series_of_paths = series_of_path_lists.str.join(os.path.sep)
-    return (series_of_paths)
+    by joining content of each column in row with a path seperator.  
+    If df has no data an empty series is returned"""
+    if (df is not None) and len(df.index):
+        series_of_path_lists=df.apply(func  = lambda x:list(x), axis=1)
+        series_of_paths = series_of_path_lists.str.join(os.path.sep)
+        return (series_of_paths)
+    else:
+        return(pd.Series(dtype=object))
 
 
 def _directory_ex_base(dir, base_dir):
@@ -120,27 +88,45 @@ def _directory_ex_base(dir, base_dir):
         dir_ex_base = dir_ex_base[:-1]
     return(dir_ex_base)
 
+def _series_index_based_on_string_lookup(series, value):
+    """Looks up string in pandas series and returns the first index found.
+    Returns None if not found.  Case insensitive"""
+    index_of_matched_values = series[series.str.upper() == value.upper()].index
+    if len (index_of_matched_values)==0:
+        return(None)
+    else:
+        return (index_of_matched_values[0])
+
 
 def _number_of_levels_in_dir(dir):
     """Returns number of levels (folders) in directory dir"""
     return (dir.count(os.path.sep)+1)
     
     
-def create_index_files(base_dir, folder_regex='.*', book_collapse=False, sort_orders=None):
+def create_index_files(base_dir, folder_regex='.*', book_collapse=False, df_sort_orders=pd.DataFrame()):
     """Creates _index.md files recursively inside base_dir when folder_regex is contained in the 
-     folder name.  Optionally add content to the _index.md file based on other optional 
+    folder name.  Optionally add content to the _index.md file based on other optional 
     parameters provided"""
 
     for root,dirs,files in os.walk(base_dir):
         index_to_be_generated_in_current_dir = len(re.findall(base_dir + folder_regex, root))>0
         if index_to_be_generated_in_current_dir:
             string_to_write = "---\n"                        
+            
             if book_collapse:
                 string_to_write = string_to_write + "bookCollapseSection: true\n"
-            if sort_orders:
-                sort_order = _get_sort_order_for_directory(root, base_dir, sort_orders)
-                if sort_order:
-                    string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"                
-            string_to_write = string_to_write + "---"            
+            
+            # Add page weight if a sort order has been set
+            sub_dir = _directory_ex_base(root, base_dir)
+            number_of_sub_dir_levels = _number_of_levels_in_dir(sub_dir)
+            df_sort_orders_for_level = _get_data_frame_filtered_to_column_number(
+                df_sort_orders, number_of_sub_dir_levels-1)
+            sort_orders_as_series_of_paths = _convert_df_to_series_of_paths(df_sort_orders_for_level)
+            sort_order = _series_index_based_on_string_lookup(sort_orders_as_series_of_paths, sub_dir)                
+            if sort_order:
+                string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"
+                
+            string_to_write = string_to_write + "---"
+            
             with open(root + os.path.sep + '_index.md', "w") as text_file:
                 text_file.write(string_to_write)
