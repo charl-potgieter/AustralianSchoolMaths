@@ -5,96 +5,64 @@ import shutil
 from IPython.display import Markdown, clear_output
 
 
-def get_formula_by_year_summary_df(df_formulas):
-    """Returns a dataframe summary of df_formulas containing unique set of below columns
-    in order:
-         - df_formulas['State']
+
+def get_formulas_by_year_df(filepath):
+    """Reads dataframe from csv at filepath   Returns a dataframe summary 
+    containing below columns in order:
+         - 'State'
          - new column 'Sub category 1' containing text 'Formulas'
          - new column 'Sub category 2' containing text 'By Year'
-         - df['Subject code']
-         - df['Category']"""
-    return_df = df_formulas[['State', 'Subject code', 'Category']].drop_duplicates()
-    return_df['Sub category 1'] = 'Formulas'
-    return_df['Sub category 2'] = 'By Year'
-    return_df = return_df[['State', 'Sub category 1', 'Sub category 2', 'Subject code', 'Category']]
-    return(return_df)
+         - 'Subject code'
+         - 'Category'
+         - 'Formula_1'
+         - 'Formula_2"""
+
+    df = pd.read_csv(filepath)
+    df = (
+        df[['State', 'Subject code', 'Category', 'Formula_1', 'Formula_2']])
+    df['Sub category 1'] = 'Formulas'
+    df['Sub category 2'] = 'By Year'
+    df = (df[['State', 'Sub category 1', 'Sub category 2', 
+                            'Subject code', 'Category', 'Formula_1', 'Formula_2']])
+    return(df)
 
 
-def create_formula_index_files(docs_dir, df_sort_orders):
-    """Creates _index.md files in relevant folder under root_dir to manage nested website menu """
+
+# def create_formula_files(docs_dir, df_formulas):
+#     """Creates formula files in markdown format.  Files are created per state / subject  / category
+#     combination and stored in folders under docs_path according to this same combination"""
+
+#     formula_combination = df_formulas[['State', 'Subject code', 'Category']].drop_duplicates()
+
+#     for index, row in formula_combination.iterrows():
+#         formula_set_df = formulas_by_state_subject_category_df(df_formulas, row['State'], row['Subject code'], row['Category'])
+#         formula_set_styler = df_to_formula_styled_table(df=formula_set_df,col_widths={'Formula_1':300, 'Formula_2':400},
+#                                                         display_col_headers = False)
+#         output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
+#         file_name = docs_dir + os.path.sep +'formulas by year' \
+#             + os.path.sep  + row['State'] \
+#             + os.path.sep  + str(row['Subject code']) \
+#             + os.path.sep  + row['Category']  + '.md'
+#         with open(file_name, "w") as text_file:
+#             text_file.write(output_string)
+
+
+# def formulas_by_state_subject_category_df(df_formulas, state, subject_code, category):
+#     """returns all formulas for given state, subject and category, returns formula_1 column and formula_2 column if not empty
+#     The return value is a pandas dataframe"""
+
+#     df_filtered =  df_formulas[
+#         (df_formulas['State'] == state) &
+#         (df_formulas['Subject code'] == str(subject_code)) & 
+#         (df_formulas['Category'] == category)]   
+#     formula_2_col_is_empty = df_filtered['Formula_2'].dropna().empty
     
-    formulas_by_year_path = docs_dir + os.path.sep + 'formulas by year'
-    formulas_cumulative_path = docs_dir + os.path.sep + 'formulas cumulative'
-    
-    with open(formulas_by_year_path + os.path.sep + '_index.md', "w") as text_file:
-        text_file.write("---\n" + 
-                        "bookCollapseSection: true\n" +
-                        "weight: 1\n" +
-                        "---\n\n" +
-                       "This section of the website includes current year / course formulas only.")
+#     if formula_2_col_is_empty:
+#         df_filtered = df_filtered[['Formula_1']]
+#     else:
+#         df_filtered = df_filtered[['Formula_1', 'Formula_2']]
 
-    with open(formulas_cumulative_path + os.path.sep + '_index.md', "w") as text_file:
-        text_file.write("---\n" + 
-                        "bookCollapseSection: true\n" +
-                        "weight: 2\n" +
-                        "---\n\n" +
-                       "This section of the website includes both formulas covered in current and previous years \ courses")
-
-    for root,dirs,files in os.walk(formulas_by_year_path):
-        #Exclude formulas_by_year_path as index file is already created above
-        if root != formulas_by_year_path:
-            sort_order = df_sort_orders[df_sort_orders['sort value'] == os.path.basename(root)].index.tolist()[0]
-            with open(root + os.path.sep + '_index.md', "w") as text_file:
-                text_file.write("---\n" + 
-                                "bookCollapseSection: true\n" + 
-                                "weight: " + str(sort_order) + "\n" +
-                                "---")
-
-    for root,dirs,files in os.walk(formulas_cumulative_path):
-        #Exclude formulas_cumulative_path as index file is already created above
-        if root!=formulas_cumulative_path:
-            sort_order = df_sort_orders[df_sort_orders['sort value'] == os.path.basename(root)].index.tolist()[0]
-            with open(root + os.path.sep + '_index.md', "w") as text_file:
-                text_file.write("---\n" + 
-                                "bookCollapseSection: true\n" + 
-                                "weight: " + str(sort_order) + "\n" +
-                                "---")
-
-def create_formula_files(docs_dir, df_formulas):
-    """Creates formula files in markdown format.  Files are created per state / subject  / category
-    combination and stored in folders under docs_path according to this same combination"""
-
-    formula_combination = df_formulas[['State', 'Subject code', 'Category']].drop_duplicates()
-
-    for index, row in formula_combination.iterrows():
-        formula_set_df = formulas_by_state_subject_category_df(df_formulas, row['State'], row['Subject code'], row['Category'])
-        formula_set_styler = df_to_formula_styled_table(df=formula_set_df,col_widths={'Formula_1':300, 'Formula_2':400},
-                                                        display_col_headers = False)
-        output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
-        file_name = docs_dir + os.path.sep +'formulas by year' \
-            + os.path.sep  + row['State'] \
-            + os.path.sep  + str(row['Subject code']) \
-            + os.path.sep  + row['Category']  + '.md'
-        with open(file_name, "w") as text_file:
-            text_file.write(output_string)
-
-
-def formulas_by_state_subject_category_df(df_formulas, state, subject_code, category):
-    """returns all formulas for given state, subject and category, returns formula_1 column and formula_2 column if not empty
-    The return value is a pandas dataframe"""
-
-    df_filtered =  df_formulas[
-        (df_formulas['State'] == state) &
-        (df_formulas['Subject code'] == str(subject_code)) & 
-        (df_formulas['Category'] == category)]   
-    formula_2_col_is_empty = df_filtered['Formula_2'].dropna().empty
-    
-    if formula_2_col_is_empty:
-        df_filtered = df_filtered[['Formula_1']]
-    else:
-        df_filtered = df_filtered[['Formula_1', 'Formula_2']]
-
-    return (df_filtered)
+#     return (df_filtered)
         
 
 def df_calculus_summary(df_formulas):

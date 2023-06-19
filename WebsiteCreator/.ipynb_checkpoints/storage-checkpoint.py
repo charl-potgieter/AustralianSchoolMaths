@@ -5,10 +5,14 @@ import re
 
  
 def get_docs_path(website_creator_path):
-    """Returns the docs directory used to generate hugo webiste content.  The directory 
-    path is determined by relative reference to the website_creator_path"""
-    return(os.path.join(os.path.dirname(website_creator_path), 'content', 'docs'))
-           
+    """Returns the docs directory used to generate hugo webiste content.  
+    The directory path is determined by relative reference to the 
+    website_creator_path"""
+    return(os.path.join(
+        os.path.dirname(website_creator_path), 
+        'content', 'docs'))
+
+
 def delete_directory_if_it_exists(dir_to_delete):
     """Deletes directory dir_to_delete and its contents if it exists"""
     if os.path.isdir(dir_to_delete):
@@ -21,10 +25,11 @@ def get_formulas_by_year_df(filepath):
 
 
 def _get_data_frame_filtered_to_column_number(df_input, column_number):
-    """Pandas dataframe df_input is filtered where 'column_number' is not null  and
-    'column_number+1' is null or does not exist. The first 'column_number' number of 
-    columns are returned and the index is reset and started from one.  If the 
-    column number is out of range or the filtered result is empty then None is returned"""
+    """Pandas dataframe df_input is filtered where 'column_number' is not null
+    and 'column_number+1' is null or does not exist. The first 'column_number'
+    number of columns are returned and the index is reset and started from one.
+    If the column number is out of range or the filtered result is empty then 
+    None is returned"""
     
     if column_number >= len(df_input.columns):
         return(None)
@@ -46,9 +51,10 @@ def _get_data_frame_filtered_to_column_number(df_input, column_number):
             
 
 def create_sub_directories(base_dir, sub_paths_df):
-    """Creates (potentially multi-level) directories under base_dir where sub_paths_df is a pandas dataframe
-    where each dataframe row contains different levels of sub-directory path.  No action taken if the
-    directory already exists"""
+    """Creates (potentially multi-level) directories under base_dir where 
+    sub_paths_df is a pandas dataframe where each dataframe row contains 
+    different levels of sub-directory path.  No action taken if the directory 
+    already exists"""
     sub_paths_array=sub_paths_df.to_numpy(dtype = str)
     for path in sub_paths_array:
         fname = base_dir + os.path.sep + os.path.sep.join(path)
@@ -66,9 +72,9 @@ def csv_files_in_dir(dir):
 
 
 def _convert_df_to_series_of_paths(df):
-    """Returns a series where each item in series is generated from each row in df dataframe
-    by joining content of each column in row with a path seperator.  
-    If df has no data an empty series is returned"""
+    """Returns a series where each item in series is generated from each row in
+    df dataframe by joining content of each column in row with a path 
+    seperator.  If df has no data an empty series is returned"""
     if (df is not None) and len(df.index):
         series_of_path_lists=df.apply(func  = lambda x:list(x), axis=1)
         series_of_paths = series_of_path_lists.str.join(os.path.sep)
@@ -103,28 +109,36 @@ def _number_of_levels_in_dir(dir):
     return (dir.count(os.path.sep)+1)
     
     
-def create_index_files(base_dir, folder_regex='.*', book_collapse=False, df_sort_orders=pd.DataFrame()):
-    """Creates _index.md files recursively inside base_dir when folder_regex is contained in the 
-    folder name.  Optionally add content to the _index.md file based on other optional 
-    parameters provided"""
+def create_index_files(base_dir, folder_regex='.*', book_collapse=False, 
+                       df_sort_orders=pd.DataFrame()):
+    """Creates _index.md files recursively inside base_dir when base_dir + 
+    folder_regex iscontained in the folder name.  Optionally add content to
+    the _index.md file based on other optional parameters provided"""
 
     for root,dirs,files in os.walk(base_dir):
-        index_to_be_generated_in_current_dir = len(re.findall(base_dir + folder_regex, root))>0
+        index_to_be_generated_in_current_dir = (
+            len(re.findall(base_dir + folder_regex, root))>0)
         if index_to_be_generated_in_current_dir:
             string_to_write = "---\n"                        
             
             if book_collapse:
-                string_to_write = string_to_write + "bookCollapseSection: true\n"
+                string_to_write = (string_to_write + 
+                                   "bookCollapseSection: true\n")
             
             # Add page weight if a sort order has been set
             sub_dir = _directory_ex_base(root, base_dir)
             number_of_sub_dir_levels = _number_of_levels_in_dir(sub_dir)
-            df_sort_orders_for_level = _get_data_frame_filtered_to_column_number(
-                df_sort_orders, number_of_sub_dir_levels-1)
-            sort_orders_as_series_of_paths = _convert_df_to_series_of_paths(df_sort_orders_for_level)
-            sort_order = _series_index_based_on_string_lookup(sort_orders_as_series_of_paths, sub_dir)                
+            df_sort_orders_for_level = (
+                _get_data_frame_filtered_to_column_number(
+                    df_sort_orders, number_of_sub_dir_levels-1))
+            sort_orders_as_series_of_paths = (
+                _convert_df_to_series_of_paths(df_sort_orders_for_level))
+            sort_order = (
+                _series_index_based_on_string_lookup(
+                    sort_orders_as_series_of_paths, sub_dir))
             if sort_order:
-                string_to_write = string_to_write + "weight: " + str(sort_order) + "\n"
+                string_to_write = (string_to_write + 
+                                   "weight: " + str(sort_order) + "\n")
                 
             string_to_write = string_to_write + "---"
             
