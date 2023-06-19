@@ -89,6 +89,7 @@ def _directory_ex_base(dir, base_dir):
         dir_ex_base = dir_ex_base[:-1]
     return(dir_ex_base)
 
+
 def _series_index_based_on_string_lookup(series, value):
     """Looks up string in pandas series and returns the first index found.
     Returns None if not found.  Case insensitive"""

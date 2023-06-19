@@ -28,41 +28,40 @@ def get_formulas_by_year_df(filepath):
 
 
 
-# def create_formula_files(docs_dir, df_formulas):
-#     """Creates formula files in markdown format.  Files are created per state / subject  / category
-#     combination and stored in folders under docs_path according to this same combination"""
+def create_formula_files(docs_dir, df_formulas):
+    """Creates formula files in markdown format.  Files are created per state /
+    subject  / category combination and stored in folders under docs_path
+    according to this same combination.  Folders need to already exist"""
 
-#     formula_combination = df_formulas[['State', 'Subject code', 'Category']].drop_duplicates()
-
-#     for index, row in formula_combination.iterrows():
-#         formula_set_df = formulas_by_state_subject_category_df(df_formulas, row['State'], row['Subject code'], row['Category'])
-#         formula_set_styler = df_to_formula_styled_table(df=formula_set_df,col_widths={'Formula_1':300, 'Formula_2':400},
-#                                                         display_col_headers = False)
-#         output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
-#         file_name = docs_dir + os.path.sep +'formulas by year' \
-#             + os.path.sep  + row['State'] \
-#             + os.path.sep  + str(row['Subject code']) \
-#             + os.path.sep  + row['Category']  + '.md'
-#         with open(file_name, "w") as text_file:
-#             text_file.write(output_string)
-
-
-# def formulas_by_state_subject_category_df(df_formulas, state, subject_code, category):
-#     """returns all formulas for given state, subject and category, returns formula_1 column and formula_2 column if not empty
-#     The return value is a pandas dataframe"""
-
-#     df_filtered =  df_formulas[
-#         (df_formulas['State'] == state) &
-#         (df_formulas['Subject code'] == str(subject_code)) & 
-#         (df_formulas['Category'] == category)]   
-#     formula_2_col_is_empty = df_filtered['Formula_2'].dropna().empty
+    formula_combinations = (df_formulas
+                            [['State', 'Sub category 1', 'Sub category 2',
+                              'Subject code', 'Category']].
+                            drop_duplicates())
     
-#     if formula_2_col_is_empty:
-#         df_filtered = df_filtered[['Formula_1']]
-#     else:
-#         df_filtered = df_filtered[['Formula_1', 'Formula_2']]
-
-#     return (df_filtered)
+    for index, row in formula_combinations.iterrows():
+        df = df_formulas[(
+            (df_formulas['State'] == row['State']) &
+            (df_formulas['Subject code'] == str(row['Subject code'])) & 
+            (df_formulas['Category'] == row['Category']))]
+        
+        formula_2_col_is_empty = df['Formula_2'].dropna().empty    
+        if formula_2_col_is_empty:
+            df = df[['Formula_1']]
+        else:
+            df = df[['Formula_1', 'Formula_2']]
+            
+        formula_set_styler = (df_to_formula_styled_table(
+            df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+            display_col_headers = False))
+        output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
+        file_name = (docs_dir + os.path.sep +
+                     row['State'] + os.path.sep + 
+                     row['Sub category 1'] + os.path.sep +
+                     row['Sub category 2'] + os.path.sep  + 
+                     str(row['Subject code']) + os.path.sep  + 
+                     row['Category']  + '.md')
+        with open(file_name, "w") as text_file:
+            text_file.write(output_string)
         
 
 def df_calculus_summary(df_formulas):
