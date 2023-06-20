@@ -27,41 +27,67 @@ def get_formulas_by_year_df(filepath):
     return(df)
 
 
-
-def create_formula_files(docs_dir, df_formulas):
-    """Creates formula files in markdown format.  Files are created per state /
-    subject  / category combination and stored in folders under docs_path
-    according to this same combination.  Folders need to already exist"""
-
-    formula_combinations = (df_formulas
-                            [['State', 'Sub category 1', 'Sub category 2',
-                              'Subject code', 'Category']].
-                            drop_duplicates())
+def get_formula_display_string(input_series, **kwarg):
+    """Returns a summmary formula table in markdown format with embedded
+    html.  Input series is a pandas series with Indices State, Subec code
+    and category.  **Kwarg must be called with parameter  = df_formulas
+    where df_Formulas contains fields State, Subject code, Category, 
+    Formula_1, Formula_2"""
     
-    for index, row in formula_combinations.iterrows():
-        df = df_formulas[(
-            (df_formulas['State'] == row['State']) &
-            (df_formulas['Subject code'] == str(row['Subject code'])) & 
-            (df_formulas['Category'] == row['Category']))]
+    df_formulas = kwarg['df_formulas']
+    df = df_formulas[(
+        (df_formulas['State'] == str(input_series['State'])) &
+        (df_formulas['Subject code'] == str(input_series['Subject code'])) & 
+        (df_formulas['Category'] == str(input_series['Category'])))]
+    
+    formula_2_col_is_empty = df['Formula_2'].dropna().empty    
+    if formula_2_col_is_empty:
+        df = df[['Formula_1']]
+    else:
+        df = df[['Formula_1', 'Formula_2']]
+    
+    formula_set_styler = (df_to_formula_styled_table(
+        df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+        display_col_headers = False))
+    output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
+    return(output_string)
+
+    
+
+# def create_formula_files(docs_dir, df_formulas):
+#     """Creates formula files in markdown format.  Files are created per state /
+#     subject  / category combination and stored in folders under docs_path
+#     according to this same combination.  Folders need to already exist"""
+
+#     formula_combinations = (df_formulas
+#                             [['State', 'Sub category 1', 'Sub category 2',
+#                               'Subject code', 'Category']].
+#                             drop_duplicates())
+    
+#     for index, row in formula_combinations.iterrows():
+#         df = df_formulas[(
+#             (df_formulas['State'] == row['State']) &
+#             (df_formulas['Subject code'] == str(row['Subject code'])) & 
+#             (df_formulas['Category'] == row['Category']))]
         
-        formula_2_col_is_empty = df['Formula_2'].dropna().empty    
-        if formula_2_col_is_empty:
-            df = df[['Formula_1']]
-        else:
-            df = df[['Formula_1', 'Formula_2']]
+#         formula_2_col_is_empty = df['Formula_2'].dropna().empty    
+#         if formula_2_col_is_empty:
+#             df = df[['Formula_1']]
+#         else:
+#             df = df[['Formula_1', 'Formula_2']]
             
-        formula_set_styler = (df_to_formula_styled_table(
-            df=df, col_widths={'Formula_1':300, 'Formula_2':400},
-            display_col_headers = False))
-        output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
-        file_name = (docs_dir + os.path.sep +
-                     row['State'] + os.path.sep + 
-                     row['Sub category 1'] + os.path.sep +
-                     row['Sub category 2'] + os.path.sep  + 
-                     str(row['Subject code']) + os.path.sep  + 
-                     row['Category']  + '.md')
-        with open(file_name, "w") as text_file:
-            text_file.write(output_string)
+#         formula_set_styler = (df_to_formula_styled_table(
+#             df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+#             display_col_headers = False))
+#         output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
+#         file_name = (docs_dir + os.path.sep +
+#                      row['State'] + os.path.sep + 
+#                      row['Sub category 1'] + os.path.sep +
+#                      row['Sub category 2'] + os.path.sep  + 
+#                      str(row['Subject code']) + os.path.sep  + 
+#                      row['Category']  + '.md')
+#         with open(file_name, "w") as text_file:
+#             text_file.write(output_string)
         
 
 def df_calculus_summary(df_formulas):
