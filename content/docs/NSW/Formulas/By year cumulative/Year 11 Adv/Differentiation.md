@@ -4,55 +4,55 @@
 #  
 <br>
 <style type="text/css">
-#T_458bb th.col_heading {
+#T_1d502 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_458bb td {
+#T_1d502 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_458bb_row0_col0, #T_458bb_row1_col0, #T_458bb_row2_col0, #T_458bb_row3_col0, #T_458bb_row4_col0, #T_458bb_row5_col0, #T_458bb_row6_col0 {
+#T_1d502_row0_col0, #T_1d502_row1_col0, #T_1d502_row2_col0, #T_1d502_row3_col0, #T_1d502_row4_col0, #T_1d502_row5_col0, #T_1d502_row6_col0 {
   width: 300px;
   white-space: pre-wrap;
 }
-#T_458bb_row0_col1, #T_458bb_row1_col1, #T_458bb_row2_col1, #T_458bb_row3_col1, #T_458bb_row4_col1, #T_458bb_row5_col1, #T_458bb_row6_col1 {
+#T_1d502_row0_col1, #T_1d502_row1_col1, #T_1d502_row2_col1, #T_1d502_row3_col1, #T_1d502_row4_col1, #T_1d502_row5_col1, #T_1d502_row6_col1 {
   width: 400px;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_458bb">
+<table id="T_1d502">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_458bb_row0_col0" class="data row0 col0" >$ y=f(x)  $</td>
-      <td id="T_458bb_row0_col1" class="data row0 col1" >$ \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</td>
+      <td id="T_1d502_row0_col0" class="data row0 col0" >$ y=f(x)  $</td>
+      <td id="T_1d502_row0_col1" class="data row0 col1" >$ \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</td>
     </tr>
     <tr>
-      <td id="T_458bb_row1_col0" class="data row1 col0" >$ y=kx  $</td>
-      <td id="T_458bb_row1_col1" class="data row1 col1" >$ \dfrac{dy}{dx} =k  $</td>
+      <td id="T_1d502_row1_col0" class="data row1 col0" >$ y=kx  $</td>
+      <td id="T_1d502_row1_col1" class="data row1 col1" >$ \dfrac{dy}{dx} =k  $</td>
     </tr>
     <tr>
-      <td id="T_458bb_row2_col0" class="data row2 col0" >$ y=k  $</td>
-      <td id="T_458bb_row2_col1" class="data row2 col1" >$ \dfrac{dy}{dx} =0  $</td>
+      <td id="T_1d502_row2_col0" class="data row2 col0" >$ y=k  $</td>
+      <td id="T_1d502_row2_col1" class="data row2 col1" >$ \dfrac{dy}{dx} =0  $</td>
     </tr>
     <tr>
-      <td id="T_458bb_row3_col0" class="data row3 col0" >$ y=x^n  $</td>
-      <td id="T_458bb_row3_col1" class="data row3 col1" >$ \dfrac{dy}{dx} =nx^{n-1}  $</td>
+      <td id="T_1d502_row3_col0" class="data row3 col0" >$ y=x^n  $</td>
+      <td id="T_1d502_row3_col1" class="data row3 col1" >$ \dfrac{dy}{dx} =nx^{n-1}  $</td>
     </tr>
     <tr>
-      <td id="T_458bb_row4_col0" class="data row4 col0" >$ y=kx^n  $</td>
-      <td id="T_458bb_row4_col1" class="data row4 col1" >$ \dfrac{dy}{dx} =knx^{n-1}  $</td>
+      <td id="T_1d502_row4_col0" class="data row4 col0" >$ y=kx^n  $</td>
+      <td id="T_1d502_row4_col1" class="data row4 col1" >$ \dfrac{dy}{dx} =knx^{n-1}  $</td>
     </tr>
     <tr>
-      <td id="T_458bb_row5_col0" class="data row5 col0" >$ y=kf(x)  $</td>
-      <td id="T_458bb_row5_col1" class="data row5 col1" >$ \dfrac{dy}{dx} =kf'(x)  $</td>
+      <td id="T_1d502_row5_col0" class="data row5 col0" >$ y=kf(x)  $</td>
+      <td id="T_1d502_row5_col1" class="data row5 col1" >$ \dfrac{dy}{dx} =kf'(x)  $</td>
     </tr>
     <tr>
-      <td id="T_458bb_row6_col0" class="data row6 col0" >$ y=f(x) + g(x)  $</td>
-      <td id="T_458bb_row6_col1" class="data row6 col1" >$ \dfrac{dy}{dx} =f'(x) + g'(x)  $</td>
+      <td id="T_1d502_row6_col0" class="data row6 col0" >$ y=f(x) + g(x)  $</td>
+      <td id="T_1d502_row6_col1" class="data row6 col1" >$ \dfrac{dy}{dx} =f'(x) + g'(x)  $</td>
     </tr>
   </tbody>
 </table>

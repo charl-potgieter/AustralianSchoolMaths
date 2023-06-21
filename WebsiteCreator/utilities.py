@@ -22,29 +22,34 @@ def delete_directory_if_it_exists(dir_to_delete):
 def lookup_list_in_df(df, list_to_find):
     """Looks up list_to find in each row of a modified version pandas dataframe
     df and returns the first index where a match is found.
-    df is modified as follows before the lokup above is perforemed:
+    df is modified as follows before the lookup above is perforemed:
         -  list_len = len(list_to_find)
-        - filtered on column number list_len == null and 
+        - filtered on column index list_len == null and 
           column number list-len - 1 != null
-        - restrict df to  the first list_len number of columns
+        - filter df where first n-1 columns equals the first n-1 elements in
+          the list
         - the index is reset after the filter
+        - Find the index of the nth element in the list in the nth column of
+          the data frame
     """
     
     list_len = len(list_to_find)
     if list_len > len(df.columns):
         return (None)
-    elif list_len == len(df.columns):
-        df = df[df.iloc[:,list_len-1].notnull()]
-    else:
-        df = df[(
-            (df.iloc[:,list_len].isnull()) &
-            (df.iloc[:,list_len-1].notnull())
-        )].iloc[:, :list_len]
-    df = df.reset_index(drop = True)
     
-    for i in range(len(list_to_find)):
+    if list_len < len(df.columns):
+        df = df[df.iloc[:,list_len].isnull()]
+
+    df = df[df.iloc[:,list_len-1].notnull()]
+    
+    for i in range(len(list_to_find)-1):
         df = df[(df.iloc[:, i].str.upper() == 
                            str(list_to_find[i]).upper())]
+    df = df.reset_index(drop = True)
+    
+    
+    df = df[(df.iloc[:, list_len-1].str.upper() == 
+                       str(list_to_find[list_len-1]).upper())]
     filtered_index = df.index
     
     if len(filtered_index) == 0:
