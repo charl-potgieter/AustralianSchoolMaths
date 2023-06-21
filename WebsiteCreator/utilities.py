@@ -77,22 +77,25 @@ def create_index_files(base_dir, dirs_df,front_matter={},
         subdirs_df = dirs_df.iloc[:, :i].drop_duplicates()
         for index, row in subdirs_df.iterrows():
 
-            # Use a copy on each loop to start fresh and not 
-            # carry over any details from previos loop
-            front_matter_to_write = front_matter.copy()
-                    
             file_name = (base_dir + os.path.sep + 
                          os.path.sep.join(+ row) + os.path.sep + '_index.md')
 
-            if sort_orders_df is not None:
-                sort_order = lookup_list_in_df(
-                    sort_orders_df, list(row.values))
-                if sort_order is not None:
-                    front_matter_to_write['weight'] = sort_order + 1
-            string_to_write = get_front_matter_string(front_matter_to_write)
+            # Don't overwrite file if it exists
+            if not os.path.isfile(file_name):
             
-            with open(file_name, "w") as text_file:
-                text_file.write(string_to_write)
+                # Use a copy on each loop to start fresh and not 
+                # carry over any details from previos loop
+                front_matter_to_write = front_matter.copy()
+    
+                if sort_orders_df is not None:
+                    sort_order = lookup_list_in_df(
+                        sort_orders_df, list(row.values))
+                    if sort_order is not None:
+                        front_matter_to_write['weight'] = sort_order + 1
+                string_to_write = get_front_matter_string(front_matter_to_write)
+                
+                with open(file_name, "w") as text_file:
+                    text_file.write(string_to_write)
 
 
 def create_files(base_dir, file_paths_df, file_extension, fn,

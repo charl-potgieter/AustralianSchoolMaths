@@ -10,8 +10,8 @@ def get_formulas_by_year_df(filepath):
     """Reads dataframe from csv at filepath   Returns a dataframe summary 
     containing below columns in order:
          - 'State'
-         - new column 'Sub category 1' containing text 'Formulas'
-         - new column 'Sub category 2' containing text 'By Year'
+         - new column 'Formula sub category 1' containing text 'Formulas'
+         - new column 'Formula sub category 2' containing text 'By Year'
          - 'Subject code'
          - 'Category'
          - 'Formula_1'
@@ -20,11 +20,80 @@ def get_formulas_by_year_df(filepath):
     df = pd.read_csv(filepath)
     df = (
         df[['State', 'Subject code', 'Category', 'Formula_1', 'Formula_2']])
-    df['Sub category 1'] = 'Formulas'
-    df['Sub category 2'] = 'By Year'
-    df = (df[['State', 'Sub category 1', 'Sub category 2', 
+    df['Formula sub category 1'] = 'Formulas'
+    df['Formula sub category 2'] = 'By Year'
+    df = (df[['State', 'Formula sub category 1', 'Formula sub category 2', 
                             'Subject code', 'Category', 'Formula_1', 'Formula_2']])
     return(df)
+
+
+def get_formulas_by_year_cumulative_df(formula_file_path, 
+                                           order_file_path):
+    """Reads dataframe from csv at formula_filepath and order_file_path.
+    Returns a dataframe summary containing below columns in order:
+         - 'State'
+         - new column 'Formula sub category 1' containing text 'Formulas'
+         - new column 'Formula sub category 2' containing text 
+             'By year cumulative'
+         - 'Subject code'
+         - 'Category'
+         - 'Formula_1'
+         - 'Formula_2
+    The returned dataframe is 'cumulative' based on the Subject code in the 
+    psort order file for examp;e subject code year 11 includes year 9 and 
+    year 10 formulas etc."""
+
+    formulas_df = pd.read_csv(formula_file_path)
+    sort_orders_df = pd.read_csv(order_file_path)
+    
+    cumulative_hierarchy_df = sort_orders_df.copy()
+    cumulative_hierarchy_df = cumulative_hierarchy_df.rename(
+        columns={'Level_0':'State', 'Level_1':'Formula sub category 1',
+                 'Level_2':'Formula sub category 2', 'Level_3':'Subject code',
+                 'Level_4':'Category'})
+    
+    cumulative_hierarchy_df = (
+        cumulative_hierarchy_df[
+            (cumulative_hierarchy_df['Formula sub category 2'].str.upper() ==
+             'BY YEAR CUMULATIVE') &
+            (cumulative_hierarchy_df['Subject code'].notnull()) &
+              (cumulative_hierarchy_df['Category'].isnull())].iloc[:, :4])
+    
+    cumulative_hierarchy_df = cumulative_hierarchy_df.reset_index(drop = True)
+    cumulative_hierarchy_df['Hierarchy sort order'] = (
+        cumulative_hierarchy_df.index)
+    
+    subject_code_sort_df = cumulative_hierarchy_df.copy()
+    subject_code_sort_df = (subject_code_sort_df
+        [['Subject code', 'Hierarchy sort order']])
+    subject_code_sort_df = subject_code_sort_df.rename(columns=
+        {'Hierarchy sort order': 'Subject sort order'})
+
+    # Add the subject code sort order to the formulas file
+    formulas_df = pd.merge(
+        left = formulas_df, right = subject_code_sort_df, 
+        left_on = ['Subject code'], right_on = ['Subject code'], 
+        how = 'left')
+    formulas_df = formulas_df.drop(labels = ['Subject code'], axis=1)
+
+    # Merge with the heriarchy_df and filter where sort order per 
+    # hierarchy_df >= subject sort order
+    formulas_df = pd.merge(left = cumulative_hierarchy_df, 
+                           right = formulas_df, left_on = ['State'], 
+                           right_on = ['State'], how = 'left')
+    
+    formulas_df = (formulas_df[
+                   formulas_df['Hierarchy sort order'] >= 
+                   formulas_df['Subject sort order']])
+    formulas_df = formulas_df.drop(
+        labels = ['Hierarchy sort order', 'Subject sort order'], axis=1)
+
+    formulas_df = (formulas_df[
+                   ['State', 'Formula sub category 1', 
+                    'Formula sub category 2', 'Subject code', 'Category', 
+                    'Formula_1', 'Formula_2']])
+
+    return(formulas_df)
 
 
 def get_formula_display_string(input_series, **kwarg):
@@ -157,6 +226,9 @@ def set_styled_table_widths(styled_table, widths):
 def df_to_formula_styled_table(df, col_widths={}, cols_to_highlight_if_in_formula_sheet=[], formula_sheet=[], display_col_headers = True):
     """Converts pandas dataframe to a styler and applies various formatting"""
 
+    # Index needs to be unique for to enable apply map to be used on styler
+    df = df.reset_index(drop = True)
+    
     styled_table = df.fillna('').style
     styled_table = set_styled_table_widths(styled_table, col_widths)
 
