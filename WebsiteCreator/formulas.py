@@ -152,14 +152,14 @@ def df_calculus_summary(df_formulas):
     return(df_calculus)
 
 
-def styler_calculus_summary(df_calculus, formula_sheet=[]):
+def styler_calculus_summary(df_calculus, formula_sheet_list=[]):
     """Returns a pandas styler version of the df_calculus dataframe as returned by df_calculus_summary function"""
 
-    if len(formula_sheet):
+    if len(formula_sheet_list):
         styler_calculus = df_to_formula_styled_table(df=df_calculus, 
                                                      col_widths={'Function': 200, 'Derivative': 300,'Equivalent integral': 400,'Comment':600},
                                                      cols_to_highlight_if_in_formula_sheet= {'Derivative', 'Equivalent integral'},
-                                                     formula_sheet=formula_sheet)
+                                                     formula_sheet_list=formula_sheet_list)
     else:
         styler_calculus = df_to_formula_styled_table(df=df_calculus, 
                                                      col_widths={'Function': 200, 'Derivative': 300,'Equivalent integral': 400,'Comment':600})
@@ -191,7 +191,7 @@ def set_styled_table_widths(styled_table, widths):
     return(return_table)
 
 
-def df_to_formula_styled_table(df, col_widths={}, cols_to_highlight_if_in_formula_sheet=[], formula_sheet=[], display_col_headers = True):
+def df_to_formula_styled_table(df, col_widths={}, cols_to_highlight_if_in_formula_sheet=[], formula_sheet_list=[], display_col_headers = True):
     """Converts pandas dataframe to a styler and applies various formatting"""
 
     # Index needs to be unique for to enable apply map to be used on styler
@@ -203,8 +203,15 @@ def df_to_formula_styled_table(df, col_widths={}, cols_to_highlight_if_in_formul
     if not display_col_headers:
         styled_table = styled_table.hide().hide(axis='columns')
 
-    for col in cols_to_highlight_if_in_formula_sheet:
-        styled_table = styled_table.applymap(is_on_formula_sheet_formatting, subset=[col], formula_sheet=formula_sheet) 
+
+    # Calculate intersect with df columns to avoid error if cols not in df
+    cols_to_highlght = list(set(cols_to_highlight_if_in_formula_sheet) & set(list(df.columns)))
+    
+    for col in cols_to_highlght:
+        styled_table = styled_table.applymap(
+            is_on_formula_sheet_formatting, 
+            subset=[col], 
+            formula_sheet_list=formula_sheet_list) 
     
     styled_table = styled_table.set_table_styles ([
         {'selector': 'th.col_heading', 'props': 'text-align: left; font-size:1em;'},
@@ -216,18 +223,30 @@ def df_to_formula_styled_table(df, col_widths={}, cols_to_highlight_if_in_formul
     return (styled_table)
 
 
-def formulas_on_formula_sheet(df_formulas):
-    """Returns a list of formulas on formula sheet that returns all fields Formula_1 and Formula_2 of 
-    df_Formulas where field 'On formula sheet' is True"""
-    formulas_one_on_sheet = df_formulas[df_formulas['On formula sheet'] == True]['Formula_1'].values.tolist()
-    formulas_two_on_sheet = df_formulas[df_formulas['On formula sheet'] == True]['Formula_2'].values.tolist()
+def get_formulas_on_formula_sheet(file_path):
+    """Reads csv at file path into a pandas dataframe.  Returns a list of 
+    formulas on formula sheet that returns all fields Formula_1 and Formula_2 
+    of the dataframe where field 'On formula sheet' field is True"""
+
+    df = pd.read_csv(file_path)
+    formulas_one_on_sheet = (df[
+                             (df['On formula sheet'] == True) & 
+                             (df['Formula_1'].notnull())
+                             ]
+                             ['Formula_1'].unique().tolist()) 
+    formulas_two_on_sheet = (df[
+                             (df['On formula sheet'] == True) & 
+                             (df['Formula_2'].notnull())
+                             ]
+                             ['Formula_2'].unique().tolist())
+    
     formulas_on_sheet = formulas_one_on_sheet + formulas_two_on_sheet
     return (formulas_on_sheet)
 
 
-def is_on_formula_sheet_formatting(formula, formula_sheet):
+def is_on_formula_sheet_formatting(formula, formula_sheet_list):
     """Returns formatting for pandas styler object based on whether formulas is contained in formula_sheet list"""
-    if formula in formula_sheet:
+    if formula in formula_sheet_list:
         return ('background-color:rgba(255,194,10, 0.2);')
     else:
         return (None)
