@@ -106,10 +106,15 @@ def get_formula_display_string(input_series, **kwarg):
     df_formulas = kwarg['df_formulas']
     df = df_formulas[(
         (df_formulas['State'] == str(input_series['State'])) &
-        (df_formulas['Formula sub category 2'] == str(input_series['Formula sub category 2'])) &
+        (df_formulas['Formula sub category 2'] == str(
+            input_series['Formula sub category 2'])) &
         (df_formulas['Subject code'] == str(input_series['Subject code'])) & 
         (df_formulas['Category'] == str(input_series['Category'])))]
         
+    formula_sheet_list =kwarg.get('formula_sheet_list')
+
+    cols_to_highlight_if_in_formula_sheet = (
+        kwarg.get('cols_to_highlight_if_in_formula_sheet'))
     
     formula_2_col_is_empty = df['Formula_2'].dropna().empty    
     if formula_2_col_is_empty:
@@ -120,7 +125,18 @@ def get_formula_display_string(input_series, **kwarg):
     formula_set_styler = (df_to_formula_styled_table(
         df=df, col_widths={'Formula_1':300, 'Formula_2':400},
         display_col_headers = False))
-    output_string =  '#  \n<br>\n' + formula_set_styler.to_html()
+
+    formula_set_styler_highlight = (df_to_formula_styled_table(
+        df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+        cols_to_highlight_if_in_formula_sheet = (
+            cols_to_highlight_if_in_formula_sheet),
+        formula_sheet_list = formula_sheet_list,
+        display_col_headers = False))
+    
+    output_string =  ('#  \n<br>\n' + formula_set_styler.to_html() + 
+                      '\n<br><br>\n' + 
+                      formula_set_styler_highlight.to_html())
+                      
     return(output_string)
 
     
