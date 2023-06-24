@@ -148,8 +148,11 @@ def get_formula_display_string(input_series, **kwarg):
             '{{< tab "Standard view" >}}\n\n' + 
             output_string + '{{< /tab >}}')
                          
-        output_string+='\n\n' + '{{< tab "Highlight items on formula sheet" >}}'
-        
+        output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
+
+        output_string+='Items on formula sheet are highlighted'
+        output_string+'\n\n'
+            
         cols_to_highlight_if_in_formula_sheet = (
             kwarg.get('cols_to_highlight_if_in_formula_sheet'))
         
