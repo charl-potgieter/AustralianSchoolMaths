@@ -97,49 +97,72 @@ def get_formulas_by_year_cumulative_df(formula_file_path,
     return(formulas_df)
 
 
-# def get_formula_display_string(input_series, **kwarg):
-#     """Returns a summmary formula table in markdown format with embedded
-#     html.  Input series is a pandas series with Indices State, Subect code
-#     and category.  **Kwarg must be called with parameter  = df_formulas
-#     where df_Formulas contains fields State, Subject code, Category, 
-#     Formula_1, Formula_2"""
-    
-#     df_formulas = kwarg['df_formulas']
-#     df = df_formulas[(
-#         (df_formulas['State'] == str(input_series['State'])) &
-#         (df_formulas['Formula sub category 2'] == str(
-#             input_series['Formula sub category 2'])) &
-#         (df_formulas['Subject code'] == str(input_series['Subject code'])) & 
-#         (df_formulas['Category'] == str(input_series['Category'])))]
-        
-#     formula_sheet_list =kwarg.get('formula_sheet_list')
+def formulas_contain_items_on_formula_sheet(formulas, formula_sheet_list):
+    """Returns true if there are one or more items in formulas that 
+    are contained in  formula_sheet_list"""
+    if formulas is None or formula_sheet_list is None:
+        return (False)
+    else:
+        formulas_ex_null = formulas.loc[lambda x: x.notnull()]
+        return(len(
+            (set(formulas_ex_null) & set(formula_sheet_list))
+            )>0)
 
-#     cols_to_highlight_if_in_formula_sheet = (
-#         kwarg.get('cols_to_highlight_if_in_formula_sheet'))
-    
-#     formula_2_col_is_empty = df['Formula_2'].dropna().empty    
-#     if formula_2_col_is_empty:
-#         df = df[['Formula_1']]
-#     else:
-#         df = df[['Formula_1', 'Formula_2']]
-    
-#     formula_set_styler = (df_to_formula_styled_table(
-#         df=df, col_widths={'Formula_1':300, 'Formula_2':400},
-#         display_col_headers = False))
 
-#     formula_set_styler_highlight = (df_to_formula_styled_table(
-#         df=df, col_widths={'Formula_1':300, 'Formula_2':400},
-#         cols_to_highlight_if_in_formula_sheet = (
-#             cols_to_highlight_if_in_formula_sheet),
-#         formula_sheet_list = formula_sheet_list,
-#         display_col_headers = False))
+def get_formula_display_string(input_series, **kwarg):
+    """Returns a summmary formula table in markdown format with embedded
+    html.  Input series is a pandas series with Indices State, Subect code
+    and category.  **Kwarg must be called with parameter  = df_formulas
+    where df_Formulas contains fields State, Subject code, Category, 
+    Formula_1, Formula_2.  Generates seperate tabs to highlight items on
+    formula sheet if there are any"""
     
-#     output_string =  ('#  \n<br>\n' + formula_set_styler.to_html() + 
-#                       '\n<br><br>\n' + 
-#                       formula_set_styler_highlight.to_html())
+    df_formulas = kwarg['df_formulas']
+    df = df_formulas[(
+        (df_formulas['State'] == str(input_series['State'])) &
+        (df_formulas['Formula sub category 2'] == str(
+            input_series['Formula sub category 2'])) &
+        (df_formulas['Subject code'] == str(input_series['Subject code'])) & 
+        (df_formulas['Category'] == str(input_series['Category'])))]
+
+    formula_1_and_2 = pd.concat([df['Formula_1'], df['Formula_2']])
+    formula_sheet_list =kwarg.get('formula_sheet_list')
+    
+    formula_2_col_is_empty = df['Formula_2'].dropna().empty    
+    if formula_2_col_is_empty:
+        df = df[['Formula_1']]
+    else:
+        df = df[['Formula_1', 'Formula_2']]
+
+    output_string='#  \n<br>\n'
                       
-#     return(output_string)
+    output_string+=(df_to_formula_styled_table(
+        df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+        display_col_headers = False)).to_html()
 
+    if formulas_contain_items_on_formula_sheet(
+        formula_1_and_2, formula_sheet_list):
+
+        output_string = (
+            '{{< tabs "uniqueid" >}}\n\n' + 
+            '{{< tab "Standard view" >}}\n\n' + 
+            output_string + '{{< /tab >}}')
+                         
+        output_string+='\n\n' + '{{< tab "Highlight items on formula sheet" >}}'
+        
+        cols_to_highlight_if_in_formula_sheet = (
+            kwarg.get('cols_to_highlight_if_in_formula_sheet'))
+        
+        output_string+=(df_to_formula_styled_table(
+            df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+            cols_to_highlight_if_in_formula_sheet = (
+                cols_to_highlight_if_in_formula_sheet),
+            formula_sheet_list = formula_sheet_list,
+            display_col_headers = False)).to_html()
+
+        output_string+='{{< /tab >}}\n{{< /tabs >}}'
+                      
+    return(output_string)
     
 
         
