@@ -5,48 +5,31 @@ import shutil
 from IPython.display import Markdown, clear_output
 
 
+def get_formulas_by_year_df(formulas_df):
+    """Makes a copy of formulas_df pandas dataframe and adds
+    below 2 fields to formulas_df dataframe and returns
+    the result:
+         - 'Formula sub category 1' containing text 'Formulas'
+         - 'Formula sub category 2' containing text 'By Year'"""
 
-def get_formulas_by_year_df(filepath):
-    """Reads dataframe from csv at filepath   Returns a dataframe summary 
-    containing below columns in order:
-         - 'State'
-         - new column 'Formula sub category 1' containing text 'Formulas'
-         - new column 'Formula sub category 2' containing text 'By Year'
-         - 'Subject code'
-         - 'Category'
-         - 'Formula_1'
-         - 'Formula_2"""
-
-    df = pd.read_csv(filepath)
-    df = (
-        df[['State', 'Subject code', 'Category', 'Formula_1', 'Formula_2']])
+    df = formulas_df.copy()
     df['Formula sub category 1'] = 'Formulas'
     df['Formula sub category 2'] = 'By Year'
-    df = (df[['State', 'Formula sub category 1', 'Formula sub category 2',
-              'Subject code', 'Category', 'Formula_1', 
-              'Formula_2']])
     return(df)
 
 
-def get_formulas_by_year_cumulative_df(formula_file_path, 
-                                           order_file_path):
-    """Reads dataframe from csv at formula_filepath and order_file_path.
-    Returns a dataframe summary containing below columns in order:
-         - 'State'
-         - new column 'Formula sub category 1' containing text 'Formulas'
-         - new column 'Formula sub category 2' containing text 
+def get_formulas_by_year_cumulative_df(formulas_df, 
+                                       sort_orders_df):
+    """Makes a copy of formulas_df pandas dataframe and adds
+    Adds below 2 fields to formulas_df dataframe and returns
+    the result:
+         - 'Formula sub category 1' containing text 'Formulas'
+         - 'Formula sub category 2' containing text 
              'By year cumulative'
-         - 'Subject code'
-         - 'Category'
-         - 'Formula_1'
-         - 'Formula_2
     The returned dataframe is 'cumulative' based on the Subject code in the 
-    psort order file for examp;e subject code year 11 includes year 9 and 
+    sort_order_df for example subject code year 11 includes year 9 and 
     year 10 formulas etc."""
 
-    formulas_df = pd.read_csv(formula_file_path)
-    sort_orders_df = pd.read_csv(order_file_path)
-    
     cumulative_hierarchy_df = sort_orders_df.copy()
     cumulative_hierarchy_df = cumulative_hierarchy_df.rename(
         columns={'Level_0':'State', 'Level_1':'Formula sub category 1',
@@ -71,30 +54,26 @@ def get_formulas_by_year_cumulative_df(formula_file_path,
         {'Hierarchy sort order': 'Subject sort order'})
 
     # Add the subject code sort order to the formulas file
-    formulas_df = pd.merge(
-        left = formulas_df, right = subject_code_sort_df, 
+    df = formulas_df.copy()
+    df = pd.merge(
+        left = df, right = subject_code_sort_df, 
         left_on = ['Subject code'], right_on = ['Subject code'], 
         how = 'left')
-    formulas_df = formulas_df.drop(labels = ['Subject code'], axis=1)
+    df = df.drop(labels = ['Subject code'], axis=1)
 
     # Merge with the heriarchy_df and filter where sort order per 
     # hierarchy_df >= subject sort order
-    formulas_df = pd.merge(left = cumulative_hierarchy_df, 
-                           right = formulas_df, left_on = ['State'], 
+    df = pd.merge(left = cumulative_hierarchy_df, 
+                           right = df, left_on = ['State'], 
                            right_on = ['State'], how = 'left')
     
-    formulas_df = (formulas_df[
-                   formulas_df['Hierarchy sort order'] >= 
-                   formulas_df['Subject sort order']])
-    formulas_df = formulas_df.drop(
+    df = (df[
+                   df['Hierarchy sort order'] >= 
+                   df['Subject sort order']])
+    df = df.drop(
         labels = ['Hierarchy sort order', 'Subject sort order'], axis=1)
 
-    formulas_df = (formulas_df[
-                   ['State', 'Formula sub category 1', 
-                    'Formula sub category 2', 'Subject code', 'Category', 
-                    'Formula_1', 'Formula_2']])
-
-    return(formulas_df)
+    return(df)
 
 
 def formulas_contain_items_on_formula_sheet(formulas, formula_sheet_list):
@@ -112,18 +91,18 @@ def formulas_contain_items_on_formula_sheet(formulas, formula_sheet_list):
 def get_formula_display_string(input_series, **kwarg):
     """Returns a summmary formula table in markdown format with embedded
     html.  Input series is a pandas series with Indices State, Subect code
-    and category.  **Kwarg must be called with parameter  = df_formulas
-    where df_Formulas contains fields State, Subject code, Category, 
+    and category.  **Kwarg must be called with parameter  = formulas_df
+    where formulas_df contains fields State, Subject code, Category, 
     Formula_1, Formula_2.  Generates seperate tabs to highlight items on
     formula sheet if there are any"""
     
-    df_formulas = kwarg['df_formulas']
-    df = df_formulas[(
-        (df_formulas['State'] == str(input_series['State'])) &
-        (df_formulas['Formula sub category 2'] == str(
+    formulas_df = kwarg['formulas_df']
+    df = formulas_df[(
+        (formulas_df['State'] == str(input_series['State'])) &
+        (formulas_df['Formula sub category 2'] == str(
             input_series['Formula sub category 2'])) &
-        (df_formulas['Subject code'] == str(input_series['Subject code'])) & 
-        (df_formulas['Category'] == str(input_series['Category'])))]
+        (formulas_df['Subject code'] == str(input_series['Subject code'])) & 
+        (formulas_df['Category'] == str(input_series['Category'])))]
 
     formula_1_and_2 = pd.concat([df['Formula_1'], df['Formula_2']])
     formula_sheet_list =kwarg.get('formula_sheet_list')
@@ -170,49 +149,14 @@ def get_formula_display_string(input_series, **kwarg):
 
         
 
-def df_calculus_summary(df_formulas):
-    """Returns a summary of derivative and integral formulas as a pandas 
-    dataframe"""
-    
-    df_calculus = df_formulas(
-        [['Category', 'Group', 'Formula_1', 
-          'Formula_2', 'Comment']]
-        [df_formulas["Category"].isin(["Differentiation","Integration"])])
-    df_calculus = df_calculus.pivot(
-        columns='Category', index = 'Group').fillna('')
-    
-    # Flatten the multi-index headings after pivot
-    df_calculus.columns = (
-        df_calculus.columns.get_level_values(0) +' ' + 
-        df_calculus.columns.get_level_values(1))
-    df_calculus = df_calculus.reset_index()
 
-    df_calculus['Comment'] = (
-        df_calculus.apply(_calclus_summary_comment, axis=1))
-    
-    df_calculus = df_calculus.sort_values(by='Group')
-    df_calculus =  df_calculus.drop(
-        labels = ['Group', 'Comment Differentiation', 'Comment Integration', 
-                  'Formula_2 Integration'], axis = 1)
-    df_calculus = df_calculus.rename(columns={
-        "Formula_1 Differentiation": "Function", 
-        "Formula_1 Integration":"Equivalent integral",
-        "Formula_2 Differentiation": "Derivative"})
-
-    # Reorder columns
-    df_calculus = df_calculus[['Function', 'Derivative', 
-                               'Equivalent integral', 'Comment']]
-
-    return(df_calculus)
-
-
-def styler_calculus_summary(df_calculus, formula_sheet_list=[]):
-    """Returns a pandas styler version of the df_calculus dataframe as 
-    returned by df_calculus_summary function"""
+def styler_calculus_summary(calculus_df, formula_sheet_list=[]):
+    """Returns a pandas styler version of the calculus_df dataframe as 
+    returned by calculus_df_summary function"""
 
     if len(formula_sheet_list):
         styler_calculus = df_to_formula_styled_table(
-            df=df_calculus, 
+            df=calculus_df, 
             col_widths={'Function': 200, 'Derivative': 300,
                         'Equivalent integral': 400,'Comment':600},
             cols_to_highlight_if_in_formula_sheet= {'Derivative', 
@@ -220,7 +164,7 @@ def styler_calculus_summary(df_calculus, formula_sheet_list=[]):
             formula_sheet_list=formula_sheet_list)
     else:
         styler_calculus = df_to_formula_styled_table(
-            df=df_calculus, 
+            df=calculus_df, 
             col_widths={'Function': 200, 'Derivative': 300,
                         'Equivalent integral': 400,'Comment':600})
     
@@ -294,12 +238,11 @@ def df_to_formula_styled_table(
     return (styled_table)
 
 
-def get_formulas_on_formula_sheet(file_path):
-    """Reads csv at file path into a pandas dataframe.  Returns a list of 
-    formulas on formula sheet that returns all fields Formula_1 and Formula_2 
-    of the dataframe where field 'On formula sheet' field is True"""
+def get_formulas_on_formula_sheet(df):
+    """Returns a list of formulas on formula sheet that returns all fields 
+    Formula_1 and Formula_2 of the dataframe df where field 'On formula sheet' 
+    field is True"""
 
-    df = pd.read_csv(file_path)
     formulas_one_on_sheet = (df[
                              (df['On formula sheet'] == True) & 
                              (df['Formula_1'].notnull())

@@ -77,13 +77,15 @@ def create_index_files(base_dir, dirs_df,front_matter={},
     of the front_matter dictionary and optionally includes a weight 
     (sort order) based on the order of each directory in sort_orders_df """
 
+                           
     for i in range(1, len(dirs_df.columns)+1):
         # Looping through various levels in directory structure
         subdirs_df = dirs_df.iloc[:, :i].drop_duplicates()
+        
         for index, row in subdirs_df.iterrows():
 
             file_name = (base_dir + os.path.sep + 
-                         os.path.sep.join(+ row) + os.path.sep + '_index.md')
+                         os.path.sep.join(row) + os.path.sep + '_index.md')
 
             # Don't overwrite file if it exists
             if not os.path.isfile(file_name):
@@ -107,7 +109,7 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
                  front_matter = {}, sort_orders_df = None, **kwargs):
     """Creates a file for each row in file_paths_df.  The file path is 
     base_dir combined with the path formed from the row of file_paths_df.
-    The conent on the file is determined by passing each row of the 
+    The content on the file is determined by passing each row of the 
     file_paths_df as well as **kwargs to function fn"""
     
     for index, row in file_paths_df.iterrows():
