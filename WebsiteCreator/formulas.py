@@ -72,6 +72,7 @@ def get_formulas_by_year_cumulative_df(formulas_df,
                    df['Subject sort order']])
     df = df.drop(
         labels = ['Hierarchy sort order', 'Subject sort order'], axis=1)
+    df = df.reset_index()
 
     return(df)
 
@@ -147,7 +148,59 @@ def get_formula_display_string(input_series, **kwarg):
     return(output_string)
     
 
-        
+def subject_codes_with_both_differentation_and_integration(df_formulas):
+    """df_formulas is a data frame.  This function returns a list of 
+    unique items in column 'Subject code' where column 'Category' contains
+    values of both Differenation and Integration for the Subject code.
+    """
+    subject_codes_with_differentiation = (
+        df_formulas[df_formulas['Category']=='Differentiation']
+        ['Subject code'].unique())
+    subject_codes_with_integration = (
+        df_formulas[df_formulas['Category']=='Integration']
+        ['Subject code'].unique())
+
+    subject_codes_both_integration_and_differentiation = list(
+        set(subject_codes_with_differentiation) & 
+        set(subject_codes_with_integration))
+    
+    return(subject_codes_both_integration_and_differentiation)
+
+
+def calculus_df_summary(formulas_df):
+    """Returns a summary of derivative and integral formulas as a pandas 
+    dataframe"""
+    
+    calculus_df = (formulas_df
+        [['Category', 'Group', 'Formula_1', 
+          'Formula_2', 'Comment']]
+        [formulas_df["Category"].isin(["Differentiation","Integration"])])
+    calculus_df = calculus_df.pivot(
+        columns='Category', index = 'Group').fillna('')
+    
+    # Flatten the multi-index headings after pivot
+    calculus_df.columns = (
+        calculus_df.columns.get_level_values(0) +' ' + 
+        calculus_df.columns.get_level_values(1))
+    calculus_df = calculus_df.reset_index()
+
+    calculus_df['Comment'] = (
+        calculus_df.apply(_calclus_summary_comment, axis=1))
+    
+    calculus_df = calculus_df.sort_values(by='Group')
+    calculus_df =  calculus_df.drop(
+        labels = ['Group', 'Comment Differentiation', 'Comment Integration', 
+                  'Formula_2 Integration'], axis = 1)
+    calculus_df = calculus_df.rename(columns={
+        "Formula_1 Differentiation": "Function", 
+        "Formula_1 Integration":"Equivalent integral",
+        "Formula_2 Differentiation": "Derivative"})
+
+    # Reorder columns
+    calculus_df = calculus_df[['Function', 'Derivative', 
+                               'Equivalent integral', 'Comment']]
+
+    return(calculus_df)
 
 
 def styler_calculus_summary(calculus_df, formula_sheet_list=[]):
