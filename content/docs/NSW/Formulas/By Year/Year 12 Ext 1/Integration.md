@@ -8,91 +8,91 @@
 #  
 <br>
 <style type="text/css">
-#T_5e360 th.col_heading {
+#T_55d4d th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_5e360 td {
+#T_55d4d td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_5e360_row0_col0, #T_5e360_row1_col0, #T_5e360_row2_col0, #T_5e360_row3_col0, #T_5e360_row4_col0, #T_5e360_row5_col0 {
+#T_55d4d_row0_col0, #T_55d4d_row1_col0, #T_55d4d_row2_col0, #T_55d4d_row3_col0, #T_55d4d_row4_col0, #T_55d4d_row5_col0 {
   width: 300px;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_5e360">
+<table id="T_55d4d">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_5e360_row0_col0" class="data row0 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = sin^{-1} f(x) + c$</td>
+      <td id="T_55d4d_row0_col0" class="data row0 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = sin^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_5e360_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_55d4d_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = sin^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_5e360_row2_col0" class="data row2 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = cos^{-1}f(x) + c \text{ or } -sin^{-1}f(x) +c$
+      <td id="T_55d4d_row2_col0" class="data row2 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = cos^{-1}f(x) + c \text{ or } -sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_5e360_row3_col0" class="data row3 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_55d4d_row3_col0" class="data row3 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_5e360_row4_col0" class="data row4 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ tan^{-1} f(x) + c$</td>
+      <td id="T_55d4d_row4_col0" class="data row4 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ tan^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_5e360_row5_col0" class="data row5 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_55d4d_row5_col0" class="data row5 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
   </tbody>
 </table>
 {{< /tab >}}
 
 {{< tab "Formula sheet" >}}Items on formula sheet are highlighted<style type="text/css">
-#T_989f2 th.col_heading {
+#T_f7195 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_989f2 td {
+#T_f7195 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_989f2_row0_col0, #T_989f2_row2_col0, #T_989f2_row3_col0, #T_989f2_row4_col0 {
+#T_f7195_row0_col0, #T_f7195_row2_col0, #T_f7195_row3_col0, #T_f7195_row4_col0 {
   width: 300px;
   white-space: pre-wrap;
 }
-#T_989f2_row1_col0, #T_989f2_row5_col0 {
+#T_f7195_row1_col0, #T_f7195_row5_col0 {
   width: 300px;
   background-color: rgba(255,194,10, 0.2);
   white-space: pre-wrap;
 }
 </style>
-<table id="T_989f2">
+<table id="T_f7195">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_989f2_row0_col0" class="data row0 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = sin^{-1} f(x) + c$</td>
+      <td id="T_f7195_row0_col0" class="data row0 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = sin^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_989f2_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_f7195_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = sin^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_989f2_row2_col0" class="data row2 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = cos^{-1}f(x) + c \text{ or } -sin^{-1}f(x) +c$
+      <td id="T_f7195_row2_col0" class="data row2 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = cos^{-1}f(x) + c \text{ or } -sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_989f2_row3_col0" class="data row3 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_f7195_row3_col0" class="data row3 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_989f2_row4_col0" class="data row4 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ tan^{-1} f(x) + c$</td>
+      <td id="T_f7195_row4_col0" class="data row4 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ tan^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_989f2_row5_col0" class="data row5 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_f7195_row5_col0" class="data row5 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
   </tbody>
 </table>

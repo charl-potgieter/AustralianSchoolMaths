@@ -89,6 +89,42 @@ def formulas_contain_items_on_formula_sheet(formulas, formula_sheet_list):
             )>0)
 
 
+def calculus_summary_file_paths_df(formulas_df):
+    """Returns a dataframe where each cell rerepresents componenets of the file 
+    path for the calculus summary formulas.   The formulas_df input is 
+    filtered for subject codes with field Category containing both entries
+    for differentiation and integration
+    """
+    calculus_summary_df = formulas_df.copy()
+    
+    calculus_summary_df = calculus_summary_df[
+        (calculus_summary_df['Category'] == 'Differentiation') |
+        (calculus_summary_df['Category'] == 'Integration')
+    ]
+    
+    calculus_summary_df =  calculus_summary_df[
+        ['State', 'Category', 'Formula sub category 1', 
+        'Formula sub category 2', 'Subject code']].drop_duplicates()
+    
+    calculus_summary_df['counter'] = 1
+    
+    calculus_summary_df = pd.pivot_table(
+        data=calculus_summary_df, index = ['State', 'Formula sub category 1', 'Formula sub category 2', 
+                                           'Subject code'], 
+        columns = ['Category'], values='counter',  
+        aggfunc=pd.Series.nunique)
+    calculus_summary_df = calculus_summary_df.reset_index()
+    calculus_summary_df =  calculus_summary_df[
+        (calculus_summary_df['Differentiation'].notnull()) & 
+        (calculus_summary_df['Integration'].notnull())]
+
+    calculus_summary_df = calculus_summary_df.drop(
+        ['Differentiation', 'Integration'], axis=1)
+    calculus_summary_df['Category'] = 'Calculus summary'
+    
+    return(calculus_summary_df)
+
+
 def get_formula_display_string(input_series, **kwarg):
     """Returns a summmary formula table in markdown format with embedded
     html.  Input series is a pandas series with Indices State, Subect code
@@ -97,13 +133,13 @@ def get_formula_display_string(input_series, **kwarg):
     Formula_1, Formula_2.  Generates seperate tabs to highlight items on
     formula sheet if there are any"""
     
-    formulas_df = kwarg['formulas_df']
-    df = formulas_df[(
-        (formulas_df['State'] == str(input_series['State'])) &
-        (formulas_df['Formula sub category 2'] == str(
+    df = kwarg['formulas_df'].copy()
+    df = df[(
+        (df['State'] == str(input_series['State'])) &
+        (df['Formula sub category 2'] == str(
             input_series['Formula sub category 2'])) &
-        (formulas_df['Subject code'] == str(input_series['Subject code'])) & 
-        (formulas_df['Category'] == str(input_series['Category'])))]
+        (df['Subject code'] == str(input_series['Subject code'])) & 
+        (df['Category'] == str(input_series['Category'])))]
 
     formula_1_and_2 = pd.concat([df['Formula_1'], df['Formula_2']])
     formula_sheet_list =kwarg.get('formula_sheet_list')
@@ -148,26 +184,8 @@ def get_formula_display_string(input_series, **kwarg):
     return(output_string)
     
 
-def subject_codes_with_both_differentation_and_integration(df_formulas):
-    """df_formulas is a data frame.  This function returns a list of 
-    unique items in column 'Subject code' where column 'Category' contains
-    values of both Differenation and Integration for the Subject code.
-    """
-    subject_codes_with_differentiation = (
-        df_formulas[df_formulas['Category']=='Differentiation']
-        ['Subject code'].unique())
-    subject_codes_with_integration = (
-        df_formulas[df_formulas['Category']=='Integration']
-        ['Subject code'].unique())
 
-    subject_codes_both_integration_and_differentiation = list(
-        set(subject_codes_with_differentiation) & 
-        set(subject_codes_with_integration))
-    
-    return(subject_codes_both_integration_and_differentiation)
-
-
-def calculus_df_summary(formulas_df):
+def calculus_summary_df(formulas_df):
     """Returns a summary of derivative and integral formulas as a pandas 
     dataframe"""
     
@@ -203,7 +221,7 @@ def calculus_df_summary(formulas_df):
     return(calculus_df)
 
 
-def styler_calculus_summary(calculus_df, formula_sheet_list=[]):
+def calculus_summary_styler(calculus_df, formula_sheet_list=[]):
     """Returns a pandas styler version of the calculus_df dataframe as 
     returned by calculus_df_summary function"""
 
