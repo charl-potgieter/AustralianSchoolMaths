@@ -167,7 +167,7 @@ def get_formula_display_string(input_series, **kwarg):
         output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
 
         output_string+='Items on formula sheet are highlighted'
-        output_string+'\n\n'
+        output_string+='#  \n<br>\n'
             
         cols_to_highlight_if_in_formula_sheet = (
             kwarg.get('cols_to_highlight_if_in_formula_sheet'))
@@ -217,7 +217,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
             output_string + '{{< /tab >}}')
         output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
         output_string+='Items on formula sheet are highlighted'
-        output_string+'\n\n'
+        output_string+='\n<br><br><br>\n'
         calculus_styler = calculus_summary_styler(calculus_df, 
                                                       formula_sheet_list)
         output_string+=calculus_styler.to_html()
@@ -279,7 +279,7 @@ def calculus_summary_styler(calculus_df, formula_sheet_list=[]):
             df=calculus_df, 
             col_widths={'Function': 200, 'Derivative': 300,
                         'Equivalent integral': 400,'Comment':600})
-    
+
     return(styler_calculus)
 
 
