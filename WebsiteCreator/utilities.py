@@ -2,6 +2,11 @@ import os
 import shutil
 import pandas as pd
 import re
+from traitlets.config import Config
+from nbconvert.exporters import MarkdownExporter
+from nbconvert.preprocessors import Preprocessor
+from custom_nb_convert_preprocessor import IncludeCellsWithTags
+
 
  
 def get_docs_path(website_creator_path):
@@ -143,3 +148,31 @@ def get_front_matter_string(input_dict= {}):
         string_to_write += key + ': ' + str(input_dict[key]) + '\n'
     string_to_write += "---\n\n"
     return(string_to_write)
+
+
+def filtered_notebook_md_export(input_notebook, include_tags):
+    """Returns a string in markdown fomat obtained by filtering input_notebook
+    on cells that contain any of the tags in the tuple include_tag
+    """
+
+    # ref https://stackoverflow.com/questions/49157098/
+    # using-custom-preprocessor-with-jupyter-
+    # nbconvert-v5-3-1-on-the-command-line
+    
+    # Config is imported from traitlets.config
+    c = Config()
+    c.IncludeCellsWithTags.include_cell_tags = include_tags
+    c.IncludeCellsWithTags.enabled = True
+    
+    # Configure and run out exporter (custom_nb_convert_preprocessor.py is 
+    # saved in the same directory as this file)
+    c.MarkdownExporter.preprocessors = (
+        ["custom_nb_convert_preprocessor.IncludeCellsWithTags"])
+    
+    exporter = MarkdownExporter(config=c)
+    exporter.register_preprocessor(IncludeCellsWithTags(config=c),True)
+    
+    # Configure and run our exporter - returns a tuple - first element with
+    # Markdown, second with notebook metadata
+    output = MarkdownExporter(config=c).from_filename(input_notebook)
+    return(output[0])
