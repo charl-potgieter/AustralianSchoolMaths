@@ -154,7 +154,7 @@ def get_formula_display_string(input_series, **kwarg):
                       
     output_string+=(df_to_formula_styled_table(
         df=df, col_widths={'Formula_1':300, 'Formula_2':400},
-        display_col_headers = False)).to_html()
+        display_col_headers = False, display_row_headers = False)).to_html()
 
     if formulas_contain_items_on_formula_sheet(
         formula_1_and_2, formula_sheet_list):
@@ -177,7 +177,7 @@ def get_formula_display_string(input_series, **kwarg):
             cols_to_highlight_if_in_formula_sheet = (
                 cols_to_highlight_if_in_formula_sheet),
             formula_sheet_list = formula_sheet_list,
-            display_col_headers = False)).to_html()
+            display_col_headers = False, display_row_headers = False)).to_html()
 
         output_string+='{{< /tab >}}\n{{< /tabs >}}'
                       
@@ -298,6 +298,51 @@ def _calclus_summary_comment(row):
     return(return_value)
 
 
+def sequence_summary_df(formulas_input_df):
+    """Returns a summary of sequence and series formulas as a pandas
+    dataframe"""
+    
+    df = (formulas_input_df[
+          (formulas_input_df['Category'] == 'Financial mathematics') &
+          (formulas_input_df['State'] == 'NSW') &
+          (
+              (formulas_input_df['Sub-category_1'] == 'Arithmetic sequence') | 
+              (formulas_input_df['Sub-category_1'] == 'Geometric sequence')
+          )
+          ])
+    
+    df = df[['Sub-category_1', 'Sub-category_2', 'Formula_1']]
+    df['temp_aggregator'] = 1
+    
+    df = pd.pivot_table(data=df, values='Formula_1', columns='Sub-category_1', 
+                        index='Sub-category_2', aggfunc=lambda x: x)
+    df.index.name = None
+    df.columns.name = None
+    
+    # Convert index to categorical data to enable custom sort order
+    df.index = pd.Categorical(
+        df.index, 
+        ['Recursive definition', 'n-th term', 'Sum of first n terms', 
+         'Limiting sum'])
+    df = df.sort_index()
+    return(df)
+
+
+def sequence_summary_styler(sequence_df, formula_sheet_list=[]):
+    """Returns a pandas styler version of the sequence_df dataframe as 
+    returned by sequence_df_summary function"""
+    if len(formula_sheet_list):
+        styler_sequence = df_to_formula_styled_table(
+            df=sequence_df, 
+            cols_to_highlight_if_in_formula_sheet= {'Arithmetic sequence', 
+                                                    'Geometric sequence'},
+            formula_sheet_list=formula_sheet_list)
+    else:
+        styler_sequence = df_to_formula_styled_table(
+            df=sequence_df)
+    return(styler_sequence)
+
+
 def set_styled_table_widths(styled_table, widths):
     """Sets pandas dataframe stlyle column withs where widths is represents a 
     dict of column names and widths in pixels as integers.  Ignores column 
@@ -314,17 +359,19 @@ def set_styled_table_widths(styled_table, widths):
 
 def df_to_formula_styled_table(
     df, col_widths={}, cols_to_highlight_if_in_formula_sheet=[], 
-    formula_sheet_list=[], display_col_headers = True):
-    """Converts pandas dataframe to a styler and applies various formatting"""
+    formula_sheet_list=[], display_col_headers = True,
+    display_row_headers = True):
+    """Converts pandas dataframe to a styler and applies various formatting
+    Note that index of df needs to be unique"""
 
-    # Index needs to be unique for to enable apply map to be used on styler
-    df = df.reset_index(drop = True)
-    
     styled_table = df.fillna('').style
     styled_table = set_styled_table_widths(styled_table, col_widths)
 
     if not display_col_headers:
-        styled_table = styled_table.hide().hide(axis='columns')
+        styled_table = styled_table.hide(axis='columns')
+    if not display_row_headers:
+        styled_table = styled_table.hide(axis='index')
+    
 
 
     # Calculate intersect with df columns to avoid error if cols not in df
