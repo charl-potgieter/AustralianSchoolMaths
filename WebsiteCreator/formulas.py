@@ -135,6 +135,33 @@ def get_calculus_summary_file_paths_df(calculus_dir_df):
     return(calculus_file_path_df)
 
 
+def get_financial_summary_dir_paths_df(formulas_df):
+    """Returns a dataframe where each cell rerepresents componenets of the directory 
+    path for the financial summary formulas.   The formulas_df input is 
+    filtered for subject codes with field Category containing entries for Financial 
+    mathematics"""
+    financial_dir_df = formulas_df.copy()
+    
+    financial_dir_df = financial_dir_df[
+        (financial_dir_df['Category'] == 'Financial mathematics')
+    ]    
+    financial_dir_df =  financial_dir_df[
+        ['State', 'Formula sub category 1', 
+        'Formula sub category 2', 'Subject code']].drop_duplicates()
+    financial_dir_df['Type'] = 'Summaries'
+    return(financial_dir_df)
+
+
+def get_financial_summary_file_paths_df(financial_dir_df):
+    """Returns a dataframe where each cell rerepresents componenets of the file 
+    path for the financial summary formulas.  The dataframe is obtained by adding 
+    a filename column to financial_dir_df
+    """
+    financial_file_path_df = financial_dir_df.copy()
+    financial_file_path_df['Filename'] = 'Financial'
+    return(financial_file_path_df)
+
+
 def get_formula_display_string(input_series, **kwarg):
     """Returns a summmary formula table in markdown format with embedded
     html.  Input series is a pandas series with Indices State, Subect code
@@ -212,8 +239,8 @@ def get_calculus_summary_display_string(input_series, **kwarg):
     formula_sheet_list =kwarg.get('formula_sheet_list')
     
     output_string='#  \n<br>\n'
-    calculus_df = calculus_summary_df(df)
-    calculus_styler = calculus_summary_styler(calculus_df)
+    calculus_df = get_calculus_summary_df(df)
+    calculus_styler = get_calculus_summary_styler(calculus_df)
     output_string+=calculus_styler.to_html()
 
     calculus_formulas = pd.concat([calculus_df['Derivative'], 
@@ -228,7 +255,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
         output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
         output_string+='Items on formula sheet are highlighted'
         output_string+='\n<br><br><br>\n'
-        calculus_styler = calculus_summary_styler(calculus_df, 
+        calculus_styler = get_calculus_summary_styler(calculus_df, 
                                                       formula_sheet_list)
         output_string+=calculus_styler.to_html()
         output_string+='{{< /tab >}}\n{{< /tabs >}}'
@@ -236,7 +263,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
     return(output_string)
 
 
-def calculus_summary_df(formulas_df):
+def get_calculus_summary_df(formulas_df):
     """Returns a summary of derivative and integral formulas as a pandas 
     dataframe"""
     
@@ -272,7 +299,7 @@ def calculus_summary_df(formulas_df):
     return(calculus_df)
 
 
-def calculus_summary_styler(calculus_df, formula_sheet_list=[]):
+def get_calculus_summary_styler(calculus_df, formula_sheet_list=[]):
     """Returns a pandas styler version of the calculus_df dataframe as 
     returned by calculus_df_summary function"""
 
@@ -308,9 +335,51 @@ def _calclus_summary_comment(row):
     return(return_value)
 
 
-def sequence_summary_df(formulas_input_df):
-    """Returns a summary of sequence and series formulas as a pandas
-    dataframe"""
+def get_financial_summary_display_string(input_series, **kwarg):
+    """Returns a financial summmary formula table in markdown format with 
+    embedded html.  Input series is a pandas series .  **Kwarg must be 
+    called with parameter = formulas_df where formulas_df contains 
+    fields State, Subject code, Category, Formula_1, Formula_2.  
+    Generates seperate tabs to highlight items on formula sheet if there are
+    any"""
+    
+    df = kwarg['formulas_df'].copy()
+    df = df[(
+        (df['State'] == str(input_series['State'])) &
+        (df['Formula sub category 2'] == str(
+            input_series['Formula sub category 2'])) &
+        (df['Subject code'] == str(input_series['Subject code'])))]
+
+    formula_sheet_list =kwarg.get('formula_sheet_list')
+    
+    output_string='#  \n<br>\n'
+    financial_df = get_financial_summary_df(df)
+    financial_styler = get_financial_summary_styler(financial_df)
+    output_string+=financial_styler.to_html()
+
+    financial_formulas = pd.concat([financial_df['Arithmetic sequence'], 
+                                  financial_df['Geometric sequence']])
+
+    if formulas_contain_items_on_formula_sheet(
+        financial_formulas, formula_sheet_list):
+        output_string = (
+            '{{< tabs "uniqueid" >}}\n\n' + 
+            '{{< tab "Standard view" >}}\n\n' + 
+            output_string + '{{< /tab >}}')
+        output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
+        output_string+='Items on formula sheet are highlighted'
+        output_string+='\n<br><br><br>\n'
+        financial_styler = get_financial_summary_styler(financial_df, 
+                                                      formula_sheet_list)
+        output_string+=financial_styler.to_html()
+        output_string+='{{< /tab >}}\n{{< /tabs >}}'
+    
+    return(output_string)
+
+
+def get_financial_summary_df(formulas_input_df):
+    """Returns a summary of financial sequence and series formulas as a
+    pandas dataframe"""
     
     df = (formulas_input_df[
           (formulas_input_df['Category'] == 'Financial mathematics') &
@@ -338,19 +407,19 @@ def sequence_summary_df(formulas_input_df):
     return(df)
 
 
-def sequence_summary_styler(sequence_df, formula_sheet_list=[]):
-    """Returns a pandas styler version of the sequence_df dataframe as 
-    returned by sequence_df_summary function"""
+def get_financial_summary_styler(financial_df, formula_sheet_list=[]):
+    """Returns a pandas styler version of the financial_df dataframe as 
+    returned by get_financial_summary_df function"""
     if len(formula_sheet_list):
-        styler_sequence = df_to_formula_styled_table(
-            df=sequence_df, 
+        styler_financial = df_to_formula_styled_table(
+            df=financial_df, 
             cols_to_highlight_if_in_formula_sheet= {'Arithmetic sequence', 
                                                     'Geometric sequence'},
             formula_sheet_list=formula_sheet_list)
     else:
-        styler_sequence = df_to_formula_styled_table(
-            df=sequence_df)
-    return(styler_sequence)
+        styler_financial = df_to_formula_styled_table(
+            df=financial_df)
+    return(styler_financial)
 
 
 def set_styled_table_widths(styled_table, widths):
