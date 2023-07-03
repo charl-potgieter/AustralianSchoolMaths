@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import shutil
-from IPython.display import Markdown, clear_output
-
+from IPython.display import Markdown, clear_output, Math
 
 def get_formulas_by_year_df(formulas_df):
     """Makes a copy of formulas_df pandas dataframe and adds
@@ -505,4 +504,19 @@ def is_on_formula_sheet_formatting(formula, formula_sheet_list):
         return (None)
 
 
-
+def get_single_formula_1(formulas_df, category, description):
+    """Returns value in column Formula_1 of data frame formulas_df
+    where category and descriptiom match the corresponding columns in the
+    data frame
+    """
+    filtered_df = formulas_df.copy()[(
+        (formulas_df['Category'] == category) & 
+        (formulas_df['Description'] == description))]
+    filtered_array = filtered_df['Formula_1'].unique()
+    if len(filtered_array) ==0:
+        return_value = 'No matching formula'
+    elif len(filtered_array)>1:
+        return_value = 'multiple matching formulas'
+    else:
+        return_value = Math(filtered_array[0])
+    return(return_value)

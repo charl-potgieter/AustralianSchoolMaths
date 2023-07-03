@@ -152,6 +152,8 @@ def get_front_matter_string(input_dict= {}):
 def filtered_notebook_md_export(input_notebook, include_tags):
     """Returns a string in markdown fomat obtained by filtering input_notebook
     on cells that contain any of the tags in the tuple include_tag
+    Custom function custom_nb_convert_preprocessor.IncludeCellsWithTags needs
+    to be imported.
     """
 
     # ref https://stackoverflow.com/questions/49157098/
