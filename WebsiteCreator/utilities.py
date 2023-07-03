@@ -52,7 +52,6 @@ def lookup_list_in_df(df, list_to_find):
                            str(list_to_find[i]).upper())]
     df = df.reset_index(drop = True)
     
-    
     df = df[(df.iloc[:, list_len-1].str.upper() == 
                        str(list_to_find[list_len-1]).upper())]
     filtered_index = df.index
@@ -61,7 +60,7 @@ def lookup_list_in_df(df, list_to_find):
         return (None)
     else:
         return (filtered_index[0])
-            
+     
 
 def create_sub_directories_from_df(base_dir, sub_paths_df):
     """Creates (potentially multi-level) directories under base_dir where 

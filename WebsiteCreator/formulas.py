@@ -89,40 +89,50 @@ def formulas_contain_items_on_formula_sheet(formulas, formula_sheet_list):
             )>0)
 
 
-def calculus_summary_file_paths_df(formulas_df):
-    """Returns a dataframe where each cell rerepresents componenets of the file 
+def get_calculus_summary_dir_paths_df(formulas_df):
+    """Returns a dataframe where each cell rerepresents componenets of the directory 
     path for the calculus summary formulas.   The formulas_df input is 
     filtered for subject codes with field Category containing both entries
     for differentiation and integration
     """
-    calculus_summary_df = formulas_df.copy()
+    calculus_dir_df = formulas_df.copy()
     
-    calculus_summary_df = calculus_summary_df[
-        (calculus_summary_df['Category'] == 'Differentiation') |
-        (calculus_summary_df['Category'] == 'Integration')
+    calculus_dir_df = calculus_dir_df[
+        (calculus_dir_df['Category'] == 'Differentiation') |
+        (calculus_dir_df['Category'] == 'Integration')
     ]
     
-    calculus_summary_df =  calculus_summary_df[
+    calculus_dir_df =  calculus_dir_df[
         ['State', 'Category', 'Formula sub category 1', 
         'Formula sub category 2', 'Subject code']].drop_duplicates()
     
-    calculus_summary_df['counter'] = 1
+    calculus_dir_df['counter'] = 1
     
-    calculus_summary_df = pd.pivot_table(
-        data=calculus_summary_df, index = ['State', 'Formula sub category 1', 'Formula sub category 2', 
+    calculus_dir_df = pd.pivot_table(
+        data=calculus_dir_df, index = ['State', 'Formula sub category 1', 'Formula sub category 2', 
                                            'Subject code'], 
         columns = ['Category'], values='counter',  
         aggfunc=pd.Series.nunique)
-    calculus_summary_df = calculus_summary_df.reset_index()
-    calculus_summary_df =  calculus_summary_df[
-        (calculus_summary_df['Differentiation'].notnull()) & 
-        (calculus_summary_df['Integration'].notnull())]
+    calculus_dir_df = calculus_dir_df.reset_index()
+    calculus_dir_df =  calculus_dir_df[
+        (calculus_dir_df['Differentiation'].notnull()) & 
+        (calculus_dir_df['Integration'].notnull())]
 
-    calculus_summary_df = calculus_summary_df.drop(
+    calculus_dir_df = calculus_dir_df.drop(
         ['Differentiation', 'Integration'], axis=1)
-    calculus_summary_df['Category'] = 'Calculus summary'
+    calculus_dir_df['Type'] = 'Summaries'
     
-    return(calculus_summary_df)
+    return(calculus_dir_df)
+
+
+def get_calculus_summary_file_paths_df(calculus_dir_df):
+    """Returns a dataframe where each cell rerepresents componenets of the file 
+    path for the calculus summary formulas.  The dataframe is obtained by adding 
+    a filename column to calculus_dir_df
+    """
+    calculus_file_path_df = calculus_dir_df.copy()
+    calculus_file_path_df['Filename'] = 'Calculus'
+    return(calculus_file_path_df)
 
 
 def get_formula_display_string(input_series, **kwarg):
