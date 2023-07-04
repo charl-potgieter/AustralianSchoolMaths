@@ -3,6 +3,113 @@ import numpy as np
 import os
 import shutil
 from IPython.display import Markdown, clear_output, Math
+import utilities
+
+
+def get_formulas_df(formulas_input_df, sort_orders_df): 
+    """Returns a combined pandas dataframe from formulus_input_df
+    containging formulas by year (subject code) as well as cumululative
+    formulas by year (subject code) based on sort_orders_df
+    """
+    
+    by_year_df =  (
+        get_formulas_by_year_df(formulas_input_df))
+    cumulative_df = (
+        get_formulas_by_year_cumulative_df(
+            formulas_input_df, sort_orders_df))
+    formulas_df = pd.concat([by_year_df, cumulative_df])
+    return(formulas_df)
+
+
+
+def create_formulas_content(formulas_df, formula_sheet_list, 
+                            sort_orders_df, docs_dir):
+    """Creates markdown files containing formula tables as input for static 
+    web page creation via Hugo
+    """
+
+    dirs_df = (
+        formulas_df[['State', 'Formula sub category 1', 
+                             'Formula sub category 2',
+                             'Subject code']].drop_duplicates())
+    file_paths_df = (
+        formulas_df[['State', 'Formula sub category 1', 
+                             'Formula sub category 2',
+                             'Subject code', 'Category']].drop_duplicates())
+    
+    utilities.create_sub_directories_from_df(base_dir = docs_dir, 
+                                             sub_paths_df = dirs_df)
+    
+    front_matter_index_files = {'bookCollapseSection' : True}
+    utilities.create_index_files(base_dir=docs_dir, dirs_df=dirs_df, 
+                       front_matter=front_matter_index_files,
+                       sort_orders_df = sort_orders_df)
+    
+    utilities.create_files(base_dir = docs_dir, file_paths_df= file_paths_df, 
+                           file_extension='.md', 
+                           fn=get_formula_display_string, 
+                           sort_orders_df = sort_orders_df,
+                           formulas_df = formulas_df, 
+                           formula_sheet_list = formula_sheet_list, 
+                           cols_to_highlight_if_in_formula_sheet = [
+                               'Formula_1', 'Formula_2'])
+
+
+def create_calculus_summary(formulas_df, formula_sheet_list,
+                            sort_orders_df, docs_dir):
+    """Creates custom differentiation and integration formulas markdown
+    files"""
+    calculus_summary_dirs_df = (
+        get_calculus_summary_dir_paths_df(formulas_df))
+    utilities.create_sub_directories_from_df(
+        base_dir = docs_dir, sub_paths_df = calculus_summary_dirs_df)    
+    front_matter_index_files = {'bookCollapseSection' : True}
+    utilities.create_index_files(
+        base_dir=docs_dir, dirs_df=calculus_summary_dirs_df, 
+        front_matter=front_matter_index_files,
+        sort_orders_df = sort_orders_df)
+
+    calculus_summary_file_paths_df = (
+        get_calculus_summary_file_paths_df(calculus_summary_dirs_df))
+
+    utilities.create_files(base_dir = docs_dir, 
+                           file_paths_df= calculus_summary_file_paths_df, 
+                           file_extension='.md', 
+                           fn=get_calculus_summary_display_string, 
+                           sort_orders_df = sort_orders_df,
+                           formulas_df = formulas_df, 
+                           formula_sheet_list = formula_sheet_list, 
+                           cols_to_highlight_if_in_formula_sheet = [
+                               'Differentiation', 'Integration'])
+    
+
+def create_financial_summary(formulas_df, formula_sheet_list,
+                            sort_orders_df, docs_dir):
+    """Creates custom financial formulas formulas markdown files"""
+    financial_summary_dirs_df = (
+        get_financial_summary_dir_paths_df(formulas_df))
+    utilities.create_sub_directories_from_df(
+        base_dir = docs_dir, sub_paths_df = financial_summary_dirs_df)    
+    front_matter_index_files = {'bookCollapseSection' : True}
+    utilities.create_index_files(
+        base_dir=docs_dir, dirs_df=financial_summary_dirs_df, 
+        front_matter=front_matter_index_files,
+        sort_orders_df = sort_orders_df)
+
+    financial_summary_file_paths_df = (
+        get_financial_summary_file_paths_df(
+            financial_summary_dirs_df))
+
+    utilities.create_files(base_dir = docs_dir, 
+                           file_paths_df= financial_summary_file_paths_df, 
+                           file_extension='.md', 
+                           fn=get_financial_summary_display_string, 
+                           sort_orders_df = sort_orders_df,
+                           formulas_df = formulas_df, 
+                           formula_sheet_list = formula_sheet_list, 
+                           cols_to_highlight_if_in_formula_sheet = [
+                               'Arithmetic sequence', 'Geometric sequence'])
+
 
 def get_formulas_by_year_df(formulas_df):
     """Makes a copy of formulas_df pandas dataframe and adds
