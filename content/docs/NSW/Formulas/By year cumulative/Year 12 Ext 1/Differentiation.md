@@ -9,127 +9,127 @@ weight: 5
 #  
 <br>
 <style type="text/css">
-#T_f0c4b th.col_heading {
+#T_dfed5 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_f0c4b td {
+#T_dfed5 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_f0c4b_row0_col0, #T_f0c4b_row1_col0, #T_f0c4b_row2_col0, #T_f0c4b_row3_col0, #T_f0c4b_row4_col0, #T_f0c4b_row5_col0, #T_f0c4b_row6_col0, #T_f0c4b_row7_col0, #T_f0c4b_row8_col0, #T_f0c4b_row9_col0, #T_f0c4b_row10_col0, #T_f0c4b_row11_col0, #T_f0c4b_row12_col0, #T_f0c4b_row13_col0, #T_f0c4b_row14_col0, #T_f0c4b_row15_col0, #T_f0c4b_row16_col0, #T_f0c4b_row17_col0, #T_f0c4b_row18_col0, #T_f0c4b_row19_col0, #T_f0c4b_row20_col0, #T_f0c4b_row21_col0, #T_f0c4b_row22_col0, #T_f0c4b_row23_col0, #T_f0c4b_row24_col0 {
+#T_dfed5_row0_col0, #T_dfed5_row1_col0, #T_dfed5_row2_col0, #T_dfed5_row3_col0, #T_dfed5_row4_col0, #T_dfed5_row5_col0, #T_dfed5_row6_col0, #T_dfed5_row7_col0, #T_dfed5_row8_col0, #T_dfed5_row9_col0, #T_dfed5_row10_col0, #T_dfed5_row11_col0, #T_dfed5_row12_col0, #T_dfed5_row13_col0, #T_dfed5_row14_col0, #T_dfed5_row15_col0, #T_dfed5_row16_col0, #T_dfed5_row17_col0, #T_dfed5_row18_col0, #T_dfed5_row19_col0, #T_dfed5_row20_col0, #T_dfed5_row21_col0, #T_dfed5_row22_col0, #T_dfed5_row23_col0, #T_dfed5_row24_col0 {
   width: 300px;
   white-space: pre-wrap;
 }
-#T_f0c4b_row0_col1, #T_f0c4b_row1_col1, #T_f0c4b_row2_col1, #T_f0c4b_row3_col1, #T_f0c4b_row4_col1, #T_f0c4b_row5_col1, #T_f0c4b_row6_col1, #T_f0c4b_row7_col1, #T_f0c4b_row8_col1, #T_f0c4b_row9_col1, #T_f0c4b_row10_col1, #T_f0c4b_row11_col1, #T_f0c4b_row12_col1, #T_f0c4b_row13_col1, #T_f0c4b_row14_col1, #T_f0c4b_row15_col1, #T_f0c4b_row16_col1, #T_f0c4b_row17_col1, #T_f0c4b_row18_col1, #T_f0c4b_row19_col1, #T_f0c4b_row20_col1, #T_f0c4b_row21_col1, #T_f0c4b_row22_col1, #T_f0c4b_row23_col1, #T_f0c4b_row24_col1 {
+#T_dfed5_row0_col1, #T_dfed5_row1_col1, #T_dfed5_row2_col1, #T_dfed5_row3_col1, #T_dfed5_row4_col1, #T_dfed5_row5_col1, #T_dfed5_row6_col1, #T_dfed5_row7_col1, #T_dfed5_row8_col1, #T_dfed5_row9_col1, #T_dfed5_row10_col1, #T_dfed5_row11_col1, #T_dfed5_row12_col1, #T_dfed5_row13_col1, #T_dfed5_row14_col1, #T_dfed5_row15_col1, #T_dfed5_row16_col1, #T_dfed5_row17_col1, #T_dfed5_row18_col1, #T_dfed5_row19_col1, #T_dfed5_row20_col1, #T_dfed5_row21_col1, #T_dfed5_row22_col1, #T_dfed5_row23_col1, #T_dfed5_row24_col1 {
   width: 400px;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_f0c4b">
+<table id="T_dfed5">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_f0c4b_row0_col0" class="data row0 col0" >$ y=f(x)  $</td>
-      <td id="T_f0c4b_row0_col1" class="data row0 col1" >$ \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</td>
+      <td id="T_dfed5_row0_col0" class="data row0 col0" >$ y=f(x)  $</td>
+      <td id="T_dfed5_row0_col1" class="data row0 col1" >$ \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row1_col0" class="data row1 col0" >$ y=kx  $</td>
-      <td id="T_f0c4b_row1_col1" class="data row1 col1" >$ \dfrac{dy}{dx} =k  $</td>
+      <td id="T_dfed5_row1_col0" class="data row1 col0" >$ y=kx  $</td>
+      <td id="T_dfed5_row1_col1" class="data row1 col1" >$ \dfrac{dy}{dx} =k  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row2_col0" class="data row2 col0" >$ y=k  $</td>
-      <td id="T_f0c4b_row2_col1" class="data row2 col1" >$ \dfrac{dy}{dx} =0  $</td>
+      <td id="T_dfed5_row2_col0" class="data row2 col0" >$ y=k  $</td>
+      <td id="T_dfed5_row2_col1" class="data row2 col1" >$ \dfrac{dy}{dx} =0  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row3_col0" class="data row3 col0" >$ y=x^n  $</td>
-      <td id="T_f0c4b_row3_col1" class="data row3 col1" >$ \dfrac{dy}{dx} =nx^{n-1}  $</td>
+      <td id="T_dfed5_row3_col0" class="data row3 col0" >$ y=x^n  $</td>
+      <td id="T_dfed5_row3_col1" class="data row3 col1" >$ \dfrac{dy}{dx} =nx^{n-1}  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row4_col0" class="data row4 col0" >$ y=kx^n  $</td>
-      <td id="T_f0c4b_row4_col1" class="data row4 col1" >$ \dfrac{dy}{dx} =knx^{n-1}  $</td>
+      <td id="T_dfed5_row4_col0" class="data row4 col0" >$ y=kx^n  $</td>
+      <td id="T_dfed5_row4_col1" class="data row4 col1" >$ \dfrac{dy}{dx} =knx^{n-1}  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row5_col0" class="data row5 col0" >$ y=kf(x)  $</td>
-      <td id="T_f0c4b_row5_col1" class="data row5 col1" >$ \dfrac{dy}{dx} =kf'(x)  $</td>
+      <td id="T_dfed5_row5_col0" class="data row5 col0" >$ y=kf(x)  $</td>
+      <td id="T_dfed5_row5_col1" class="data row5 col1" >$ \dfrac{dy}{dx} =kf'(x)  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row6_col0" class="data row6 col0" >$ y=f(x) + g(x)  $</td>
-      <td id="T_f0c4b_row6_col1" class="data row6 col1" >$ \dfrac{dy}{dx} =f'(x) + g'(x)  $</td>
+      <td id="T_dfed5_row6_col0" class="data row6 col0" >$ y=f(x) + g(x)  $</td>
+      <td id="T_dfed5_row6_col1" class="data row6 col1" >$ \dfrac{dy}{dx} =f'(x) + g'(x)  $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row7_col0" class="data row7 col0" >$y=f(x)^n$</td>
-      <td id="T_f0c4b_row7_col1" class="data row7 col1" >$\dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$</td>
+      <td id="T_dfed5_row7_col0" class="data row7 col0" >$y=f(x)^n$</td>
+      <td id="T_dfed5_row7_col1" class="data row7 col1" >$\dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row8_col0" class="data row8 col0" >$y=uv$</td>
-      <td id="T_f0c4b_row8_col1" class="data row8 col1" >$ \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$</td>
+      <td id="T_dfed5_row8_col0" class="data row8 col0" >$y=uv$</td>
+      <td id="T_dfed5_row8_col1" class="data row8 col1" >$ \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row9_col0" class="data row9 col0" >$y=\dfrac{u}{v}$</td>
-      <td id="T_f0c4b_row9_col1" class="data row9 col1" >$ \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$</td>
+      <td id="T_dfed5_row9_col0" class="data row9 col0" >$y=\dfrac{u}{v}$</td>
+      <td id="T_dfed5_row9_col1" class="data row9 col1" >$ \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row10_col0" class="data row10 col0" >$y=g(u) \text { where } u = f(x)$</td>
-      <td id="T_f0c4b_row10_col1" class="data row10 col1" >$ \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx}$</td>
+      <td id="T_dfed5_row10_col0" class="data row10 col0" >$y=g(u) \text { where } u = f(x)$</td>
+      <td id="T_dfed5_row10_col1" class="data row10 col1" >$ \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row11_col0" class="data row11 col0" >$y=sinf(x)$</td>
-      <td id="T_f0c4b_row11_col1" class="data row11 col1" >$\dfrac{dy}{dx} = f'(x)cos f(x)$</td>
+      <td id="T_dfed5_row11_col0" class="data row11 col0" >$y=sinf(x)$</td>
+      <td id="T_dfed5_row11_col1" class="data row11 col1" >$\dfrac{dy}{dx} = f'(x)cos f(x)$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row12_col0" class="data row12 col0" >$y=cosf(x)$</td>
-      <td id="T_f0c4b_row12_col1" class="data row12 col1" >$ \dfrac{dy}{dx} = -f'(x)sin f(x)$</td>
+      <td id="T_dfed5_row12_col0" class="data row12 col0" >$y=cosf(x)$</td>
+      <td id="T_dfed5_row12_col1" class="data row12 col1" >$ \dfrac{dy}{dx} = -f'(x)sin f(x)$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row13_col0" class="data row13 col0" >$y=tan f(x)$</td>
-      <td id="T_f0c4b_row13_col1" class="data row13 col1" >$ \dfrac{dy}{dx} = f'(x)sec^2 f(x)$</td>
+      <td id="T_dfed5_row13_col0" class="data row13 col0" >$y=tan f(x)$</td>
+      <td id="T_dfed5_row13_col1" class="data row13 col1" >$ \dfrac{dy}{dx} = f'(x)sec^2 f(x)$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row14_col0" class="data row14 col0" >$y=e^{f(x)}$</td>
-      <td id="T_f0c4b_row14_col1" class="data row14 col1" >$ \dfrac{dy}{dx} = f'(x) e^{f(x)}$</td>
+      <td id="T_dfed5_row14_col0" class="data row14 col0" >$y=e^{f(x)}$</td>
+      <td id="T_dfed5_row14_col1" class="data row14 col1" >$ \dfrac{dy}{dx} = f'(x) e^{f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row15_col0" class="data row15 col0" >$y=\ln f(x)$</td>
-      <td id="T_f0c4b_row15_col1" class="data row15 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$</td>
+      <td id="T_dfed5_row15_col0" class="data row15 col0" >$y=\ln f(x)$</td>
+      <td id="T_dfed5_row15_col1" class="data row15 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row16_col0" class="data row16 col0" >$y=a^{f(x)}$</td>
-      <td id="T_f0c4b_row16_col1" class="data row16 col1" >$ \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$</td>
+      <td id="T_dfed5_row16_col0" class="data row16 col0" >$y=a^{f(x)}$</td>
+      <td id="T_dfed5_row16_col1" class="data row16 col1" >$ \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row17_col0" class="data row17 col0" >$y=log _{a} f(x)$</td>
-      <td id="T_f0c4b_row17_col1" class="data row17 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$</td>
+      <td id="T_dfed5_row17_col0" class="data row17 col0" >$y=log _{a} f(x)$</td>
+      <td id="T_dfed5_row17_col1" class="data row17 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row18_col0" class="data row18 col0" >$y=sin^{-1}f(x)$</td>
-      <td id="T_f0c4b_row18_col1" class="data row18 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
+      <td id="T_dfed5_row18_col0" class="data row18 col0" >$y=sin^{-1}f(x)$</td>
+      <td id="T_dfed5_row18_col1" class="data row18 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row19_col0" class="data row19 col0" >$ y = sin^{-1} \dfrac{f(x)}{a} $</td>
-      <td id="T_f0c4b_row19_col1" class="data row19 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $</td>
+      <td id="T_dfed5_row19_col0" class="data row19 col0" >$ y = sin^{-1} \dfrac{f(x)}{a} $</td>
+      <td id="T_dfed5_row19_col1" class="data row19 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row20_col0" class="data row20 col0" >$y=cos^{-1}f(x)$</td>
-      <td id="T_f0c4b_row20_col1" class="data row20 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
+      <td id="T_dfed5_row20_col0" class="data row20 col0" >$y=cos^{-1}f(x)$</td>
+      <td id="T_dfed5_row20_col1" class="data row20 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row21_col0" class="data row21 col0" >$y=cos^{-1} \dfrac{f(x)}{a}$</td>
-      <td id="T_f0c4b_row21_col1" class="data row21 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$</td>
+      <td id="T_dfed5_row21_col0" class="data row21 col0" >$y=cos^{-1} \dfrac{f(x)}{a}$</td>
+      <td id="T_dfed5_row21_col1" class="data row21 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row22_col0" class="data row22 col0" >$y=tan^{-1}f(x)$</td>
-      <td id="T_f0c4b_row22_col1" class="data row22 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$</td>
+      <td id="T_dfed5_row22_col0" class="data row22 col0" >$y=tan^{-1}f(x)$</td>
+      <td id="T_dfed5_row22_col1" class="data row22 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row23_col0" class="data row23 col0" >$y=tan^{-1}\dfrac{f(x)}{a}$</td>
-      <td id="T_f0c4b_row23_col1" class="data row23 col1" >$ \dfrac{dy}{dx} =  \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} $</td>
+      <td id="T_dfed5_row23_col0" class="data row23 col0" >$y=tan^{-1}\dfrac{f(x)}{a}$</td>
+      <td id="T_dfed5_row23_col1" class="data row23 col1" >$ \dfrac{dy}{dx} =  \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} $</td>
     </tr>
     <tr>
-      <td id="T_f0c4b_row24_col0" class="data row24 col0" >$ \text{Function and its inverse} $</td>
-      <td id="T_f0c4b_row24_col1" class="data row24 col1" >$ \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $</td>
+      <td id="T_dfed5_row24_col0" class="data row24 col0" >$ \text{Function and its inverse} $</td>
+      <td id="T_dfed5_row24_col1" class="data row24 col1" >$ \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $</td>
     </tr>
   </tbody>
 </table>
@@ -138,137 +138,137 @@ weight: 5
 {{< tab "Formula sheet" >}}Items on formula sheet are highlighted#  
 <br>
 <style type="text/css">
-#T_02c80 th.col_heading {
+#T_9afd0 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_02c80 td {
+#T_9afd0 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_02c80_row0_col0, #T_02c80_row1_col0, #T_02c80_row2_col0, #T_02c80_row3_col0, #T_02c80_row4_col0, #T_02c80_row5_col0, #T_02c80_row6_col0, #T_02c80_row19_col0, #T_02c80_row21_col0, #T_02c80_row23_col0, #T_02c80_row24_col0 {
+#T_9afd0_row0_col0, #T_9afd0_row1_col0, #T_9afd0_row2_col0, #T_9afd0_row3_col0, #T_9afd0_row4_col0, #T_9afd0_row5_col0, #T_9afd0_row6_col0, #T_9afd0_row19_col0, #T_9afd0_row21_col0, #T_9afd0_row23_col0, #T_9afd0_row24_col0 {
   width: 300px;
   white-space: pre-wrap;
 }
-#T_02c80_row0_col1, #T_02c80_row1_col1, #T_02c80_row2_col1, #T_02c80_row3_col1, #T_02c80_row4_col1, #T_02c80_row5_col1, #T_02c80_row6_col1, #T_02c80_row19_col1, #T_02c80_row21_col1, #T_02c80_row23_col1, #T_02c80_row24_col1 {
+#T_9afd0_row0_col1, #T_9afd0_row1_col1, #T_9afd0_row2_col1, #T_9afd0_row3_col1, #T_9afd0_row4_col1, #T_9afd0_row5_col1, #T_9afd0_row6_col1, #T_9afd0_row19_col1, #T_9afd0_row21_col1, #T_9afd0_row23_col1, #T_9afd0_row24_col1 {
   width: 400px;
   white-space: pre-wrap;
 }
-#T_02c80_row7_col0, #T_02c80_row8_col0, #T_02c80_row9_col0, #T_02c80_row10_col0, #T_02c80_row11_col0, #T_02c80_row12_col0, #T_02c80_row13_col0, #T_02c80_row14_col0, #T_02c80_row15_col0, #T_02c80_row16_col0, #T_02c80_row17_col0, #T_02c80_row18_col0, #T_02c80_row20_col0, #T_02c80_row22_col0 {
+#T_9afd0_row7_col0, #T_9afd0_row8_col0, #T_9afd0_row9_col0, #T_9afd0_row10_col0, #T_9afd0_row11_col0, #T_9afd0_row12_col0, #T_9afd0_row13_col0, #T_9afd0_row14_col0, #T_9afd0_row15_col0, #T_9afd0_row16_col0, #T_9afd0_row17_col0, #T_9afd0_row18_col0, #T_9afd0_row20_col0, #T_9afd0_row22_col0 {
   width: 300px;
   background-color: rgba(255,194,10, 0.2);
   white-space: pre-wrap;
 }
-#T_02c80_row7_col1, #T_02c80_row8_col1, #T_02c80_row9_col1, #T_02c80_row10_col1, #T_02c80_row11_col1, #T_02c80_row12_col1, #T_02c80_row13_col1, #T_02c80_row14_col1, #T_02c80_row15_col1, #T_02c80_row16_col1, #T_02c80_row17_col1, #T_02c80_row18_col1, #T_02c80_row20_col1, #T_02c80_row22_col1 {
+#T_9afd0_row7_col1, #T_9afd0_row8_col1, #T_9afd0_row9_col1, #T_9afd0_row10_col1, #T_9afd0_row11_col1, #T_9afd0_row12_col1, #T_9afd0_row13_col1, #T_9afd0_row14_col1, #T_9afd0_row15_col1, #T_9afd0_row16_col1, #T_9afd0_row17_col1, #T_9afd0_row18_col1, #T_9afd0_row20_col1, #T_9afd0_row22_col1 {
   width: 400px;
   background-color: rgba(255,194,10, 0.2);
   white-space: pre-wrap;
 }
 </style>
-<table id="T_02c80">
+<table id="T_9afd0">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_02c80_row0_col0" class="data row0 col0" >$ y=f(x)  $</td>
-      <td id="T_02c80_row0_col1" class="data row0 col1" >$ \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</td>
+      <td id="T_9afd0_row0_col0" class="data row0 col0" >$ y=f(x)  $</td>
+      <td id="T_9afd0_row0_col1" class="data row0 col1" >$ \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row1_col0" class="data row1 col0" >$ y=kx  $</td>
-      <td id="T_02c80_row1_col1" class="data row1 col1" >$ \dfrac{dy}{dx} =k  $</td>
+      <td id="T_9afd0_row1_col0" class="data row1 col0" >$ y=kx  $</td>
+      <td id="T_9afd0_row1_col1" class="data row1 col1" >$ \dfrac{dy}{dx} =k  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row2_col0" class="data row2 col0" >$ y=k  $</td>
-      <td id="T_02c80_row2_col1" class="data row2 col1" >$ \dfrac{dy}{dx} =0  $</td>
+      <td id="T_9afd0_row2_col0" class="data row2 col0" >$ y=k  $</td>
+      <td id="T_9afd0_row2_col1" class="data row2 col1" >$ \dfrac{dy}{dx} =0  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row3_col0" class="data row3 col0" >$ y=x^n  $</td>
-      <td id="T_02c80_row3_col1" class="data row3 col1" >$ \dfrac{dy}{dx} =nx^{n-1}  $</td>
+      <td id="T_9afd0_row3_col0" class="data row3 col0" >$ y=x^n  $</td>
+      <td id="T_9afd0_row3_col1" class="data row3 col1" >$ \dfrac{dy}{dx} =nx^{n-1}  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row4_col0" class="data row4 col0" >$ y=kx^n  $</td>
-      <td id="T_02c80_row4_col1" class="data row4 col1" >$ \dfrac{dy}{dx} =knx^{n-1}  $</td>
+      <td id="T_9afd0_row4_col0" class="data row4 col0" >$ y=kx^n  $</td>
+      <td id="T_9afd0_row4_col1" class="data row4 col1" >$ \dfrac{dy}{dx} =knx^{n-1}  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row5_col0" class="data row5 col0" >$ y=kf(x)  $</td>
-      <td id="T_02c80_row5_col1" class="data row5 col1" >$ \dfrac{dy}{dx} =kf'(x)  $</td>
+      <td id="T_9afd0_row5_col0" class="data row5 col0" >$ y=kf(x)  $</td>
+      <td id="T_9afd0_row5_col1" class="data row5 col1" >$ \dfrac{dy}{dx} =kf'(x)  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row6_col0" class="data row6 col0" >$ y=f(x) + g(x)  $</td>
-      <td id="T_02c80_row6_col1" class="data row6 col1" >$ \dfrac{dy}{dx} =f'(x) + g'(x)  $</td>
+      <td id="T_9afd0_row6_col0" class="data row6 col0" >$ y=f(x) + g(x)  $</td>
+      <td id="T_9afd0_row6_col1" class="data row6 col1" >$ \dfrac{dy}{dx} =f'(x) + g'(x)  $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row7_col0" class="data row7 col0" >$y=f(x)^n$</td>
-      <td id="T_02c80_row7_col1" class="data row7 col1" >$\dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$</td>
+      <td id="T_9afd0_row7_col0" class="data row7 col0" >$y=f(x)^n$</td>
+      <td id="T_9afd0_row7_col1" class="data row7 col1" >$\dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row8_col0" class="data row8 col0" >$y=uv$</td>
-      <td id="T_02c80_row8_col1" class="data row8 col1" >$ \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$</td>
+      <td id="T_9afd0_row8_col0" class="data row8 col0" >$y=uv$</td>
+      <td id="T_9afd0_row8_col1" class="data row8 col1" >$ \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row9_col0" class="data row9 col0" >$y=\dfrac{u}{v}$</td>
-      <td id="T_02c80_row9_col1" class="data row9 col1" >$ \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$</td>
+      <td id="T_9afd0_row9_col0" class="data row9 col0" >$y=\dfrac{u}{v}$</td>
+      <td id="T_9afd0_row9_col1" class="data row9 col1" >$ \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row10_col0" class="data row10 col0" >$y=g(u) \text { where } u = f(x)$</td>
-      <td id="T_02c80_row10_col1" class="data row10 col1" >$ \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx}$</td>
+      <td id="T_9afd0_row10_col0" class="data row10 col0" >$y=g(u) \text { where } u = f(x)$</td>
+      <td id="T_9afd0_row10_col1" class="data row10 col1" >$ \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row11_col0" class="data row11 col0" >$y=sinf(x)$</td>
-      <td id="T_02c80_row11_col1" class="data row11 col1" >$\dfrac{dy}{dx} = f'(x)cos f(x)$</td>
+      <td id="T_9afd0_row11_col0" class="data row11 col0" >$y=sinf(x)$</td>
+      <td id="T_9afd0_row11_col1" class="data row11 col1" >$\dfrac{dy}{dx} = f'(x)cos f(x)$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row12_col0" class="data row12 col0" >$y=cosf(x)$</td>
-      <td id="T_02c80_row12_col1" class="data row12 col1" >$ \dfrac{dy}{dx} = -f'(x)sin f(x)$</td>
+      <td id="T_9afd0_row12_col0" class="data row12 col0" >$y=cosf(x)$</td>
+      <td id="T_9afd0_row12_col1" class="data row12 col1" >$ \dfrac{dy}{dx} = -f'(x)sin f(x)$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row13_col0" class="data row13 col0" >$y=tan f(x)$</td>
-      <td id="T_02c80_row13_col1" class="data row13 col1" >$ \dfrac{dy}{dx} = f'(x)sec^2 f(x)$</td>
+      <td id="T_9afd0_row13_col0" class="data row13 col0" >$y=tan f(x)$</td>
+      <td id="T_9afd0_row13_col1" class="data row13 col1" >$ \dfrac{dy}{dx} = f'(x)sec^2 f(x)$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row14_col0" class="data row14 col0" >$y=e^{f(x)}$</td>
-      <td id="T_02c80_row14_col1" class="data row14 col1" >$ \dfrac{dy}{dx} = f'(x) e^{f(x)}$</td>
+      <td id="T_9afd0_row14_col0" class="data row14 col0" >$y=e^{f(x)}$</td>
+      <td id="T_9afd0_row14_col1" class="data row14 col1" >$ \dfrac{dy}{dx} = f'(x) e^{f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row15_col0" class="data row15 col0" >$y=\ln f(x)$</td>
-      <td id="T_02c80_row15_col1" class="data row15 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$</td>
+      <td id="T_9afd0_row15_col0" class="data row15 col0" >$y=\ln f(x)$</td>
+      <td id="T_9afd0_row15_col1" class="data row15 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row16_col0" class="data row16 col0" >$y=a^{f(x)}$</td>
-      <td id="T_02c80_row16_col1" class="data row16 col1" >$ \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$</td>
+      <td id="T_9afd0_row16_col0" class="data row16 col0" >$y=a^{f(x)}$</td>
+      <td id="T_9afd0_row16_col1" class="data row16 col1" >$ \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row17_col0" class="data row17 col0" >$y=log _{a} f(x)$</td>
-      <td id="T_02c80_row17_col1" class="data row17 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$</td>
+      <td id="T_9afd0_row17_col0" class="data row17 col0" >$y=log _{a} f(x)$</td>
+      <td id="T_9afd0_row17_col1" class="data row17 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row18_col0" class="data row18 col0" >$y=sin^{-1}f(x)$</td>
-      <td id="T_02c80_row18_col1" class="data row18 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
+      <td id="T_9afd0_row18_col0" class="data row18 col0" >$y=sin^{-1}f(x)$</td>
+      <td id="T_9afd0_row18_col1" class="data row18 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row19_col0" class="data row19 col0" >$ y = sin^{-1} \dfrac{f(x)}{a} $</td>
-      <td id="T_02c80_row19_col1" class="data row19 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $</td>
+      <td id="T_9afd0_row19_col0" class="data row19 col0" >$ y = sin^{-1} \dfrac{f(x)}{a} $</td>
+      <td id="T_9afd0_row19_col1" class="data row19 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row20_col0" class="data row20 col0" >$y=cos^{-1}f(x)$</td>
-      <td id="T_02c80_row20_col1" class="data row20 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
+      <td id="T_9afd0_row20_col0" class="data row20 col0" >$y=cos^{-1}f(x)$</td>
+      <td id="T_9afd0_row20_col1" class="data row20 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row21_col0" class="data row21 col0" >$y=cos^{-1} \dfrac{f(x)}{a}$</td>
-      <td id="T_02c80_row21_col1" class="data row21 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$</td>
+      <td id="T_9afd0_row21_col0" class="data row21 col0" >$y=cos^{-1} \dfrac{f(x)}{a}$</td>
+      <td id="T_9afd0_row21_col1" class="data row21 col1" >$ \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row22_col0" class="data row22 col0" >$y=tan^{-1}f(x)$</td>
-      <td id="T_02c80_row22_col1" class="data row22 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$</td>
+      <td id="T_9afd0_row22_col0" class="data row22 col0" >$y=tan^{-1}f(x)$</td>
+      <td id="T_9afd0_row22_col1" class="data row22 col1" >$ \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$</td>
     </tr>
     <tr>
-      <td id="T_02c80_row23_col0" class="data row23 col0" >$y=tan^{-1}\dfrac{f(x)}{a}$</td>
-      <td id="T_02c80_row23_col1" class="data row23 col1" >$ \dfrac{dy}{dx} =  \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} $</td>
+      <td id="T_9afd0_row23_col0" class="data row23 col0" >$y=tan^{-1}\dfrac{f(x)}{a}$</td>
+      <td id="T_9afd0_row23_col1" class="data row23 col1" >$ \dfrac{dy}{dx} =  \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} $</td>
     </tr>
     <tr>
-      <td id="T_02c80_row24_col0" class="data row24 col0" >$ \text{Function and its inverse} $</td>
-      <td id="T_02c80_row24_col1" class="data row24 col1" >$ \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $</td>
+      <td id="T_9afd0_row24_col0" class="data row24 col0" >$ \text{Function and its inverse} $</td>
+      <td id="T_9afd0_row24_col1" class="data row24 col1" >$ \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $</td>
     </tr>
   </tbody>
 </table>

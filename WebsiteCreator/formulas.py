@@ -144,6 +144,8 @@ def get_formulas_by_year_cumulative_df(formulas_df,
     
     cumulative_hierarchy_df = (
         cumulative_hierarchy_df[
+            (cumulative_hierarchy_df['Formula sub category 1'].str.upper() ==
+             'FORMULAS') &
             (cumulative_hierarchy_df['Formula sub category 2'].str.upper() ==
              'BY YEAR CUMULATIVE') &
             (cumulative_hierarchy_df['Subject code'].notnull()) &
