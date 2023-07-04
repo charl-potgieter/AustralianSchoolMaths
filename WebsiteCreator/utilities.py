@@ -5,7 +5,7 @@ import re
 from traitlets.config import Config
 from nbconvert.exporters import MarkdownExporter
 from nbconvert.preprocessors import Preprocessor
-from custom_nb_convert_preprocessor import IncludeCellsWithTags
+from custom_nb_convert_preprocessor import IncludeCellsRemoveCodeWithTags
 
 
  
@@ -149,10 +149,13 @@ def get_front_matter_string(input_dict= {}):
     return(string_to_write)
 
 
-def filtered_notebook_md_export(input_notebook, include_tags):
+def filtered_notebook_md_export(input_notebook, include_tags=[], 
+                                remove_input_tags=[]):
     """Returns a string in markdown fomat obtained by filtering input_notebook
-    on cells that contain any of the tags in the tuple include_tag
-    Custom function custom_nb_convert_preprocessor.IncludeCellsWithTags needs
+    on cells that contain any of the tags in include_tags.
+    Input (code) is hidden if cell tag is in remove_input_tags
+    Custom function 
+    custom_nb_convert_preprocessor.IncludeCellsWithTagsRemoveCode needs
     to be imported.
     """
 
@@ -162,16 +165,17 @@ def filtered_notebook_md_export(input_notebook, include_tags):
     
     # Config is imported from traitlets.config
     c = Config()
-    c.IncludeCellsWithTags.include_cell_tags = include_tags
-    c.IncludeCellsWithTags.enabled = True
+    c.IncludeCellsRemoveCodeWithTags.include_cell_tags = include_tags
+    c.IncludeCellsRemoveCodeWithTags.remove_input_tags = remove_input_tags                                    
+    c.IncludeCellsRemoveCodeWithTags.enabled = True
     
     # Configure and run out exporter (custom_nb_convert_preprocessor.py is 
     # saved in the same directory as this file)
     c.MarkdownExporter.preprocessors = (
-        ["custom_nb_convert_preprocessor.IncludeCellsWithTags"])
+        ["custom_nb_convert_preprocessor.IncludeCellsRemoveCodeWithTags"])
     
     exporter = MarkdownExporter(config=c)
-    exporter.register_preprocessor(IncludeCellsWithTags(config=c),True)
+    exporter.register_preprocessor(IncludeCellsRemoveCodeWithTags(config=c),True)
     
     # Configure and run our exporter - returns a tuple - first element with
     # Markdown, second with notebook metadata
