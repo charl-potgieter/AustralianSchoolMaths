@@ -1,4 +1,18 @@
 import utilities
+import pandas as pd
+
+
+def get_topics_df(sort_orders_df):
+    """Returns a combined pandas dataframe from sort_orders_df
+    containging topics by year (subject code) as well as cumululative
+    topics by year (subject code)
+    """    
+    by_year_df =  (
+        get_topics_by_year_df(sort_orders_df))
+    cumulative_df = (
+        get_topics_cumulative_df(sort_orders_df))
+    topics_df = pd.concat([by_year_df, cumulative_df])
+    return(topics_df)
 
 
 def get_topics_by_year_df(sort_orders_df):
