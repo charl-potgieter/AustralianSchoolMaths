@@ -2,4 +2,6 @@
 weight: 1
 ---
 
-Indices
+# Indices
+
+Some stuff about indices here

@@ -53,3 +53,16 @@ def get_topics_cumulative_df(sort_orders_df):
     df = df[['State', 'Topic sub category 1',  'Topic sub category 2',
              'Subject code', 'Topic']]
     return(df)
+
+
+def previous_subject_codes(sort_orders_df, subject_code):
+    """Returns a list of subject codes ups to and including subject_code
+    based on the order in df_sort_orders and the logic below"""
+
+    sorted_subject_codes = list(sort_orders_df[
+        (sort_orders_df['Level_1'].str.upper()=='TOPICS') & 
+        (sort_orders_df['Level_2'].str.upper()=='BY YEAR') & 
+        (sort_orders_df['Level_4'].isnull())
+    ]['Level_3'])
+    subject_code_index = sorted_subject_codes.index(subject_code)
+    return(sorted_subject_codes[:subject_code_index+1])

@@ -110,7 +110,7 @@ def create_index_files(base_dir, dirs_df,front_matter={},
 
 
 def create_files(base_dir, file_paths_df, file_extension, fn,
-                 front_matter = {}, sort_orders_df = None, **kwargs):
+                 front_matter = {}, **kwargs):
     """Creates a file for each row in file_paths_df.  The file path is 
     base_dir combined with the path formed from the row of file_paths_df.
     The content on the file is determined by passing each row of the 
@@ -123,9 +123,9 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
         front_matter_to_write = front_matter.copy()
         
         # Get front matter portion of the string:
-        if sort_orders_df is not None:
+        if 'sort_orders_df' in kwargs:
             sort_order = lookup_list_in_df(
-                sort_orders_df, list(row.values))
+                kwargs['sort_orders_df'], list(row.values))
             if sort_order is not None:
                 front_matter_to_write['weight'] = sort_order + 1
         string_to_write = get_front_matter_string(front_matter_to_write)
@@ -149,7 +149,7 @@ def get_front_matter_string(input_dict= {}):
     return(string_to_write)
 
 
-def filtered_notebook_md_export(input_notebook, include_tags=[], 
+def filtered_notebook_md_string(input_notebook_path, include_tags=[], 
                                 remove_input_tags=[]):
     """Returns a string in markdown fomat obtained by filtering input_notebook
     on cells that contain any of the tags in include_tags.
@@ -179,5 +179,5 @@ def filtered_notebook_md_export(input_notebook, include_tags=[],
     
     # Configure and run our exporter - returns a tuple - first element with
     # Markdown, second with notebook metadata
-    output = MarkdownExporter(config=c).from_filename(input_notebook)
+    output = MarkdownExporter(config=c).from_filename(input_notebook_path)
     return(output[0])
