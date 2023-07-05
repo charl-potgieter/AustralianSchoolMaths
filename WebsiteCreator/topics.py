@@ -1,5 +1,65 @@
 import utilities
 import pandas as pd
+import os
+
+
+def create_topics_content(topics_df, sort_orders_df, docs_dir, topics_dir):
+    """Creates markdown files containing topic tables as input for static 
+    web page creation via Hugo
+    """
+
+    dirs_df = (
+        topics_df[['State', 'Topic sub category 1', 
+                             'Topic sub category 2',
+                             'Subject code']].drop_duplicates())
+    file_paths_df = (
+        topics_df[['State', 'Topic sub category 1', 
+                             'Topic sub category 2',
+                             'Subject code', 'Topic']].drop_duplicates())
+    
+    utilities.create_sub_directories_from_df(base_dir = docs_dir, 
+                                             sub_paths_df = dirs_df)
+    
+    front_matter_index_files = {'bookCollapseSection' : True}
+    utilities.create_index_files(base_dir=docs_dir, dirs_df=dirs_df, 
+                       front_matter=front_matter_index_files,
+                       sort_orders_df = sort_orders_df)
+    
+    
+    utilities.create_files(base_dir = docs_dir, file_paths_df= file_paths_df, 
+                           file_extension='.md', 
+                           fn=get_topic_display_string, 
+                           sort_orders_df=sort_orders_df,
+                           topics_df=topics_df,
+                           topics_dir=topics_dir)
+
+
+def get_topic_display_string(input_series, **kwarg):
+    """ 
+    Returns a topic summary in markdown format
+    Input series is a pandas series with fields 'Topic sub category 2', 
+    'Subject code'  **Kwarg must be called with parameters  = topics_dir and
+    sort_orders_df
+    """  
+    file_name = input_series['Topic'].lower().replace(' ', '_') + '.ipynb'
+    file_path = kwarg['topics_dir'] + os.path.sep + file_name
+    
+    if os.path.isfile(file_path):
+    
+        if input_series['Topic sub category 2'].upper() == 'BY YEAR':
+            tags = [input_series['Subject code']]
+        elif (input_series['Topic sub category 2'].upper() == 
+              'BY YEAR CUMULATIVE'):
+            tags = previous_subject_codes(
+                kwarg['sort_orders_df'], input_series['Subject code'])
+        else:
+            tags = []
+       
+        output_str = utilities.filtered_notebook_md_string(
+            input_notebook_path=file_path, include_tags=tags, 
+            remove_input_tags=['hide_code'])
+                                          
+    return(output_str)
 
 
 def get_topics_df(sort_orders_df):
@@ -62,6 +122,7 @@ def previous_subject_codes(sort_orders_df, subject_code):
     sorted_subject_codes = list(sort_orders_df[
         (sort_orders_df['Level_1'].str.upper()=='TOPICS') & 
         (sort_orders_df['Level_2'].str.upper()=='BY YEAR') & 
+        (sort_orders_df['Level_3'].notnull()) &                                 
         (sort_orders_df['Level_4'].isnull())
     ]['Level_3'])
     subject_code_index = sorted_subject_codes.index(subject_code)

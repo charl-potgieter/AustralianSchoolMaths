@@ -5,29 +5,29 @@ weight: 1
 #  
 <br>
 <style type="text/css">
-#T_f5195 th.col_heading {
+#T_afb5f th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_f5195 td {
+#T_afb5f td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_f5195_row0_col0, #T_f5195_row1_col0 {
+#T_afb5f_row0_col0, #T_afb5f_row1_col0 {
   width: 300px;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_f5195">
+<table id="T_afb5f">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_f5195_row0_col0" class="data row0 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
+      <td id="T_afb5f_row0_col0" class="data row0 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
     </tr>
     <tr>
-      <td id="T_f5195_row1_col0" class="data row1 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
+      <td id="T_afb5f_row1_col0" class="data row1 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
     </tr>
   </tbody>
 </table>
