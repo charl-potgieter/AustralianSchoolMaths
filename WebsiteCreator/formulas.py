@@ -23,7 +23,7 @@ def get_formulas_df(formulas_input_df, sort_orders_df):
 
 
 def create_formulas_content(formulas_df, formula_sheet_list, 
-                            sort_orders_df, docs_dir):
+                            sort_orders_df, docs_dir): 
     """Creates markdown files containing formula tables as input for static 
     web page creation via Hugo
     """
@@ -52,7 +52,7 @@ def create_formulas_content(formulas_df, formula_sheet_list,
                            formulas_df = formulas_df, 
                            formula_sheet_list = formula_sheet_list, 
                            cols_to_highlight_if_in_formula_sheet = [
-                               'Formula_1', 'Formula_2'])
+                               'Formula'])
 
 
 def create_calculus_summary(formulas_df, formula_sheet_list,
@@ -275,7 +275,7 @@ def get_formula_display_string(input_series, **kwarg):
     html.  Input series is a pandas series with Indices State, Subect code
     and category.  **Kwarg must be called with parameter  = formulas_df
     where formulas_df contains fields State, Subject code, Category, 
-    Formula_1, Formula_2.  Generates seperate tabs to highlight items on
+    Formula.  Generates seperate tabs to highlight items on
     formula sheet if there are any"""
     
     df = kwarg['formulas_df'].copy()
@@ -286,23 +286,17 @@ def get_formula_display_string(input_series, **kwarg):
         (df['Subject code'] == str(input_series['Subject code'])) & 
         (df['Category'] == str(input_series['Category'])))]
 
-    formula_1_and_2 = pd.concat([df['Formula_1'], df['Formula_2']])
     formula_sheet_list =kwarg.get('formula_sheet_list')
-    
-    formula_2_col_is_empty = df['Formula_2'].dropna().empty    
-    if formula_2_col_is_empty:
-        df = df[['Formula_1']]
-    else:
-        df = df[['Formula_1', 'Formula_2']]
+    df = df[['Formula']]
 
     output_string='#  \n<br>\n'
                       
     output_string+=(df_to_formula_styled_table(
-        df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+        df=df, col_widths={'Formula':400},
         display_col_headers = False, display_row_headers = False)).to_html()
 
     if formulas_contain_items_on_formula_sheet(
-        formula_1_and_2, formula_sheet_list):
+        df['Formula'], formula_sheet_list):
 
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
@@ -318,7 +312,7 @@ def get_formula_display_string(input_series, **kwarg):
             kwarg.get('cols_to_highlight_if_in_formula_sheet'))
         
         output_string+=(df_to_formula_styled_table(
-            df=df, col_widths={'Formula_1':300, 'Formula_2':400},
+            df=df, col_widths={'Formula':400},
             cols_to_highlight_if_in_formula_sheet = (
                 cols_to_highlight_if_in_formula_sheet),
             formula_sheet_list = formula_sheet_list,
@@ -334,7 +328,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
     embedded html.  Input series is a pandas series with Indices State, 
     Subect code and category.  **Kwarg must be called with 
     parameter  = formulas_df where formulas_df contains fields State, 
-    Subject code, Category, Formula_1, Formula_2.  Generates seperate tabs 
+    Subject code, Category, Formula.  Generates seperate tabs 
     to highlight items on formula sheet if there are any"""
     
     df = kwarg['formulas_df'].copy()
@@ -376,8 +370,7 @@ def get_calculus_summary_df(formulas_df):
     dataframe"""
     
     calculus_df = (formulas_df
-        [['Category', 'Group', 'Formula_1', 
-          'Formula_2', 'Comment']]
+        [['Category', 'Group', 'Formula', 'Comment']]
         [formulas_df["Category"].isin(["Differentiation","Integration"])])
     calculus_df = calculus_df.pivot(
         columns='Category', index = 'Group').fillna('')
@@ -393,16 +386,15 @@ def get_calculus_summary_df(formulas_df):
     
     calculus_df = calculus_df.sort_values(by='Group')
     calculus_df =  calculus_df.drop(
-        labels = ['Group', 'Comment Differentiation', 'Comment Integration', 
-                  'Formula_2 Integration'], axis = 1)
+        labels = ['Group', 'Comment Differentiation', 'Comment Integration'], 
+                  axis = 1)
     calculus_df = calculus_df.rename(columns={
-        "Formula_1 Differentiation": "Function", 
-        "Formula_1 Integration":"Equivalent integral",
-        "Formula_2 Differentiation": "Derivative"})
+        "Formula Differentiation": "Derivative", 
+        "Formula Integration":"Equivalent integral"})
 
     # Reorder columns
-    calculus_df = calculus_df[['Function', 'Derivative', 
-                               'Equivalent integral', 'Comment']]
+    calculus_df = calculus_df[['Derivative','Equivalent integral',
+                                'Comment']]
 
     return(calculus_df)
 
@@ -414,16 +406,16 @@ def get_calculus_summary_styler(calculus_df, formula_sheet_list=[]):
     if len(formula_sheet_list):
         styler_calculus = df_to_formula_styled_table(
             df=calculus_df, 
-            col_widths={'Function': 200, 'Derivative': 300,
-                        'Equivalent integral': 400,'Comment':600},
+            col_widths={'Derivative': 400,'Equivalent integral': 400,
+                        'Comment':600},
             cols_to_highlight_if_in_formula_sheet= {'Derivative', 
                                                     'Equivalent integral'},
             formula_sheet_list=formula_sheet_list)
     else:
         styler_calculus = df_to_formula_styled_table(
             df=calculus_df, 
-            col_widths={'Function': 200, 'Derivative': 300,
-                        'Equivalent integral': 400,'Comment':600})
+            col_widths={'Derivative': 400,'Equivalent integral': 400,
+                        'Comment':600})
 
     return(styler_calculus)
 
@@ -447,7 +439,7 @@ def get_financial_summary_display_string(input_series, **kwarg):
     """Returns a financial summmary formula table in markdown format with 
     embedded html.  Input series is a pandas series .  **Kwarg must be 
     called with parameter = formulas_df where formulas_df contains 
-    fields State, Subject code, Category, Formula_1, Formula_2.  
+    fields State, Subject code, Category, Formula.  
     Generates seperate tabs to highlight items on formula sheet if there are
     any"""
     
@@ -498,10 +490,10 @@ def get_financial_summary_df(formulas_input_df):
           )
           ])
     
-    df = df[['Sub-category_1', 'Sub-category_2', 'Formula_1']]
+    df = df[['Sub-category_1', 'Sub-category_2', 'Formula']]
     df['temp_aggregator'] = 1
     
-    df = pd.pivot_table(data=df, values='Formula_1', columns='Sub-category_1', 
+    df = pd.pivot_table(data=df, values='Formula', columns='Sub-category_1', 
                         index='Sub-category_2', aggfunc=lambda x: x)
     df.index.name = None
     df.columns.name = None
@@ -586,21 +578,14 @@ def df_to_formula_styled_table(
 
 def get_formulas_on_formula_sheet(df):
     """Returns a list of formulas on formula sheet that returns all fields 
-    Formula_1 and Formula_2 of the dataframe df where field 'On formula sheet' 
+    Formula of the dataframe df where field 'On formula sheet' 
     field is True"""
 
-    formulas_one_on_sheet = (df[
+    formulas_on_sheet = (df[
                              (df['On formula sheet'] == True) & 
-                             (df['Formula_1'].notnull())
+                             (df['Formula'].notnull())
                              ]
-                             ['Formula_1'].unique().tolist()) 
-    formulas_two_on_sheet = (df[
-                             (df['On formula sheet'] == True) & 
-                             (df['Formula_2'].notnull())
-                             ]
-                             ['Formula_2'].unique().tolist())
-    
-    formulas_on_sheet = formulas_one_on_sheet + formulas_two_on_sheet
+                             ['Formula'].unique().tolist()) 
     return (formulas_on_sheet)
 
 
@@ -613,15 +598,15 @@ def is_on_formula_sheet_formatting(formula, formula_sheet_list):
         return (None)
 
 
-def get_single_formula_1(formulas_df, category, description):
-    """Returns value in column Formula_1 of data frame formulas_df
+def get_single_formula(formulas_df, category, description):
+    """Returns value in column Formula of data frame formulas_df
     where category and descriptiom match the corresponding columns in the
     data frame
     """
     filtered_df = formulas_df.copy()[(
         (formulas_df['Category'] == category) & 
         (formulas_df['Description'] == description))]
-    filtered_array = filtered_df['Formula_1'].unique()
+    filtered_array = filtered_df['Formula'].unique()
     if len(filtered_array) ==0:
         return_value = 'No matching formula'
     elif len(filtered_array)>1:

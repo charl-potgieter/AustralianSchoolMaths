@@ -5,50 +5,50 @@ weight: 2
 #  
 <br>
 <style type="text/css">
-#T_81eba th.col_heading {
+#T_9cc24 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_81eba td {
+#T_9cc24 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_81eba_row0_col0, #T_81eba_row1_col0, #T_81eba_row2_col0, #T_81eba_row3_col0, #T_81eba_row4_col0, #T_81eba_row5_col0, #T_81eba_row6_col0, #T_81eba_row7_col0, #T_81eba_row8_col0 {
-  width: 300px;
+#T_9cc24_row0_col0, #T_9cc24_row1_col0, #T_9cc24_row2_col0, #T_9cc24_row3_col0, #T_9cc24_row4_col0, #T_9cc24_row5_col0, #T_9cc24_row6_col0, #T_9cc24_row7_col0, #T_9cc24_row8_col0 {
+  width: 400px;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_81eba">
+<table id="T_9cc24">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_81eba_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
+      <td id="T_9cc24_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
+      <td id="T_9cc24_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
+      <td id="T_9cc24_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
+      <td id="T_9cc24_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
+      <td id="T_9cc24_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row5_col0" class="data row5 col0" >$a^0=1$</td>
+      <td id="T_9cc24_row5_col0" class="data row5 col0" >$a^0=1$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
+      <td id="T_9cc24_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
+      <td id="T_9cc24_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
     </tr>
     <tr>
-      <td id="T_81eba_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
+      <td id="T_9cc24_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
     </tr>
   </tbody>
 </table>
