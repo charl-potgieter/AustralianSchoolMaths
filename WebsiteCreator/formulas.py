@@ -84,7 +84,7 @@ def create_calculus_summary(
                            formulas_df = formulas_df, 
                            formula_sheet_items = formula_sheet_items, 
                            cols_to_highlight = [
-                               'Differentiation', 'Integration'])
+                               'Derivative', 'Equivalent integral'])
     
 
 def create_financial_summary(
@@ -282,60 +282,94 @@ def get_formula_display_string(input_series, **kwarg):
             input_series['Formula sub category 2'])) &
         (df['Subject code'] == str(input_series['Subject code'])) & 
         (df['Category'] == str(input_series['Category'])))]
-
+    df = df[['Formula']]
     formula_sheet_items =kwarg.get('formula_sheet_items')
     formula_proof_required_items = kwarg.get('formula_proof_required_items')
-    df = df[['Formula']]
-
-    output_string='#  \n<br>\n'
-                      
-    output_string+=(df_to_formula_styled_table(
+    cols_to_highlight = (kwarg.get('cols_to_highlight'))
+    
+    standard_display= '#  \n<br>\n' + (df_to_formula_styled_table(
         df=df, col_widths={'Formula':400},
         display_col_headers = False, display_row_headers = False)).to_html()
 
-    if (
+    tabs_required = (
         utilities.series_intersect(df['Formula'], formula_sheet_items) or 
-        utilities.series_intersect(df['Formula'], formula_proof_required_items)):
+        utilities.series_intersect(df['Formula'], formula_proof_required_items))
+    
+    if not tabs_required:
+        output_string = standard_display
+    else:
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
             '{{< tab "Standard view" >}}\n\n' + 
-            output_string + '{{< /tab >}}')
-
-    if utilities.series_intersect(df['Formula'], formula_sheet_items):
-        output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
-        output_string+='Items on formula sheet are highlighted'
-        output_string+='\n<br>\n'
-        cols_to_highlight = (
-            kwarg.get('cols_to_highlight'))
-        output_string+=(df_to_formula_styled_table(
-            df=df, col_widths={'Formula':400},
-            cols_to_highlight = (
-                cols_to_highlight),
-            formula_sheet_items = formula_sheet_items,
-            display_col_headers = False, display_row_headers = False)).to_html()
-        output_string+='{{< /tab >}}'  
-
-    if utilities.series_intersect(df['Formula'], formula_proof_required_items):
-        output_string+='\n\n' + '{{< tab "Proofs required" >}}'
-        output_string+='Items where proofs are required are highlighted'
-        output_string+='\n<br>\n'
-        cols_to_highlight = (
-            kwarg.get('cols_to_highlight'))
-        output_string+=(df_to_formula_styled_table(
-            df=df, col_widths={'Formula':400},
-            cols_to_highlight = (
-                cols_to_highlight),
-            formula_proof_required_items = formula_proof_required_items,
-            display_col_headers = False, display_row_headers = False)).to_html()
-        output_string+='{{< /tab >}}'          
-    
-    if (
-        utilities.series_intersect(df['Formula'], formula_sheet_items) or 
-        utilities.series_intersect(df['Formula'], formula_proof_required_items)):        
+            standard_display + '{{< /tab >}}')
+        if utilities.series_intersect(df['Formula'], formula_sheet_items):
+            output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
+            output_string+='Items on formula sheet are highlighted'
+            output_string+='\n<br>\n'
+            output_string+=(df_to_formula_styled_table(
+                df=df, col_widths={'Formula':400},
+                cols_to_highlight = (
+                    cols_to_highlight),
+                formula_sheet_items = formula_sheet_items,
+                display_col_headers = False, display_row_headers = False)).to_html()
+            output_string+='{{< /tab >}}'  
+        if utilities.series_intersect(df['Formula'], formula_proof_required_items):
+            output_string+='\n\n' + '{{< tab "Proofs required" >}}'
+            output_string+='Items where proofs are required are highlighted'
+            output_string+='\n<br>\n'
+            output_string+=(df_to_formula_styled_table(
+                df=df, col_widths={'Formula':400},
+                cols_to_highlight = (
+                    cols_to_highlight),
+                formula_proof_required_items = formula_proof_required_items,
+                display_col_headers = False, display_row_headers = False)).to_html()
+            output_string+='{{< /tab >}}'          
         output_string+='\n{{< /tabs >}}'
                       
     return(output_string)
     
+
+# def get_calculus_summary_display_string(input_series, **kwarg):
+#     """Returns a calculus summmary formula table in markdown format with 
+#     embedded html.  Input series is a pandas series with Indices State, 
+#     Subect code and category.  **Kwarg must be called with 
+#     parameter  = formulas_df where formulas_df contains fields State, 
+#     Subject code, Category, Formula.  Generates seperate tabs 
+#     to highlight items on formula sheet if there are any"""
+    
+#     df = kwarg['formulas_df'].copy()
+#     df = df[(
+#         (df['State'] == str(input_series['State'])) &
+#         (df['Formula sub category 2'] == str(
+#             input_series['Formula sub category 2'])) &
+#         (df['Subject code'] == str(input_series['Subject code'])))]
+
+#     formula_sheet_items =kwarg.get('formula_sheet_items')
+    
+#     output_string='#  \n<br>\n'
+#     calculus_df = get_calculus_summary_df(df)
+#     calculus_styler = get_calculus_summary_styler(calculus_df)
+#     output_string+=calculus_styler.to_html()
+
+#     calculus_formulas = pd.concat([calculus_df['Derivative'], 
+#                                   calculus_df['Equivalent integral']])
+
+#     if utilities.series_intersect(
+#         calculus_formulas, formula_sheet_items):
+#         output_string = (
+#             '{{< tabs "uniqueid" >}}\n\n' + 
+#             '{{< tab "Standard view" >}}\n\n' + 
+#             output_string + '{{< /tab >}}')
+#         output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
+#         output_string+='Items on formula sheet are highlighted'
+#         output_string+='\n<br><br><br>\n'
+#         calculus_styler = get_calculus_summary_styler(calculus_df, 
+#                                                       formula_sheet_items)
+#         output_string+=calculus_styler.to_html()
+#         output_string+='{{< /tab >}}\n{{< /tabs >}}'
+    
+#     return(output_string)
+
 
 def get_calculus_summary_display_string(input_series, **kwarg):
     """Returns a calculus summmary formula table in markdown format with 
@@ -351,32 +385,67 @@ def get_calculus_summary_display_string(input_series, **kwarg):
         (df['Formula sub category 2'] == str(
             input_series['Formula sub category 2'])) &
         (df['Subject code'] == str(input_series['Subject code'])))]
-
+    df = get_calculus_summary_df(df)
     formula_sheet_items =kwarg.get('formula_sheet_items')
+    formula_proof_required_items = kwarg.get('formula_proof_required_items')
+    cols_to_highlight = (kwarg.get('cols_to_highlight'))
     
-    output_string='#  \n<br>\n'
-    calculus_df = get_calculus_summary_df(df)
-    calculus_styler = get_calculus_summary_styler(calculus_df)
-    output_string+=calculus_styler.to_html()
+    standard_display=(
+        '#  \n<br>\n' + 
+        df_to_formula_styled_table(
+            df=df, 
+            col_widths={'Derivative': 400, 'Equivalent integral': 400,
+                        'Comment':600}).to_html())
 
-    calculus_formulas = pd.concat([calculus_df['Derivative'], 
-                                  calculus_df['Equivalent integral']])
+    calculus_formulas = pd.concat(
+        [df['Derivative'], df['Equivalent integral']])
 
-    if utilities.series_intersect(
-        calculus_formulas, formula_sheet_items):
+    tabs_required = (
+        utilities.series_intersect(calculus_formulas, formula_sheet_items)
+        or 
+        utilities.series_intersect(
+            calculus_formulas, formula_proof_required_items))
+
+    if not tabs_required:
+        output_string = standard_display
+    else:
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
             '{{< tab "Standard view" >}}\n\n' + 
-            output_string + '{{< /tab >}}')
-        output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
-        output_string+='Items on formula sheet are highlighted'
-        output_string+='\n<br><br><br>\n'
-        calculus_styler = get_calculus_summary_styler(calculus_df, 
-                                                      formula_sheet_items)
-        output_string+=calculus_styler.to_html()
-        output_string+='{{< /tab >}}\n{{< /tabs >}}'
-    
+            standard_display + '{{< /tab >}}')    
+        if utilities.series_intersect(calculus_formulas, 
+                                      formula_sheet_items):
+            output_string += '\n\n' + '{{< tab "Formula sheet" >}}'
+            output_string += 'Items on formula sheet are highlighted'
+            output_string += '\n<br><br><br>\n'
+            output_string += df_to_formula_styled_table(
+                df=df,col_widths={'Derivative': 400, 
+                                  'Equivalent integral': 400,
+                                  'Comment':600},
+                cols_to_highlight=cols_to_highlight, 
+                formula_sheet_items=formula_sheet_items
+                ).to_html()
+            output_string+='{{< /tab >}}'
+        if utilities.series_intersect(calculus_formulas, 
+                                      formula_proof_required_items):
+            output_string+='\n\n' + '{{< tab "Proofs required" >}}'
+            output_string+='Items where proofs are required are highlighted'
+            output_string+='\n<br>\n'
+            output_string+=df_to_formula_styled_table(
+                df=df,col_widths={'Derivative': 400, 
+                                  'Equivalent integral': 400,
+                                  'Comment':600},
+                cols_to_highlight=cols_to_highlight, 
+                formula_proof_required_items=formula_proof_required_items
+                ).to_html()
+            output_string+='{{< /tab >}}'
+        output_string+= '\n{{< /tabs >}}'
+        
     return(output_string)
+
+
+
+
 
 
 def get_calculus_summary_df(formulas_df):
@@ -413,26 +482,29 @@ def get_calculus_summary_df(formulas_df):
     return(calculus_df)
 
 
-def get_calculus_summary_styler(calculus_df, 
-                                formula_sheet_items=pd.Series(dtype="string")):
-    """Returns a pandas styler version of the calculus_df dataframe as 
-    returned by calculus_df_summary function"""
 
-    if len(formula_sheet_items):
-        styler_calculus = df_to_formula_styled_table(
-            df=calculus_df, 
-            col_widths={'Derivative': 400,'Equivalent integral': 400,
-                        'Comment':600},
-            cols_to_highlight= {'Derivative', 
-                                                    'Equivalent integral'},
-            formula_sheet_items=formula_sheet_items)
-    else:
-        styler_calculus = df_to_formula_styled_table(
-            df=calculus_df, 
-            col_widths={'Derivative': 400,'Equivalent integral': 400,
-                        'Comment':600})
+    
 
-    return(styler_calculus)
+# def get_calculus_summary_styler(calculus_df, 
+#                                 formula_sheet_items=pd.Series(dtype="string")):
+#     """Returns a pandas styler version of the calculus_df dataframe as 
+#     returned by calculus_df_summary function"""
+
+#     if len(formula_sheet_items):
+#         styler_calculus = df_to_formula_styled_table(
+#             df=calculus_df, 
+#             col_widths={'Derivative': 400,'Equivalent integral': 400,
+#                         'Comment':600},
+#             cols_to_highlight= {'Derivative', 
+#                                                     'Equivalent integral'},
+#             formula_sheet_items=formula_sheet_items)
+#     else:
+#         styler_calculus = df_to_formula_styled_table(
+#             df=calculus_df, 
+#             col_widths={'Derivative': 400,'Equivalent integral': 400,
+#                         'Comment':600})
+
+#     return(styler_calculus)
 
 
 def _calclus_summary_comment(row):

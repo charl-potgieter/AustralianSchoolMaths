@@ -188,6 +188,9 @@ def series_intersect(first_series, *args):
     in first_serries and *args.  Nulls are exluded"""
     current_intersect  = set(first_series.loc[lambda x: x.notnull()])
     for current_series in args:
-        current_intersect = current_intersect & set(
-            current_series.loc[lambda x: x.notnull()])
+        if current_series is None or current_series.empty:
+            return (False)
+        else:
+            current_series = current_series.loc[lambda x: x.notnull()]
+        current_intersect = current_intersect & set(current_series)
     return(len(current_intersect)>0)
