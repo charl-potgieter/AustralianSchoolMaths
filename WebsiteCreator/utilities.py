@@ -181,3 +181,13 @@ def filtered_notebook_md_string(input_notebook_path, include_tags=[],
     # Markdown, second with notebook metadata
     output = MarkdownExporter(config=c).from_filename(input_notebook_path)
     return(output[0])
+
+
+def series_intersect(first_series, *args):
+    """Returns true if there is a common intersect of each pandas series
+    in first_serries and *args.  Nulls are exluded"""
+    current_intersect  = set(first_series.loc[lambda x: x.notnull()])
+    for current_series in args:
+        current_intersect = current_intersect & set(
+            current_series.loc[lambda x: x.notnull()])
+    return(len(current_intersect)>0)

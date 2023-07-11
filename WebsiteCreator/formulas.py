@@ -22,7 +22,7 @@ def get_formulas_df(formulas_input_df, sort_orders_df):
 
 
 
-def create_formulas_content(formulas_df, formula_sheet_list, 
+def create_formulas_content(formulas_df, formula_sheet_items, 
                             sort_orders_df, docs_dir): 
     """Creates markdown files containing formula tables as input for static 
     web page creation via Hugo
@@ -50,12 +50,12 @@ def create_formulas_content(formulas_df, formula_sheet_list,
                            fn=get_formula_display_string, 
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
-                           formula_sheet_list = formula_sheet_list, 
+                           formula_sheet_items = formula_sheet_items, 
                            cols_to_highlight_if_in_formula_sheet = [
                                'Formula'])
 
 
-def create_calculus_summary(formulas_df, formula_sheet_list,
+def create_calculus_summary(formulas_df, formula_sheet_items,
                             sort_orders_df, docs_dir):
     """Creates custom differentiation and integration formulas markdown
     files"""
@@ -78,12 +78,12 @@ def create_calculus_summary(formulas_df, formula_sheet_list,
                            fn=get_calculus_summary_display_string, 
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
-                           formula_sheet_list = formula_sheet_list, 
+                           formula_sheet_items = formula_sheet_items, 
                            cols_to_highlight_if_in_formula_sheet = [
                                'Differentiation', 'Integration'])
     
 
-def create_financial_summary(formulas_df, formula_sheet_list,
+def create_financial_summary(formulas_df, formula_sheet_items,
                             sort_orders_df, docs_dir):
     """Creates custom financial formulas formulas markdown files"""
     financial_summary_dirs_df = (
@@ -106,7 +106,7 @@ def create_financial_summary(formulas_df, formula_sheet_list,
                            fn=get_financial_summary_display_string, 
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
-                           formula_sheet_list = formula_sheet_list, 
+                           formula_sheet_items = formula_sheet_items, 
                            cols_to_highlight_if_in_formula_sheet = [
                                'Arithmetic sequence', 'Geometric sequence'])
 
@@ -185,16 +185,17 @@ def get_formulas_by_year_cumulative_df(formulas_df,
     return(df)
 
 
-def formulas_contain_items_on_formula_sheet(formulas, formula_sheet_list):
-    """Returns true if there are one or more items in formulas that 
-    are contained in  formula_sheet_list"""
-    if formulas is None or formula_sheet_list is None:
-        return (False)
-    else:
-        formulas_ex_null = formulas.loc[lambda x: x.notnull()]
-        return(len(
-            (set(formulas_ex_null) & set(formula_sheet_list))
-            )>0)
+# def utilities.series_intersect(formulas, formula_sheet_items):
+#     """Returns true if there are one or more items in formulas that 
+#     are contained in  formula_sheet_items.  Formulas is a pandas series
+#     and formula_sheet_items is is a pandas series"""
+#     if formulas is None or formula_sheet_items is None:
+#         return (False)
+#     else:
+#         formulas_ex_null = formulas.loc[lambda x: x.notnull()]
+#         return(len(
+#             (set(formulas_ex_null) & set(formula_sheet_items))
+#             )>0)
 
 
 def get_calculus_summary_dir_paths_df(formulas_df):
@@ -286,7 +287,7 @@ def get_formula_display_string(input_series, **kwarg):
         (df['Subject code'] == str(input_series['Subject code'])) & 
         (df['Category'] == str(input_series['Category'])))]
 
-    formula_sheet_list =kwarg.get('formula_sheet_list')
+    formula_sheet_items =kwarg.get('formula_sheet_items')
     df = df[['Formula']]
 
     output_string='#  \n<br>\n'
@@ -295,8 +296,8 @@ def get_formula_display_string(input_series, **kwarg):
         df=df, col_widths={'Formula':400},
         display_col_headers = False, display_row_headers = False)).to_html()
 
-    if formulas_contain_items_on_formula_sheet(
-        df['Formula'], formula_sheet_list):
+    if utilities.series_intersect(
+        df['Formula'], formula_sheet_items):
 
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
@@ -315,7 +316,7 @@ def get_formula_display_string(input_series, **kwarg):
             df=df, col_widths={'Formula':400},
             cols_to_highlight_if_in_formula_sheet = (
                 cols_to_highlight_if_in_formula_sheet),
-            formula_sheet_list = formula_sheet_list,
+            formula_sheet_items = formula_sheet_items,
             display_col_headers = False, display_row_headers = False)).to_html()
 
         output_string+='{{< /tab >}}\n{{< /tabs >}}'
@@ -338,7 +339,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
             input_series['Formula sub category 2'])) &
         (df['Subject code'] == str(input_series['Subject code'])))]
 
-    formula_sheet_list =kwarg.get('formula_sheet_list')
+    formula_sheet_items =kwarg.get('formula_sheet_items')
     
     output_string='#  \n<br>\n'
     calculus_df = get_calculus_summary_df(df)
@@ -348,8 +349,8 @@ def get_calculus_summary_display_string(input_series, **kwarg):
     calculus_formulas = pd.concat([calculus_df['Derivative'], 
                                   calculus_df['Equivalent integral']])
 
-    if formulas_contain_items_on_formula_sheet(
-        calculus_formulas, formula_sheet_list):
+    if utilities.series_intersect(
+        calculus_formulas, formula_sheet_items):
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
             '{{< tab "Standard view" >}}\n\n' + 
@@ -358,7 +359,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
         output_string+='Items on formula sheet are highlighted'
         output_string+='\n<br><br><br>\n'
         calculus_styler = get_calculus_summary_styler(calculus_df, 
-                                                      formula_sheet_list)
+                                                      formula_sheet_items)
         output_string+=calculus_styler.to_html()
         output_string+='{{< /tab >}}\n{{< /tabs >}}'
     
@@ -399,18 +400,19 @@ def get_calculus_summary_df(formulas_df):
     return(calculus_df)
 
 
-def get_calculus_summary_styler(calculus_df, formula_sheet_list=[]):
+def get_calculus_summary_styler(calculus_df, 
+                                formula_sheet_items=pd.Series(dtype="string")):
     """Returns a pandas styler version of the calculus_df dataframe as 
     returned by calculus_df_summary function"""
 
-    if len(formula_sheet_list):
+    if len(formula_sheet_items):
         styler_calculus = df_to_formula_styled_table(
             df=calculus_df, 
             col_widths={'Derivative': 400,'Equivalent integral': 400,
                         'Comment':600},
             cols_to_highlight_if_in_formula_sheet= {'Derivative', 
                                                     'Equivalent integral'},
-            formula_sheet_list=formula_sheet_list)
+            formula_sheet_items=formula_sheet_items)
     else:
         styler_calculus = df_to_formula_styled_table(
             df=calculus_df, 
@@ -450,7 +452,7 @@ def get_financial_summary_display_string(input_series, **kwarg):
             input_series['Formula sub category 2'])) &
         (df['Subject code'] == str(input_series['Subject code'])))]
 
-    formula_sheet_list =kwarg.get('formula_sheet_list')
+    formula_sheet_items =kwarg.get('formula_sheet_items')
     
     output_string='#  \n<br>\n'
     financial_df = get_financial_summary_df(df)
@@ -460,8 +462,8 @@ def get_financial_summary_display_string(input_series, **kwarg):
     financial_formulas = pd.concat([financial_df['Arithmetic sequence'], 
                                   financial_df['Geometric sequence']])
 
-    if formulas_contain_items_on_formula_sheet(
-        financial_formulas, formula_sheet_list):
+    if utilities.series_intersect(
+        financial_formulas, formula_sheet_items):
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
             '{{< tab "Standard view" >}}\n\n' + 
@@ -470,7 +472,7 @@ def get_financial_summary_display_string(input_series, **kwarg):
         output_string+='Items on formula sheet are highlighted'
         output_string+='\n<br><br><br>\n'
         financial_styler = get_financial_summary_styler(financial_df, 
-                                                      formula_sheet_list)
+                                                      formula_sheet_items)
         output_string+=financial_styler.to_html()
         output_string+='{{< /tab >}}\n{{< /tabs >}}'
     
@@ -507,15 +509,16 @@ def get_financial_summary_df(formulas_input_df):
     return(df)
 
 
-def get_financial_summary_styler(financial_df, formula_sheet_list=[]):
+def get_financial_summary_styler(financial_df, 
+                                 formula_sheet_items=pd.Series(dtype="string")):
     """Returns a pandas styler version of the financial_df dataframe as 
     returned by get_financial_summary_df function"""
-    if len(formula_sheet_list):
+    if len(formula_sheet_items):
         styler_financial = df_to_formula_styled_table(
             df=financial_df, 
             cols_to_highlight_if_in_formula_sheet= {'Arithmetic sequence', 
                                                     'Geometric sequence'},
-            formula_sheet_list=formula_sheet_list)
+            formula_sheet_items=formula_sheet_items)
     else:
         styler_financial = df_to_formula_styled_table(
             df=financial_df)
@@ -538,8 +541,8 @@ def set_styled_table_widths(styled_table, widths):
 
 def df_to_formula_styled_table(
     df, col_widths={}, cols_to_highlight_if_in_formula_sheet=[], 
-    formula_sheet_list=[], display_col_headers = True,
-    display_row_headers = True):
+    formula_sheet_items=pd.Series(dtype="string"), 
+    display_col_headers = True, display_row_headers = True):
     """Converts pandas dataframe to a styler and applies various formatting
     Note that index of df needs to be unique"""
 
@@ -561,7 +564,7 @@ def df_to_formula_styled_table(
         styled_table = styled_table.applymap(
             is_on_formula_sheet_formatting, 
             subset=[col], 
-            formula_sheet_list=formula_sheet_list) 
+            formula_sheet_items=formula_sheet_items) 
     
     styled_table = styled_table.set_table_styles ([
         {'selector': 'th.col_heading', 'props': 
@@ -577,22 +580,22 @@ def df_to_formula_styled_table(
 
 
 def get_formulas_on_formula_sheet(df):
-    """Returns a list of formulas on formula sheet that returns all fields 
-    Formula of the dataframe df where field 'On formula sheet' 
+    """Returns a pandas series of formulas on formula sheet that returns all 
+    fields Formula of the dataframe df where field 'On formula sheet' 
     field is True"""
 
     formulas_on_sheet = (df[
                              (df['On formula sheet'] == True) & 
                              (df['Formula'].notnull())
                              ]
-                             ['Formula'].unique().tolist()) 
+                             ['Formula'].drop_duplicates()) 
     return (formulas_on_sheet)
 
 
-def is_on_formula_sheet_formatting(formula, formula_sheet_list):
+def is_on_formula_sheet_formatting(formula, formula_sheet_items):
     """Returns formatting for pandas styler object based on whether formulas 
-    is contained in formula_sheet list"""
-    if formula in formula_sheet_list:
+    is contained in formula_sheet_items (pandas series)"""
+    if formula in formula_sheet_items.values:
         return ('background-color:rgba(255,194,10, 0.2);')
     else:
         return (None)
