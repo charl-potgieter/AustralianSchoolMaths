@@ -82,7 +82,8 @@ def create_calculus_summary(
                            fn=get_calculus_summary_display_string, 
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
-                           formula_sheet_items = formula_sheet_items, 
+                           formula_sheet_items = formula_sheet_items,
+                           formula_proof_required_items=formula_proof_required_items,
                            cols_to_highlight = [
                                'Derivative', 'Equivalent integral'])
     
@@ -329,47 +330,6 @@ def get_formula_display_string(input_series, **kwarg):
     return(output_string)
     
 
-# def get_calculus_summary_display_string(input_series, **kwarg):
-#     """Returns a calculus summmary formula table in markdown format with 
-#     embedded html.  Input series is a pandas series with Indices State, 
-#     Subect code and category.  **Kwarg must be called with 
-#     parameter  = formulas_df where formulas_df contains fields State, 
-#     Subject code, Category, Formula.  Generates seperate tabs 
-#     to highlight items on formula sheet if there are any"""
-    
-#     df = kwarg['formulas_df'].copy()
-#     df = df[(
-#         (df['State'] == str(input_series['State'])) &
-#         (df['Formula sub category 2'] == str(
-#             input_series['Formula sub category 2'])) &
-#         (df['Subject code'] == str(input_series['Subject code'])))]
-
-#     formula_sheet_items =kwarg.get('formula_sheet_items')
-    
-#     output_string='#  \n<br>\n'
-#     calculus_df = get_calculus_summary_df(df)
-#     calculus_styler = get_calculus_summary_styler(calculus_df)
-#     output_string+=calculus_styler.to_html()
-
-#     calculus_formulas = pd.concat([calculus_df['Derivative'], 
-#                                   calculus_df['Equivalent integral']])
-
-#     if utilities.series_intersect(
-#         calculus_formulas, formula_sheet_items):
-#         output_string = (
-#             '{{< tabs "uniqueid" >}}\n\n' + 
-#             '{{< tab "Standard view" >}}\n\n' + 
-#             output_string + '{{< /tab >}}')
-#         output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
-#         output_string+='Items on formula sheet are highlighted'
-#         output_string+='\n<br><br><br>\n'
-#         calculus_styler = get_calculus_summary_styler(calculus_df, 
-#                                                       formula_sheet_items)
-#         output_string+=calculus_styler.to_html()
-#         output_string+='{{< /tab >}}\n{{< /tabs >}}'
-    
-#     return(output_string)
-
 
 def get_calculus_summary_display_string(input_series, **kwarg):
     """Returns a calculus summmary formula table in markdown format with 
@@ -444,10 +404,6 @@ def get_calculus_summary_display_string(input_series, **kwarg):
     return(output_string)
 
 
-
-
-
-
 def get_calculus_summary_df(formulas_df):
     """Returns a summary of derivative and integral formulas as a pandas 
     dataframe"""
@@ -480,31 +436,6 @@ def get_calculus_summary_df(formulas_df):
                                 'Comment']]
 
     return(calculus_df)
-
-
-
-    
-
-# def get_calculus_summary_styler(calculus_df, 
-#                                 formula_sheet_items=pd.Series(dtype="string")):
-#     """Returns a pandas styler version of the calculus_df dataframe as 
-#     returned by calculus_df_summary function"""
-
-#     if len(formula_sheet_items):
-#         styler_calculus = df_to_formula_styled_table(
-#             df=calculus_df, 
-#             col_widths={'Derivative': 400,'Equivalent integral': 400,
-#                         'Comment':600},
-#             cols_to_highlight= {'Derivative', 
-#                                                     'Equivalent integral'},
-#             formula_sheet_items=formula_sheet_items)
-#     else:
-#         styler_calculus = df_to_formula_styled_table(
-#             df=calculus_df, 
-#             col_widths={'Derivative': 400,'Equivalent integral': 400,
-#                         'Comment':600})
-
-#     return(styler_calculus)
 
 
 def _calclus_summary_comment(row):
@@ -548,6 +479,7 @@ def get_financial_summary_display_string(input_series, **kwarg):
                                   financial_df['Geometric sequence']])
 
     if utilities.series_intersect(
+        
         financial_formulas, formula_sheet_items):
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
