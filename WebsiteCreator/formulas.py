@@ -21,7 +21,6 @@ def get_formulas_df(formulas_input_df, sort_orders_df):
     return(formulas_df)
 
 
-
 def create_formulas_content(
     formulas_df, formula_sheet_items, formula_proof_required_items, 
     sort_orders_df, docs_dir): 
@@ -265,15 +264,15 @@ def get_financial_summary_file_paths_df(financial_dir_df):
     return(financial_file_path_df)
 
 
-def get_formula_display_string(formulas_df, state, formula_sub_category_1, 
-                               formula_sub_category_2, subject_code, category, 
-                               formula_sheet_items, 
+def get_formula_display_string(formulas_df, state, formula_sub_category_2, 
+                               subject_code, category, formula_sheet_items, 
                                formula_proof_required_items, cols_to_highlight, 
-                               sort_orders_df
-                              ):
+                               **kwargs):
     """Returns a summmary formula string table in markdown format with 
     embedded html. Generates seperate tabs to highlight items on
-    formula sheet or formula proofs if there are any."""
+    formula sheet or formula proofs if there are any.  ***kwargs are utilised
+    to ignore any excess paramaters passed by wrapper function to generate
+    files"""
     
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
@@ -333,15 +332,17 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_1,
     return(output_string)
 
 
-def get_calculus_summary_display_string(formulas_df, state, formula_sub_category_1, 
+def get_calculus_summary_display_string(formulas_df, state,  
                                formula_sub_category_2, subject_code, 
                                formula_sheet_items, type, filename,
                                formula_proof_required_items, cols_to_highlight, 
-                               sort_orders_df
+                               sort_orders_df, **kwargs
                               ):
     """Returns a calculus summmary formula table in markdown format with 
     embedded html.  Generates seperate tabs to highlight items on formula sheet
-    or formula proofs if there are any"""
+    or formula proofs if there are any.  ***kwargs are utilised
+    to ignore any excess paramaters passed by wrapper function to generate
+    files"""
     
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
@@ -405,7 +406,6 @@ def get_calculus_summary_display_string(formulas_df, state, formula_sub_category
     return(output_string)
 
 
-
 def get_financial_summary_display_string(formulas_df, state, formula_sub_category_1, 
                                formula_sub_category_2, subject_code, 
                                formula_sheet_items, type, filename,
@@ -414,7 +414,9 @@ def get_financial_summary_display_string(formulas_df, state, formula_sub_categor
                               ):
     """Returns a financial summmary formula table in markdown format with 
     embedded html.  Generates seperate tabs to highlight items on formula 
-    sheet and proofs required if there are any"""
+    sheet and proofs required if there are any.  ***kwargs are utilised
+    to ignore any excess paramaters passed by wrapper function to generate
+    files"""
     
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
@@ -550,22 +552,6 @@ def get_financial_summary_df(formulas_input_df):
          'Limiting sum'])
     df = df.sort_index()
     return(df)
-
-
-# def get_financial_summary_styler(financial_df, 
-#                                  formula_sheet_items=pd.Series(dtype="string")):
-#     """Returns a pandas styler version of the financial_df dataframe as 
-#     returned by get_financial_summary_df function"""
-#     if len(formula_sheet_items):
-#         styler_financial = df_to_formula_styled_table(
-#             df=financial_df, 
-#             cols_to_highlight= {'Arithmetic sequence', 
-#                                                     'Geometric sequence'},
-#             formula_sheet_items=formula_sheet_items)
-#     else:
-#         styler_financial = df_to_formula_styled_table(
-#             df=financial_df)
-#     return(styler_financial)
 
 
 def set_styled_table_widths(styled_table, widths):
