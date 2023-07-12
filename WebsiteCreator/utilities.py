@@ -165,6 +165,7 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
         for index, value in row.items():
             kwarg_keyword = index.lower().replace(' ', '_')
             kwargs[kwarg_keyword]=str(value)
+        kwargs['sort_orders_df'] = sort_orders_df
 
         string_to_write += fn(**kwargs)
         

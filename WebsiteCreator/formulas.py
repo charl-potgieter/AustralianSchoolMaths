@@ -113,6 +113,7 @@ def create_financial_summary(
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
                            formula_sheet_items = formula_sheet_items, 
+                           formula_proof_required_items=formula_proof_required_items,
                            cols_to_highlight = [
                                'Arithmetic sequence', 'Geometric sequence'])
 
@@ -267,11 +268,12 @@ def get_financial_summary_file_paths_df(financial_dir_df):
 def get_formula_display_string(formulas_df, state, formula_sub_category_1, 
                                formula_sub_category_2, subject_code, category, 
                                formula_sheet_items, 
-                               formula_proof_required_items, cols_to_highlight
+                               formula_proof_required_items, cols_to_highlight, 
+                               sort_orders_df
                               ):
     """Returns a summmary formula string table in markdown format with 
     embedded html. Generates seperate tabs to highlight items on
-    formula sheet if there are any."""
+    formula sheet or formula proofs if there are any."""
     
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
@@ -280,7 +282,7 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_1,
         (formulas_df['Category'] == category))]
     formulas_df = formulas_df[['Formula']]
     
-    standard_display= '#  \n<br>\n' + (formulas_df_to_formula_styled_table(
+    standard_display= '#  \n<br>\n' + (df_to_formula_styled_table(
         df=formulas_df, col_widths={'Formula':400},
         display_col_headers = False, display_row_headers = False)).to_html()
 
@@ -305,7 +307,7 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_1,
             output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
             output_string+='Items on formula sheet are highlighted'
             output_string+='\n<br>\n'
-            output_string+=formulas_df_to_formula_styled_table(
+            output_string+=df_to_formula_styled_table(
                 df=formulas_df, col_widths={'Formula':400},
                 cols_to_highlight = (
                     cols_to_highlight),
@@ -318,7 +320,7 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_1,
             output_string+='\n\n' + '{{< tab "Proofs required" >}}'
             output_string+='Items where proofs are required are highlighted'
             output_string+='\n<br>\n'
-            output_string+=formulas_df_to_formula_styled_table(
+            output_string+=df_to_formula_styled_table(
                 df=formulas_df, col_widths={'Formula':400},
                 cols_to_highlight = (
                     cols_to_highlight),
@@ -331,24 +333,21 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_1,
     return(output_string)
 
 
-def get_calculus_summary_display_string(input_series, **kwarg):
+def get_calculus_summary_display_string(formulas_df, state, formula_sub_category_1, 
+                               formula_sub_category_2, subject_code, 
+                               formula_sheet_items, type, filename,
+                               formula_proof_required_items, cols_to_highlight, 
+                               sort_orders_df
+                              ):
     """Returns a calculus summmary formula table in markdown format with 
-    embedded html.  Input series is a pandas series with Indices State, 
-    Subect code and category.  **Kwarg must be called with 
-    parameter  = formulas_df where formulas_df contains fields State, 
-    Subject code, Category, Formula.  Generates seperate tabs 
-    to highlight items on formula sheet if there are any"""
+    embedded html.  Generates seperate tabs to highlight items on formula sheet
+    or formula proofs if there are any"""
     
-    df = kwarg['formulas_df'].copy()
-    df = df[(
-        (df['State'] == str(input_series['State'])) &
-        (df['Formula sub category 2'] == str(
-            input_series['Formula sub category 2'])) &
-        (df['Subject code'] == str(input_series['Subject code'])))]
-    df = get_calculus_summary_df(df)
-    formula_sheet_items =kwarg.get('formula_sheet_items')
-    formula_proof_required_items = kwarg.get('formula_proof_required_items')
-    cols_to_highlight = (kwarg.get('cols_to_highlight'))
+    formulas_df = formulas_df[(
+        (formulas_df['State'] == state) &
+        (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
+        (formulas_df['Subject code'] == subject_code))]
+    df = get_calculus_summary_df(formulas_df)
     
     standard_display=(
         '#  \n<br>\n' + 
@@ -360,11 +359,14 @@ def get_calculus_summary_display_string(input_series, **kwarg):
     calculus_formulas = pd.concat(
         [df['Derivative'], df['Equivalent integral']])
 
-    tabs_required = (
-        utilities.series_intersect(calculus_formulas, formula_sheet_items)
-        or 
-        utilities.series_intersect(
-            calculus_formulas, formula_proof_required_items))
+    some_formulas_are_on_formula_sheet = (
+        utilities.series_intersect(calculus_formulas, 
+                                   formula_sheet_items))
+    some_formulas_require_proofs = (
+        utilities.series_intersect(calculus_formulas, 
+                                   formula_proof_required_items))                                  
+    tabs_required = (some_formulas_are_on_formula_sheet or 
+                     some_formulas_require_proofs)
 
     if not tabs_required:
         output_string = standard_display
@@ -373,8 +375,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
             '{{< tabs "uniqueid" >}}\n\n' + 
             '{{< tab "Standard view" >}}\n\n' + 
             standard_display + '{{< /tab >}}')    
-        if utilities.series_intersect(calculus_formulas, 
-                                      formula_sheet_items):
+        if some_formulas_are_on_formula_sheet:
             output_string += '\n\n' + '{{< tab "Formula sheet" >}}'
             output_string += 'Items on formula sheet are highlighted'
             output_string += '\n<br><br><br>\n'
@@ -386,8 +387,7 @@ def get_calculus_summary_display_string(input_series, **kwarg):
                 formula_sheet_items=formula_sheet_items
                 ).to_html()
             output_string+='{{< /tab >}}'
-        if utilities.series_intersect(calculus_formulas, 
-                                      formula_proof_required_items):
+        if some_formulas_require_proofs:
             output_string+='\n\n' + '{{< tab "Proofs required" >}}'
             output_string+='Items where proofs are required are highlighted'
             output_string+='\n<br>\n'
@@ -399,8 +399,76 @@ def get_calculus_summary_display_string(input_series, **kwarg):
                 formula_proof_required_items=formula_proof_required_items
                 ).to_html()
             output_string+='{{< /tab >}}'
+        
         output_string+= '\n{{< /tabs >}}'
         
+    return(output_string)
+
+
+
+def get_financial_summary_display_string(formulas_df, state, formula_sub_category_1, 
+                               formula_sub_category_2, subject_code, 
+                               formula_sheet_items, type, filename,
+                               formula_proof_required_items, cols_to_highlight, 
+                               sort_orders_df
+                              ):
+    """Returns a financial summmary formula table in markdown format with 
+    embedded html.  Generates seperate tabs to highlight items on formula 
+    sheet and proofs required if there are any"""
+    
+    formulas_df = formulas_df[(
+        (formulas_df['State'] == state) &
+        (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
+        (formulas_df['Subject code'] == subject_code))]
+    df = get_financial_summary_df(formulas_df)
+    financial_formulas = pd.concat([df['Arithmetic sequence'], 
+                                  df['Geometric sequence']])
+    standard_display=(
+        '#  \n<br>\n' + 
+        df_to_formula_styled_table(
+            df=df, 
+            col_widths={'Arithmetic sequence': 400, 
+                        'Geometric sequence': 400}).to_html())
+
+    some_formulas_are_on_formula_sheet = (
+        utilities.series_intersect(financial_formulas, 
+                                   formula_sheet_items))
+    some_formulas_require_proofs = (
+        utilities.series_intersect(financial_formulas, 
+                                   formula_proof_required_items))
+    tabs_required = (some_formulas_are_on_formula_sheet or 
+                     some_formulas_require_proofs)
+
+    if tabs_required:
+        output_string = (
+            '{{< tabs "uniqueid" >}}\n\n' + 
+            '{{< tab "Standard view" >}}\n\n' + 
+            standard_display + '{{< /tab >}}')
+        if some_formulas_are_on_formula_sheet:
+            output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
+            output_string+='Items on formula sheet are highlighted'
+            output_string+='\n<br><br><br>\n'
+            output_string += df_to_formula_styled_table(
+                df=df,col_widths={'Arithmetic sequence': 400, 
+                                  'Geometric sequence': 400},
+                cols_to_highlight=cols_to_highlight, 
+                formula_sheet_items=formula_sheet_items
+                ).to_html()
+            output_string+='{{< /tab >}}'
+        if some_formulas_require_proofs:
+            output_string+='\n\n' + '{{< tab "Proofs required" >}}'
+            output_string+='Items where proofs are required are highlighted'
+            output_string+='\n<br>\n'
+            output_string+=df_to_formula_styled_table(
+                df=df,col_widths={'Arithmetic sequence': 400, 
+                                  'Geometric sequence': 400},
+                cols_to_highlight=cols_to_highlight, 
+                formula_proof_required_items=formula_proof_required_items
+                ).to_html()
+            output_string+='{{< /tab >}}'
+        
+        output_string+= '\n{{< /tabs >}}'
+    
     return(output_string)
 
 
@@ -453,48 +521,6 @@ def _calclus_summary_comment(row):
     return(return_value)
 
 
-def get_financial_summary_display_string(input_series, **kwarg):
-    """Returns a financial summmary formula table in markdown format with 
-    embedded html.  Input series is a pandas series .  **Kwarg must be 
-    called with parameter = formulas_df where formulas_df contains 
-    fields State, Subject code, Category, Formula.  
-    Generates seperate tabs to highlight items on formula sheet if there are
-    any"""
-    
-    df = kwarg['formulas_df'].copy()
-    df = df[(
-        (df['State'] == str(input_series['State'])) &
-        (df['Formula sub category 2'] == str(
-            input_series['Formula sub category 2'])) &
-        (df['Subject code'] == str(input_series['Subject code'])))]
-
-    formula_sheet_items =kwarg.get('formula_sheet_items')
-    
-    output_string='#  \n<br>\n'
-    financial_df = get_financial_summary_df(df)
-    financial_styler = get_financial_summary_styler(financial_df)
-    output_string+=financial_styler.to_html()
-
-    financial_formulas = pd.concat([financial_df['Arithmetic sequence'], 
-                                  financial_df['Geometric sequence']])
-
-    if utilities.series_intersect(
-        
-        financial_formulas, formula_sheet_items):
-        output_string = (
-            '{{< tabs "uniqueid" >}}\n\n' + 
-            '{{< tab "Standard view" >}}\n\n' + 
-            output_string + '{{< /tab >}}')
-        output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
-        output_string+='Items on formula sheet are highlighted'
-        output_string+='\n<br><br><br>\n'
-        financial_styler = get_financial_summary_styler(financial_df, 
-                                                      formula_sheet_items)
-        output_string+=financial_styler.to_html()
-        output_string+='{{< /tab >}}\n{{< /tabs >}}'
-    
-    return(output_string)
-
 
 def get_financial_summary_df(formulas_input_df):
     """Returns a summary of financial sequence and series formulas as a
@@ -526,20 +552,20 @@ def get_financial_summary_df(formulas_input_df):
     return(df)
 
 
-def get_financial_summary_styler(financial_df, 
-                                 formula_sheet_items=pd.Series(dtype="string")):
-    """Returns a pandas styler version of the financial_df dataframe as 
-    returned by get_financial_summary_df function"""
-    if len(formula_sheet_items):
-        styler_financial = df_to_formula_styled_table(
-            df=financial_df, 
-            cols_to_highlight= {'Arithmetic sequence', 
-                                                    'Geometric sequence'},
-            formula_sheet_items=formula_sheet_items)
-    else:
-        styler_financial = df_to_formula_styled_table(
-            df=financial_df)
-    return(styler_financial)
+# def get_financial_summary_styler(financial_df, 
+#                                  formula_sheet_items=pd.Series(dtype="string")):
+#     """Returns a pandas styler version of the financial_df dataframe as 
+#     returned by get_financial_summary_df function"""
+#     if len(formula_sheet_items):
+#         styler_financial = df_to_formula_styled_table(
+#             df=financial_df, 
+#             cols_to_highlight= {'Arithmetic sequence', 
+#                                                     'Geometric sequence'},
+#             formula_sheet_items=formula_sheet_items)
+#     else:
+#         styler_financial = df_to_formula_styled_table(
+#             df=financial_df)
+#     return(styler_financial)
 
 
 def set_styled_table_widths(styled_table, widths):
@@ -556,7 +582,7 @@ def set_styled_table_widths(styled_table, widths):
     return(return_table)
 
 
-def formulas_df_to_formula_styled_table(
+def df_to_formula_styled_table(
     df, col_widths={}, cols_to_highlight=[], 
     formula_sheet_items=pd.Series(dtype="string"), 
     formula_proof_required_items = pd.Series(dtype="string"),

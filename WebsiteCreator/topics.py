@@ -29,29 +29,28 @@ def create_topics_content(topics_df, sort_orders_df, docs_dir, topics_dir):
     utilities.create_files(base_dir = docs_dir, file_paths_df= file_paths_df, 
                            file_extension='.md', 
                            fn=get_topic_display_string, 
-                           sort_orders_df=sort_orders_df,
+                           # sort_orders_df=sort_orders_df,
                            topics_df=topics_df,
                            topics_dir=topics_dir)
 
 
-def get_topic_display_string(input_series, **kwarg):
+def get_topic_display_string(topic, topics_dir,  topic_sub_category_1, 
+                             topic_sub_category_2, subject_code, 
+                             sort_orders_df, topics_df, state):
     """ 
     Returns a topic summary in markdown format
-    Input series is a pandas series with fields 'Topic sub category 2', 
-    'Subject code'  **Kwarg must be called with parameters  = topics_dir and
-    sort_orders_df
     """  
-    file_name = input_series['Topic'].lower().replace(' ', '_') + '.ipynb'
-    file_path = kwarg['topics_dir'] + os.path.sep + file_name
+    file_name = topic.lower().replace(' ', '_') + '.ipynb'
+    file_path = topics_dir + os.path.sep + file_name
     
     if os.path.isfile(file_path):
-    
-        if input_series['Topic sub category 2'].upper() == 'BY YEAR':
-            tags = [input_series['Subject code']]
-        elif (input_series['Topic sub category 2'].upper() == 
-              'BY YEAR CUMULATIVE'):
-            tags = previous_subject_codes(
-                kwarg['sort_orders_df'], input_series['Subject code'])
+        
+        if topic_sub_category_2.upper() == 'BY YEAR':
+            tags = [subject_code]
+        elif (topic_sub_category_2.upper() == 
+              'BY YEAR CUMULATIVE'):                  
+            tags = previous_subject_codes(sort_orders_df, 
+                                         subject_code)
         else:
             tags = []
        
