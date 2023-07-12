@@ -29,7 +29,7 @@ def create_topics_content(topics_df, sort_orders_df, docs_dir, topics_dir):
     utilities.create_files(base_dir = docs_dir, file_paths_df= file_paths_df, 
                            file_extension='.md', 
                            fn=get_topic_display_string, 
-                           # sort_orders_df=sort_orders_df,
+                           sort_orders_df=sort_orders_df,
                            topics_df=topics_df,
                            topics_dir=topics_dir)
 
