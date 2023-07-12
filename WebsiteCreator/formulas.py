@@ -264,37 +264,34 @@ def get_financial_summary_file_paths_df(financial_dir_df):
     return(financial_file_path_df)
 
 
-def get_formula_display_string(input_series, **kwarg):
-    """Returns a summmary formula table in markdown format with embedded
-    html.  Input series is a pandas series with Indices State, Subect code
-    and category.  **Kwarg must be called with parameters
-        (i) formulas_df where formulas_df contains fields State, Subject code, 
-        Category, Formula.  
-        (ii) pandas series formula_sheet_items
-        (iii) pandas series formula_proof_required_items
-        
-        Generates seperate tabs to highlight items on
-    formula sheet if there are any"""
+def get_formula_display_string(formulas_df, state, formula_sub_category_1, 
+                               formula_sub_category_2, subject_code, category, 
+                               formula_sheet_items, 
+                               formula_proof_required_items, cols_to_highlight
+                              ):
+    """Returns a summmary formula string table in markdown format with 
+    embedded html. Generates seperate tabs to highlight items on
+    formula sheet if there are any."""
     
-    df = kwarg['formulas_df'].copy()
-    df = df[(
-        (df['State'] == str(input_series['State'])) &
-        (df['Formula sub category 2'] == str(
-            input_series['Formula sub category 2'])) &
-        (df['Subject code'] == str(input_series['Subject code'])) & 
-        (df['Category'] == str(input_series['Category'])))]
-    df = df[['Formula']]
-    formula_sheet_items =kwarg.get('formula_sheet_items')
-    formula_proof_required_items = kwarg.get('formula_proof_required_items')
-    cols_to_highlight = (kwarg.get('cols_to_highlight'))
+    formulas_df = formulas_df[(
+        (formulas_df['State'] == state) &
+        (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
+        (formulas_df['Subject code'] == subject_code) & 
+        (formulas_df['Category'] == category))]
+    formulas_df = formulas_df[['Formula']]
     
-    standard_display= '#  \n<br>\n' + (df_to_formula_styled_table(
-        df=df, col_widths={'Formula':400},
+    standard_display= '#  \n<br>\n' + (formulas_df_to_formula_styled_table(
+        df=formulas_df, col_widths={'Formula':400},
         display_col_headers = False, display_row_headers = False)).to_html()
 
-    tabs_required = (
-        utilities.series_intersect(df['Formula'], formula_sheet_items) or 
-        utilities.series_intersect(df['Formula'], formula_proof_required_items))
+    some_formulas_are_on_formula_sheet = (
+        utilities.series_intersect(formulas_df['Formula'], 
+                                   formula_sheet_items))
+    some_formulas_require_proofs = (
+        utilities.series_intersect(formulas_df['Formula'], 
+                                   formula_proof_required_items))                                  
+    tabs_required = (some_formulas_are_on_formula_sheet or 
+                     some_formulas_require_proofs)
     
     if not tabs_required:
         output_string = standard_display
@@ -303,32 +300,35 @@ def get_formula_display_string(input_series, **kwarg):
             '{{< tabs "uniqueid" >}}\n\n' + 
             '{{< tab "Standard view" >}}\n\n' + 
             standard_display + '{{< /tab >}}')
-        if utilities.series_intersect(df['Formula'], formula_sheet_items):
+        
+        if some_formulas_are_on_formula_sheet:
             output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
             output_string+='Items on formula sheet are highlighted'
             output_string+='\n<br>\n'
-            output_string+=(df_to_formula_styled_table(
-                df=df, col_widths={'Formula':400},
+            output_string+=formulas_df_to_formula_styled_table(
+                df=formulas_df, col_widths={'Formula':400},
                 cols_to_highlight = (
                     cols_to_highlight),
                 formula_sheet_items = formula_sheet_items,
-                display_col_headers = False, display_row_headers = False)).to_html()
+                display_col_headers = False, 
+                display_row_headers = False).to_html()
             output_string+='{{< /tab >}}'  
-        if utilities.series_intersect(df['Formula'], formula_proof_required_items):
+                                          
+        if some_formulas_require_proofs:
             output_string+='\n\n' + '{{< tab "Proofs required" >}}'
             output_string+='Items where proofs are required are highlighted'
             output_string+='\n<br>\n'
-            output_string+=(df_to_formula_styled_table(
-                df=df, col_widths={'Formula':400},
+            output_string+=formulas_df_to_formula_styled_table(
+                df=formulas_df, col_widths={'Formula':400},
                 cols_to_highlight = (
                     cols_to_highlight),
                 formula_proof_required_items = formula_proof_required_items,
-                display_col_headers = False, display_row_headers = False)).to_html()
+                display_col_headers = False, 
+                display_row_headers = False).to_html()
             output_string+='{{< /tab >}}'          
         output_string+='\n{{< /tabs >}}'
                       
     return(output_string)
-    
 
 
 def get_calculus_summary_display_string(input_series, **kwarg):
@@ -556,7 +556,7 @@ def set_styled_table_widths(styled_table, widths):
     return(return_table)
 
 
-def df_to_formula_styled_table(
+def formulas_df_to_formula_styled_table(
     df, col_widths={}, cols_to_highlight=[], 
     formula_sheet_items=pd.Series(dtype="string"), 
     formula_proof_required_items = pd.Series(dtype="string"),

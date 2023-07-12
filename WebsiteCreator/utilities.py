@@ -109,8 +109,38 @@ def create_index_files(base_dir, dirs_df,front_matter={},
                     text_file.write(string_to_write)
 
 
+# def create_files(base_dir, file_paths_df, file_extension, fn,
+#                  front_matter = {}, **kwargs):
+#     """Creates a file for each row in file_paths_df.  The file path is 
+#     base_dir combined with the path formed from the row of file_paths_df.
+#     The content on the file is determined by passing each row of the 
+#     file_paths_df as well as **kwargs to function fn"""
+    
+#     for index, row in file_paths_df.iterrows():
+
+#         # Use a copy on each loop to start fresh and not 
+#         # carry over any details from previos loop
+#         front_matter_to_write = front_matter.copy()
+        
+#         # Get front matter portion of the string:
+#         if 'sort_orders_df' in kwargs:
+#             sort_order = lookup_list_in_df(
+#                 kwargs['sort_orders_df'], list(row.values))
+#             if sort_order is not None:
+#                 front_matter_to_write['weight'] = sort_order + 1
+#         string_to_write = get_front_matter_string(front_matter_to_write)
+
+#         # Add other file content to the front matter
+#         string_to_write += fn(row, **kwargs)
+        
+#         file_name = (base_dir + os.path.sep + 
+#                      os.path.sep.join(+ row) + file_extension)
+#         with open(file_name, "w") as text_file:
+#             text_file.write(string_to_write)
+
+
 def create_files(base_dir, file_paths_df, file_extension, fn,
-                 front_matter = {}, **kwargs):
+                 front_matter = {}, sort_orders_df=pd.DataFrame(), **kwargs):
     """Creates a file for each row in file_paths_df.  The file path is 
     base_dir combined with the path formed from the row of file_paths_df.
     The content on the file is determined by passing each row of the 
@@ -123,21 +153,25 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
         front_matter_to_write = front_matter.copy()
         
         # Get front matter portion of the string:
-        if 'sort_orders_df' in kwargs:
+        if not sort_orders_df.empty:
             sort_order = lookup_list_in_df(
-                kwargs['sort_orders_df'], list(row.values))
+                sort_orders_df, list(row.values))
             if sort_order is not None:
                 front_matter_to_write['weight'] = sort_order + 1
         string_to_write = get_front_matter_string(front_matter_to_write)
 
-        # Add other file content to the front matter
-        string_to_write += fn(row, **kwargs)
+        # Add the row of the dataframe to kwargs to enable passing to the  
+        # fn function as keyword arguments
+        for index, value in row.items():
+            kwarg_keyword = index.lower().replace(' ', '_')
+            kwargs[kwarg_keyword]=str(value)
+
+        string_to_write += fn(**kwargs)
         
         file_name = (base_dir + os.path.sep + 
                      os.path.sep.join(+ row) + file_extension)
         with open(file_name, "w") as text_file:
             text_file.write(string_to_write)
-
 
 def get_front_matter_string(input_dict= {}):
     """Generates a front matter string for writing to a hugo .md file
