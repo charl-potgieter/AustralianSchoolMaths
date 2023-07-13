@@ -6,6 +6,7 @@ from traitlets.config import Config
 from nbconvert.exporters import MarkdownExporter
 from nbconvert.preprocessors import Preprocessor
 from custom_nb_convert_preprocessor import IncludeCellsRemoveCodeWithTags
+from IPython import embed
 
 
  
@@ -128,7 +129,7 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
         kwargs['sort_orders_df'] = sort_orders_df
 
         string_to_write += fn(**kwargs)
-        
+
         file_name = (base_dir + os.path.sep + 
                      os.path.sep.join(+ row) + file_extension)
         with open(file_name, "w") as text_file:

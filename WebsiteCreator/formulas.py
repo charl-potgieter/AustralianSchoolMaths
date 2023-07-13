@@ -7,11 +7,17 @@ from IPython import embed
 import utilities
 
 
-def get_formulas_df(formulas_input_df, sort_orders_df): 
-    """Returns a combined pandas dataframe from formulus_input_df
+def get_formulas_df(formulas_input_df, syllabus_df, sort_orders_df): 
+    """Merges formulas_input_df with syllabus_df.
+    Returns a combined pandas dataframe from formulus_input_df
     containging formulas by year (subject code) as well as cumululative
     formulas by year (subject code) based on sort_orders_df
     """
+    formulas_input_df = pd.merge(
+        left = syllabus_df, right = formulas_input_df, 
+        left_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
+        right_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
+        how = 'inner')
     by_year_df =  get_formulas_by_year_df(formulas_input_df)
     cumulative_df = get_formulas_by_year_cumulative_df(
         formulas_input_df, sort_orders_df)
@@ -262,9 +268,10 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_2,
         (formulas_df['Category'] == category))]
     formulas_df = formulas_df[['Formula']]
 
-    standard_display= '#  \n<br>\n' + (df_to_formula_styled_table(
+    standard_display=df_to_formula_styled_table(
         df=formulas_df, col_widths={'Formula':400},
-        display_col_headers = False, display_row_headers = False)).to_html()
+        display_col_headers = False, display_row_headers = False
+        ).to_html()
 
     some_formulas_are_on_formula_sheet = (
         utilities.series_intersect(formulas_df['Formula'], 
@@ -315,7 +322,7 @@ def get_formula_display_string(formulas_df, state, formula_sub_category_2,
 
 def get_calculus_summary_display_string(formulas_df, state,
                                         formula_sub_category_2, subject_code, 
-                                        formula_sheet_items, type, filename,
+                                        formula_sheet_items, type,
                                         formula_proof_required_items, 
                                         cols_to_highlight, sort_orders_df, 
                                         **kwargs):
@@ -331,12 +338,11 @@ def get_calculus_summary_display_string(formulas_df, state,
         (formulas_df['Subject code'] == subject_code))]
     df = get_calculus_summary_df(formulas_df)
     
-    standard_display=(
-        '#  \n<br>\n' + 
-        df_to_formula_styled_table(
-            df=df, 
-            col_widths={'Derivative': 400, 'Equivalent integral': 400,
-                        'Comment':600}).to_html())
+    standard_display=df_to_formula_styled_table(
+        df=df, 
+        col_widths={'Derivative': 400, 'Equivalent integral': 400,
+                    'Comment':600}
+        ).to_html()
 
     calculus_formulas = pd.concat(
         [df['Derivative'], df['Equivalent integral']])
@@ -355,12 +361,12 @@ def get_calculus_summary_display_string(formulas_df, state,
     else:
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
-            '{{< tab "Standard view" >}}\n\n' + 
+            '{{< tab "Standard view" >}}' +  '\n' + 
             standard_display + '{{< /tab >}}')    
         if some_formulas_are_on_formula_sheet:
             output_string += '\n\n' + '{{< tab "Formula sheet" >}}'
             output_string += 'Items on formula sheet are highlighted'
-            output_string += '\n<br><br><br>\n'
+            output_string += '\n<br><br>'
             output_string += df_to_formula_styled_table(
                 df=df,col_widths={'Derivative': 400, 
                                   'Equivalent integral': 400,
@@ -388,11 +394,11 @@ def get_calculus_summary_display_string(formulas_df, state,
 
 
 def get_financial_summary_display_string(formulas_df, state, 
-                                         formula_sub_category_1, 
                                          formula_sub_category_2, subject_code, 
-                                         formula_sheet_items, type, filename,
+                                         formula_sheet_items, type,
                                          formula_proof_required_items, 
-                                         cols_to_highlight, sort_orders_df):
+                                         cols_to_highlight, sort_orders_df, 
+                                         **kwargs):
     """Returns a financial summmary formula table in markdown format with 
     embedded html.  Generates seperate tabs to highlight items on formula 
     sheet and proofs required if there are any.  ***kwargs are utilised
@@ -406,12 +412,11 @@ def get_financial_summary_display_string(formulas_df, state,
     df = get_financial_summary_df(formulas_df)
     financial_formulas = pd.concat([df['Arithmetic sequence'], 
                                   df['Geometric sequence']])
-    standard_display=(
-        '#  \n<br>\n' + 
-        df_to_formula_styled_table(
-            df=df, 
-            col_widths={'Arithmetic sequence': 400, 
-                        'Geometric sequence': 400}).to_html())
+    standard_display = df_to_formula_styled_table(
+        df=df, 
+        col_widths={'Arithmetic sequence': 400, 
+        'Geometric sequence': 400}
+        ).to_html()
 
     some_formulas_are_on_formula_sheet = (
         utilities.series_intersect(financial_formulas, 
@@ -425,12 +430,12 @@ def get_financial_summary_display_string(formulas_df, state,
     if tabs_required:
         output_string = (
             '{{< tabs "uniqueid" >}}\n\n' + 
-            '{{< tab "Standard view" >}}\n\n' + 
+            '{{< tab "Standard view" >}}\n' + 
             standard_display + '{{< /tab >}}')
         if some_formulas_are_on_formula_sheet:
             output_string+='\n\n' + '{{< tab "Formula sheet" >}}'
             output_string+='Items on formula sheet are highlighted'
-            output_string+='\n<br><br><br>\n'
+            output_string+='\n<br><br>'
             output_string += df_to_formula_styled_table(
                 df=df,col_widths={'Arithmetic sequence': 400, 
                                   'Geometric sequence': 400},
