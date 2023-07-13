@@ -25,8 +25,8 @@ def delete_directory_if_it_exists(dir_to_delete):
 
 
 def lookup_list_in_df(df, list_to_find):
-    """Looks up list_to find in each row of a modified version pandas dataframe
-    df and returns the first index where a match is found.
+    """Looks up list_to find in each row of a modified version pandas 
+    dataframe df and returns the first index where a match is found.
     df is modified as follows before the lookup above is perforemed:
         -  list_len = len(list_to_find)
         - filtered on column index list_len == null and 
@@ -79,32 +79,24 @@ def create_index_files(base_dir, dirs_df,front_matter={},
     strucutres formed by joining base_dir string and each row of pandas
     dataframe dirs_df.  The content of each file is set based  on the content
     of the front_matter dictionary and optionally includes a weight 
-    (sort order) based on the order of each directory in sort_orders_df """
-
-                           
+    (sort order) based on the order of each directory in sort_orders_df """                     
     for i in range(1, len(dirs_df.columns)+1):
         # Looping through various levels in directory structure
-        subdirs_df = dirs_df.iloc[:, :i].drop_duplicates()
-        
+        subdirs_df = dirs_df.iloc[:, :i].drop_duplicates()       
         for index, row in subdirs_df.iterrows():
-
             file_name = (base_dir + os.path.sep + 
                          os.path.sep.join(row) + os.path.sep + '_index.md')
-
-            # Don't overwrite file if it exists
             if not os.path.isfile(file_name):
-            
+                # Don't overwrite file if it exists
                 # Use a copy on each loop to start fresh and not 
                 # carry over any details from previos loop
-                front_matter_to_write = front_matter.copy()
-    
+                front_matter_to_write = front_matter.copy()    
                 if sort_orders_df is not None:
                     sort_order = lookup_list_in_df(
                         sort_orders_df, list(row.values))
                     if sort_order is not None:
                         front_matter_to_write['weight'] = sort_order + 1
-                string_to_write = get_front_matter_string(front_matter_to_write)
-                
+                string_to_write = get_front_matter_string(front_matter_to_write)                
                 with open(file_name, "w") as text_file:
                     text_file.write(string_to_write)
 
@@ -115,9 +107,7 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
     base_dir combined with the path formed from the row of file_paths_df.
     The content on the file is determined by passing each row of the 
     file_paths_df as well as **kwargs to function fn"""
-    
     for index, row in file_paths_df.iterrows():
-
         # Use a copy on each loop to start fresh and not 
         # carry over any details from previos loop
         front_matter_to_write = front_matter.copy()
@@ -143,6 +133,7 @@ def create_files(base_dir, file_paths_df, file_extension, fn,
                      os.path.sep.join(+ row) + file_extension)
         with open(file_name, "w") as text_file:
             text_file.write(string_to_write)
+
 
 def get_front_matter_string(input_dict= {}):
     """Generates a front matter string for writing to a hugo .md file

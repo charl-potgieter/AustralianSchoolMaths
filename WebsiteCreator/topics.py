@@ -7,7 +7,6 @@ def create_topics_content(topics_df, sort_orders_df, docs_dir, topics_dir):
     """Creates markdown files containing topic tables as input for static 
     web page creation via Hugo
     """
-
     dirs_df = (
         topics_df[['State', 'Topic sub category 1', 
                              'Topic sub category 2',
@@ -16,16 +15,12 @@ def create_topics_content(topics_df, sort_orders_df, docs_dir, topics_dir):
         topics_df[['State', 'Topic sub category 1', 
                              'Topic sub category 2',
                              'Subject code', 'Topic']].drop_duplicates())
-    
     utilities.create_sub_directories_from_df(base_dir = docs_dir, 
                                              sub_paths_df = dirs_df)
-    
     front_matter_index_files = {'bookCollapseSection' : True}
     utilities.create_index_files(base_dir=docs_dir, dirs_df=dirs_df, 
-                       front_matter=front_matter_index_files,
-                       sort_orders_df = sort_orders_df)
-    
-    
+                                 front_matter=front_matter_index_files,
+                                 sort_orders_df = sort_orders_df)
     utilities.create_files(base_dir = docs_dir, file_paths_df= file_paths_df, 
                            file_extension='.md', 
                            fn=get_topic_display_string, 
@@ -37,14 +32,10 @@ def create_topics_content(topics_df, sort_orders_df, docs_dir, topics_dir):
 def get_topic_display_string(topic, topics_dir,  topic_sub_category_1, 
                              topic_sub_category_2, subject_code, 
                              sort_orders_df, topics_df, state):
-    """ 
-    Returns a topic summary in markdown format
-    """  
+    """ Returns a topic summary in markdown forma. """  
     file_name = topic.lower().replace(' ', '_') + '.ipynb'
     file_path = topics_dir + os.path.sep + file_name
-    
     if os.path.isfile(file_path):
-        
         if topic_sub_category_2.upper() == 'BY YEAR':
             tags = [subject_code]
         elif (topic_sub_category_2.upper() == 
@@ -53,19 +44,16 @@ def get_topic_display_string(topic, topics_dir,  topic_sub_category_1,
                                          subject_code)
         else:
             tags = []
-       
         output_str = utilities.filtered_notebook_md_string(
             input_notebook_path=file_path, include_tags=tags, 
-            remove_input_tags=['hide_code'])
-                                          
+            remove_input_tags=['hide_code'])                                          
     return(output_str)
 
 
 def get_topics_df(sort_orders_df):
     """Returns a combined pandas dataframe from sort_orders_df
     containging topics by year (subject code) as well as cumululative
-    topics by year (subject code)
-    """    
+    topics by year (subject code)"""
     by_year_df =  (
         get_topics_by_year_df(sort_orders_df))
     cumulative_df = (
@@ -76,9 +64,7 @@ def get_topics_df(sort_orders_df):
 
 def get_topics_by_year_df(sort_orders_df):
     """Makes a copy of sort_orders_df and filters to return a dataframe
-    of sorted topics by year
-    """
-
+    of sorted topics by year."""
     df = sort_orders_df.copy()
     df = df.rename(
         columns={'Level_0':'State', 'Level_1':'Topic sub category 1',
@@ -96,8 +82,7 @@ def get_topics_by_year_df(sort_orders_df):
 
 def get_topics_cumulative_df(sort_orders_df):
     """Makes a copy of sort_orders_df and filters to return a dataframe
-    of sorted topics by year cumulative
-    """
+    of sorted topics by year cumulative"""
 
     df = sort_orders_df.copy()
     df = df.rename(
