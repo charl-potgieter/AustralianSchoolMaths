@@ -63,13 +63,13 @@ def lookup_list_in_df(df, list_to_find):
         return (filtered_index[0])
      
 
-def create_sub_directories_from_df(base_dir, sub_paths_df):
+def create_subdirectories_from_df(base_dir, subpaths_df):
     """Creates (potentially multi-level) directories under base_dir where 
-    sub_paths_df is a pandas dataframe where each dataframe row contains 
+    subpaths_df is a pandas dataframe where each dataframe row contains 
     different levels of sub-directory path.  No action taken if the directory 
     already exists"""
-    sub_paths_array=sub_paths_df.to_numpy(dtype = str)
-    for path in sub_paths_array:
+    subpaths_array=subpaths_df.to_numpy(dtype = str)
+    for path in subpaths_array:
         fname = base_dir + os.path.sep + os.path.sep.join(path)
         os.makedirs(fname, exist_ok=True)
 

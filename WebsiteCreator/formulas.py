@@ -47,15 +47,15 @@ def create_formulas_content(formulas_df, formula_sheet_items,
     web page creation via Hugo
     """
     dirs_df = (
-        formulas_df[['State', 'Formula sub category 1', 
-                             'Formula sub category 2',
+        formulas_df[['State', 'Formula subcategory 1', 
+                             'Formula subcategory 2',
                              'Subject code']].drop_duplicates())
     file_paths_df = (
-        formulas_df[['State', 'Formula sub category 1', 
-                             'Formula sub category 2',
+        formulas_df[['State', 'Formula subcategory 1', 
+                             'Formula subcategory 2',
                              'Subject code', 'Category']].drop_duplicates())
-    utilities.create_sub_directories_from_df(base_dir = docs_dir, 
-                                             sub_paths_df = dirs_df)
+    utilities.create_subdirectories_from_df(base_dir = docs_dir, 
+                                             subpaths_df = dirs_df)
     front_matter_index_files = {'bookCollapseSection' : True}
     utilities.create_index_files(base_dir=docs_dir, dirs_df=dirs_df, 
                        front_matter=front_matter_index_files,
@@ -79,8 +79,8 @@ def create_calculus_summary(formulas_df, formula_sheet_items,
     files"""
     calculus_summary_dirs_df = get_calculus_summary_dir_paths_df(
             formulas_df)
-    utilities.create_sub_directories_from_df(
-            base_dir = docs_dir, sub_paths_df = calculus_summary_dirs_df)    
+    utilities.create_subdirectories_from_df(
+            base_dir = docs_dir, subpaths_df = calculus_summary_dirs_df)    
     front_matter_index_files = {'bookCollapseSection' : True}
     utilities.create_index_files(base_dir=docs_dir, 
                                  dirs_df=calculus_summary_dirs_df,
@@ -107,8 +107,8 @@ def create_financial_summary(formulas_df, formula_sheet_items,
     """Creates custom financial formulas formulas markdown files"""
     financial_summary_dirs_df = (
         get_financial_summary_dir_paths_df(formulas_df))
-    utilities.create_sub_directories_from_df(
-            base_dir = docs_dir, sub_paths_df = financial_summary_dirs_df)    
+    utilities.create_subdirectories_from_df(
+            base_dir = docs_dir, subpaths_df = financial_summary_dirs_df)    
     front_matter_index_files = {'bookCollapseSection' : True}
     utilities.create_index_files(base_dir=docs_dir, 
                                  dirs_df=financial_summary_dirs_df, 
@@ -134,11 +134,11 @@ def get_formulas_by_year_df(formulas_df):
     """Makes a copy of formulas_df pandas dataframe and adds
     below 2 fields to formulas_df dataframe and returns
     the result:
-         - 'Formula sub category 1' containing text 'Formulas'
-         - 'Formula sub category 2' containing text 'By Year'"""
+         - 'Formula subcategory 1' containing text 'Formulas'
+         - 'Formula subcategory 2' containing text 'By Year'"""
     df = formulas_df.copy()
-    df['Formula sub category 1'] = 'Formulas'
-    df['Formula sub category 2'] = 'By Year'
+    df['Formula subcategory 1'] = 'Formulas'
+    df['Formula subcategory 2'] = 'By Year'
     return(df)
 
 
@@ -148,8 +148,8 @@ def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
     """Makes a copy of formulas_df pandas dataframe and adds
     Adds below 2 fields to formulas_df dataframe and returns
     the result:
-         - 'Formula sub category 1' containing text 'Formulas'
-         - 'Formula sub category 2' containing text 
+         - 'Formula subcategory 1' containing text 'Formulas'
+         - 'Formula subcategory 2' containing text 
              'By year cumulative'
     The returned dataframe is 'cumulative' based on the Subject code in the 
     sort_order_df for example subject code year 11 includes year 9 and 
@@ -157,15 +157,15 @@ def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
 
     cumulative_hierarchy_df = sort_orders_df.copy()
     cumulative_hierarchy_df = cumulative_hierarchy_df.rename(
-        columns={'Level_0':'State', 'Level_1':'Formula sub category 1',
-                 'Level_2':'Formula sub category 2', 'Level_3':'Subject code',
+        columns={'Level_0':'State', 'Level_1':'Formula subcategory 1',
+                 'Level_2':'Formula subcategory 2', 'Level_3':'Subject code',
                  'Level_4':'Category'})
     
     cumulative_hierarchy_df = (
         cumulative_hierarchy_df[
-            (cumulative_hierarchy_df['Formula sub category 1'].str.upper() ==
+            (cumulative_hierarchy_df['Formula subcategory 1'].str.upper() ==
              'FORMULAS') &
-            (cumulative_hierarchy_df['Formula sub category 2'].str.upper() ==
+            (cumulative_hierarchy_df['Formula subcategory 2'].str.upper() ==
              'BY YEAR CUMULATIVE') &
             (cumulative_hierarchy_df['Subject code'].notnull()) &
               (cumulative_hierarchy_df['Category'].isnull())].iloc[:, :4])
@@ -214,12 +214,12 @@ def get_calculus_summary_dir_paths_df(formulas_df):
         (calculus_dir_df['Category'] == 'Integration')
     ]
     calculus_dir_df =  calculus_dir_df[
-        ['State', 'Category', 'Formula sub category 1', 
-        'Formula sub category 2', 'Subject code']].drop_duplicates()
+        ['State', 'Category', 'Formula subcategory 1', 
+        'Formula subcategory 2', 'Subject code']].drop_duplicates()
     calculus_dir_df['counter'] = 1
     calculus_dir_df = pd.pivot_table(
-        data=calculus_dir_df, index = ['State', 'Formula sub category 1', 
-                                       'Formula sub category 2', 
+        data=calculus_dir_df, index = ['State', 'Formula subcategory 1', 
+                                       'Formula subcategory 2', 
                                        'Subject code'], 
         columns = ['Category'], values='counter',  
         aggfunc=pd.Series.nunique)
@@ -254,8 +254,8 @@ def get_financial_summary_dir_paths_df(formulas_df):
         (financial_dir_df['Category'] == 'Financial mathematics')
     ]    
     financial_dir_df =  financial_dir_df[
-        ['State', 'Formula sub category 1', 
-        'Formula sub category 2', 'Subject code']].drop_duplicates()
+        ['State', 'Formula subcategory 1', 
+        'Formula subcategory 2', 'Subject code']].drop_duplicates()
     financial_dir_df['Type'] = 'Summaries'
     return(financial_dir_df)
 
@@ -271,7 +271,7 @@ def get_financial_summary_file_paths_df(financial_dir_df):
 
 
 
-def generate_formula_page(formulas_df, state, formula_sub_category_2,
+def generate_formula_page(formulas_df, state, formula_subcategory_2,
                                subject_code, category, formula_sheet_items, 
                                formula_proof_required_items, 
                                cols_to_highlight, **kwargs):                                   
@@ -282,7 +282,7 @@ def generate_formula_page(formulas_df, state, formula_sub_category_2,
     wrapper function to generate files"""    
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
-        (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
+        (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code) & 
         (formulas_df['Category'] == category))]
     formulas_df = formulas_df[['Formula']]
@@ -353,7 +353,7 @@ def generate_formula_string(formulas_df, formula_sheet_items,
 
 
 def get_calculus_summary_display_string(formulas_df, state,
-                                        formula_sub_category_2, subject_code, 
+                                        formula_subcategory_2, subject_code, 
                                         formula_sheet_items, type,
                                         formula_proof_required_items, 
                                         cols_to_highlight, sort_orders_df, 
@@ -366,7 +366,7 @@ def get_calculus_summary_display_string(formulas_df, state,
     
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
-        (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
+        (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
     df = get_calculus_summary_df(formulas_df)
     
@@ -426,7 +426,7 @@ def get_calculus_summary_display_string(formulas_df, state,
 
 
 def get_financial_summary_display_string(formulas_df, state, 
-                                         formula_sub_category_2, subject_code, 
+                                         formula_subcategory_2, subject_code, 
                                          formula_sheet_items, type,
                                          formula_proof_required_items, 
                                          cols_to_highlight, sort_orders_df, 
@@ -439,7 +439,7 @@ def get_financial_summary_display_string(formulas_df, state,
     
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
-        (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
+        (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
     df = get_financial_summary_df(formulas_df)
     financial_formulas = pd.concat([df['Arithmetic sequence'], 
@@ -549,15 +549,15 @@ def get_financial_summary_df(formulas_input_df):
           (formulas_input_df['Category'] == 'Financial mathematics') &
           (formulas_input_df['State'] == 'NSW') &
           (
-              (formulas_input_df['Sub-category_1'] == 'Arithmetic sequence') | 
-              (formulas_input_df['Sub-category_1'] == 'Geometric sequence')
+              (formulas_input_df['Subcategory_1'] == 'Arithmetic sequence') | 
+              (formulas_input_df['Subcategory_1'] == 'Geometric sequence')
           )
           ])
     
-    df = df[['Sub-category_1', 'Sub-category_2', 'Formula']]
+    df = df[['Subcategory_1', 'Subcategory_2', 'Formula']]
     df['temp_aggregator'] = 1    
-    df = pd.pivot_table(data=df, values='Formula', columns='Sub-category_1', 
-                        index='Sub-category_2', aggfunc=lambda x: x)
+    df = pd.pivot_table(data=df, values='Formula', columns='Subcategory_1', 
+                        index='Subcategory_2', aggfunc=lambda x: x)
     df.index.name = None
     df.columns.name = None
     

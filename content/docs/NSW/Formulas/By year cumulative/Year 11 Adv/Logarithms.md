@@ -2,38 +2,38 @@
 ---
 
 <style type="text/css">
-#T_5878f th.col_heading {
+#T_55e6c th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_5878f td {
+#T_55e6c td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_5878f_row0_col0, #T_5878f_row1_col0, #T_5878f_row2_col0, #T_5878f_row3_col0, #T_5878f_row4_col0 {
+#T_55e6c_row0_col0, #T_55e6c_row1_col0, #T_55e6c_row2_col0, #T_55e6c_row3_col0, #T_55e6c_row4_col0 {
   width: 400px;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_5878f">
+<table id="T_55e6c">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_5878f_row0_col0" class="data row0 col0" >$\log_a{(xy)} = \log_a{x} + log_a{y}$</td>
+      <td id="T_55e6c_row0_col0" class="data row0 col0" >$\log_a{(xy)} = \log_a{x} + log_a{y}$</td>
     </tr>
     <tr>
-      <td id="T_5878f_row1_col0" class="data row1 col0" >$\log_a{\left(\dfrac{x}{y}\right)} = \log_a{x} - log_a{y}$</td>
+      <td id="T_55e6c_row1_col0" class="data row1 col0" >$\log_a{\left(\dfrac{x}{y}\right)} = \log_a{x} - log_a{y}$</td>
     </tr>
     <tr>
-      <td id="T_5878f_row2_col0" class="data row2 col0" >$\log_a{x^n} = n\log_a{x}$</td>
+      <td id="T_55e6c_row2_col0" class="data row2 col0" >$\log_a{x^n} = n\log_a{x}$</td>
     </tr>
     <tr>
-      <td id="T_5878f_row3_col0" class="data row3 col0" >$\log_a{\left(\dfrac{1}{x}\right)} = -\log_a{x}$</td>
+      <td id="T_55e6c_row3_col0" class="data row3 col0" >$\log_a{\left(\dfrac{1}{x}\right)} = -\log_a{x}$</td>
     </tr>
     <tr>
-      <td id="T_5878f_row4_col0" class="data row4 col0" >$\log_a{x} = \dfrac{\log_b{x}}{\log_b{a}}$</td>
+      <td id="T_55e6c_row4_col0" class="data row4 col0" >$\log_a{x} = \dfrac{\log_b{x}}{\log_b{a}}$</td>
     </tr>
   </tbody>
 </table>
