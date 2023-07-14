@@ -36,7 +36,7 @@ def get_formulas_by_topic_df(formulas_input_df, syllabus_df):
         left_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
         right_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
         how = 'right')
-    df['Topic sub category 1'] = 'Topics'
+    df['Topic subcategory 1'] = 'Topics'
     return(df)
 
 
