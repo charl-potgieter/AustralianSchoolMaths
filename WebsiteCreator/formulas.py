@@ -13,16 +13,31 @@ def get_formulas_df(formulas_input_df, syllabus_df, sort_orders_df):
     containging formulas by year (subject code) as well as cumululative
     formulas by year (subject code) based on sort_orders_df
     """
-    formulas_input_df = pd.merge(
-        left = syllabus_df, right = formulas_input_df, 
+    df = formulas_input_df.copy()
+    df = pd.merge(
+        left = syllabus_df, right = df, 
         left_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
         right_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
-        how = 'inner')
-    by_year_df =  get_formulas_by_year_df(formulas_input_df)
+        how = 'right')
+    by_year_df =  get_formulas_by_year_df(df)
     cumulative_df = get_formulas_by_year_cumulative_df(
-        formulas_input_df, sort_orders_df)
+        df, sort_orders_df)
     formulas_df = pd.concat([by_year_df, cumulative_df])
     return(formulas_df)
+
+
+def get_formulas_by_topic_df(formulas_input_df, syllabus_df):
+    """Makes a copy of formulas_df pandas dataframe and adds
+    below field to formulas_df dataframe and returns
+    the result:"""
+    df = formulas_input_df.copy()
+    df = pd.merge(
+        left = syllabus_df, right = df, 
+        left_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
+        right_on = ['State', 'Subject code', 'Syllabus subtopic code'], 
+        how = 'right')
+    df['Topic sub category 1'] = 'Topics'
+    return(df)
 
 
 def create_formulas_content(formulas_df, formula_sheet_items, 
@@ -47,7 +62,7 @@ def create_formulas_content(formulas_df, formula_sheet_items,
                        sort_orders_df = sort_orders_df)
     utilities.create_files(base_dir = docs_dir, file_paths_df= file_paths_df, 
                            file_extension='.md', 
-                           fn=get_formula_display_string, 
+                           fn=generate_formula_page, 
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
                            formula_sheet_items = formula_sheet_items,
@@ -113,6 +128,8 @@ def create_financial_summary(formulas_df, formula_sheet_items,
                                'Arithmetic sequence', 'Geometric sequence'])
 
 
+
+
 def get_formulas_by_year_df(formulas_df):
     """Makes a copy of formulas_df pandas dataframe and adds
     below 2 fields to formulas_df dataframe and returns
@@ -123,6 +140,8 @@ def get_formulas_by_year_df(formulas_df):
     df['Formula sub category 1'] = 'Formulas'
     df['Formula sub category 2'] = 'By Year'
     return(df)
+
+
 
 
 def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
@@ -251,23 +270,36 @@ def get_financial_summary_file_paths_df(financial_dir_df):
     return(financial_file_path_df)
 
 
-def get_formula_display_string(formulas_df, state, formula_sub_category_2,
+
+def generate_formula_page(formulas_df, state, formula_sub_category_2,
                                subject_code, category, formula_sheet_items, 
                                formula_proof_required_items, 
                                cols_to_highlight, **kwargs):                                   
-    """Returns a summmary formula string table in markdown format with 
-    embedded html. Generates seperate tabs to highlight items on
-    formula sheet or formula proofs if there are any.  ***kwargs are utilised
-    to ignore any excess paramaters passed by wrapper function to generate
-    files"""
-    
+    """Filters formulas_df and returns a summmary formula string table in 
+    markdown format with embedded html. Generates seperate tabs to 
+    highlight items on formula sheet or formula proofs if there are any.
+    ***kwargs are utilised to ignore any excess paramaters passed by 
+    wrapper function to generate files"""    
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
         (formulas_df['Formula sub category 2'] == formula_sub_category_2) &
         (formulas_df['Subject code'] == subject_code) & 
         (formulas_df['Category'] == category))]
     formulas_df = formulas_df[['Formula']]
+    formula_string = generate_formula_string(formulas_df, 
+                                             formula_sheet_items,
+                                             formula_proof_required_items, 
+                                             cols_to_highlight)
+    return(formula_string)
+                                   
 
+def generate_formula_string(formulas_df, formula_sheet_items, 
+                               formula_proof_required_items, 
+                               cols_to_highlight):
+    """Returns a summmary formula string table in markdown format with 
+    embedded html. Generates seperate tabs to highlight items on
+    formula sheet or formula proofs if there are any."""
+                                                          
     standard_display=df_to_formula_styled_table(
         df=formulas_df, col_widths={'Formula':400},
         display_col_headers = False, display_row_headers = False
