@@ -72,9 +72,9 @@ def create_formulas_content(formulas_df, formula_sheet_items,
                                'Formula'])
 
 
-def create_calculus_summary(formulas_df, formula_sheet_items,
-                            formula_proof_required_items, 
-                            sort_orders_df, docs_dir):
+def create_calculus_summary_files(formulas_df, formula_sheet_items,
+                                  formula_proof_required_items, 
+                                  sort_orders_df, docs_dir):
     """Creates custom differentiation and integration formulas markdown
     files"""
     calculus_summary_dirs_df = get_calculus_summary_dir_paths_df(
@@ -91,7 +91,7 @@ def create_calculus_summary(formulas_df, formula_sheet_items,
     utilities.create_files(base_dir = docs_dir, 
                            file_paths_df= calculus_summary_file_paths_df, 
                            file_extension='.md', 
-                           fn=get_calculus_summary_display_string, 
+                           fn=generate_calculus_page, 
                            sort_orders_df = sort_orders_df,
                            formulas_df = formulas_df, 
                            formula_sheet_items = formula_sheet_items,
@@ -352,24 +352,36 @@ def generate_formula_string(formulas_df, formula_sheet_items,
     return(output_string)
 
 
-def get_calculus_summary_display_string(formulas_df, state,
-                                        formula_subcategory_2, subject_code, 
-                                        formula_sheet_items, type,
-                                        formula_proof_required_items, 
-                                        cols_to_highlight, sort_orders_df, 
-                                        **kwargs):
-    """Returns a calculus summmary formula table in markdown format with 
-    embedded html.  Generates seperate tabs to highlight items on formula sheet
-    or formula proofs if there are any.  ***kwargs are utilised
-    to ignore any excess paramaters passed by wrapper function to generate
-    files"""
-    
+def generate_calculus_page(formulas_df, state,
+                           formula_subcategory_2, subject_code, 
+                           formula_sheet_items,
+                           formula_proof_required_items, 
+                           cols_to_highlight, sort_orders_df, 
+                           **kwargs):
+    """Filters formulas_df and returns a summmary calculus string table in 
+    markdown format with embedded html. Generates seperate tabs to 
+    highlight items on formula sheet or formula proofs if there are any.
+    ***kwargs are utilised to ignore any excess paramaters passed by 
+    wrapper function to generate files"""    
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
     df = get_calculus_summary_df(formulas_df)
+    calculus_string = generate_calculus_string(df, 
+                                               formula_sheet_items,
+                                               formula_proof_required_items, 
+                                               cols_to_highlight)
+    return(calculus_string)
+                                                             
     
+def generate_calculus_string(df, formula_sheet_items,
+                             formula_proof_required_items, 
+                             cols_to_highlight):
+    """Returns a summmary calculus string table in markdown format with 
+    embedded html. Generates seperate tabs to highlight items on
+    formula sheet or formula proofs if there are any."""
+                             
     standard_display=df_to_formula_styled_table(
         df=df, 
         col_widths={'Derivative': 400, 'Equivalent integral': 400,
@@ -490,6 +502,11 @@ def get_financial_summary_display_string(formulas_df, state,
         output_string+= '\n{{< /tabs >}}'
     
     return(output_string)
+
+
+def generate_definition_string():
+    """TBA"""
+    return ('These are the definitions')
 
 
 def get_calculus_summary_df(formulas_df):
