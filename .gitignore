@@ -17,3 +17,4 @@ _image_caption_config.py
 WebsiteCreator/Experimentation/*
 WebsiteCreator/__pycache__/*
 WebsiteCreator/.ipynb_checkpoints/*
+.vscode/*
