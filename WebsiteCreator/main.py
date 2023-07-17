@@ -1,9 +1,12 @@
+"""Main module for generating markdown files to be utilised for Hugo site
+generation.
+"""
+
+import os
+import pandas as pd
 import formulas
 import utilities
 import topics
-import pandas as pd
-import os
-import re
 
 
 if __name__ == '__main__':
