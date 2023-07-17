@@ -4,4 +4,4 @@ title = 'Australian school maths'
 theme = 'hugo-book'
 
 [markup.goldmark.renderer]
-  unsafe = true
+unsafe = true
