@@ -119,7 +119,7 @@ def create_financial_summary(formulas_df, formula_sheet_items,
     utilities.create_files(base_dir=docs_dir,
                            file_paths_df=financial_summary_file_paths_df,
                            file_extension='.md',
-                           string_creator=get_financial_summary_display_string,
+                           string_creator=create_financial_summary_page,
                            sort_orders_df=sort_orders_df,
                            formulas_df=formulas_df,
                            formula_sheet_items=formula_sheet_items,
@@ -370,16 +370,16 @@ def generate_calculus_page(formulas_df, state,
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
     calculus_df = get_calculus_summary_df(formulas_df)
-    calculus_string = generate_calculus_string(calculus_df,
-                                               formula_sheet_items,
-                                               formula_proof_required_items,
-                                               cols_to_highlight)
+    calculus_string = generate_calculus_summary_string(calculus_df,
+                                                       formula_sheet_items,
+                                                       formula_proof_required_items,
+                                                       cols_to_highlight)
     return calculus_string
 
 
-def generate_calculus_string(calculus_df, formula_sheet_items,
-                             formula_proof_required_items,
-                             cols_to_highlight):
+def generate_calculus_summary_string(calculus_df, formula_sheet_items,
+                                     formula_proof_required_items,
+                                     cols_to_highlight):
     """Returns a summmary calculus string table in markdown format with
     embedded html. Generates seperate tabs to highlight items on
     formula sheet or formula proofs if there are any."""
@@ -439,17 +439,16 @@ def generate_calculus_string(calculus_df, formula_sheet_items,
     return output_string
 
 
-def get_financial_summary_display_string(formulas_df, state,
-                                         formula_subcategory_2, subject_code,
-                                         formula_sheet_items,
-                                         formula_proof_required_items,
-                                         cols_to_highlight,
-                                         **kwargs):
-    """Returns a financial summmary formula table in markdown format with
-    embedded html.  Generates seperate tabs to highlight items on formula
-    sheet and proofs required if there are any.  ***kwargs are utilised
-    to ignore any excess paramaters passed by wrapper function to generate
-    files"""
+def create_financial_summary_page(formulas_df, state,
+                                  formula_subcategory_2, subject_code,
+                                  formula_sheet_items,
+                                  formula_proof_required_items,
+                                  cols_to_highlight,
+                                  **kwargs):
+    """Filters formulas_df and returns a summmary financial maths string table
+    in markdown format with embedded html. Generates seperate tabs to
+    highlight items on formula sheet or formula proofs if there are any.
+    """
 
     # kwargs are utilised to ignore any excess paramaters passed by
     # wrapper function to generate files
@@ -460,6 +459,30 @@ def get_financial_summary_display_string(formulas_df, state,
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
     financial_df = get_financial_summary_df(formulas_df)
+    return create_financial_summary_string(
+        formula_sheet_items, formula_proof_required_items,
+        cols_to_highlight, financial_df)
+
+
+def create_financial_summary_string(formula_sheet_items,
+                                    formula_proof_required_items,
+                                    cols_to_highlight, financial_df):
+    """Returns a summmary calculus string table in markdown format with
+    embedded html. Generates seperate tabs to highlight items on
+    formula sheet or formula proofs if there are any.
+
+    Args:
+        formula_sheet_items (pandas serie): formulas that appear on formula
+            sheet
+        formula_proof_required_items (pandas series): formulas requiring proof
+        cols_to_highlight (list): _column names to highlight when on formula
+            sheet or if proof is required
+        financial_df (dataframe): Financial maths formulas
+
+    Returns:
+        string: String in markdown format representing financial maths summary
+        formulas for purpose of Hugo web page generation.
+    """
     financial_formulas = pd.concat([financial_df['Arithmetic sequence'],
                                     financial_df['Geometric sequence']])
     standard_display = df_to_formula_styled_table(
@@ -516,11 +539,22 @@ def generate_definition_string():
 
 
 def get_calculus_summary_df(formulas_df):
-    """Returns a summary of derivative and integral formulas as a pandas
-    dataframe"""
+    """Returns a summary of derivative and integral formulas
+
+    Args:
+        formulas_df (pandas dataframe): The source of fomulas for producing the
+        summary
+
+    Returns:
+        pandas dataframe: Summary of calculus and equicalent integraml
+        formulas.Returns None if no derivative of integration formulas
+        exists in formulas_input_df
+    """
     calculus_df = (formulas_df
                    [['Category', 'Group', 'Formula', 'Comment']]
                    [formulas_df["Category"].isin(["Differentiation", "Integration"])])
+    if len(calculus_df.index) == 0:
+        return None
     calculus_df = calculus_df.pivot(
         columns='Category', index='Group').fillna('')
 
@@ -564,8 +598,17 @@ def _calclus_summary_comment(row):
 
 
 def get_financial_summary_df(formulas_input_df):
-    """Returns a summary of financial sequence and series formulas as a
-    pandas dataframe
+    """Returns a summary of financial mathematic formulas displayed by
+    arithmetic vs geometric sequence
+
+    Args:
+        formulas_df (pandas dataframe): The source of fomulas for producing the
+        summary
+
+    Returns:
+        pandas dataframe: Summary of financial maths formula
+                          Returns None if no financial formulas exists in
+                          formulas_input_df
     """
     financial_df = (formulas_input_df[
         (formulas_input_df['Category'] == 'Financial mathematics') &
@@ -575,6 +618,8 @@ def get_financial_summary_df(formulas_input_df):
             (formulas_input_df['Subcategory_1'] == 'Geometric sequence')
         )
     ])
+    if len(financial_df.index) == 0:
+        return None
 
     financial_df = financial_df[['Subcategory_1', 'Subcategory_2', 'Formula']]
     financial_df['temp_aggregator'] = 1
@@ -607,7 +652,8 @@ def set_styled_table_widths(styled_table, widths):
     return return_table
 
 
-def df_to_formula_styled_table(input_df, col_widths=None, cols_to_highlight=None,
+def df_to_formula_styled_table(input_df, col_widths=None,
+                               cols_to_highlight=None,
                                formula_sheet_items=pd.Series(dtype="string"),
                                formula_proof_required_items=(
                                    pd.Series(dtype="string")),

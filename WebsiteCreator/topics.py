@@ -60,7 +60,7 @@ def generate_topic_page(formulas_df, state, syllabus_subtopic,
                    + '## Definitions' + '\n\n'
                    + definitions_string + '\n\n<br>\n\n'
                    + '## Formulas' + '\n\n'
-                   + formula_string
+                   + formula_string + '\n\n'
                    )
 
     return page_string
