@@ -3,7 +3,7 @@ site generation.
 """
 
 import utilities
-import formulas
+import formula_page_generator
 
 
 def create_topic_content(formulas_by_topic_df, formula_sheet_items,
@@ -50,12 +50,12 @@ def generate_topic_page(formulas_df, state, syllabus_subtopic,
         (formulas_df['Syllabus subtopic'] == syllabus_subtopic) &
         (formulas_df['Subject code'] == subject_code)]
     formulas_df = formulas_df[['Formula']]
-    formula_string = formulas.generate_formula_string(
+    formula_string = formula_page_generator.generate_formula_string(
         formulas_df,
         formula_sheet_items,
         formula_proof_required_items,
         cols_to_highlight)
-    definitions_string = formulas.generate_definition_string()
+    definitions_string = formula_page_generator.generate_definition_string()
     page_string = ('# ' + syllabus_subtopic + '\n\n<br>\n\n'
                    + '## Definitions' + '\n\n'
                    + definitions_string + '\n\n<br>\n\n'
