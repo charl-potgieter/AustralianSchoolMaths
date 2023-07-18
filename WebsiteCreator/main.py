@@ -10,7 +10,8 @@ import topics
 
 
 if __name__ == '__main__':
-
+    """Entry point to the maths site generation
+    """
     # Get inputs
     website_creator_dir = os.path.dirname(__file__)
     docs_dir = utilities.get_docs_path(website_creator_dir)

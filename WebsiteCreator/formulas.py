@@ -30,14 +30,14 @@ def get_formulas_by_topic_df(formulas_input_df, syllabus_df):
     """Makes a copy of formulas_df pandas dataframe and adds
     below field to formulas_df dataframe and returns
     the result:"""
-    df = formulas_input_df.copy()
-    df = pd.merge(
-        left=syllabus_df, right=df,
+    by_topic_df = formulas_input_df.copy()
+    by_topic_df = pd.merge(
+        left=syllabus_df, right=by_topic_df,
         left_on=['State', 'Subject code', 'Syllabus subtopic code'],
         right_on=['State', 'Subject code', 'Syllabus subtopic code'],
         how='right')
-    df['Topic subcategory 1'] = 'Topics'
-    return df
+    by_topic_df['Topic subcategory 1'] = 'Topics'
+    return by_topic_df
 
 
 def create_formulas_content(formulas_df, formula_sheet_items,
@@ -134,10 +134,10 @@ def get_formulas_by_year_df(formulas_df):
     the result:
          - 'Formula subcategory 1' containing text 'Formulas'
          - 'Formula subcategory 2' containing text 'By Year'"""
-    df = formulas_df.copy()
-    df['Formula subcategory 1'] = 'Formulas'
-    df['Formula subcategory 2'] = 'By Year'
-    return df
+    by_year_df = formulas_df.copy()
+    by_year_df['Formula subcategory 1'] = 'Formulas'
+    by_year_df['Formula subcategory 2'] = 'By Year'
+    return by_year_df
 
 
 def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
@@ -177,25 +177,26 @@ def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
         columns={'Hierarchy sort order': 'Subject sort order'})
 
     # Add the subject code sort order to the formulas file
-    df = formulas_df.copy()
-    df = pd.merge(
-        left=df, right=subject_code_sort_df,
+    cumulative_df = formulas_df.copy()
+    cumulative_df = pd.merge(
+        left=cumulative_df, right=subject_code_sort_df,
         left_on=['Subject code'], right_on=['Subject code'],
         how='left')
-    df = df.drop(labels=['Subject code'], axis=1)
+    cumulative_df = cumulative_df.drop(labels=['Subject code'], axis=1)
 
     # Merge with the heriarchy_df and filter where sort order per
     # hierarchy_df >= subject sort order
-    df = pd.merge(left=cumulative_hierarchy_df,
-                  right=df, left_on=['State'],
-                  right_on=['State'], how='left')
-    df = df[df['Hierarchy sort order'] >= df['Subject sort order']]
-    df = df.drop(labels=[
+    cumulative_df = pd.merge(left=cumulative_hierarchy_df,
+                             right=cumulative_df, left_on=['State'],
+                             right_on=['State'], how='left')
+    cumulative_df = cumulative_df[cumulative_df['Hierarchy sort order']
+                                  >= cumulative_df['Subject sort order']]
+    cumulative_df = cumulative_df.drop(labels=[
         'Hierarchy sort order', 'Subject sort order'
     ], axis=1)
-    df = df.reset_index()
+    cumulative_df = cumulative_df.reset_index()
 
-    return df
+    return cumulative_df
 
 
 def get_calculus_summary_dir_paths_df(formulas_df):
@@ -299,7 +300,7 @@ def generate_formula_string(formulas_df, formula_sheet_items,
     formula sheet or formula proofs if there are any."""
 
     standard_display = df_to_formula_styled_table(
-        df=formulas_df, col_widths={'Formula': 400},
+        input_df=formulas_df, col_widths={'Formula': 400},
         display_col_headers=False, display_row_headers=False
     ).to_html()
 
@@ -325,7 +326,7 @@ def generate_formula_string(formulas_df, formula_sheet_items,
             output_string += 'Items on formula sheet are highlighted'
             output_string += '\n<br>\n'
             output_string += df_to_formula_styled_table(
-                df=formulas_df, col_widths={'Formula': 400},
+                input_df=formulas_df, col_widths={'Formula': 400},
                 cols_to_highlight=(
                     cols_to_highlight),
                 formula_sheet_items=formula_sheet_items,
@@ -338,7 +339,7 @@ def generate_formula_string(formulas_df, formula_sheet_items,
             output_string += 'Items where proofs are required are highlighted'
             output_string += '\n<br>\n'
             output_string += df_to_formula_styled_table(
-                df=formulas_df, col_widths={'Formula': 400},
+                input_df=formulas_df, col_widths={'Formula': 400},
                 cols_to_highlight=(
                     cols_to_highlight),
                 formula_proof_required_items=formula_proof_required_items,
@@ -368,15 +369,15 @@ def generate_calculus_page(formulas_df, state,
         (formulas_df['State'] == state) &
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
-    df = get_calculus_summary_df(formulas_df)
-    calculus_string = generate_calculus_string(df,
+    calculus_df = get_calculus_summary_df(formulas_df)
+    calculus_string = generate_calculus_string(calculus_df,
                                                formula_sheet_items,
                                                formula_proof_required_items,
                                                cols_to_highlight)
     return calculus_string
 
 
-def generate_calculus_string(df, formula_sheet_items,
+def generate_calculus_string(calculus_df, formula_sheet_items,
                              formula_proof_required_items,
                              cols_to_highlight):
     """Returns a summmary calculus string table in markdown format with
@@ -384,13 +385,13 @@ def generate_calculus_string(df, formula_sheet_items,
     formula sheet or formula proofs if there are any."""
 
     standard_display = df_to_formula_styled_table(
-        df=df,
+        input_df=calculus_df,
         col_widths={'Derivative': 400, 'Equivalent integral': 400,
                     'Comment': 600}
     ).to_html()
 
     calculus_formulas = pd.concat(
-        [df['Derivative'], df['Equivalent integral']])
+        [calculus_df['Derivative'], calculus_df['Equivalent integral']])
 
     some_formulas_are_on_formula_sheet = (
         utilities.series_intersect(calculus_formulas,
@@ -413,9 +414,9 @@ def generate_calculus_string(df, formula_sheet_items,
             output_string += 'Items on formula sheet are highlighted'
             output_string += '\n<br><br>'
             output_string += df_to_formula_styled_table(
-                df=df, col_widths={'Derivative': 400,
-                                   'Equivalent integral': 400,
-                                   'Comment': 600},
+                input_df=calculus_df, col_widths={'Derivative': 400,
+                                                  'Equivalent integral': 400,
+                                                  'Comment': 600},
                 cols_to_highlight=cols_to_highlight,
                 formula_sheet_items=formula_sheet_items
             ).to_html()
@@ -425,9 +426,9 @@ def generate_calculus_string(df, formula_sheet_items,
             output_string += 'Items where proofs are required are highlighted'
             output_string += '\n<br>\n'
             output_string += df_to_formula_styled_table(
-                df=df, col_widths={'Derivative': 400,
-                                   'Equivalent integral': 400,
-                                   'Comment': 600},
+                input_df=calculus_df, col_widths={'Derivative': 400,
+                                                  'Equivalent integral': 400,
+                                                  'Comment': 600},
                 cols_to_highlight=cols_to_highlight,
                 formula_proof_required_items=formula_proof_required_items
             ).to_html()
@@ -458,11 +459,11 @@ def get_financial_summary_display_string(formulas_df, state,
         (formulas_df['State'] == state) &
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
         (formulas_df['Subject code'] == subject_code))]
-    df = get_financial_summary_df(formulas_df)
-    financial_formulas = pd.concat([df['Arithmetic sequence'],
-                                    df['Geometric sequence']])
+    financial_df = get_financial_summary_df(formulas_df)
+    financial_formulas = pd.concat([financial_df['Arithmetic sequence'],
+                                    financial_df['Geometric sequence']])
     standard_display = df_to_formula_styled_table(
-        df=df,
+        input_df=financial_df,
         col_widths={'Arithmetic sequence': 400,
                     'Geometric sequence': 400}
     ).to_html()
@@ -486,8 +487,8 @@ def get_financial_summary_display_string(formulas_df, state,
             output_string += 'Items on formula sheet are highlighted'
             output_string += '\n<br><br>'
             output_string += df_to_formula_styled_table(
-                df=df, col_widths={'Arithmetic sequence': 400,
-                                   'Geometric sequence': 400},
+                input_df=financial_df, col_widths={'Arithmetic sequence': 400,
+                                                   'Geometric sequence': 400},
                 cols_to_highlight=cols_to_highlight,
                 formula_sheet_items=formula_sheet_items
             ).to_html()
@@ -497,8 +498,8 @@ def get_financial_summary_display_string(formulas_df, state,
             output_string += 'Items where proofs are required are highlighted'
             output_string += '\n<br>\n'
             output_string += df_to_formula_styled_table(
-                df=df, col_widths={'Arithmetic sequence': 400,
-                                   'Geometric sequence': 400},
+                input_df=financial_df, col_widths={'Arithmetic sequence': 400,
+                                                   'Geometric sequence': 400},
                 cols_to_highlight=cols_to_highlight,
                 formula_proof_required_items=formula_proof_required_items
             ).to_html()
@@ -566,29 +567,30 @@ def get_financial_summary_df(formulas_input_df):
     """Returns a summary of financial sequence and series formulas as a
     pandas dataframe
     """
-    df = (formulas_input_df[
-          (formulas_input_df['Category'] == 'Financial mathematics') &
-          (formulas_input_df['State'] == 'NSW') &
-          (
-              (formulas_input_df['Subcategory_1'] == 'Arithmetic sequence') |
-              (formulas_input_df['Subcategory_1'] == 'Geometric sequence')
-          )
-          ])
+    financial_df = (formulas_input_df[
+        (formulas_input_df['Category'] == 'Financial mathematics') &
+        (formulas_input_df['State'] == 'NSW') &
+        (
+            (formulas_input_df['Subcategory_1'] == 'Arithmetic sequence') |
+            (formulas_input_df['Subcategory_1'] == 'Geometric sequence')
+        )
+    ])
 
-    df = df[['Subcategory_1', 'Subcategory_2', 'Formula']]
-    df['temp_aggregator'] = 1
-    df = pd.pivot_table(data=df, values='Formula', columns='Subcategory_1',
-                        index='Subcategory_2', aggfunc=lambda x: x)
-    df.index.name = None
-    df.columns.name = None
+    financial_df = financial_df[['Subcategory_1', 'Subcategory_2', 'Formula']]
+    financial_df['temp_aggregator'] = 1
+    financial_df = pd.pivot_table(data=financial_df, values='Formula',
+                                  columns='Subcategory_1',
+                                  index='Subcategory_2', aggfunc=lambda x: x)
+    financial_df.index.name = None
+    financial_df.columns.name = None
 
     # Convert index to categorical data to enable custom sort order
-    df.index = pd.Categorical(
-        df.index,
+    financial_df.index = pd.Categorical(
+        financial_df.index,
         ['Recursive definition', 'n-th term', 'Sum of first n terms',
          'Limiting sum'])
-    df = df.sort_index()
-    return df
+    financial_df = financial_df.sort_index()
+    return financial_df
 
 
 def set_styled_table_widths(styled_table, widths):
@@ -605,7 +607,7 @@ def set_styled_table_widths(styled_table, widths):
     return return_table
 
 
-def df_to_formula_styled_table(df, col_widths=None, cols_to_highlight=None,
+def df_to_formula_styled_table(input_df, col_widths=None, cols_to_highlight=None,
                                formula_sheet_items=pd.Series(dtype="string"),
                                formula_proof_required_items=(
                                    pd.Series(dtype="string")),
@@ -619,7 +621,7 @@ def df_to_formula_styled_table(df, col_widths=None, cols_to_highlight=None,
     if cols_to_highlight is None:
         cols_to_highlight = []
 
-    styled_table = df.fillna('').style
+    styled_table = input_df.fillna('').style
     styled_table = set_styled_table_widths(styled_table, col_widths)
 
     if not display_col_headers:
@@ -629,7 +631,7 @@ def df_to_formula_styled_table(df, col_widths=None, cols_to_highlight=None,
 
     # Calculate intersect with df columns to avoid error if cols not in df
     cols_to_highlight = list(set(cols_to_highlight)
-                             & set(list(df.columns)))
+                             & set(list(input_df.columns)))
     if not formula_sheet_items.empty:
         for col in cols_to_highlight:
             styled_table = styled_table.applymap(
@@ -656,25 +658,25 @@ def df_to_formula_styled_table(df, col_widths=None, cols_to_highlight=None,
     return styled_table
 
 
-def get_formulas_on_formula_sheet(df):
+def get_formulas_on_formula_sheet(formulas_df):
     """Returns a pandas series of formulas on formula sheet that returns all
     fields Formula of the dataframe df where field 'On formula sheet'
     field is True"""
-    formulas_on_sheet = (df[
-        (df['On formula sheet']) &
-        (df['Formula'].notnull())
+    formulas_on_sheet = (formulas_df[
+        (formulas_df['On formula sheet']) &
+        (formulas_df['Formula'].notnull())
     ]
         ['Formula'].drop_duplicates())
     return formulas_on_sheet
 
 
-def get_formulas_where_proofs_required(df):
+def get_formulas_where_proofs_required(formulas_df):
     """Returns a pandas series of formulas where proof is required where
     fields Formula of the dataframe df where field 'Proof required'
     field is True"""
-    return_value = (df[
-        (df['Proof required']) &
-        (df['Formula'].notnull())
+    return_value = (formulas_df[
+        (formulas_df['Proof required']) &
+        (formulas_df['Formula'].notnull())
     ]
         ['Formula'].drop_duplicates())
     return return_value
