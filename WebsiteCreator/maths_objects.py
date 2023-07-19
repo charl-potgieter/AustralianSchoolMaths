@@ -218,12 +218,12 @@ class Formulas():
             converters=self._formula_input_converter
         )
 
-    def formula_detail(self):
+    def by_year(self):
         """Returns detail dataframe with formula related information
         """
         return self._formula_detail_df
 
-    def get_formulas_by_year_cumulative_df(self, state_subject_code_order_df):
+    def by_year_cumulative(self, state_subject_code_order_df):
         """Returns formula details dataframe on a cumulative level by subject
         code order  as provided in state_subject_code_order_df per
         state(province).  For example if subject code Year 12 is ordered after
@@ -263,3 +263,66 @@ class Formulas():
             'Sort subject code': 'Subject code'
         })
         return return_df
+
+    def formula_sheet_items_by_state(self, state):
+        """Returns a pandas series of formulas where field 'On formula sheet'
+        per the csv utilised to init this class is True and State = state
+
+        Args:
+            state (string): filter to apply before returning formula sheet
+                            items
+        """
+        formulas_on_sheet = (self._formula_detail_df[
+            (self._formula_detail_df['State'] == state) &
+            (self._formula_detail_df['On formula sheet']) &
+            (self._formula_detail_df['Formula'].notnull())
+        ]['Formula'].drop_duplicates())
+        return formulas_on_sheet
+
+    def proofs_required_by_state(self, state):
+        """Returns a pandas series of formulas where field 'Proof required'
+        per the csv utilised to init this class is True and State = state
+
+        Args:
+            state (string): filter to apply before returning items
+        """
+        formulas_on_sheet = (self._formula_detail_df[
+            (self._formula_detail_df['State'] == state) &
+            (self._formula_detail_df['Proof required']) &
+            (self._formula_detail_df['Formula'].notnull())
+        ]['Formula'].drop_duplicates())
+        return formulas_on_sheet
+
+    def by_year_dirs(self):
+        """Returns a dataframe containing target directories to
+        save formula by year pages where each column in the dataframe
+        represents a different directory level
+        """
+        by_year_df = self.by_year().copy()
+        by_year_df['Formula subcategory 1'] = 'Formulas'
+        by_year_df['Formula subcategory 2'] = 'By Year'
+        by_year_df = by_year_df[['State', 'Formula subcategory 1',
+                                 'Formula subcategory 2',
+                                 'Subject code']].drop_duplicates()
+        return by_year_df
+
+    def by_year_cumulative_dirs(self,  state_subject_code_order_df):
+        """Returns a dataframe containing target directories to
+        save formula by year cumulative pages where each column in the
+        dataframe represents a different directory level
+
+        Args:
+            state_subject_code_order_df (pandas dataframe): Contains the below
+                columns:
+                 - Sort order
+                 - Sort state
+                 - Sort subject code
+        """
+        by_year_df = self.by_year_cumulative(
+            state_subject_code_order_df).copy()
+        by_year_df['Formula subcategory 1'] = 'Formulas'
+        by_year_df['Formula subcategory 2'] = 'By year cumulative'
+        by_year_df = by_year_df[['State', 'Formula subcategory 1',
+                                 'Formula subcategory 2',
+                                 'Subject code']].drop_duplicates()
+        return by_year_df
