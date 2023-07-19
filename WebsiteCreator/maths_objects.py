@@ -6,7 +6,7 @@
 import pandas as pd
 
 
-class SortOrders():
+class WebPageSortOrders():
     """Implements sort order views for ordering pages on maths website
     """
 
@@ -32,17 +32,117 @@ class SortOrders():
         )
 
     def states(self):
-        """Returns an ordered pandas series of states / provinces represented
-        by the ordered items in field 'Level_0' from the  csv used to
-        initialise this  SortOrders class where field 'Level_1' is null.
-
-        Returns:
-            pandas: ordered list of states
+        """Filters this classes input dataframe, renames column and returns an
+        ordered pandas dataframe of states (provinces) for purposes of website
+        page menu order.
         """
-        return self._sort_order_input[
+        return_value = self._sort_order_input[
             (self._sort_order_input['Level_0'].notnull()) &
             (self._sort_order_input['Level_1'].isnull())
-        ]['Level_0']
+        ]
+        return_value = return_value[['Level_0']]
+        return_value = return_value.rename(columns={'Level_0': 'State'})
+        return return_value
+
+    def formulas_by_year_state_subject_code(self):
+        """Filters this classes input dataframe, renames columns and returns an
+        ordered pandas dataframe representing the web page (menu) order of the
+        'formula by year' section at a state and subject_code page level, where
+         each column in the dataframe represents the (ordered) level in the
+         menu.
+        """
+
+        return_value = self._sort_order_input.rename(
+            columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
+                     'Level_2': 'Formula subcategory 2',
+                     'Level_3': 'Subject code',
+                     'Level_4': 'Category'})
+        return_value = return_value[
+            (return_value['Formula subcategory 1'].str.upper() ==
+             'FORMULAS') &
+            (return_value['Formula subcategory 2'].str.upper() ==
+             'BY YEAR') &
+            (return_value['Subject code'].notnull()) &
+            (return_value['Category'].isnull())]
+        return_value = return_value[['State', 'Subject code']]
+        return_value = return_value.reset_index(drop=True)
+        return return_value
+
+    def formulas_by_year_state_subject_code_category(self):
+        """Filters this classes input dataframe, renames columns and returns an
+        ordered pandas dataframe representing the web page (menu) order of the
+        'formula by year' section at a state and subject_code and category page
+        level, where each column in the dataframe represents the (ordered)
+        level in the menu.
+        """
+
+        return_value = self._sort_order_input.rename(
+            columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
+                     'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject code',
+                     'Level_4': 'Category'})
+        return_value = (
+            return_value[
+                (return_value['Formula subcategory 1'].str.upper() ==
+                 'FORMULAS') &
+                (return_value['Formula subcategory 2'].str.upper() ==
+                 'BY YEAR') &
+                (return_value['Subject code'].notnull()) &
+                (return_value['Category'].notnull()) &
+                (return_value['Level_5'].isnull())])
+        return_value = return_value[['State', 'Subject code', 'Category']]
+        return_value = return_value.reset_index(drop=True)
+        return return_value
+
+    def formulas_cumulative_state_subject_code(self):
+        """Filters this classes input dataframe, renames columns and returns an
+        ordered pandas dataframe representing the web page (menu) order of the
+        cumulative formula pages by state and subject code, where each
+        column in the dataframe represents the (ordered) level in the menu
+        """
+
+        return_value = self._sort_order_input.rename(
+            columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
+                     'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject code',
+                     'Level_4': 'Category'})
+        return_value = return_value[
+            (return_value['Formula subcategory 1'].str.upper() ==
+             'FORMULAS') &
+            (return_value['Formula subcategory 2'].str.upper() ==
+             'BY YEAR CUMULATIVE') &
+            (return_value['Subject code'].notnull()) &
+            (return_value['Category'].isnull())]
+        return_value = return_value[['State', 'Subject code']]
+        return_value = return_value.reset_index(drop=True)
+        return return_value
+
+    def formulas_cumulative_state_subject_code_category(self):
+        """Filters this classes input dataframe, renames columns and returns an
+        ordered pandas dataframe representing the web page (menu) order of the
+        cumulative formula subject pages by state, subject code and category
+        where each column in the dataframe represents the (ordered) level in
+        the menu.
+
+        Returns:
+            pandas dataframe: ordered formula cumulative page menu items at
+                              state and subject code level
+        """
+
+        return_value = self._sort_order_input.rename(
+            columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
+                     'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject code',
+                     'Level_4': 'Category'})
+        return_value = (
+            return_value[
+                (return_value['Formula subcategory 1'].str.upper() ==
+                 'FORMULAS') &
+                (return_value['Formula subcategory 2'].str.upper() ==
+                 'BY YEAR CUMULATIVE') &
+                (return_value['Subject code'].notnull()) &
+                (return_value['Category'].notnull()) &
+                (return_value['Level_5'].isnull())])
+        return_value = return_value[['State', 'Subject code', 'Category']]
+        return_value = return_value.reset_index(drop=True)
+        return return_value
 
 
 class Formulas():
@@ -97,65 +197,60 @@ class Formulas():
 
         return self._formula_detail
 
-    def formula_detail_cumulative_by_subject(self, subject_order):
-        """Returns a dataframe of cumulative formulas based on the subject
-        order list.   For example subject Year 12 will include formulas from
-        Year 11, Year 10 etc if that is the order provided in the subject
-        order parameter
+    # def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
+    #     """Makes a copy of formulas_df pandas dataframe and adds
+    #     Adds below 2 fields to formulas_df dataframe and returns
+    #     the result:
+    #         - 'Formula subcategory 1' containing text 'Formulas'
+    #         - 'Formula subcategory 2' containing text
+    #             'By year cumulative'
+    #     The returned dataframe is 'cumulative' based on the Subject code in the
+    #     sort_order_df for example subject code year 11 includes year 9 and
+    #     year 10 formulas etc."""
 
-        Args:
-            subject_order (list): list of strings reporesenting the subject
-            orders
+    #     cumulative_hierarchy_df = sort_orders_df.copy()
+    #     cumulative_hierarchy_df = cumulative_hierarchy_df.rename(
+    #         columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
+    #                 'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject code',
+    #                 'Level_4': 'Category'})
 
-        Returns:
-            dataframe: Details of formuls with fields as per
-                       self._formula_input_strucutr
+    #     cumulative_hierarchy_df = (
+    #         cumulative_hierarchy_df[
+    #             (cumulative_hierarchy_df['Formula subcategory 1'].str.upper() ==
+    #             'FORMULAS') &
+    #             (cumulative_hierarchy_df['Formula subcategory 2'].str.upper() ==
+    #             'BY YEAR CUMULATIVE') &
+    #             (cumulative_hierarchy_df['Subject code'].notnull()) &
+    #             (cumulative_hierarchy_df['Category'].isnull())].iloc[:, :4])
 
-        """
+    #     cumulative_hierarchy_df = cumulative_hierarchy_df.reset_index(drop=True)
+    #     cumulative_hierarchy_df['Hierarchy sort order'] = (
+    #         cumulative_hierarchy_df.index)
 
-    # cumulative_hierarchy_df = sort_orders_df.copy()
-    # cumulative_hierarchy_df = cumulative_hierarchy_df.rename(
-    #     columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
-    #              'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject code',
-    #              'Level_4': 'Category'})
+    #     subject_code_sort_df = cumulative_hierarchy_df.copy()
+    #     subject_code_sort_df = subject_code_sort_df[[
+    #         'Subject code', 'Hierarchy sort order']]
+    #     subject_code_sort_df = subject_code_sort_df.rename(
+    #         columns={'Hierarchy sort order': 'Subject sort order'})
 
-    # cumulative_hierarchy_df = (
-    #     cumulative_hierarchy_df[
-    #         (cumulative_hierarchy_df['Formula subcategory 1'].str.upper() ==
-    #          'FORMULAS') &
-    #         (cumulative_hierarchy_df['Formula subcategory 2'].str.upper() ==
-    #          'BY YEAR CUMULATIVE') &
-    #         (cumulative_hierarchy_df['Subject code'].notnull()) &
-    #         (cumulative_hierarchy_df['Category'].isnull())].iloc[:, :4])
+    #     # Add the subject code sort order to the formulas file
+    #     cumulative_df = formulas_df.copy()
+    #     cumulative_df = pd.merge(
+    #         left=cumulative_df, right=subject_code_sort_df,
+    #         left_on=['Subject code'], right_on=['Subject code'],
+    #         how='left')
+    #     cumulative_df = cumulative_df.drop(labels=['Subject code'], axis=1)
 
-    # cumulative_hierarchy_df = cumulative_hierarchy_df.reset_index(drop=True)
-    # cumulative_hierarchy_df['Hierarchy sort order'] = (
-    #     cumulative_hierarchy_df.index)
+    #     # Merge with the heriarchy_df and filter where sort order per
+    #     # hierarchy_df >= subject sort order
+    #     cumulative_df = pd.merge(left=cumulative_hierarchy_df,
+    #                             right=cumulative_df, left_on=['State'],
+    #                             right_on=['State'], how='left')
+    #     cumulative_df = cumulative_df[cumulative_df['Hierarchy sort order']
+    #                                 >= cumulative_df['Subject sort order']]
+    #     cumulative_df = cumulative_df.drop(labels=[
+    #         'Hierarchy sort order', 'Subject sort order'
+    #     ], axis=1)
+    #     cumulative_df = cumulative_df.reset_index()
 
-    # subject_code_sort_df = cumulative_hierarchy_df.copy()
-    # subject_code_sort_df = subject_code_sort_df[[
-    #     'Subject code', 'Hierarchy sort order']]
-    # subject_code_sort_df = subject_code_sort_df.rename(
-    #     columns={'Hierarchy sort order': 'Subject sort order'})
-
-    # # Add the subject code sort order to the formulas file
-    # cumulative_df = formulas_df.copy()
-    # cumulative_df = pd.merge(
-    #     left=cumulative_df, right=subject_code_sort_df,
-    #     left_on=['Subject code'], right_on=['Subject code'],
-    #     how='left')
-    # cumulative_df = cumulative_df.drop(labels=['Subject code'], axis=1)
-
-    # # Merge with the heriarchy_df and filter where sort order per
-    # # hierarchy_df >= subject sort order
-    # cumulative_df = pd.merge(left=cumulative_hierarchy_df,
-    #                          right=cumulative_df, left_on=['State'],
-    #                          right_on=['State'], how='left')
-    # cumulative_df = cumulative_df[cumulative_df['Hierarchy sort order']
-    #                               >= cumulative_df['Subject sort order']]
-    # cumulative_df = cumulative_df.drop(labels=[
-    #     'Hierarchy sort order', 'Subject sort order'
-    # ], axis=1)
-    # cumulative_df = cumulative_df.reset_index()
-
-    # return cumulative_df
+    #     return cumulative_df
