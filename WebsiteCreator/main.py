@@ -17,6 +17,7 @@ if __name__ == '__main__':
     order_file_path = website_creator_dir + os.path.sep + 'sort_orders.csv'
     syllabus_file_path = (website_creator_dir + os.path.sep +
                           'syllabus_topics.csv')
+
     sort_orders_df = pd.read_csv(order_file_path)
     syllabus_df = pd.read_csv(syllabus_file_path)
     formulas_input_df = pd.read_csv(formula_file_path)
