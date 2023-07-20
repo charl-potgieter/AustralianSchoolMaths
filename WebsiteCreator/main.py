@@ -16,9 +16,9 @@ if __name__ == '__main__':
     syllabus_file_path = (website_creator_dir + os.path.sep +
                           'syllabus_topics.csv')
 
-    page_sort_orders = WebPageHierarchies(order_file_path)
+    site_hierarchies = WebPageHierarchies(order_file_path)
     formulas = Formulas(formula_file_path, syllabus_file_path,
-                        page_sort_orders)
+                        site_hierarchies)
 
     # Delete previous directories and create new ones
     utilities.delete_directory_if_it_exists(docs_dir)
