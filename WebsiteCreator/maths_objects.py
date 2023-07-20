@@ -6,8 +6,9 @@
 import pandas as pd
 
 
-class WebPageSortOrders():
-    """Implements Sort order views for ordering pages on maths website
+class WebPageHierarchies():
+    """Stores and retrieves sort the hierarchies (paths) for maths site web
+    pages as well as their indexed orders
     """
 
     # Enforces structure of Sort orders csv when loaded
@@ -30,6 +31,43 @@ class WebPageSortOrders():
             usecols=cols_to_use,
             dtype=self._sort_order_structure
         )
+
+    def all(self):
+        """Returns the full set of hierarhcies"""
+        return self._sort_order_input
+
+    def get_hierararchy_index(self, hierarchy_to_find):
+        """Looks up hierarchy_to_find in the hierarchies stores in this class
+        and returns the index of the first match found.  The index represents
+        the order of hierarchies with same path lenght as hierarchy_to_find
+        """
+
+        sort_order_workings = self._sort_order_input.copy()
+        list_len = len(hierarchy_to_find)
+        if list_len > len(sort_order_workings.columns):
+            return None
+
+        if list_len < len(sort_order_workings.columns):
+            sort_order_workings = sort_order_workings[
+                sort_order_workings.iloc[:, list_len].isnull()]
+
+        sort_order_workings = sort_order_workings[
+            sort_order_workings.iloc[:, list_len-1].notnull()]
+
+        for i in range(len(hierarchy_to_find)-1):
+            sort_order_workings = sort_order_workings[
+                (sort_order_workings.iloc[:, i].str.upper() ==
+                 str(hierarchy_to_find[i]).upper())]
+        sort_order_workings = sort_order_workings.reset_index(drop=True)
+
+        sort_order_workings = sort_order_workings[
+            (sort_order_workings.iloc[:, list_len-1].str.upper() ==
+             str(hierarchy_to_find[list_len-1]).upper())]
+        filtered_index = sort_order_workings.index
+
+        if len(filtered_index) == 0:
+            return None
+        return filtered_index[0]
 
     def states(self):
         """Filters this classes input dataframe, renames column and returns an

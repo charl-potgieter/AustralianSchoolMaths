@@ -3,7 +3,7 @@ generation.
 """
 
 import os
-from maths_objects import Formulas, WebPageSortOrders
+from maths_objects import Formulas, WebPageHierarchies
 import utilities
 
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     syllabus_file_path = (website_creator_dir + os.path.sep +
                           'syllabus_topics.csv')
 
-    page_sort_orders = WebPageSortOrders(order_file_path)
+    page_sort_orders = WebPageHierarchies(order_file_path)
     formulas = Formulas(formula_file_path, syllabus_file_path,
                         page_sort_orders)
 
