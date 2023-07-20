@@ -1,4 +1,4 @@
-ID,State,Syllabus subtopic code,Category,Subcategory_1,Subcategory_2,Description,Group,Formula,Subject code,On formula sheet,Proof required,Comment
+ID,State,Syllabus subtopic code,Category,Subcategory_1,Subcategory_2,Description,Group,Formula,Subject,On formula sheet,Proof required,Comment
 1,NSW,TBA,Indices,Index Laws,,Multiplying terms with same base,,$a^m \times a^n = a^{m+n}$,Year 9,FALSE,,
 2,NSW,TBA,Indices,Index Laws,,Dividing terms with same base,,$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$,Year 9,FALSE,,
 3,NSW,TBA,Indices,Index Laws,,Power of a power,,$(a^m)^n = a^{m \times n}$,Year 9,FALSE,,

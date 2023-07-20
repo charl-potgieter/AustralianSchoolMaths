@@ -3,10 +3,8 @@ generation.
 """
 
 import os
-import pandas as pd
-import formula_page_generator
+from maths_objects import Formulas, WebPageSortOrders
 import utilities
-import topics
 
 
 if __name__ == '__main__':
@@ -18,33 +16,17 @@ if __name__ == '__main__':
     syllabus_file_path = (website_creator_dir + os.path.sep +
                           'syllabus_topics.csv')
 
+    page_sort_orders = WebPageSortOrders(order_file_path)
+    formulas = Formulas(formula_file_path, syllabus_file_path,
+                        page_sort_orders)
+
+    # Delete previous directories and create new ones
     utilities.delete_directory_if_it_exists(docs_dir)
-
-    # sort_orders_df = pd.read_csv(order_file_path)
-    # syllabus_df = pd.read_csv(syllabus_file_path)
-    # formulas_input_df = pd.read_csv(formula_file_path)
-    # formula_sheet_items = (
-    #     formula_page_generator.get_formulas_on_formula_sheet(formulas_input_df))
-    # formula_proof_required_items = (
-    #     formula_page_generator.get_formulas_where_proofs_required(formulas_input_df))
-
-    # # Create formula-related markdown documents
-    # formulas_df = formula_page_generator.get_formulas_df(formulas_input_df, syllabus_df,
-    #                                                      sort_orders_df)
-    # formula_page_generator.create_formulas_content(
-    #     formulas_df, formula_sheet_items, formula_proof_required_items,
-    #     sort_orders_df, docs_dir)
-    # formula_page_generator.create_calculus_summary_files(
-    #     formulas_df, formula_sheet_items, formula_proof_required_items,
-    #     sort_orders_df, docs_dir)
-    # formula_page_generator.create_financial_summary(
-    #     formulas_df, formula_sheet_items, formula_proof_required_items,
-    #     sort_orders_df, docs_dir)
-
-    # # Generate topic pages
-    # formulas_by_topic_df = formula_page_generator.get_formulas_by_topic_df(
-    #     formulas_input_df, syllabus_df)
-
-    # topics.create_topic_content(formulas_by_topic_df, formula_sheet_items,
-    #                             formula_proof_required_items, sort_orders_df,
-    #                             docs_dir)
+    utilities.create_subdirectories_from_df(
+        base_dir=docs_dir,
+        subpaths_df=formulas.by_year_dirs()
+    )
+    utilities.create_subdirectories_from_df(
+        base_dir=docs_dir,
+        subpaths_df=formulas.by_year_cumulative_dirs()
+    )

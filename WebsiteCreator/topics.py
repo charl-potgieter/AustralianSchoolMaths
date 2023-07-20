@@ -13,9 +13,9 @@ def create_topic_content(formulas_by_topic_df, formula_sheet_items,
     web page creation via Hugo
     """
     dirs_df = formulas_by_topic_df[[
-        'State', 'Topic subcategory 1', 'Subject code']].drop_duplicates()
+        'State', 'Topic subcategory 1', 'Subject']].drop_duplicates()
     file_paths_df = formulas_by_topic_df[[
-        'State', 'Topic subcategory 1', 'Subject code', 'Syllabus subtopic'
+        'State', 'Topic subcategory 1', 'Subject', 'Syllabus subtopic'
     ]].drop_duplicates()
     utilities.create_subdirectories_from_df(base_dir=docs_dir,
                                             subpaths_df=dirs_df)
@@ -36,7 +36,7 @@ def create_topic_content(formulas_by_topic_df, formula_sheet_items,
 
 
 def generate_topic_page(formulas_df, state, syllabus_subtopic,
-                        subject_code, formula_sheet_items,
+                        subject, formula_sheet_items,
                         formula_proof_required_items,
                         cols_to_highlight, **kwargs):
     """TBA"""
@@ -48,7 +48,7 @@ def generate_topic_page(formulas_df, state, syllabus_subtopic,
     formulas_df = formulas_df[
         (formulas_df['State'] == state) &
         (formulas_df['Syllabus subtopic'] == syllabus_subtopic) &
-        (formulas_df['Subject code'] == subject_code)]
+        (formulas_df['Subject'] == subject)]
     formulas_df = formulas_df[['Formula']]
     formula_string = formula_page_generator.generate_formula_string(
         formulas_df,

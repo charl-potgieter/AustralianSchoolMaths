@@ -10,14 +10,14 @@ import utilities
 def get_formulas_df(formulas_input_df, syllabus_df, sort_orders_df):
     """Merges formulas_input_df with syllabus_df.
     Returns a combined pandas dataframe from formulus_input_df
-    containging formulas by year (subject code) as well as cumululative
-    formulas by year (subject code) based on sort_orders_df
+    containging formulas by year (subject) as well as cumululative
+    formulas by year (subject) based on sort_orders_df
     """
     input_copy_df = formulas_input_df.copy()
     input_copy_df = pd.merge(
         left=syllabus_df, right=input_copy_df,
-        left_on=['State', 'Subject code', 'Syllabus subtopic code'],
-        right_on=['State', 'Subject code', 'Syllabus subtopic code'],
+        left_on=['State', 'Subject', 'Syllabus subtopic code'],
+        right_on=['State', 'Subject', 'Syllabus subtopic code'],
         how='right')
     by_year_df = get_formulas_by_year_df(input_copy_df)
     cumulative_df = get_formulas_by_year_cumulative_df(
@@ -33,8 +33,8 @@ def get_formulas_by_topic_df(formulas_input_df, syllabus_df):
     by_topic_df = formulas_input_df.copy()
     by_topic_df = pd.merge(
         left=syllabus_df, right=by_topic_df,
-        left_on=['State', 'Subject code', 'Syllabus subtopic code'],
-        right_on=['State', 'Subject code', 'Syllabus subtopic code'],
+        left_on=['State', 'Subject', 'Syllabus subtopic code'],
+        right_on=['State', 'Subject', 'Syllabus subtopic code'],
         how='right')
     by_topic_df['Topic subcategory 1'] = 'Topics'
     return by_topic_df
@@ -49,11 +49,11 @@ def create_formulas_content(formulas_df, formula_sheet_items,
     dirs_df = (
         formulas_df[['State', 'Formula subcategory 1',
                      'Formula subcategory 2',
-                     'Subject code']].drop_duplicates())
+                     'Subject']].drop_duplicates())
     file_paths_df = (
         formulas_df[['State', 'Formula subcategory 1',
                      'Formula subcategory 2',
-                     'Subject code', 'Category']].drop_duplicates())
+                     'Subject', 'Category']].drop_duplicates())
     utilities.create_subdirectories_from_df(base_dir=docs_dir,
                                             subpaths_df=dirs_df)
     front_matter_index_files = {'bookCollapseSection': True}
@@ -147,14 +147,14 @@ def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
          - 'Formula subcategory 1' containing text 'Formulas'
          - 'Formula subcategory 2' containing text
              'By year cumulative'
-    The returned dataframe is 'cumulative' based on the Subject code in the
-    sort_order_df for example subject code year 11 includes year 9 and
+    The returned dataframe is 'cumulative' based on the subject in the
+    sort_order_df for example subject year 11 includes year 9 and
     year 10 formulas etc."""
 
     cumulative_hierarchy_df = sort_orders_df.copy()
     cumulative_hierarchy_df = cumulative_hierarchy_df.rename(
         columns={'Level_0': 'State', 'Level_1': 'Formula subcategory 1',
-                 'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject code',
+                 'Level_2': 'Formula subcategory 2', 'Level_3': 'Subject',
                  'Level_4': 'Category'})
 
     cumulative_hierarchy_df = (
@@ -163,26 +163,26 @@ def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
              'FORMULAS') &
             (cumulative_hierarchy_df['Formula subcategory 2'].str.upper() ==
              'BY YEAR CUMULATIVE') &
-            (cumulative_hierarchy_df['Subject code'].notnull()) &
+            (cumulative_hierarchy_df['Subject'].notnull()) &
             (cumulative_hierarchy_df['Category'].isnull())].iloc[:, :4])
 
     cumulative_hierarchy_df = cumulative_hierarchy_df.reset_index(drop=True)
     cumulative_hierarchy_df['Hierarchy sort order'] = (
         cumulative_hierarchy_df.index)
 
-    subject_code_sort_df = cumulative_hierarchy_df.copy()
-    subject_code_sort_df = subject_code_sort_df[[
-        'Subject code', 'Hierarchy sort order']]
-    subject_code_sort_df = subject_code_sort_df.rename(
+    subject_sort_df = cumulative_hierarchy_df.copy()
+    subject_sort_df = subject_sort_df[[
+        'Subject', 'Hierarchy sort order']]
+    subject_sort_df = subject_sort_df.rename(
         columns={'Hierarchy sort order': 'Subject sort order'})
 
-    # Add the subject code sort order to the formulas file
+    # Add the subject sort order to the formulas file
     cumulative_df = formulas_df.copy()
     cumulative_df = pd.merge(
-        left=cumulative_df, right=subject_code_sort_df,
-        left_on=['Subject code'], right_on=['Subject code'],
+        left=cumulative_df, right=subject_sort_df,
+        left_on=['Subject'], right_on=['Subject'],
         how='left')
-    cumulative_df = cumulative_df.drop(labels=['Subject code'], axis=1)
+    cumulative_df = cumulative_df.drop(labels=['Subject'], axis=1)
 
     # Merge with the heriarchy_df and filter where sort order per
     # hierarchy_df >= subject sort order
@@ -202,7 +202,7 @@ def get_formulas_by_year_cumulative_df(formulas_df, sort_orders_df):
 def get_calculus_summary_dir_paths_df(formulas_df):
     """Returns a dataframe where each cell rerepresents componenets of the
     directory path for the calculus summary formulas.   The formulas_df input
-    is filtered for subject codes with field Category containing both entries
+    is filtered for subjects with field Category containing both entries
     for differentiation and integration
     """
     calculus_dir_df = formulas_df.copy()
@@ -212,12 +212,12 @@ def get_calculus_summary_dir_paths_df(formulas_df):
     ]
     calculus_dir_df = calculus_dir_df[
         ['State', 'Category', 'Formula subcategory 1',
-         'Formula subcategory 2', 'Subject code']].drop_duplicates()
+         'Formula subcategory 2', 'Subject']].drop_duplicates()
     calculus_dir_df['counter'] = 1
     calculus_dir_df = pd.pivot_table(
         data=calculus_dir_df, index=['State', 'Formula subcategory 1',
                                      'Formula subcategory 2',
-                                     'Subject code'],
+                                     'Subject'],
         columns=['Category'], values='counter',
         aggfunc=pd.Series.nunique)
     calculus_dir_df = calculus_dir_df.reset_index()
@@ -243,7 +243,7 @@ def get_calculus_summary_file_paths_df(calculus_dir_df):
 def get_financial_summary_dir_paths_df(formulas_df):
     """Returns a dataframe where each cell rerepresents componenets of the
     directory path for the financial summary formulas.   The formulas_df
-    input is filtered for subject codes with field Category containing
+    input is filtered for subjects with field Category containing
     entries for Financial mathematics
     """
     financial_dir_df = formulas_df.copy()
@@ -252,7 +252,7 @@ def get_financial_summary_dir_paths_df(formulas_df):
     ]
     financial_dir_df = financial_dir_df[
         ['State', 'Formula subcategory 1',
-         'Formula subcategory 2', 'Subject code']].drop_duplicates()
+         'Formula subcategory 2', 'Subject']].drop_duplicates()
     financial_dir_df['Menu type'] = 'Summaries'
     return financial_dir_df
 
@@ -268,7 +268,7 @@ def get_financial_summary_file_paths_df(financial_dir_df):
 
 
 def generate_formula_page(formulas_df, state, formula_subcategory_2,
-                          subject_code, category, formula_sheet_items,
+                          subject, category, formula_sheet_items,
                           formula_proof_required_items,
                           cols_to_highlight, **kwargs):
     """Filters formulas_df and returns a summmary formula string table in
@@ -282,7 +282,7 @@ def generate_formula_page(formulas_df, state, formula_subcategory_2,
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
-        (formulas_df['Subject code'] == subject_code) &
+        (formulas_df['Subject'] == subject) &
         (formulas_df['Category'] == category))]
     formulas_df = formulas_df[['Formula']]
     formula_string = generate_formula_string(formulas_df,
@@ -352,7 +352,7 @@ def generate_formula_string(formulas_df, formula_sheet_items,
 
 
 def generate_calculus_page(formulas_df, state,
-                           formula_subcategory_2, subject_code,
+                           formula_subcategory_2, subject,
                            formula_sheet_items,
                            formula_proof_required_items,
                            cols_to_highlight, **kwargs):
@@ -368,7 +368,7 @@ def generate_calculus_page(formulas_df, state,
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
-        (formulas_df['Subject code'] == subject_code))]
+        (formulas_df['Subject'] == subject))]
     calculus_df = get_calculus_summary_df(formulas_df)
     calculus_string = generate_calculus_summary_string(calculus_df,
                                                        formula_sheet_items,
@@ -440,7 +440,7 @@ def generate_calculus_summary_string(calculus_df, formula_sheet_items,
 
 
 def create_financial_summary_page(formulas_df, state,
-                                  formula_subcategory_2, subject_code,
+                                  formula_subcategory_2, subject,
                                   formula_sheet_items,
                                   formula_proof_required_items,
                                   cols_to_highlight,
@@ -457,7 +457,7 @@ def create_financial_summary_page(formulas_df, state,
     formulas_df = formulas_df[(
         (formulas_df['State'] == state) &
         (formulas_df['Formula subcategory 2'] == formula_subcategory_2) &
-        (formulas_df['Subject code'] == subject_code))]
+        (formulas_df['Subject'] == subject))]
     financial_df = get_financial_summary_df(formulas_df)
     return create_financial_summary_string(
         formula_sheet_items, formula_proof_required_items,

@@ -48,45 +48,45 @@ class WebPageSortOrders():
         return_value = return_value[['Sort order', 'Sort state']]
         return return_value
 
-    def formulas_by_year_state_subject_code(self):
+    def formulas_by_year_state_subject(self):
         """Filters this classes input dataframe, renames columns and returns an
         ordered pandas dataframe representing the web page (menu) order of the
-        'formula by year' section at a state and subject_code page level, where
+        'formula by year' section at a state and subject page level, where
          each column in the dataframe represents the (ordered) level in the
          menu.  Below columns are returned in the dataframe:
          - Sort order
          - Sort state
-         - Sort subject code
+         - Sort subject
         """
 
         return_value = self._sort_order_input.rename(
             columns={'Level_0': 'Sort state',
                      'Level_1': 'Formula subcategory 1',
                      'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject code',
+                     'Level_3': 'Sort subject',
                      'Level_4': 'Sort category'})
         return_value = return_value[
             (return_value['Formula subcategory 1'].str.upper() ==
              'FORMULAS') &
             (return_value['Formula subcategory 2'].str.upper() ==
              'BY YEAR') &
-            (return_value['Sort subject code'].notnull()) &
+            (return_value['Sort subject'].notnull()) &
             (return_value['Sort category'].isnull())].copy()
         return_value = return_value.reset_index(drop=True)
         return_value['Sort order'] = return_value.index
         return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject code']]
+                                     'Sort subject']]
         return return_value
 
-    def formulas_by_year_state_subject_code_category(self):
+    def formulas_by_year_state_subject_category(self):
         """Filters this classes input dataframe, renames columns and returns an
         ordered pandas dataframe representing the web page (menu) order of the
-        'formula by year' section at a state and subject_code and category page
+        'formula by year' section at a state and subject and category page
         level, where each column in the dataframe represents the (ordered)
         level in the menu. Below columns are returned in the dataframe:
          - Sort order
          - Sort state
-         - Sort subject code
+         - Sort subject
          - Sort category
         """
 
@@ -94,7 +94,7 @@ class WebPageSortOrders():
             columns={'Level_0': 'Sort state',
                      'Level_1': 'Formula subcategory 1',
                      'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject code',
+                     'Level_3': 'Sort subject',
                      'Level_4': 'Sort category'})
         return_value = (
             return_value[
@@ -102,54 +102,54 @@ class WebPageSortOrders():
                  'FORMULAS') &
                 (return_value['Formula subcategory 2'].str.upper() ==
                  'BY YEAR') &
-                (return_value['Sort subject code'].notnull()) &
+                (return_value['Sort subject'].notnull()) &
                 (return_value['Sort category'].notnull()) &
                 (return_value['Level_5'].isnull())]).copy()
         return_value = return_value.reset_index(drop=True)
         return_value['Sort order'] = return_value.index
         return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject code', 'Sort category']]
+                                     'Sort subject', 'Sort category']]
         return return_value
 
-    def formulas_cumulative_state_subject_code(self):
+    def formulas_cumulative_state_subject(self):
         """Filters this classes input dataframe, renames columns and returns an
         ordered pandas dataframe representing the web page (menu) order of the
-        cumulative formula pages by state and subject code, where each
+        cumulative formula pages by state and subject, where each
         column in the dataframe represents the (ordered) level in the menu.
         Below columns are returned in the dataframe:
          - Sort order
          - Sort state
-         - Sort subject code
+         - Sort subject
         """
 
         return_value = self._sort_order_input.rename(
             columns={'Level_0': 'Sort state',
                      'Level_1': 'Formula subcategory 1',
                      'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject code',
+                     'Level_3': 'Sort subject',
                      'Level_4': 'Sort category'})
         return_value = return_value[
             (return_value['Formula subcategory 1'].str.upper() ==
              'FORMULAS') &
             (return_value['Formula subcategory 2'].str.upper() ==
              'BY YEAR CUMULATIVE') &
-            (return_value['Sort subject code'].notnull()) &
+            (return_value['Sort subject'].notnull()) &
             (return_value['Sort category'].isnull())].copy()
         return_value = return_value.reset_index(drop=True)
         return_value['Sort order'] = return_value.index
         return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject code']]
+                                     'Sort subject']]
         return return_value
 
-    def formulas_cumulative_state_subject_code_category(self):
+    def formulas_cumulative_state_subject_category(self):
         """Filters this classes input dataframe, renames columns and returns an
         ordered pandas dataframe representing the web page (menu) order of the
-        cumulative formula subject pages by state, subject code and category
+        cumulative formula subject pages by state, subject and category
         where each column in the dataframe represents the (ordered) level in
         the menu.  Below columns are returned in the dataframe:
          - Sort order
          - Sort state
-         - Sort subject code
+         - Sort subject
          - Sort category
         """
 
@@ -157,7 +157,7 @@ class WebPageSortOrders():
             columns={'Level_0': 'Sort state',
                      'Level_1': 'Formula subcategory 1',
                      'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject code',
+                     'Level_3': 'Sort subject',
                      'Level_4': 'Sort category'})
         return_value = (
             return_value[
@@ -165,13 +165,13 @@ class WebPageSortOrders():
                  'FORMULAS') &
                 (return_value['Formula subcategory 2'].str.upper() ==
                  'BY YEAR CUMULATIVE') &
-                (return_value['Sort subject code'].notnull()) &
+                (return_value['Sort subject'].notnull()) &
                 (return_value['Sort category'].notnull()) &
                 (return_value['Level_5'].isnull())]).copy()
         return_value = return_value.reset_index(drop=True)
         return_value['Sort order'] = return_value.index
         return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject code',
+                                     'Sort subject',
                                      'Sort category']]
         return return_value
 
@@ -197,70 +197,85 @@ class Formulas():
                                 'Description': str,
                                 'Group': str,
                                 'Formula': str,
-                                'Subject code': str,
-                                'Comment': str
-                                }
+                                'Subject': str,
+                                'Comment': str}
+    # Enforces structure of syllabus.csv which is loaded during class init
+    _syllabus_input_structure = {'State': str,
+                                 'Subject': str,
+                                 'Syllabus topic': str,
+                                 'Syllabus subtopic code': str,
+                                 'Syllabus subtopic': str}
 
-    def __init__(self, formula_input_file_path):
+    def __init__(self, formula_input_file_path, syllabus_input_file_path,
+                 page_sort_orders):
         """Initiates class with csv located at input_file_path
 
         Args:
             formula_input_file_path (string): input csv file path
+            page_sort_orders (WebPageSortOrders) : Object storing
+                details of the web page sort orders
         """
-        cols_to_use = (
+        self._page_sort_orders = page_sort_orders
+        formula_cols_to_use = (
             list(self._formula_input_structure.keys()) +
             list(self._formula_input_converter.keys())
         )
-        self._formula_detail_df = pd.read_csv(
+        formula_detail_df = pd.read_csv(
             filepath_or_buffer=formula_input_file_path,
-            usecols=cols_to_use,
+            usecols=formula_cols_to_use,
             dtype=self._formula_input_structure,
             converters=self._formula_input_converter
         )
+        syllabus_cols_to_use = list(self._syllabus_input_structure.keys())
+        syllabus_detail_df = pd.read_csv(
+            filepath_or_buffer=syllabus_input_file_path,
+            usecols=syllabus_cols_to_use,
+            dtype=self._syllabus_input_structure
+        )
+        self._formula_detail_df = formula_detail_df.merge(
+            right=syllabus_detail_df,
+            left_on=['State', 'Subject', 'Syllabus subtopic code'],
+            right_on=['State', 'Subject', 'Syllabus subtopic code'],
+            how='left')
 
     def by_year(self):
         """Returns detail dataframe with formula related information
         """
         return self._formula_detail_df
 
-    def by_year_cumulative(self, state_subject_code_order_df):
+    def by_year_cumulative(self):
         """Returns formula details dataframe on a cumulative level by subject
-        code order  as provided in state_subject_code_order_df per
-        state(province).  For example if subject code Year 12 is ordered after
-        Year 10 and Year 9 for a given state then include the formula details
-        for Year 10 and Year 9 in the dataframe under subject code Year 12.
-
-        Args:
-            state_subject_code_order_df (pandas dataframe): Contains the below
-                columns:
-                 - Sort order
-                 - Sort state
-                 - Sort subject code
+        order  as provided in the page_sort_order object on class init.
+        For example if subject Year 12 is ordered after Year 10 and Year 9 for
+        a given state then include the formula details for Year 10 and Year 9
+        in the dataframe under subject Year 12.
         """
 
+        state_subject_order_df = (
+            self._page_sort_orders.formulas_cumulative_state_subject())
         # Add the subject Sort order (representing the sort order for the
         # subject by given state) to the formulas file
-        return_df = state_subject_code_order_df.merge(
+        return_df = state_subject_order_df.merge(
             right=self._formula_detail_df,
             how='inner',
-            left_on=['Sort state', 'Sort subject code'],
-            right_on=['State', 'Subject code']
+            left_on=['Sort state', 'Sort subject'],
+            right_on=['State', 'Subject']
         )
         return_df = return_df.rename(
             columns={'Sort order': 'Subject sort order'})
         return_df = return_df.drop(columns=['Sort state',
-                                            'Sort subject code'])
+                                            'Sort subject'])
         return_df = return_df.merge(
-            right=state_subject_code_order_df,
+            right=state_subject_order_df,
             how='inner', left_on=['State'], right_on=['Sort state']
         )
         return_df = return_df[return_df['Sort order'] >=
                               return_df['Subject sort order']]
         return_df = return_df.drop(columns=['Sort order',
                                             'Subject sort order',
-                                            'Sort state', 'Subject code'])
+                                            'Sort state', 'Subject'])
         return_df = return_df.rename(columns={
-            'Sort subject code': 'Subject code'
+            'Sort subject': 'Subject'
         })
         return return_df
 
@@ -303,26 +318,18 @@ class Formulas():
         by_year_df['Formula subcategory 2'] = 'By Year'
         by_year_df = by_year_df[['State', 'Formula subcategory 1',
                                  'Formula subcategory 2',
-                                 'Subject code']].drop_duplicates()
+                                 'Subject']].drop_duplicates()
         return by_year_df
 
-    def by_year_cumulative_dirs(self,  state_subject_code_order_df):
+    def by_year_cumulative_dirs(self):
         """Returns a dataframe containing target directories to
         save formula by year cumulative pages where each column in the
         dataframe represents a different directory level
-
-        Args:
-            state_subject_code_order_df (pandas dataframe): Contains the below
-                columns:
-                 - Sort order
-                 - Sort state
-                 - Sort subject code
         """
-        by_year_df = self.by_year_cumulative(
-            state_subject_code_order_df).copy()
+        by_year_df = self.by_year_cumulative().copy()
         by_year_df['Formula subcategory 1'] = 'Formulas'
         by_year_df['Formula subcategory 2'] = 'By year cumulative'
         by_year_df = by_year_df[['State', 'Formula subcategory 1',
                                  'Formula subcategory 2',
-                                 'Subject code']].drop_duplicates()
+                                 'Subject']].drop_duplicates()
         return by_year_df
