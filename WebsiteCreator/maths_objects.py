@@ -11,68 +11,72 @@ class WebPageHierarchies():
     pages as well as their indexed orders
     """
 
-    def __init__(self, sort_order_file_path):
-        """Initiates class with content of csv
+    def __init__(self, file_path_or_data):
+        """Initiates class with content of csv or data
 
         Args:
             sort_order_file_path (_type_): input csv file path
         """
-        self._hierarchy_input = pd.read_csv(
-            filepath_or_buffer=sort_order_file_path)
+        if isinstance(file_path_or_data, str):
+            self._hierarchy_data = pd.read_csv(
+                filepath_or_buffer=file_path_or_data)
+        elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
+            self._hierarchy_data = file_path_or_data.copy()
 
-    def all(self):
-        """Returns the full set of hierarhcies"""
-        return self._hierarchy_input
+    def to_dataframe(self):
+        """Returns the full set of hierarhcies as a pandas dataframe"""
+        return self._hierarchy_data
 
-    def filter(self, level=None):
-        """Returns a filtered view of the web page hierarchies with 'level'
-        number of non-mull levels.
+    def to_list(self):
+        """Returns the full set of hierarhcies as a list"""
+        return self._hierarchy_data.values.tolist()
+
+    def filter_by_depth(self, depth):
+        """Returns a new filtered WebPagHierarchies object where the paths are
+        'depth' deep.
 
         Args:
-            level (int, optional): Number of levels to return
-                Defaults to None.
+            level_number (int): Number of levels to return.
         """
-        max_hierarchy_level = len(self._hierarchy_input.columns)
-        return_hierarchy = self._hierarchy_input.copy()
-        return_hierarchy = return_hierarchy[
-            return_hierarchy.iloc[
-                :, level-1].notnull()]
-        if level < max_hierarchy_level:
-            return_hierarchy = return_hierarchy[
-                return_hierarchy.iloc[
-                    :, level].isnull()]
-        return_hierarchy = return_hierarchy.iloc[
-            :, :level]
-        return return_hierarchy
+        max_hierarchy_level = len(self._hierarchy_data.columns)
+        return_data = self._hierarchy_data.copy()
+        return_data = return_data[
+            return_data.iloc[
+                :, depth-1].notnull()]
+        if depth < max_hierarchy_level:
+            return_data = return_data[
+                return_data.iloc[
+                    :, depth].isnull()]
+        return_data = return_data.iloc[
+            :, :depth]
+        return WebPageHierarchies(return_data)
+
+    def filter_by_function(self, filter_function):
+        """Returns a new filtered WebPagHierarchies object where
+        filter_function returns True when passed each item in
+        WebPageHierarchies as a pandas series.
+
+        Args:
+            filter_function (function): Function taking a pandas series as a
+            parameter and returns a Boolean value
+        """
+        return_rows = self.to_dataframe().apply(filter_function, axis=1)
+        return_data = self.to_dataframe()[return_rows]
+        return WebPageHierarchies(return_data)
 
     def get_hierararchy_index(self, hierarchy_to_find):
         """Looks up hierarchy_to_find in the hierarchies stored in this class
         and returns the index of the first match found.  The index represents
         the order of hierarchies with same path length as hierarchy_to_find.
+
+        Args:
+            hierarchy_to_find (list): the hierarchy to find
         """
-        hierarchies_to_search = self._hierarchy_input.copy()
-        # length_of_hierarchies_to_search = len(hierarchies_to_search.columns)
-        # length_of_hierarchy_to_find = len(hierarchy_to_find)
-        # if length_of_hierarchy_to_find > length_of_hierarchies_to_search:
-        #     return None
-
-        # # Restrict hierarchies_to_search to non-null rows of the same length
-        # # as hierarchy_to_find
-        # # !! Refactor below into a seperate (?hidden) sub.  Thinking about keeping visible
-        # # !! Can just be part of filter
-        # hierarchies_to_search = hierarchies_to_search[
-        #     hierarchies_to_search.iloc[
-        #         :, length_of_hierarchy_to_find-1].notnull()]
-        # if length_of_hierarchy_to_find < length_of_hierarchies_to_search:
-        #     hierarchies_to_search = hierarchies_to_search[
-        #         hierarchies_to_search.iloc[
-        #             :, length_of_hierarchy_to_find].isnull()]
-        # hierarchies_to_search = hierarchies_to_search.iloc[
-        #     :, :length_of_hierarchy_to_find]
-
-        # # !! Convert dataframe values to a list and then find the index
-
-        return hierarchies_to_search
+        hierarchies_to_search = self.filter_by_depth(
+            depth=len(hierarchy_to_find)).to_list()
+        if hierarchy_to_find not in hierarchies_to_search:
+            return None
+        return hierarchies_to_search.index(hierarchy_to_find)
 
 
 class WebPageHierarchiesMaybeOutdated():
