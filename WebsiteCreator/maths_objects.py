@@ -3,25 +3,51 @@
     -  descriptions
 """
 
+import os
 import pandas as pd
 
 
-class WebPageHierarchies():
-    """Stores and retrieves sort the hierarchies (paths) for website
-    pages as well as their indexed orders
+class DirectoryHierarchies():
+    """Stores, retrieves, filters and creates file directory (path) hierarchies
+       as well as their indexed sort orders
     """
 
     def __init__(self, file_path_or_data):
         """Initiates class with content of csv or data
 
         Args:
-            sort_order_file_path (_type_): input csv file path
+            file_path_or_data (string or datafram): Eitherinput csv file path
+                or pandas dataframe
         """
         if isinstance(file_path_or_data, str):
             self._hierarchy_data = pd.read_csv(
                 filepath_or_buffer=file_path_or_data)
         elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
             self._hierarchy_data = file_path_or_data.copy()
+        # Utilised for iterator
+        self._current_index = -1
+
+    def __getitem__(self, item):
+        """Returns the item-th hierarchy stored in this class (removing
+        null values) and returns result as a a pandas series.
+        """
+        return_value = self.to_dataframe().iloc[item]
+        return_value = return_value[return_value.notnull()]
+        return return_value
+
+    def __iter__(self):
+        """Initialise the iterator"""
+        self._current_index = -1
+        return self
+
+    def __next__(self):
+        """Implelemts the next item of the class iterator
+        """
+        max_index = len(self.to_dataframe().index)-1
+        self._current_index += 1
+        if self._current_index <= max_index:
+            return self[self._current_index]
+        raise StopIteration
 
     def to_dataframe(self):
         """Returns the full set of hierarhcies as a pandas dataframe"""
@@ -49,7 +75,7 @@ class WebPageHierarchies():
                     :, depth].isnull()]
         return_data = return_data.iloc[
             :, :depth]
-        return WebPageHierarchies(return_data)
+        return DirectoryHierarchies(return_data)
 
     def filter_by_function(self, filter_function):
         """Returns a new filtered WebPagHierarchies object where
@@ -62,9 +88,9 @@ class WebPageHierarchies():
         """
         return_rows = self.to_dataframe().apply(filter_function, axis=1)
         return_data = self.to_dataframe()[return_rows]
-        return WebPageHierarchies(return_data)
+        return DirectoryHierarchies(return_data)
 
-    def get_hierararchy_index(self, hierarchy_to_find):
+    def get_sort_index(self, dir_to_find):
         """Looks up hierarchy_to_find in the hierarchies stored in this class
         and returns the index of the first match found.  The index represents
         the order of hierarchies with same path length as hierarchy_to_find.
@@ -73,10 +99,22 @@ class WebPageHierarchies():
             hierarchy_to_find (list): the hierarchy to find
         """
         hierarchies_to_search = self.filter_by_depth(
-            depth=len(hierarchy_to_find)).to_list()
-        if hierarchy_to_find not in hierarchies_to_search:
+            depth=len(dir_to_find)).to_list()
+        if dir_to_find not in hierarchies_to_search:
             return None
-        return hierarchies_to_search.index(hierarchy_to_find)
+        return hierarchies_to_search.index(dir_to_find)
+
+    def create_directories(self, base_dir):
+        """Creates directory by concatanating base_dir with the directories
+        stored in this class
+
+        Args:
+            base_dir (string): The base directory to concentate with the
+                directories stored in this classs
+        """
+        for current_path in self:
+            fname = base_dir + os.path.sep + os.path.sep.join(current_path)
+            os.makedirs(fname)
 
 
 class WebPageHierarchiesMaybeOutdated():
