@@ -7,6 +7,75 @@ import pandas as pd
 
 
 class WebPageHierarchies():
+    """Stores and retrieves sort the hierarchies (paths) for website
+    pages as well as their indexed orders
+    """
+
+    def __init__(self, sort_order_file_path):
+        """Initiates class with content of csv
+
+        Args:
+            sort_order_file_path (_type_): input csv file path
+        """
+        self._hierarchy_input = pd.read_csv(
+            filepath_or_buffer=sort_order_file_path)
+
+    def all(self):
+        """Returns the full set of hierarhcies"""
+        return self._hierarchy_input
+
+    def filter(self, level=None):
+        """Returns a filtered view of the web page hierarchies with 'level'
+        number of non-mull levels.
+
+        Args:
+            level (int, optional): Number of levels to return
+                Defaults to None.
+        """
+        max_hierarchy_level = len(self._hierarchy_input.columns)
+        return_hierarchy = self._hierarchy_input.copy()
+        return_hierarchy = return_hierarchy[
+            return_hierarchy.iloc[
+                :, level-1].notnull()]
+        if level < max_hierarchy_level:
+            return_hierarchy = return_hierarchy[
+                return_hierarchy.iloc[
+                    :, level].isnull()]
+        return_hierarchy = return_hierarchy.iloc[
+            :, :level]
+        return return_hierarchy
+
+    def get_hierararchy_index(self, hierarchy_to_find):
+        """Looks up hierarchy_to_find in the hierarchies stored in this class
+        and returns the index of the first match found.  The index represents
+        the order of hierarchies with same path length as hierarchy_to_find.
+        """
+        hierarchies_to_search = self._hierarchy_input.copy()
+        # length_of_hierarchies_to_search = len(hierarchies_to_search.columns)
+        # length_of_hierarchy_to_find = len(hierarchy_to_find)
+        # if length_of_hierarchy_to_find > length_of_hierarchies_to_search:
+        #     return None
+
+        # # Restrict hierarchies_to_search to non-null rows of the same length
+        # # as hierarchy_to_find
+        # # !! Refactor below into a seperate (?hidden) sub.  Thinking about keeping visible
+        # # !! Can just be part of filter
+        # hierarchies_to_search = hierarchies_to_search[
+        #     hierarchies_to_search.iloc[
+        #         :, length_of_hierarchy_to_find-1].notnull()]
+        # if length_of_hierarchy_to_find < length_of_hierarchies_to_search:
+        #     hierarchies_to_search = hierarchies_to_search[
+        #         hierarchies_to_search.iloc[
+        #             :, length_of_hierarchy_to_find].isnull()]
+        # hierarchies_to_search = hierarchies_to_search.iloc[
+        #     :, :length_of_hierarchy_to_find]
+
+        # # !! Convert dataframe values to a list and then find the index
+
+        return hierarchies_to_search
+
+
+class WebPageHierarchiesMaybeOutdated():
     """Stores and retrieves sort the hierarchies (paths) for maths site web
     pages as well as their indexed orders
     """
