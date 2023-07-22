@@ -49,9 +49,26 @@ class DirectoryHierarchies():
             return self[self._current_index]
         raise StopIteration
 
+    def _like_items_are_consecutive(self, input_values):
+        """Returns true if all like items in input_values are
+        arranged consecutively
+
+        Args:
+            input_values (iterable): Values to test
+        """
+
+        unique_values = list(set(input_values))
+        values_ex_consecutive_duplicates = []
+        for item in input_values:
+            if not values_ex_consecutive_duplicates:
+                values_ex_consecutive_duplicates.append(item)
+            elif item != values_ex_consecutive_duplicates[-1]:
+                values_ex_consecutive_duplicates.append(item)
+        return len(values_ex_consecutive_duplicates) == len(unique_values)
+
     def to_dataframe(self):
         """Returns the full set of hierarhcies as a pandas dataframe"""
-        return self._hierarchy_data
+        return self._hierarchy_data.copy()
 
     def to_list(self):
         """Returns the full set of hierarhcies as a list"""
