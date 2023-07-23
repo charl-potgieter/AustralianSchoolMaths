@@ -107,26 +107,6 @@ class DirectoryHierarchies():
         """Returns the full set of hierarhcies as a list"""
         return self._hierarchy_data.values.tolist()
 
-    def filter_by_depth(self, depth):
-        """Returns a new filtered WebPagHierarchies object where the paths are
-        'depth' deep.
-
-        Args:
-            level_number (int): Number of levels to return.
-        """
-        max_hierarchy_level = len(self._hierarchy_data.columns)
-        return_data = self._hierarchy_data.copy()
-        return_data = return_data[
-            return_data.iloc[
-                :, depth-1].notnull()]
-        if depth < max_hierarchy_level:
-            return_data = return_data[
-                return_data.iloc[
-                    :, depth].isnull()]
-        return_data = return_data.iloc[
-            :, :depth]
-        return DirectoryHierarchies(return_data)
-
     def filter_by_function(self, filter_function):
         """Returns a new filtered WebPagHierarchies object where
         filter_function returns True when passed each item in
@@ -186,6 +166,32 @@ class DirectoryHierarchies():
         for current_path in self:
             fname = base_dir + os.path.sep + os.path.sep.join(current_path)
             os.makedirs(fname)
+
+    def all_path_levels(self, base_dir=None):
+        """Returns a list of unique paths recursively at each directory level
+        for the directory hierarchies stored in this class, optionally prefixed
+        woth base_dir
+
+        Args:
+            base_dir (string, optional): Optional prefix to all returned path
+                levels. Defaults to None.
+        """
+
+        all_path_levels = []
+        for column_index in range(len(self._hierarchy_data.columns)):
+            paths_at_current_level = self._hierarchy_data.iloc[
+                :, :column_index+1]
+            paths_at_current_level = (paths_at_current_level
+                                      .drop_duplicates().dropna())
+            if base_dir:
+                paths_at_current_level = paths_at_current_level.apply(
+                    lambda x: os.path.sep.join([base_dir] + list(x)), axis=1)
+            else:
+                paths_at_current_level = paths_at_current_level.apply(
+                    os.path.sep.join, axis=1)
+            all_path_levels = all_path_levels + list(paths_at_current_level)
+        all_path_levels = list(set(all_path_levels))
+        return all_path_levels
 
 
 class Formulas():
