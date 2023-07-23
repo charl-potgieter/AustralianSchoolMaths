@@ -25,6 +25,13 @@ class DirectoryHierarchies():
         elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
             self._hierarchy_data = file_path_or_data.copy()
         # Utilised for iterator
+
+        if self._inconsistent_hierarchy_sort_path():
+            raise ValueError(
+                'Inconsistent site hieriarchy file.  '
+                + 'Out of order item: '
+                + str(self._inconsistent_hierarchy_sort_path()))
+
         self._current_index = -1
 
     def __getitem__(self, item):
@@ -49,22 +56,48 @@ class DirectoryHierarchies():
             return self[self._current_index]
         raise StopIteration
 
-    def _like_items_are_consecutive(self, input_values):
-        """Returns true if all like items in input_values are
-        arranged consecutively
+    def _inconsistent_hierarchy_sort_path(self):
+        """Checks for sort consistency in hieriarchies.  Returns a string
+        containing the first inconsistent sort path found, othewise None.
+        Example: Below is inconsistent as all the Path_A in
+        first levels of the hierarchies below are not consecutive
+            /path_A/path_B
+            /path_A/path_C
+            /path_B/Path_X
+            /path_A/Path_Y
+        """
+        for i in range(len(self._hierarchy_data.columns)):
+            current_level_data = self._hierarchy_data.iloc[:, :i+1].copy()
+            current_level_data_last_path = current_level_data.iloc[:, i]
+            current_level_data = current_level_data[
+                current_level_data_last_path.notnull()]
+            ordered_paths = list(
+                # https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/unnecessary-lambda.html
+                current_level_data.apply(list, axis=1))
+            inconsistent_item = (
+                self._first_non_consecutive_like_item(ordered_paths))
+            if inconsistent_item:
+                return inconsistent_item
+        return None
+
+    def _first_non_consecutive_like_item(self, input_values):
+        """Returns first item if it is an item in input_values that equals
+        another item in input_values but they do not appear consecutively,
+        otherwise returns None.
 
         Args:
             input_values (iterable): Values to test
         """
 
-        unique_values = list(set(input_values))
         values_ex_consecutive_duplicates = []
         for item in input_values:
             if not values_ex_consecutive_duplicates:
                 values_ex_consecutive_duplicates.append(item)
             elif item != values_ex_consecutive_duplicates[-1]:
                 values_ex_consecutive_duplicates.append(item)
-        return len(values_ex_consecutive_duplicates) == len(unique_values)
+                if values_ex_consecutive_duplicates.count(item) != 1:
+                    return item
+        return None
 
     def to_dataframe(self):
         """Returns the full set of hierarhcies as a pandas dataframe"""
@@ -132,214 +165,6 @@ class DirectoryHierarchies():
         for current_path in self:
             fname = base_dir + os.path.sep + os.path.sep.join(current_path)
             os.makedirs(fname)
-
-
-class WebPageHierarchiesMaybeOutdated():
-    """Stores and retrieves sort the hierarchies (paths) for maths site web
-    pages as well as their indexed orders
-    """
-
-    # Enforces structure of Sort orders csv when loaded
-    _sort_order_structure = {'Level_0': str,
-                             'Level_1': str,
-                             'Level_2': str,
-                             'Level_3': str,
-                             'Level_4': str,
-                             'Level_5': str}
-
-    def __init__(self, sort_order_file_path):
-        """Initiates class with content of csv
-
-        Args:
-            sort_order_file_path (_type_): input csv file path
-        """
-        cols_to_use = list(self._sort_order_structure.keys())
-        self._sort_order_input = pd.read_csv(
-            filepath_or_buffer=sort_order_file_path,
-            usecols=cols_to_use,
-            dtype=self._sort_order_structure
-        )
-
-    def all(self):
-        """Returns the full set of hierarhcies"""
-        return self._sort_order_input
-
-    def get_hierararchy_index(self, hierarchy_to_find):
-        """Looks up hierarchy_to_find in the hierarchies stores in this class
-        and returns the index of the first match found.  The index represents
-        the order of hierarchies with same path lenght as hierarchy_to_find
-        """
-
-        sort_order_workings = self._sort_order_input.copy()
-        list_len = len(hierarchy_to_find)
-        if list_len > len(sort_order_workings.columns):
-            return None
-
-        if list_len < len(sort_order_workings.columns):
-            sort_order_workings = sort_order_workings[
-                sort_order_workings.iloc[:, list_len].isnull()]
-
-        sort_order_workings = sort_order_workings[
-            sort_order_workings.iloc[:, list_len-1].notnull()]
-
-        for i in range(len(hierarchy_to_find)-1):
-            sort_order_workings = sort_order_workings[
-                (sort_order_workings.iloc[:, i].str.upper() ==
-                 str(hierarchy_to_find[i]).upper())]
-        sort_order_workings = sort_order_workings.reset_index(drop=True)
-
-        sort_order_workings = sort_order_workings[
-            (sort_order_workings.iloc[:, list_len-1].str.upper() ==
-             str(hierarchy_to_find[list_len-1]).upper())]
-        filtered_index = sort_order_workings.index
-
-        if len(filtered_index) == 0:
-            return None
-        return filtered_index[0]
-
-    def states(self):
-        """Filters this classes input dataframe, renames column and returns an
-        ordered pandas dataframe of states (provinces) for purposes of website
-        page menu order.  Below columns are returned in the dataframe:
-         - Sort order
-         - Sort state
-        """
-        return_value = self._sort_order_input[
-            (self._sort_order_input['Level_0'].notnull()) &
-            (self._sort_order_input['Level_1'].isnull())
-        ].copy()
-        return_value = return_value.reset_index(drop=True)
-        return_value['Sort order'] = return_value.index
-        return_value = return_value.rename(columns={'Level_0': 'Sort state'})
-        return_value = return_value[['Sort order', 'Sort state']]
-        return return_value
-
-    def formulas_by_year_state_subject(self):
-        """Filters this classes input dataframe, renames columns and returns an
-        ordered pandas dataframe representing the web page (menu) order of the
-        'formula by year' section at a state and subject page level, where
-         each column in the dataframe represents the (ordered) level in the
-         menu.  Below columns are returned in the dataframe:
-         - Sort order
-         - Sort state
-         - Sort subject
-        """
-
-        return_value = self._sort_order_input.rename(
-            columns={'Level_0': 'Sort state',
-                     'Level_1': 'Formula subcategory 1',
-                     'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject',
-                     'Level_4': 'Sort category'})
-        return_value = return_value[
-            (return_value['Formula subcategory 1'].str.upper() ==
-             'FORMULAS') &
-            (return_value['Formula subcategory 2'].str.upper() ==
-             'BY YEAR') &
-            (return_value['Sort subject'].notnull()) &
-            (return_value['Sort category'].isnull())].copy()
-        return_value = return_value.reset_index(drop=True)
-        return_value['Sort order'] = return_value.index
-        return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject']]
-        return return_value
-
-    def formulas_by_year_state_subject_category(self):
-        """Filters this classes input dataframe, renames columns and returns an
-        ordered pandas dataframe representing the web page (menu) order of the
-        'formula by year' section at a state and subject and category page
-        level, where each column in the dataframe represents the (ordered)
-        level in the menu. Below columns are returned in the dataframe:
-         - Sort order
-         - Sort state
-         - Sort subject
-         - Sort category
-        """
-
-        return_value = self._sort_order_input.rename(
-            columns={'Level_0': 'Sort state',
-                     'Level_1': 'Formula subcategory 1',
-                     'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject',
-                     'Level_4': 'Sort category'})
-        return_value = (
-            return_value[
-                (return_value['Formula subcategory 1'].str.upper() ==
-                 'FORMULAS') &
-                (return_value['Formula subcategory 2'].str.upper() ==
-                 'BY YEAR') &
-                (return_value['Sort subject'].notnull()) &
-                (return_value['Sort category'].notnull()) &
-                (return_value['Level_5'].isnull())]).copy()
-        return_value = return_value.reset_index(drop=True)
-        return_value['Sort order'] = return_value.index
-        return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject', 'Sort category']]
-        return return_value
-
-    def formulas_cumulative_state_subject(self):
-        """Filters this classes input dataframe, renames columns and returns an
-        ordered pandas dataframe representing the web page (menu) order of the
-        cumulative formula pages by state and subject, where each
-        column in the dataframe represents the (ordered) level in the menu.
-        Below columns are returned in the dataframe:
-         - Sort order
-         - Sort state
-         - Sort subject
-        """
-
-        return_value = self._sort_order_input.rename(
-            columns={'Level_0': 'Sort state',
-                     'Level_1': 'Formula subcategory 1',
-                     'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject',
-                     'Level_4': 'Sort category'})
-        return_value = return_value[
-            (return_value['Formula subcategory 1'].str.upper() ==
-             'FORMULAS') &
-            (return_value['Formula subcategory 2'].str.upper() ==
-             'BY YEAR CUMULATIVE') &
-            (return_value['Sort subject'].notnull()) &
-            (return_value['Sort category'].isnull())].copy()
-        return_value = return_value.reset_index(drop=True)
-        return_value['Sort order'] = return_value.index
-        return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject']]
-        return return_value
-
-    def formulas_cumulative_state_subject_category(self):
-        """Filters this classes input dataframe, renames columns and returns an
-        ordered pandas dataframe representing the web page (menu) order of the
-        cumulative formula subject pages by state, subject and category
-        where each column in the dataframe represents the (ordered) level in
-        the menu.  Below columns are returned in the dataframe:
-         - Sort order
-         - Sort state
-         - Sort subject
-         - Sort category
-        """
-
-        return_value = self._sort_order_input.rename(
-            columns={'Level_0': 'Sort state',
-                     'Level_1': 'Formula subcategory 1',
-                     'Level_2': 'Formula subcategory 2',
-                     'Level_3': 'Sort subject',
-                     'Level_4': 'Sort category'})
-        return_value = (
-            return_value[
-                (return_value['Formula subcategory 1'].str.upper() ==
-                 'FORMULAS') &
-                (return_value['Formula subcategory 2'].str.upper() ==
-                 'BY YEAR CUMULATIVE') &
-                (return_value['Sort subject'].notnull()) &
-                (return_value['Sort category'].notnull()) &
-                (return_value['Level_5'].isnull())]).copy()
-        return_value = return_value.reset_index(drop=True)
-        return_value['Sort order'] = return_value.index
-        return_value = return_value[['Sort order', 'Sort state',
-                                     'Sort subject',
-                                     'Sort category']]
-        return return_value
 
 
 class Formulas():
