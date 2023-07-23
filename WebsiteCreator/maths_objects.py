@@ -141,18 +141,39 @@ class DirectoryHierarchies():
         return DirectoryHierarchies(return_data)
 
     def get_sort_index(self, dir_to_find):
-        """Looks up hierarchy_to_find in the hierarchies stored in this class
-        and returns the index of the first match found.  The index represents
-        the order of hierarchies with same path length as hierarchy_to_find.
+        """Looks up dir_to_find in the hierarchies stored in this class as
+        follows:
+         - filters on stored hierarchies of same number of path levels as
+           dir_to_find
+         - filters stored hierarches equal to dir_to_find for all path
+           levels excluding the last level
+         - returns the index of the first match found otherwise none
 
         Args:
-            hierarchy_to_find (list): the hierarchy to find
+            dir_to_find (list): the directory to find
         """
-        hierarchies_to_search = self.filter_by_depth(
-            depth=len(dir_to_find)).to_list()
-        if dir_to_find not in hierarchies_to_search:
-            return None
-        return hierarchies_to_search.index(dir_to_find)
+
+        # Get unique hierarchies of the same length as hierarchy_to_find
+        hierarchies_to_search = self._hierarchy_data.copy()
+        hierarchies_to_search = hierarchies_to_search.iloc[
+            :, :len(dir_to_find)]
+        hierarchies_to_search = hierarchies_to_search.drop_duplicates()
+
+        # Restrict hieararchy_to_search to paths equal to dir_to_find
+        # when the last path level is excluded
+        hierarchies_to_search = hierarchies_to_search[
+            hierarchies_to_search.apply(
+                lambda x: tuple(x)[:-1], axis=1) == tuple(dir_to_find[:-1])
+        ]
+        hierarchies_to_search = hierarchies_to_search.reset_index(drop=True)
+
+        # Filter hierarchies by dir_to_find and return first index
+        hierarchies_to_search = hierarchies_to_search[
+            # https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/unnecessary-lambda.html
+            hierarchies_to_search.apply(tuple, axis=1) == tuple(dir_to_find)]
+        if len(hierarchies_to_search):
+            return hierarchies_to_search.index[0]
+        return None
 
     def create_directories(self, base_dir):
         """Creates directory by concatanating base_dir with the directories
