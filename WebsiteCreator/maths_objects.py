@@ -135,9 +135,10 @@ class DirectoryHierarchies():
 
         hierarchies_to_search = self._get_unique_hierarchies_by_length(
             self.to_dataframe(), len(dir_to_find))
-        hierarchies_to_search = self._filter_by_path_start(
-            hierarchies_to_search, dir_to_find[:-1]
-        )
+        if len(dir_to_find) > 1:
+            hierarchies_to_search = self._filter_by_path_start(
+                hierarchies_to_search, dir_to_find[:-1]
+            )
         hierarchies_to_search = hierarchies_to_search.reset_index(drop=True)
         hierarchies_to_search = self._filter_by_path(hierarchies_to_search,
                                                      dir_to_find)
