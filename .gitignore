@@ -18,3 +18,5 @@ WebsiteCreator/Experimentation/*
 WebsiteCreator/__pycache__/*
 WebsiteCreator/.ipynb_checkpoints/*
 .vscode/*
+*/Temp/*
+*/temp/*

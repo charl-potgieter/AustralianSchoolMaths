@@ -230,6 +230,45 @@ class DirectoryHierarchies():
         return all_path_levels
 
 
+class IndexFile():
+    """Creates, and contents and saves _index.md files
+    """
+
+    def __init__(self):
+        self._dict = {}
+
+    def add_property(self, property_key, property_value):
+        """Adds property_value for corresponding property_key to the
+        index file"""
+
+        self._dict[property_key] = property_value
+
+    def _content(self):
+        """Returns the content of index file as a string"""
+        return_value = '---\n'
+        if self._dict:
+            for key, value in self._dict.items():
+                return_value += str(key) + ': ' + str(value) + '\n'
+        return_value += '---'
+        return return_value
+
+    def save(self, dir):
+        """Saves the content of this IndexFileClass as an ._index.md in
+        directory dir.
+
+        Args:
+            file_directory (string): The directory excluding file name where
+                the ._index.md file will be saved.
+        """
+        file_name = dir + os.path.sep + '_index.md'
+        if os.path.isfile(file_name):
+            raise OSError('Cannot create ._index.md file as it already ' +
+                          'exists at directory ' + dir)
+        else:
+            with open(file_name, "w", encoding="utf-8") as text_file:
+                text_file.write(self._content())
+
+
 class Formulas():
     """Contains the formulas object representing different views / slices
     of the given input set of formulas
