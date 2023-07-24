@@ -133,27 +133,63 @@ class DirectoryHierarchies():
             dir_to_find (list): the directory to find
         """
 
-        # Get unique hierarchies of the same length as hierarchy_to_find
-        hierarchies_to_search = self._hierarchy_data.copy()
-        hierarchies_to_search = hierarchies_to_search.iloc[
-            :, :len(dir_to_find)]
-        hierarchies_to_search = hierarchies_to_search.drop_duplicates()
-
-        # Restrict hieararchy_to_search to paths equal to dir_to_find
-        # when the last path level is excluded
-        hierarchies_to_search = hierarchies_to_search[
-            hierarchies_to_search.apply(
-                lambda x: tuple(x)[:-1], axis=1) == tuple(dir_to_find[:-1])
-        ]
+        hierarchies_to_search = self._get_unique_hierarchies_by_length(
+            self.to_dataframe(), len(dir_to_find))
+        hierarchies_to_search = self._filter_by_path_start(
+            hierarchies_to_search, dir_to_find[:-1]
+        )
         hierarchies_to_search = hierarchies_to_search.reset_index(drop=True)
+        hierarchies_to_search = self._filter_by_path(hierarchies_to_search,
+                                                     dir_to_find)
 
-        # Filter hierarchies by dir_to_find and return first index
-        hierarchies_to_search = hierarchies_to_search[
-            # https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/unnecessary-lambda.html
-            hierarchies_to_search.apply(tuple, axis=1) == tuple(dir_to_find)]
         if len(hierarchies_to_search):
             return hierarchies_to_search.index[0]
         return None
+
+    def _get_unique_hierarchies_by_length(self, hierarchies, path_length):
+        """Get hierarcarchies stored in this class restricted to path_length
+        and return unique items (shorter paths with null values are also
+        returned )
+
+        Args:
+            path_length (int): Length (depth) of paths to utilise
+        """
+        unique_hiearchies_to_length = hierarchies.copy()
+        unique_hiearchies_to_length = unique_hiearchies_to_length.iloc[
+            :, :path_length]
+        unique_hiearchies_to_length = (unique_hiearchies_to_length
+                                       .drop_duplicates())
+        return unique_hiearchies_to_length
+
+    def _filter_by_path(self, hierarchies, value_to_filter):
+        """Filters hieararchies where each hierarhcy equals value_to_filter
+
+        Args:
+            hierarchy (_type_): the hieararchy to filter
+            value_to_filter (iterable): the value to filter on
+        """
+
+        filtered_hierarchies = hierarchies.copy()
+        return filtered_hierarchies[
+            filtered_hierarchies.apply(tuple, axis=1) == tuple(value_to_filter)
+        ]
+
+    def _filter_by_path_start(self, hierarchies, value_to_filter):
+        """Filters hieararchies by value_to_filter where the
+        start of each item (same length as value_to_filter) in
+        hieararchies equals value_to_filter
+
+        Args:
+            hierarchies_to_filter (dataframe): The hieararchy to filter
+            value_to_filter (iterable): The value to filter by
+        """
+        hierarchies_to_filter = hierarchies.copy()
+        hierarchies_to_search = hierarchies_to_filter.iloc[
+            :, :len(value_to_filter)]
+        return hierarchies_to_filter[
+            hierarchies_to_search.apply(
+                tuple, axis=1) == tuple(value_to_filter)
+        ]
 
     def create_directories(self, base_dir):
         """Creates directory by concatanating base_dir with the directories
