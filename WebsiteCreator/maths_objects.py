@@ -127,33 +127,38 @@ class DirectoryHierarchies():
         return DirectoryHierarchies(return_data)
 
     def get_sort_index(self, dir_to_find):
-        """Looks up dir_to_find in the hierarchies stored in this class as
-        follows:
-         - filters on stored hierarchies of same number of path levels as
-           dir_to_find
-         - filters stored hierarches equal to dir_to_find for all path
-           levels excluding the last level
-         - returns the index of the first match found otherwise none
+        """Returns sort index of dir_to_find relative to all paths in the
+            hierarchies stored in this object
+
+        Args:
+            dir_to_find (iterable): The directory (path) for which the sort
+                index is to be returned
+        """
+        matching_hierarchies = self.filter_by_path(dir_to_find)
+        if len(matching_hierarchies.to_dataframe()):
+            return matching_hierarchies.to_dataframe().index[0]
+        return None
+
+    def get_sort_index_in_parent_path(self, dir_to_find):
+        """Returns sort_index of dir_to_find relative to other directories
+        with the same parent path
 
         Args:
             dir_to_find (list): the directory to find
         """
-
-        hierarchies_to_search = self._get_unique_hierarchies_by_length(
-            self.to_dataframe(), len(dir_to_find))
+        unique_truncated_hierarchies = (
+            self.truncate_to_path_length(len(dir_to_find)).unique())
         if len(dir_to_find) > 1:
-            hierarchies_to_search = self._filter_by_path_start(
-                hierarchies_to_search, dir_to_find[:-1]
-            )
-        hierarchies_to_search = hierarchies_to_search.reset_index(drop=True)
-        hierarchies_to_search = self._filter_by_path(hierarchies_to_search,
-                                                     dir_to_find)
+            hierarchies_with_same_parent = (
+                unique_truncated_hierarchies
+                .filter_by_path_start(dir_to_find[:-1]))
+        else:
+            hierarchies_with_same_parent = unique_truncated_hierarchies
+        hierarchies_with_same_parent = (
+            hierarchies_with_same_parent.reset_sort_index())
+        return hierarchies_with_same_parent.get_sort_index(dir_to_find)
 
-        if len(hierarchies_to_search):
-            return hierarchies_to_search.index[0]
-        return None
-
-    def _truncate_to_path_length(self, path_length):
+    def truncate_to_path_length(self, path_length):
         """Restricts  hieararches to paths of path_length and returns as a
         new object
 
@@ -173,14 +178,14 @@ class DirectoryHierarchies():
         unique_hierarchy_data = unique_hierarchy_data.drop_duplicates()
         return DirectoryHierarchies(unique_hierarchy_data)
 
-    def _reset_sort_index(self):
+    def reset_sort_index(self):
         """Resets the hiearatchy sort order to commence from zero and return
         as a new object
         """
         return DirectoryHierarchies(
             self._hierarchy_data.copy().reset_index(drop=True))
 
-    def _filter_by_path(self, path_to_filter):
+    def filter_by_path(self, path_to_filter):
         """filters hieararchies where each hierarchy equals value_to_filter
             and returns as a new object
         Args:
@@ -193,7 +198,7 @@ class DirectoryHierarchies():
         ]
         return DirectoryHierarchies(filtered_hierarchy_data)
 
-    def _filter_by_path_start(self, value_to_filter):
+    def filter_by_path_start(self, path_to_filter):
         """Filters hieararchies by value_to_filter where the
         start of each item (same length as value_to_filter) in
         hieararchies equals value_to_filter and returns hierarchies as a new
@@ -204,10 +209,10 @@ class DirectoryHierarchies():
         """
         hierarchies_to_filter = self._hierarchy_data.copy()
         hierarchies_to_search = hierarchies_to_filter.iloc[
-            :, :len(value_to_filter)]
+            :, :len(path_to_filter)]
         filtered_hierarchies = hierarchies_to_filter[
             hierarchies_to_search.apply(
-                tuple, axis=1) == tuple(value_to_filter)
+                tuple, axis=1) == tuple(path_to_filter)
         ]
         return DirectoryHierarchies(filtered_hierarchies)
 

@@ -16,7 +16,7 @@ def create_index_files(hierarchies):
     """
     for path in hierarchies.all_path_levels():
         index_file = IndexFile()
-        path_sort_order = hierarchies.get_sort_index(
+        path_sort_order = hierarchies.get_sort_index_in_parent_path(
             path.split(os.path.sep))
         index_file.add_property('bookCollapseSection', 'true')
         index_file.add_property('weight', path_sort_order)
