@@ -99,6 +99,12 @@ class DirectoryHierarchies():
                     return item
         return None
 
+    def copy(self):
+        """Creates a copy of the this object
+        """
+        new_hierarchy_data = self._hierarchy_data.copy()
+        return DirectoryHierarchies(new_hierarchy_data)
+
     def to_dataframe(self):
         """Returns the full set of hierarhcies as a pandas dataframe"""
         return self._hierarchy_data.copy()
@@ -117,7 +123,7 @@ class DirectoryHierarchies():
             parameter and returns a Boolean value
         """
         return_rows = self.to_dataframe().apply(filter_function, axis=1)
-        return_data = self.to_dataframe()[return_rows]
+        return_data = self.to_dataframe().copy()[return_rows]
         return DirectoryHierarchies(return_data)
 
     def get_sort_index(self, dir_to_find):
@@ -147,50 +153,63 @@ class DirectoryHierarchies():
             return hierarchies_to_search.index[0]
         return None
 
-    def _get_unique_hierarchies_by_length(self, hierarchies, path_length):
-        """Get hierarcarchies stored in this class restricted to path_length
-        and return unique items (shorter paths with null values are also
-        returned )
+    def _truncate_to_path_length(self, path_length):
+        """Restricts  hieararches to paths of path_length and returns as a
+        new object
 
         Args:
-            path_length (int): Length (depth) of paths to utilise
+            path_length (int): The path length restriction to apply when
+                creating the object copy.
         """
-        unique_hiearchies_to_length = hierarchies.copy()
-        unique_hiearchies_to_length = unique_hiearchies_to_length.iloc[
-            :, :path_length]
-        unique_hiearchies_to_length = (unique_hiearchies_to_length
-                                       .drop_duplicates())
-        return unique_hiearchies_to_length
+        hierarchy_data_to_length = self._hierarchy_data.iloc[
+            :, :path_length].copy()
+        hierarchies_to_length = DirectoryHierarchies(hierarchy_data_to_length)
+        return hierarchies_to_length
 
-    def _filter_by_path(self, hierarchies, value_to_filter):
-        """Filters hieararchies where each hierarhcy equals value_to_filter
+    def unique(self):
+        """Restricts hierarchies to unique values and returns as a new object
+        """
+        unique_hierarchy_data = self._hierarchy_data.copy()
+        unique_hierarchy_data = unique_hierarchy_data.drop_duplicates()
+        return DirectoryHierarchies(unique_hierarchy_data)
 
+    def _reset_sort_index(self):
+        """Resets the hiearatchy sort order to commence from zero and return
+        as a new object
+        """
+        return DirectoryHierarchies(
+            self._hierarchy_data.copy().reset_index(drop=True))
+
+    def _filter_by_path(self, path_to_filter):
+        """filters hieararchies where each hierarchy equals value_to_filter
+            and returns as a new object
         Args:
-            hierarchy (_type_): the hieararchy to filter
             value_to_filter (iterable): the value to filter on
         """
-
-        filtered_hierarchies = hierarchies.copy()
-        return filtered_hierarchies[
-            filtered_hierarchies.apply(tuple, axis=1) == tuple(value_to_filter)
+        filtered_hierarchy_data = self._hierarchy_data.copy()
+        filtered_hierarchy_data = filtered_hierarchy_data[
+            filtered_hierarchy_data.apply(tuple, axis=1)
+            == tuple(path_to_filter)
         ]
+        return DirectoryHierarchies(filtered_hierarchy_data)
 
-    def _filter_by_path_start(self, hierarchies, value_to_filter):
+    def _filter_by_path_start(self, value_to_filter):
         """Filters hieararchies by value_to_filter where the
         start of each item (same length as value_to_filter) in
-        hieararchies equals value_to_filter
+        hieararchies equals value_to_filter and returns hierarchies as a new
+        object
 
         Args:
-            hierarchies_to_filter (dataframe): The hieararchy to filter
             value_to_filter (iterable): The value to filter by
         """
-        hierarchies_to_filter = hierarchies.copy()
+        hierarchies_to_filter = self._hierarchy_data.copy()
         hierarchies_to_search = hierarchies_to_filter.iloc[
             :, :len(value_to_filter)]
-        return hierarchies_to_filter[
+        filtered_hierarchies = hierarchies_to_filter[
             hierarchies_to_search.apply(
                 tuple, axis=1) == tuple(value_to_filter)
         ]
+        return DirectoryHierarchies(filtered_hierarchies)
 
     def create_directories(self, base_dir):
         """Creates directory by concatanating base_dir with the directories
@@ -253,7 +272,7 @@ class IndexFile():
         return_value += '---'
         return return_value
 
-    def save(self, dir):
+    def save(self, target_dir):
         """Saves the content of this IndexFileClass as an ._index.md in
         directory dir.
 
@@ -261,10 +280,10 @@ class IndexFile():
             file_directory (string): The directory excluding file name where
                 the ._index.md file will be saved.
         """
-        file_name = dir + os.path.sep + '_index.md'
+        file_name = target_dir + os.path.sep + '_index.md'
         if os.path.isfile(file_name):
             raise OSError('Cannot create ._index.md file as it already ' +
-                          'exists at directory ' + dir)
+                          'exists at directory ' + target_dir)
         else:
             with open(file_name, "w", encoding="utf-8") as text_file:
                 text_file.write(self._content())
