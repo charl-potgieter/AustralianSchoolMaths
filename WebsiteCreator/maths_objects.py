@@ -7,6 +7,87 @@ import os
 import pandas as pd
 
 
+class DataManager():
+    """Reads, validates and returns data"""
+
+    def __init__(self, file_path_or_data):
+        """Initiates class with content of csv or data
+
+        Args:
+            file_path_or_data (string or datafram): Either input csv file path
+                or pandas dataframe
+        """
+        if isinstance(file_path_or_data, str):
+            self._data = pd.read_csv(
+                filepath_or_buffer=file_path_or_data)
+        elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
+            self._data = file_path_or_data.copy()
+
+    def to_dataframe(self):
+        """Returns data as a pandas dataframe"""
+        return self._data
+
+    def column_names_are_correct(self, expected_column_names):
+        """Returns true if expected_column_names match the column names
+        of the data stored by this object
+
+        Args:
+            expected_column_names (iterable): The expected colummn names to
+            check against column names of data stored in this object
+        """
+        number_of_unexpected_columns = len(
+            self._unexpected_column_names_in_data(expected_column_names))
+        number_of_missing_columns = len(
+            self._missing_column_names_in_data(expected_column_names))
+        return (number_of_unexpected_columns == 0
+                and number_of_missing_columns == 0)
+
+    def column_mismatch_message(self, expected_column_names):
+        """Returns a string listing any differences between
+        expected_column_names and column_names of data stored in this object.
+        Returns None if no differences
+
+        Args:
+            expected_column_names (iterable): The expected colummn names to
+            check against column names of data stored in this object
+        """
+        if self.column_names_are_correct(expected_column_names):
+            return None
+        message = ''
+        missing_column_names = (
+            self._missing_column_names_in_data(expected_column_names))
+        unexpected_column_names = (
+            self._unexpected_column_names_in_data(expected_column_names)
+        )
+        if missing_column_names:
+            message += ('The following columns are missing from the data: '
+                        + str(missing_column_names) + '\n')
+        if unexpected_column_names:
+            message += ('The following unexpected columns appear in the data: '
+                        + str(unexpected_column_names))
+        return message
+
+    def _unexpected_column_names_in_data(self, expected_column_names):
+        """Returns a list of column names in this objects data that are not
+        in the expected_column_names parameter
+
+        Args:
+            expected_column_names (iterable): column names to check
+        """
+        return list(
+            set(self.to_dataframe().columns) - set(expected_column_names))
+
+    def _missing_column_names_in_data(self, expected_column_names):
+        """Returns a list of column names that are included in in the
+        expected_column_names parameter but do not appear in this objects data
+
+        Args:
+            expected_column_names (iterable): column names to check
+        """
+        return list(
+            set(expected_column_names) - set(self.to_dataframe().columns))
+
+
 class DirectoryHierarchies():
     """Stores, retrieves, filters and creates file directory (path) hierarchies
        as well as their indexed sort orders
@@ -19,20 +100,13 @@ class DirectoryHierarchies():
             file_path_or_data (string or datafram): Eitherinput csv file path
                 or pandas dataframe
         """
-        if isinstance(file_path_or_data, str):
-            self._hierarchy_data = pd.read_csv(
-                filepath_or_buffer=file_path_or_data)
-        elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
-            self._hierarchy_data = file_path_or_data.copy()
-        # Utilised for iterator
-
-        if self._inconsistent_hierarchy_sort_path():
+        self._hierarchy_data = DataManager(file_path_or_data).to_dataframe()
+        self._current_index = -1  # Utilised for iterator
+        if self._first_hierarchy_with_inconsistent_sort_order():
             raise ValueError(
                 'Inconsistent site hieriarchy file.  '
                 + 'Out of order item: '
-                + str(self._inconsistent_hierarchy_sort_path()))
-
-        self._current_index = -1
+                + str(self._first_hierarchy_with_inconsistent_sort_order()))
 
     def __getitem__(self, item):
         """Returns the item-th hierarchy stored in this class (removing
@@ -56,7 +130,7 @@ class DirectoryHierarchies():
             return self[self._current_index]
         raise StopIteration
 
-    def _inconsistent_hierarchy_sort_path(self):
+    def _first_hierarchy_with_inconsistent_sort_order(self):
         """Checks for sort consistency in hieriarchies.  Returns a string
         containing the first inconsistent sort path found, othewise None.
         Example: Below is inconsistent as all the Path_A in
