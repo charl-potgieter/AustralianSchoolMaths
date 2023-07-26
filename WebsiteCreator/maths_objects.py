@@ -23,6 +23,14 @@ class DataManager():
         elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
             self._data = file_path_or_data.copy()
 
+    def set_column_types(self, column_types):
+        """Sets the column types
+
+        Args:
+            column_types (dictionary): The column types to set
+        """
+        self._data = self._data.astype(column_types)
+
     def to_dataframe(self):
         """Returns data as a pandas dataframe"""
         return self._data
@@ -100,8 +108,15 @@ class DirectoryHierarchies():
             file_path_or_data (string or datafram): Eitherinput csv file path
                 or pandas dataframe
         """
-        self._hierarchy_data = DataManager(file_path_or_data).to_dataframe()
+        data_to_load = DataManager(file_path_or_data)
+        # Do not error check column names as they vary dependent on depth
+        # of hierarchy being created
+        self._hierarchy_data = data_to_load.to_dataframe()
+        self._error_check_sort_orders()
         self._current_index = -1  # Utilised for iterator
+
+    def _error_check_sort_orders(self):
+        """"Error checks thge hierarchy sort orders"""
         if self._first_hierarchy_with_inconsistent_sort_order():
             raise ValueError(
                 'Inconsistent site hieriarchy file.  '
@@ -373,62 +388,45 @@ class Formulas():
     of the given input set of formulas
     """
 
-    # Specifies felds for conversion when the formula csv is loaded during
-    # class init
-    _formula_input_converter = {
-        'On formula sheet': lambda x: True if x else False,
-        'Proof required': lambda x: True if x else False}
-
     # Enforces structure of fomulas csv when loaded along with the
     # _formula_input_converter
-    _formula_input_structure = {'State': str,
-                                'Syllabus subtopic code': str,
-                                'Category': str,
-                                'Subcategory_1': str,
-                                'Subcategory_2': str,
-                                'Description': str,
-                                'Group': str,
-                                'Formula': str,
-                                'Subject': str,
-                                'Comment': str}
-    # Enforces structure of syllabus.csv which is loaded during class init
-    _syllabus_input_structure = {'State': str,
-                                 'Subject': str,
-                                 'Syllabus topic': str,
-                                 'Syllabus subtopic code': str,
-                                 'Syllabus subtopic': str}
+    _data_structure = {'State': 'object',
+                       'Subject': 'object',
+                       'Syllabus topic': 'object',
+                       'Syllabus subtopic code': 'object',
+                       'Syllabus subtopic': 'object',
+                       'Category': 'object',
+                       'Subcategory_1': 'object',
+                       'Subcategory_2': 'object',
+                       'Description': 'object',
+                       'Group': 'object',
+                       'Formula': 'object',
+                       'On formula sheet': 'bool',
+                       'Proof required': 'bool',
+                       'Comment': 'object'}
 
-    def __init__(self, formula_input_file_path, syllabus_input_file_path,
-                 page_sort_orders):
-        """Initiates class with csv located at input_file_path
+    def __init__(self, file_path_or_data):
+        """Initiates class with data from file_path_or_data
 
         Args:
-            formula_input_file_path (string): input csv file path
-            page_sort_orders (WebPageSortOrders) : Object storing
-                details of the web page sort orders
+            formula_input_file_path (file path or dataframe): formula data
         """
-        self._page_sort_orders = page_sort_orders
-        formula_cols_to_use = (
-            list(self._formula_input_structure.keys()) +
-            list(self._formula_input_converter.keys())
-        )
-        formula_detail_df = pd.read_csv(
-            filepath_or_buffer=formula_input_file_path,
-            usecols=formula_cols_to_use,
-            dtype=self._formula_input_structure,
-            converters=self._formula_input_converter
-        )
-        syllabus_cols_to_use = list(self._syllabus_input_structure.keys())
-        syllabus_detail_df = pd.read_csv(
-            filepath_or_buffer=syllabus_input_file_path,
-            usecols=syllabus_cols_to_use,
-            dtype=self._syllabus_input_structure
-        )
-        self._formula_detail_df = formula_detail_df.merge(
-            right=syllabus_detail_df,
-            left_on=['State', 'Subject', 'Syllabus subtopic code'],
-            right_on=['State', 'Subject', 'Syllabus subtopic code'],
-            how='left')
+        data_to_load = DataManager(file_path_or_data)
+        self._check_column_names(data_to_load)
+        data_to_load.set_column_types(self._data_structure)
+        self._formula_data = data_to_load.to_dataframe()
+
+    def _check_column_names(self, data_to_load):
+        """Check if column names in data_to_load match expecations as per
+            self._data_structure.  Raise ValueError if not matching.
+
+        Args:
+            data_to_load (DataManager): The data to check
+        """
+        expected_columns = self._data_structure.keys()
+        if not data_to_load.column_names_are_correct(expected_columns):
+            raise ValueError(
+                data_to_load.column_mismatch_message(expected_columns))
 
     def by_year(self):
         """Returns detail dataframe with formula related information

@@ -23,6 +23,29 @@ def create_index_files(hierarchies):
         index_file.save(docs_dir + os.path.sep + path)
 
 
+def get_formula_data():
+    """Returns dataframe of formulas and related fields by merging
+    formulas (ex-syllabus) and syllabus files
+    """
+
+    # ! Temporarily mark empty boolean fields as false to avoid type errors
+    # ! Remove once all data capture is complete
+    input_converter = {
+        'On formula sheet': lambda x: True if x else False,
+        'Proof required': lambda x: True if x else False}
+
+    formulas_ex_syllabus = pd.read_csv(
+        filepath_or_buffer=formula_file_path,
+        converters=input_converter)
+    syllabus = pd.read_csv(syllabus_file_path)
+    formulas = pd.merge(
+        left=syllabus, right=formulas_ex_syllabus,
+        left_on=['State', 'Subject', 'Syllabus subtopic code'],
+        right_on=['State', 'Subject', 'Syllabus subtopic code'],
+        how='right')
+    return (formulas)
+
+
 if __name__ == '__main__':
     # Get inputs
     website_creator_dir = os.path.dirname(__file__)
