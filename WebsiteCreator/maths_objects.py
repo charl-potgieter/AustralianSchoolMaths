@@ -7,21 +7,74 @@ import os
 import pandas as pd
 
 
-class DataManager():
-    """Reads, validates and returns data"""
+class DataSource():
+    """Gets file directories and data source from underlying files (sometimes
+    requiring merging and filtering and returns data as pandas dataframes)
+    """
 
-    def __init__(self, file_path_or_data):
-        """Initiates class with content of csv or data
+    def website_creator_directory(self):
+        """Returns the directory containing various files utilised to
+        create the hugo website by relative reference to the directory
+        of the file containgin this code"""
+        this_file_path = os.path.dirname(__file__)
+        return this_file_path
+
+    def docs_directory(self):
+        """Returns the docs directory used to generate Hugo website content.
+        The directory path is determined by relative reference the file
+        containing this code"""
+        this_file_path = os.path.dirname(__file__)
+        return (os.path.join(
+            os.path.dirname(this_file_path),
+            'content', 'docs'))
+
+    def site_hierarchies(self):
+        """Returns the site hierarchy data as a pandas dataframe
+        """
+        hieararchy_file_path = (self.website_creator_directory()
+                                + os.path.sep
+                                + 'site_hierarchy.csv')
+        hierarchy_data = pd.read_csv(hieararchy_file_path)
+        return hierarchy_data
+
+    def formulas_by_year(self):
+        """Returns dataframe of formulas and related fields by merging
+        formulas (ex-syllabus) and syllabus files
+        """
+
+        formula_file_path = (self.website_creator_directory() + os.path.sep
+                             + 'formulas.csv')
+        # ! Temporarily mark empty boolean fields as false to avoid type errors
+        # ! Remove once all data capture is complete
+        input_converter = {
+            'On formula sheet': lambda x: True if x else False,
+            'Proof required': lambda x: True if x else False}
+        formulas_ex_syllabus = pd.read_csv(
+            filepath_or_buffer=formula_file_path,
+            converters=input_converter)
+
+        syllabus_file_path = (self.website_creator_directory() + os.path.sep
+                              + 'syllabus_topics.csv')
+        syllabus = pd.read_csv(syllabus_file_path)
+
+        formulas = pd.merge(
+            left=syllabus, right=formulas_ex_syllabus,
+            left_on=['State', 'Subject', 'Syllabus subtopic code'],
+            right_on=['State', 'Subject', 'Syllabus subtopic code'],
+            how='right')
+        return (formulas)
+
+
+class DataManager():
+    """Validates, sets data types and returns data"""
+
+    def __init__(self, data):
+        """Initiates class with content of data
 
         Args:
-            file_path_or_data (string or datafram): Either input csv file path
-                or pandas dataframe
+            data (Pandas dataframe): Input data
         """
-        if isinstance(file_path_or_data, str):
-            self._data = pd.read_csv(
-                filepath_or_buffer=file_path_or_data)
-        elif isinstance(file_path_or_data, pd.core.frame.DataFrame):
-            self._data = file_path_or_data.copy()
+        self._data = data.copy()
 
     def set_column_types(self, column_types):
         """Sets the column types
@@ -101,14 +154,13 @@ class DirectoryHierarchies():
        as well as their indexed sort orders
     """
 
-    def __init__(self, file_path_or_data):
-        """Initiates class with content of csv or data
+    def __init__(self, data):
+        """Initiates class with data content
 
         Args:
-            file_path_or_data (string or datafram): Eitherinput csv file path
-                or pandas dataframe
+            data (Pandas dataframe): input data
         """
-        data_to_load = DataManager(file_path_or_data)
+        data_to_load = DataManager(data)
         # Do not error check column names as they vary dependent on depth
         # of hierarchy being created
         self._hierarchy_data = data_to_load.to_dataframe()
@@ -431,7 +483,7 @@ class Formulas():
     def by_year(self):
         """Returns detail dataframe with formula related information
         """
-        return self._formula_detail_df
+        return self._formula_data
 
     def by_year_cumulative(self):
         """Returns formula details dataframe on a cumulative level by subject
