@@ -28,41 +28,102 @@ class DataSource():
             os.path.dirname(this_file_path),
             'content', 'docs'))
 
+    def hierarchies_directory(self):
+        """Returns directory string of site_hierarchy.csv file"""
+        return (self.website_creator_directory()
+                + os.path.sep
+                + 'site_hierarchy.csv')
+
+    def formulas_directory(self):
+        """Returns directory string of formulas.csv file"""
+        return (self.website_creator_directory() + os.path.sep
+                + 'formulas.csv')
+
+    def syllabus_directory(self):
+        """Returns directory string of syllabus_topics.csv file"""
+        return (self.website_creator_directory() + os.path.sep
+                + 'syllabus_topics.csv')
+
     def site_hierarchies(self):
         """Returns the site hierarchy data as a pandas dataframe
         """
-        hieararchy_file_path = (self.website_creator_directory()
-                                + os.path.sep
-                                + 'site_hierarchy.csv')
-        hierarchy_data = pd.read_csv(hieararchy_file_path)
+        hierarchy_data = pd.read_csv(self.hierarchies_directory())
         return hierarchy_data
+
+    def _state_subject_sort_orders(self):
+        """Returns subjects in order per state as a dataframe
+        """
+        return_data = self.site_hierarchies()
+        return_data = return_data[
+            (return_data['Level_1'] == 'Formulas') &
+            (return_data['Level_2'] == 'By year')
+        ]
+        return_data = return_data[['Level_0', 'Level_3']].drop_duplicates()
+        return_data = return_data.reset_index(drop=True)
+        return_data = return_data.rename(
+            columns={'Level_0': 'Sort state', 'Level_3': 'Sort subject'}
+        )
+        return_data['State subject sort order'] = return_data.index
+        return return_data
 
     def formulas_by_year(self):
         """Returns dataframe of formulas and related fields by merging
         formulas (ex-syllabus) and syllabus files
         """
 
-        formula_file_path = (self.website_creator_directory() + os.path.sep
-                             + 'formulas.csv')
         # ! Temporarily mark empty boolean fields as false to avoid type errors
         # ! Remove once all data capture is complete
-        input_converter = {
+        formulas_input_converter = {
             'On formula sheet': lambda x: True if x else False,
             'Proof required': lambda x: True if x else False}
         formulas_ex_syllabus = pd.read_csv(
-            filepath_or_buffer=formula_file_path,
-            converters=input_converter)
-
-        syllabus_file_path = (self.website_creator_directory() + os.path.sep
-                              + 'syllabus_topics.csv')
-        syllabus = pd.read_csv(syllabus_file_path)
-
+            filepath_or_buffer=self.formulas_directory(),
+            converters=formulas_input_converter)
+        syllabus = pd.read_csv(self.syllabus_directory())
         formulas = pd.merge(
             left=syllabus, right=formulas_ex_syllabus,
             left_on=['State', 'Subject', 'Syllabus subtopic code'],
             right_on=['State', 'Subject', 'Syllabus subtopic code'],
             how='right')
         return (formulas)
+
+    def formulas_by_year_cumulative(self):
+        """Returns formula details dataframe on a cumulative level by subject
+        order  for a given state.
+        For example if subject Year 12 is ordered after Year 10 and Year 9 for
+        a given state then include the formula details for Year 10 and Year 9
+        in the dataframe under subject Year 12.
+        """
+
+        formulas_by_year = self.formulas_by_year()
+        state_subject_sort_orders = self._state_subject_sort_orders()
+
+        # Add the subject Sort order (representing the sort order for the
+        # subject by given state) to the formulas data
+        return_data = state_subject_sort_orders.merge(
+            right=formulas_by_year,
+            how='inner',
+            left_on=['Sort state', 'Sort subject'],
+            right_on=['State', 'Subject']
+        )
+        return_data = return_data.rename(
+            columns={
+                'State subject sort order': 'Data sort index'})
+        return_data = return_data.drop(columns=['Sort state',
+                                                'Sort subject'])
+
+        return_data = return_data.merge(
+            right=state_subject_sort_orders,
+            how='inner', left_on=['State'], right_on=['Sort state']
+        )
+        return_data = return_data[return_data['State subject sort order'] >=
+                                  return_data['Data sort index']]
+        return_data = return_data.drop(columns=['Data sort index',
+                                                'State subject sort order',
+                                                'Sort state', 'Subject'])
+        return_data = return_data.rename(columns={
+            'Sort subject': 'Subject'})
+        return return_data
 
 
 class DataManager():
