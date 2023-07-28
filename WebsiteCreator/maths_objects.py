@@ -457,35 +457,19 @@ class DirectoryHierarchies():
         return all_path_levels
 
 
-class IndexFile():
-    """_Index.md file object utilised for creation of Hugo website
+class MarkdownFile():
+    """Markdown file utilised for creation of Hugo webiite
     """
 
     def __init__(self):
-        self._content = _MarkdownFileContent()
-        self.front_matter = _FrontMatter()
-
-    def save(self, target_directory):
-        """Saves as an _index.md file in target_directory"""
-        self._content.add_content(self.front_matter.as_string())
-        file_name = target_directory + os.path.sep + '_index.md'
-        self._content.save(file_name)
-
-
-class _MarkdownFileContent():
-    """Generic class of markdown content utilised for creation of Hugo webiite
-    """
-
-    def __init__(self):
-        self.front_matter = _FrontMatter()
         self._content = None
 
     def add_content(self, content):
-        """Adds content to the object"""
+        """Adds content (string) to the object"""
         if self._content:
-            self._content += (content + '\n\n')
+            self._content += ('\n\n' + content)
         else:
-            self._content = content + '\n\n'
+            self._content = content
 
     def save(self, file_path):
         """Saves the content of this object at file_path.
@@ -502,7 +486,7 @@ class _MarkdownFileContent():
                 text_file.write(self._content)
 
 
-class _FrontMatter():
+class FrontMatter():
     """Front matter strings for markdown files utilised to generate Hugo
     webstites
     """
@@ -515,7 +499,7 @@ class _FrontMatter():
         front matter"""
         self._content[property_key] = property_value
 
-    def as_string(self):
+    def to_string(self):
         """Returns the front matter as a string
         """
         return_value = '---\n'
@@ -617,3 +601,31 @@ class Formulas():
         return_rows = self._formula_data.apply(filter_function, axis=1)
         return_data = self._formula_data.copy()[return_rows]
         return Formulas(return_data)
+
+    def _unique_state_subject_categories(self):
+        """"Returns dataframe"""
+        return (
+            self._formula_data[[
+                'State', 'Subject', 'Category']]
+            .drop_duplicates()
+            .reset_index(drop=True))
+
+
+class FormulaTable():
+    """Summary view of formulas
+    """
+
+    def __init__(self, formula_data):
+        """Initiates the class
+
+        Args:
+            formula_data (data frame): the input data
+        """
+        self._formula_data = formula_data
+        self.state = None
+        self.subject = None
+        self.category = None
+        self.summary_name = None
+
+    def _to_string(self):
+        return 'blah'

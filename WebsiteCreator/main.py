@@ -3,7 +3,8 @@ generation.
 """
 
 import os
-from maths_objects import DirectoryHierarchies, IndexFile, DataSource
+from maths_objects import (DirectoryHierarchies, DataSource,
+                           FrontMatter, MarkdownFile)
 import utilities
 
 
@@ -15,12 +16,15 @@ def create_index_files(hierarchies):
             _index.md files will be created
     """
     for path in hierarchies.all_path_levels():
-        index_file = IndexFile()
+        front_matter = FrontMatter()
         path_sort_order = hierarchies.get_sort_index_in_parent_path(
             path.split(os.path.sep))
-        index_file.front_matter.add_property('bookCollapseSection', 'true')
-        index_file.front_matter.add_property('weight', path_sort_order)
-        index_file.save(docs_dir + os.path.sep + path)
+        front_matter.add_property('weight', path_sort_order)
+        front_matter.add_property('bookCollapseSection', 'true')
+        index_file = MarkdownFile()
+        index_file.add_content(front_matter.to_string())
+        index_file.save(docs_dir + os.path.sep + path
+                        + os.path.sep + '_index.md')
 
 
 if __name__ == '__main__':
