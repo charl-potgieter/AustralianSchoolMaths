@@ -215,13 +215,13 @@ class DirectoryHierarchies():
        as well as their indexed sort orders
     """
 
-    def __init__(self, data):
+    def __init__(self, input_data):
         """Initiates class with data content
 
         Args:
             data (Pandas dataframe): input data
         """
-        data_to_load = DataManager(data)
+        data_to_load = DataManager(input_data)
         # Do not error check column names as they vary dependent on depth
         # of hierarchy being created
         self._hierarchy_data = data_to_load.to_dataframe()
@@ -458,42 +458,72 @@ class DirectoryHierarchies():
 
 
 class IndexFile():
-    """Creates, and contents and saves _index.md files
+    """_Index.md file object utilised for creation of Hugo website
     """
 
     def __init__(self):
-        self._dict = {}
+        self._content = _MarkdownFileContent()
+        self.front_matter = _FrontMatter()
+
+    def save(self, target_directory):
+        """Saves as an _index.md file in target_directory"""
+        self._content.add_content(self.front_matter.as_string())
+        file_name = target_directory + os.path.sep + '_index.md'
+        self._content.save(file_name)
+
+
+class _MarkdownFileContent():
+    """Generic class of markdown content utilised for creation of Hugo webiite
+    """
+
+    def __init__(self):
+        self.front_matter = _FrontMatter()
+        self._content = None
+
+    def add_content(self, content):
+        """Adds content to the object"""
+        if self._content:
+            self._content += (content + '\n\n')
+        else:
+            self._content = content + '\n\n'
+
+    def save(self, file_path):
+        """Saves the content of this object at file_path.
+
+        Args:
+            file_path (string): The directory excluding file name where
+                the file will be saved.
+        """
+        if os.path.isfile(file_path):
+            raise OSError('Cannot create ' + file_path + ' as it already ' +
+                          'exists')
+        else:
+            with open(file_path, "w", encoding="utf-8") as text_file:
+                text_file.write(self._content)
+
+
+class _FrontMatter():
+    """Front matter strings for markdown files utilised to generate Hugo
+    webstites
+    """
+
+    def __init__(self):
+        self._content = {}
 
     def add_property(self, property_key, property_value):
-        """Adds property_value for corresponding property_key to the
-        index file"""
+        """Adds property_value for corresponding property_key in the
+        front matter"""
+        self._content[property_key] = property_value
 
-        self._dict[property_key] = property_value
-
-    def _content(self):
-        """Returns the content of index file as a string"""
+    def as_string(self):
+        """Returns the front matter as a string
+        """
         return_value = '---\n'
-        if self._dict:
-            for key, value in self._dict.items():
+        if self._content:
+            for key, value in self._content.items():
                 return_value += str(key) + ': ' + str(value) + '\n'
         return_value += '---'
         return return_value
-
-    def save(self, target_dir):
-        """Saves the content of this IndexFileClass as an ._index.md in
-        directory dir.
-
-        Args:
-            file_directory (string): The directory excluding file name where
-                the ._index.md file will be saved.
-        """
-        file_name = target_dir + os.path.sep + '_index.md'
-        if os.path.isfile(file_name):
-            raise OSError('Cannot create ._index.md file as it already ' +
-                          'exists at directory ' + target_dir)
-        else:
-            with open(file_name, "w", encoding="utf-8") as text_file:
-                text_file.write(self._content())
 
 
 class Formulas():
@@ -518,13 +548,13 @@ class Formulas():
                        'Proof required': 'bool',
                        'Comment': 'object'}
 
-    def __init__(self, file_path_or_data):
-        """Initiates class with data from file_path_or_data
+    def __init__(self, input_data):
+        """Initiates class with data from input_data
 
         Args:
-            formula_input_file_path (file path or dataframe): formula data
+            input_data (dataframe): formula data
         """
-        data_to_load = DataManager(file_path_or_data)
+        data_to_load = DataManager(input_data)
         self._check_column_names(data_to_load)
         data_to_load.set_column_types(self._data_structure)
         self._formula_data = data_to_load.to_dataframe()
@@ -541,59 +571,23 @@ class Formulas():
             raise ValueError(
                 data_to_load.column_mismatch_message(expected_columns))
 
-    def by_year(self):
-        """Returns detail dataframe with formula related information
+    def to_dataframe(self):
+        """Returns formula data as a pandas dataframe
         """
         return self._formula_data
 
-    def by_year_cumulative(self):
-        """Returns formula details dataframe on a cumulative level by subject
-        order  as provided in the page_sort_order object on class init.
-        For example if subject Year 12 is ordered after Year 10 and Year 9 for
-        a given state then include the formula details for Year 10 and Year 9
-        in the dataframe under subject Year 12.
-        """
-
-        state_subject_order_df = (
-            self._page_sort_orders.formulas_cumulative_state_subject())
-        # Add the subject Sort order (representing the sort order for the
-        # subject by given state) to the formulas file
-        return_df = state_subject_order_df.merge(
-            right=self._formula_detail_df,
-            how='inner',
-            left_on=['Sort state', 'Sort subject'],
-            right_on=['State', 'Subject']
-        )
-        return_df = return_df.rename(
-            columns={'Sort order': 'Subject sort order'})
-        return_df = return_df.drop(columns=['Sort state',
-                                            'Sort subject'])
-        return_df = return_df.merge(
-            right=state_subject_order_df,
-            how='inner', left_on=['State'], right_on=['Sort state']
-        )
-        return_df = return_df[return_df['Sort order'] >=
-                              return_df['Subject sort order']]
-        return_df = return_df.drop(columns=['Sort order',
-                                            'Subject sort order',
-                                            'Sort state', 'Subject'])
-        return_df = return_df.rename(columns={
-            'Sort subject': 'Subject'
-        })
-        return return_df
-
     def formula_sheet_items_by_state(self, state):
         """Returns a pandas series of formulas where field 'On formula sheet'
-        per the csv utilised to init this class is True and State = state
+        is True and field State = state
 
         Args:
             state (string): filter to apply before returning formula sheet
                             items
         """
-        formulas_on_sheet = (self._formula_detail_df[
-            (self._formula_detail_df['State'] == state) &
-            (self._formula_detail_df['On formula sheet']) &
-            (self._formula_detail_df['Formula'].notnull())
+        formulas_on_sheet = (self._formula_data[
+            (self._formula_data['State'] == state) &
+            (self._formula_data['On formula sheet']) &
+            (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return formulas_on_sheet
 
@@ -604,35 +598,22 @@ class Formulas():
         Args:
             state (string): filter to apply before returning items
         """
-        formulas_on_sheet = (self._formula_detail_df[
-            (self._formula_detail_df['State'] == state) &
-            (self._formula_detail_df['Proof required']) &
-            (self._formula_detail_df['Formula'].notnull())
+        proofs_required = (self._formula_data[
+            (self._formula_data['State'] == state) &
+            (self._formula_data['Proof required']) &
+            (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
-        return formulas_on_sheet
+        return proofs_required
 
-    def by_year_dirs(self):
-        """Returns a dataframe containing target directories to
-        save formula by year pages where each column in the dataframe
-        represents a different directory level
-        """
-        by_year_df = self.by_year().copy()
-        by_year_df['Formula subcategory 1'] = 'Formulas'
-        by_year_df['Formula subcategory 2'] = 'By Year'
-        by_year_df = by_year_df[['State', 'Formula subcategory 1',
-                                 'Formula subcategory 2',
-                                 'Subject']].drop_duplicates()
-        return by_year_df
+    def filter_by_function(self, filter_function):
+        """Returns a new filtered Formulas object where
+        filter_function returns True when passed each item in
+        Formuls as a pandas series.
 
-    def by_year_cumulative_dirs(self):
-        """Returns a dataframe containing target directories to
-        save formula by year cumulative pages where each column in the
-        dataframe represents a different directory level
+        Args:
+            filter_function (function): Function taking a pandas series as a
+            parameter and returns a Boolean value
         """
-        by_year_df = self.by_year_cumulative().copy()
-        by_year_df['Formula subcategory 1'] = 'Formulas'
-        by_year_df['Formula subcategory 2'] = 'By year cumulative'
-        by_year_df = by_year_df[['State', 'Formula subcategory 1',
-                                 'Formula subcategory 2',
-                                 'Subject']].drop_duplicates()
-        return by_year_df
+        return_rows = self._formula_data.apply(filter_function, axis=1)
+        return_data = self._formula_data.copy()[return_rows]
+        return Formulas(return_data)
