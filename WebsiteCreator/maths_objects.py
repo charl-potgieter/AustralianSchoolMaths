@@ -236,28 +236,6 @@ class SiteHierarchies():
                 + 'Out of order item: '
                 + str(self._first_hierarchy_with_inconsistent_sort_order()))
 
-    def __getitem__(self, item):
-        """Returns the item-th hierarchy stored in this class (removing
-        null values) and returns result as a a pandas series.
-        """
-        return_value = self.to_dataframe().iloc[item]
-        return_value = return_value[return_value.notnull()]
-        return return_value
-
-    def __iter__(self):
-        """Initialise the iterator"""
-        self._current_index = -1
-        return self
-
-    def __next__(self):
-        """Implelemts the next item of the class iterator
-        """
-        max_index = len(self.to_dataframe().index)-1
-        self._current_index += 1
-        if self._current_index <= max_index:
-            return self[self._current_index]
-        raise StopIteration
-
     def _first_hierarchy_with_inconsistent_sort_order(self):
         """Checks for sort consistency in hieriarchies.  Returns a string
         containing the first inconsistent sort path found, othewise None.
@@ -310,10 +288,6 @@ class SiteHierarchies():
     def to_dataframe(self):
         """Returns the full set of hierarhcies as a pandas dataframe"""
         return self._hierarchy_data.copy()
-
-    def to_list(self):
-        """Returns the full set of hierarhcies as a list"""
-        return self._hierarchy_data.values.tolist()
 
     def filter_by_function(self, filter_function):
         """Returns a new filtered WebPagHierarchies object where
@@ -429,33 +403,50 @@ class SiteHierarchies():
             base_dir (string): The base directory to concentate with the
                 directories stored in this classs
         """
-        for current_path in self:
-            # exclude last level in path as this represents the filename
-            dir = base_dir + os.path.sep + os.path.sep.join(current_path[:-1])
-            os.makedirs(dir)
+        for hierarchy_path in self.directory_paths():
+            dir_to_create = base_dir + os.path.sep + hierarchy_path
+            if not os.path.isdir(dir_to_create):
+                os.makedirs(dir_to_create)
 
-    def all_path_levels(self, base_dir=None):
-        """Returns a list of unique paths recursively at each directory level
-        for the directory hierarchies stored in this class, optionally prefixed
-        woth base_dir
+    def file_paths(self):
+        """Returns list of file paths in hieararchy as a list of strings"""
+        return list(self._hierarchy_data.apply(
+            lambda x: os.path.sep.join(list(x.dropna())),
+            axis='columns'))
 
-        Args:
-            base_dir (string, optional): Optional prefix to all returned path
-                levels. Defaults to None.
+    def directory_paths(self):
+        """Returns list of directory paths in hieararchy as a list of
+        strings.  This exludes the last level in the hierarchy which
+        represents a file"""
+        paths = (self._hierarchy_data.apply(
+            lambda x: os.path.sep.join(list(x.dropna()[:-1])),
+            axis='columns'))
+        # first convert to a set to get unique items only
+        return list(set(paths))
+
+    def _directory_paths_as_dataframe(self):
+        """Returns list of directory paths in hieararchy as a dataframe.
+        This exludes the last level in the hierarchy which represents a file
         """
+        dir_paths = self._hierarchy_data.apply(
+            lambda x: x.dropna()[:-1],
+            axis='columns').drop_duplicates()
+        return dir_paths
 
+    def all_path_levels(self):
+        """Returns a list of unique paths recursively at each directory level
+        for the directory hierarchies stored in this class.  Excludes the
+        last level in hieraarchy which represents the file name
+        """
+        dir_paths = self._directory_paths_as_dataframe()
         all_path_levels = []
-        for column_index in range(len(self._hierarchy_data.columns)):
-            paths_at_current_level = self._hierarchy_data.iloc[
+        for column_index in range(len(dir_paths)):
+            paths_at_current_level = dir_paths.iloc[
                 :, :column_index+1]
             paths_at_current_level = (paths_at_current_level
                                       .drop_duplicates().dropna())
-            if base_dir:
-                paths_at_current_level = paths_at_current_level.apply(
-                    lambda x: os.path.sep.join([base_dir] + list(x)), axis=1)
-            else:
-                paths_at_current_level = paths_at_current_level.apply(
-                    os.path.sep.join, axis=1)
+            paths_at_current_level = paths_at_current_level.apply(
+                os.path.sep.join, axis=1)
             all_path_levels = all_path_levels + list(paths_at_current_level)
         all_path_levels = list(set(all_path_levels))
         return all_path_levels
@@ -658,4 +649,5 @@ class FormulaTable():
         self.summary_name = None
 
     def to_markdown(self):
+        """Return formula table content in as a markdown format string"""
         return 'blah'
