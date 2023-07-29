@@ -85,7 +85,7 @@ class DataSource():
             left_on=['State', 'Subject', 'Syllabus subtopic code'],
             right_on=['State', 'Subject', 'Syllabus subtopic code'],
             how='right')
-        return (formulas)
+        return formulas
 
     def formulas_by_year_cumulative(self):
         """Returns formula details dataframe on a cumulative level by subject
@@ -560,30 +560,24 @@ class Formulas():
         """
         return self._formula_data
 
-    def formula_sheet_items_by_state(self, state):
+    def formula_sheet_items(self):
         """Returns a pandas series of formulas where field 'On formula sheet'
-        is True and field State = state
-
-        Args:
-            state (string): filter to apply before returning formula sheet
-                            items
+        is True
         """
         formulas_on_sheet = (self._formula_data[
-            (self._formula_data['State'] == state) &
             (self._formula_data['On formula sheet']) &
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return formulas_on_sheet
 
-    def proofs_required_by_state(self, state):
+    def proofs_required_items(self):
         """Returns a pandas series of formulas where field 'Proof required'
-        per the csv utilised to init this class is True and State = state
+         is True
 
         Args:
             state (string): filter to apply before returning items
         """
         proofs_required = (self._formula_data[
-            (self._formula_data['State'] == state) &
             (self._formula_data['Proof required']) &
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
@@ -601,6 +595,36 @@ class Formulas():
         return_rows = self._formula_data.apply(filter_function, axis=1)
         return_data = self._formula_data.copy()[return_rows]
         return Formulas(return_data)
+
+    def filter_by_state_subject_category(self, state, subject, category):
+        """Filters this object by above paramaters and returns a new
+        copy of the object"""
+        return_data = self._formula_data.copy()
+        return_data = return_data[
+            (return_data['State'] == state) &
+            (return_data['Subject'] == subject) &
+            (return_data['Category'] == category)
+        ]
+        return_object = Formulas(return_data)
+        return return_object
+
+    def formula_tables(self):
+        """Returns formula tables of type FormulaTable as a generator"""
+        unique_state_subject_categories = (
+            self._unique_state_subject_categories())
+        for item in unique_state_subject_categories.itertuples():
+            filtered_formulas = self.filter_by_state_subject_category(
+                item.State, item.Subject, item.Category)
+            formula_table = FormulaTable(filtered_formulas.
+                                         to_dataframe()[['Formula']])
+            formula_table.items_on_formula_sheet = (
+                filtered_formulas.formula_sheet_items())
+            formula_table.items_requiring_proof = (
+                filtered_formulas.proofs_required_items())
+            formula_table.state = item.State
+            formula_table.subject = item.Subject
+            formula_table.category = item.Category
+            yield formula_table
 
     def _unique_state_subject_categories(self):
         """"Returns dataframe"""
@@ -625,6 +649,8 @@ class FormulaTable():
         self.state = None
         self.subject = None
         self.category = None
+        self.items_on_formula_sheet = None
+        self.items_requiring_proof = None
         self.summary_name = None
 
     def _to_string(self):
