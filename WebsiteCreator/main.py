@@ -3,7 +3,7 @@ generation.
 """
 
 import os
-from maths_objects import (DirectoryHierarchies, DataSource,
+from maths_objects import (SiteHierarchies, DataSource,
                            FrontMatter, MarkdownFile)
 import utilities
 
@@ -18,7 +18,7 @@ def create_index_files(hierarchies):
     for path in hierarchies.all_path_levels():
         front_matter = FrontMatter()
         path_sort_order = hierarchies.get_sort_index_in_parent_path(
-            path.split(os.path.sep))
+            path)
         front_matter.add_property('weight', path_sort_order)
         front_matter.add_property('bookCollapseSection', 'true')
         index_file = MarkdownFile()
@@ -30,7 +30,7 @@ def create_index_files(hierarchies):
 if __name__ == '__main__':
 
     data_source = DataSource()
-    site_hierarchies = DirectoryHierarchies(data_source.site_hierarchies())
+    site_hierarchies = SiteHierarchies(data_source.site_hierarchies())
     # Delete previous directories and create new ones
     docs_dir = data_source.docs_directory()
     utilities.delete_directory_if_it_exists(docs_dir)

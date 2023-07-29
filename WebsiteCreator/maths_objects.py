@@ -210,7 +210,7 @@ class DataManager():
             set(expected_column_names) - set(self.to_dataframe().columns))
 
 
-class DirectoryHierarchies():
+class SiteHierarchies():
     """Stores, retrieves, filters and creates file directory (path) hierarchies
        as well as their indexed sort orders
     """
@@ -305,7 +305,7 @@ class DirectoryHierarchies():
         """Creates a copy of the this object
         """
         new_hierarchy_data = self._hierarchy_data.copy()
-        return DirectoryHierarchies(new_hierarchy_data)
+        return SiteHierarchies(new_hierarchy_data)
 
     def to_dataframe(self):
         """Returns the full set of hierarhcies as a pandas dataframe"""
@@ -326,17 +326,18 @@ class DirectoryHierarchies():
         """
         return_rows = self.to_dataframe().apply(filter_function, axis=1)
         return_data = self.to_dataframe().copy()[return_rows]
-        return DirectoryHierarchies(return_data)
+        return SiteHierarchies(return_data)
 
     def get_sort_index(self, dir_to_find):
         """Returns sort index of dir_to_find relative to all paths in the
             hierarchies stored in this object
 
         Args:
-            dir_to_find (iterable): The directory (path) for which the sort
+            dir_to_find (string): The directory (path) for which the sort
                 index is to be returned
         """
-        matching_hierarchies = self.filter_by_path(dir_to_find)
+        dir_paths = dir_to_find.split(os.path.sep)
+        matching_hierarchies = self.filter_by_path(dir_paths)
         if len(matching_hierarchies.to_dataframe()):
             return matching_hierarchies.to_dataframe().index[0]
         return None
@@ -346,19 +347,21 @@ class DirectoryHierarchies():
         with the same parent path
 
         Args:
-            dir_to_find (list): the directory to find
+            dir_to_find (string): the directory to find
         """
+        dir_paths = dir_to_find.split(os.path.sep)
         unique_truncated_hierarchies = (
-            self.truncate_to_path_length(len(dir_to_find)).unique())
-        if len(dir_to_find) > 1:
+            self.truncate_to_path_length(len(dir_paths)).unique())
+        if len(dir_paths) > 1:
             hierarchies_with_same_parent = (
                 unique_truncated_hierarchies
-                .filter_by_path_start(dir_to_find[:-1]))
+                .filter_by_path_start(dir_paths[:-1]))
         else:
             hierarchies_with_same_parent = unique_truncated_hierarchies
         hierarchies_with_same_parent = (
             hierarchies_with_same_parent.reset_sort_index())
-        return hierarchies_with_same_parent.get_sort_index(dir_to_find)
+        return hierarchies_with_same_parent.get_sort_index(
+            os.path.sep.join(dir_paths))
 
     def truncate_to_path_length(self, path_length):
         """Restricts  hieararches to paths of path_length and returns as a
@@ -370,7 +373,7 @@ class DirectoryHierarchies():
         """
         hierarchy_data_to_length = self._hierarchy_data.iloc[
             :, :path_length].copy()
-        hierarchies_to_length = DirectoryHierarchies(hierarchy_data_to_length)
+        hierarchies_to_length = SiteHierarchies(hierarchy_data_to_length)
         return hierarchies_to_length
 
     def unique(self):
@@ -378,13 +381,13 @@ class DirectoryHierarchies():
         """
         unique_hierarchy_data = self._hierarchy_data.copy()
         unique_hierarchy_data = unique_hierarchy_data.drop_duplicates()
-        return DirectoryHierarchies(unique_hierarchy_data)
+        return SiteHierarchies(unique_hierarchy_data)
 
     def reset_sort_index(self):
         """Resets the hiearatchy sort order to commence from zero and return
         as a new object
         """
-        return DirectoryHierarchies(
+        return SiteHierarchies(
             self._hierarchy_data.copy().reset_index(drop=True))
 
     def filter_by_path(self, path_to_filter):
@@ -398,7 +401,7 @@ class DirectoryHierarchies():
             filtered_hierarchy_data.apply(tuple, axis=1)
             == tuple(path_to_filter)
         ]
-        return DirectoryHierarchies(filtered_hierarchy_data)
+        return SiteHierarchies(filtered_hierarchy_data)
 
     def filter_by_path_start(self, path_to_filter):
         """Filters hieararchies by value_to_filter where the
@@ -416,7 +419,7 @@ class DirectoryHierarchies():
             hierarchies_to_search.apply(
                 tuple, axis=1) == tuple(path_to_filter)
         ]
-        return DirectoryHierarchies(filtered_hierarchies)
+        return SiteHierarchies(filtered_hierarchies)
 
     def create_directories(self, base_dir):
         """Creates directory by concatanating base_dir with the directories
@@ -427,8 +430,9 @@ class DirectoryHierarchies():
                 directories stored in this classs
         """
         for current_path in self:
-            fname = base_dir + os.path.sep + os.path.sep.join(current_path)
-            os.makedirs(fname)
+            # exclude last level in path as this represents the filename
+            dir = base_dir + os.path.sep + os.path.sep.join(current_path[:-1])
+            os.makedirs(dir)
 
     def all_path_levels(self, base_dir=None):
         """Returns a list of unique paths recursively at each directory level
@@ -653,5 +657,5 @@ class FormulaTable():
         self.items_requiring_proof = None
         self.summary_name = None
 
-    def _to_string(self):
+    def to_markdown(self):
         return 'blah'
