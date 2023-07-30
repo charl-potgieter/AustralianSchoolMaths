@@ -8,7 +8,7 @@ from maths_objects import (SiteHierarchies, DataSource,
 import utilities
 
 
-def create_index_files(hierarchies):
+def create_index_files(hierarchies, base_dir):
     """Recursively create _index.md file at each level of hieararchies
 
     Args:
@@ -24,42 +24,24 @@ def create_index_files(hierarchies):
         front_matter.add_property('bookCollapseSection', 'true')
         index_file = MarkdownFile()
         index_file.add_content(front_matter.to_string())
-        index_file.save(docs_dir + os.path.sep + path
+        index_file.save(base_dir + os.path.sep + path
                         + os.path.sep + '_index.md')
 
 
-def create_formula_by_year_pages(base_dir):
-    """Creates formula by year pages in base_dir directory"""
-    formulas = Formulas(data_source.formulas_by_year())
-    for formula_page in formulas.formula_pages():
-        target_dir = os.path.sep.join([
-            base_dir, formula_page.state(), 'Formulas', 'By year',
-            formula_page.subject()
-        ])
-        target_filename = (target_dir + os.path.sep
-                           + formula_page.category() + '.md')
-        if not os.path.isdir(target_dir):
-            raise ValueError(target_dir.replace(base_dir, '')
-                             + ' does not exist in site_hierarchy.csv')
-        with open(target_filename, "w", encoding="utf-8") as text_file:
-            text_file.write(formula_page.to_markdown())
+def create_formula_by_year_pages(hierarchies, base_dir):
+    """Creates formulas by year pages ex ad-hoc summaries"""
 
-
-def create_formula_cumulative_pages(base_dir):
-    """Creates formula by year cumulative pages in base_dir directory"""
-    formulas = Formulas(data_source.formulas_by_year_cumulative())
-    for formula_page in formulas.formula_pages():
-        target_dir = os.path.sep.join([
-            base_dir, formula_page.state(), 'Formulas', 'By year cumulative',
-            formula_page.subject()
-        ])
-        target_filename = (target_dir + os.path.sep
-                           + formula_page.category() + '.md')
-        if not os.path.isdir(target_dir):
-            raise ValueError(target_dir.replace(base_dir, '')
-                             + ' does not exist in site_hierarchy.csv')
-        with open(target_filename, "w", encoding="utf-8") as text_file:
-            text_file.write(formula_page.to_markdown())
+    for hierarchy in hierarchies:
+        front_matter = FrontMatter()
+        path_sort_order = hierarchies.get_sort_index_in_parent_path(
+            hierarchy.path)
+        # Hugo weight needs to start from 1 not zero therefore add 1 below
+        front_matter.add_property('weight', path_sort_order+1)
+        file_path = base_dir + os.path.sep + hierarchy.path + '.md'
+        formula_file = MarkdownFile()
+        formula_file.add_content(front_matter.to_string())
+        formula_file.add_content('blah')
+        formula_file.save(file_path)
 
 
 if __name__ == '__main__':
@@ -71,8 +53,10 @@ if __name__ == '__main__':
     docs_dir = data_source.docs_directory()
     utilities.delete_directory_if_it_exists(docs_dir)
     site_hierarchies.create_directories(docs_dir)
-    create_index_files(site_hierarchies)
+    create_index_files(site_hierarchies, docs_dir)
 
     # Create formula pages
-    create_formula_by_year_pages(docs_dir)
-    create_formula_cumulative_pages(docs_dir)
+    formula_by_year_hierarchies = (
+        site_hierarchies.formulas_by_year_ex_summaries_file_paths())
+    create_formula_by_year_pages(site_hierarchies, docs_dir)
+    # create_formula_cumulative_pages(docs_dir)

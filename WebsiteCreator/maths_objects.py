@@ -5,6 +5,7 @@
 
 import os
 import pandas as pd
+from collections import namedtuple
 
 
 class DataSource():
@@ -450,6 +451,35 @@ class SiteHierarchies():
         all_path_levels = list(set(all_path_levels))
         return all_path_levels
 
+    def formulas_by_year_ex_summaries_file_paths(self):
+        """Returns formulas by year file paths as a pandas series
+        of named tuples.  Excludes file paths designated as summries"""
+        file_paths = self._hierarchy_data.copy()
+        file_paths = file_paths[
+            (file_paths['Level_1'] == 'Formulas') &
+            (file_paths['Level_2'] == 'By year') &
+            (file_paths['Level_4'] != 'Summaries')
+        ]
+        file_paths = file_paths.apply(
+            self._to_named_tuple, axis='columns')
+        return file_paths
+
+    def _to_named_tuple(self, hierarchy):
+        """Returns a namedtuple representation of the single hierarchy
+
+        Args:
+            hierarchy (pandas series): the single hierarcht to convert to
+            a named tuple
+        """
+
+        return_value = namedtuple('Hiearchy', ['state', 'subject',
+                                               'category', 'path'])
+        return_value.state = hierarchy['Level_0']
+        return_value.subject = hierarchy['Level_3']
+        return_value.category = hierarchy['Level_4']
+        return_value.path = os.path.sep.join(list(hierarchy.dropna()))
+        return return_value
+
 
 class MarkdownFile():
     """Markdown file utilised for creation of Hugo webiite
@@ -631,57 +661,6 @@ class Formulas():
             .reset_index(drop=True))
 
 
-class FormulaPage():
-    """Summary page of formulas
-    """
-
-    def __init__(self, formulas):
-        """Initiates the class
-
-        Args:
-            formulas (Formulas object): the input data
-        """
-        self._formulas = formulas
-
-    def _unique_states(self):
-        'Returns the unique states in this object as pa pandas series'
-        return self._formulas.to_dataframe()['State'].drop_duplicates()
-
-    def state(self):
-        """Retuns state field of formulas data as a string.  Returns
-        'multiple' if more than one state exists in the data"""
-        if len(self._unique_states()) == 1:
-            return self._unique_states().iloc[0]
-        return 'Multiple'
-
-    def _unique_subjects(self):
-        'Returns the unique subjects in this object as pa pandas series'
-        return self._formulas.to_dataframe()['Subject'].drop_duplicates()
-
-    def subject(self):
-        """Retuns subject field of formulas data as a string.  Returns
-        'multiple' if more than one state exists in the data"""
-        if len(self._unique_subjects()) == 1:
-            return self._unique_subjects().iloc[0]
-        return 'Multiple'
-
-    def _unique_categories(self):
-        'Returns the unique categories in this object as pa pandas series'
-        return self._formulas.to_dataframe()['Category'].drop_duplicates()
-
-    def category(self):
-        """Retuns category field of formulas data as a string.  Returns
-        'multiple' if more than one cateogory exists in the data"""
-        if len(self._unique_categories()) == 1:
-            return self._unique_categories().iloc[0]
-        return 'Multiple'
-
-    def to_markdown(self):
-        """Return formula table content in as a markdown format string"""
-        formula_table = FormulaTable(self._formulas)
-        return formula_table.to_markdown()
-
-
 class FormulaTable():
     """Summary table of formulas"""
 
@@ -705,3 +684,7 @@ class FormulaTable():
         if self.has_tabs():
             return 'has tabs'
         return 'no tabs'
+
+
+class StyledTable():
+    """Implements a dataframe styler customised for maths formula display"""

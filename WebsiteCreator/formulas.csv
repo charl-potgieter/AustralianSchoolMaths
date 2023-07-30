@@ -19,7 +19,7 @@ NSW,TBA,Differentiation,,,,3,"$ y=k   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,
 NSW,TBA,Differentiation,,,,4,"$ y=x^n   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =nx^{n-1}  $ <br>",Year 11 Adv,FALSE,,
 NSW,TBA,Differentiation,,,,5,"$ y=kx^n   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =knx^{n-1}  $ <br>",Year 11 Adv,FALSE,,
 NSW,TBA,Differentiation,,,,6,"$ y=kf(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =kf'(x)  $ <br>",Year 11 Adv,FALSE,,
-NSW,TBA,Differentiation,,,,7,"$ y=f(x) + g(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =f'(x) + g'(x)  $ <br>",Year 11 Adv,,,
+NSW,TBA,Differentiation,,,,7,"$ y=f(x) + g(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =f'(x) + g'(x)  $ <br>",Year 11 Adv,FALSE,,
 NSW,TBA,Differentiation,,,,8,"$y=f(x)^n \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$ <br>",Year 12 Adv,TRUE,,
 NSW,TBA,Integration,,,,8,"$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
 $ \text{ where } n \neq -1 $",Year 12 Adv,TRUE,,When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$
@@ -52,7 +52,7 @@ NSW,TBA,Integration,,,,22,"$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} 
 $ \text{Note the constant c will have different values with these two options} $",Year 12 Ext 1,FALSE,,
 NSW,TBA,Differentiation,,,,23,"$y=cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br>",Year 12 Ext 1,FALSE,,
 NSW,TBA,Integration,,,,23,"$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -sin^{-1}\dfrac{f(x)}{a} +c$
-$ \text{Note the constant c will have different values with these two options} $",Year 12 Ext 1,,,
+$ \text{Note the constant c will have different values with these two options} $",Year 12 Ext 1,FALSE,,
 NSW,TBA,Differentiation,,,,24,"$y=tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br>",Year 12 Ext 1,TRUE,,
 NSW,TBA,Integration,,,,24,$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ tan^{-1} f(x) + c$,Year 12 Ext 1,FALSE,,
 NSW,TBA,Differentiation,,,,25,"$y=tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} $ <br>",Year 12 Ext 1,FALSE,,
