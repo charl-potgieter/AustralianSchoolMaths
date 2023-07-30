@@ -1,43 +1,43 @@
-Level_0,Level_1,Level_2,Level_3,Level_4,Level_5
-NSW,Topics,By year,Year 9,Indices,
-NSW,Topics,By year,Year 11 Adv,Calculus,
-NSW,Topics,By year,Year 12 Adv,Financial mathematics,
-NSW,Topics,By year,Year 12 Adv,Calculus,
-NSW,Topics,By year cumulative,Year 9,Indices,
-NSW,Topics,By year cumulative,Year 11 Adv,Indices,
-NSW,Topics,By year cumulative,Year 11 Adv,Calculus,
-NSW,Topics,By year cumulative,Year 12 Adv,Indices,
-NSW,Topics,By year cumulative,Year 12 Adv,Financial mathematics,
-NSW,Topics,By year cumulative,Year 12 Adv,Calculus,
-NSW,Formulas,By year,Year 9,Surds,
-NSW,Formulas,By year,Year 9,Indices,
-NSW,Formulas,By year,Year 11 Adv,Logarithms,
-NSW,Formulas,By year,Year 11 Adv,Differentiation,
-NSW,Formulas,By year,Year 12 Adv,Differentiation,
-NSW,Formulas,By year,Year 12 Adv,Integration,
-NSW,Formulas,By year,Year 12 Adv,Statistics,
-NSW,Formulas,By year,Year 12 Adv,Financial mathematics,
-NSW,Formulas,By year,Year 12 Adv,Summaries,Calculus
-NSW,Formulas,By year,Year 12 Ext 1,Differentiation,
-NSW,Formulas,By year,Year 12 Ext 1,Integration,
-NSW,Formulas,By year,Year 12 Ext 1,Summaries,Calculus
-NSW,Formulas,By year cumulative,Year 9,Surds,
-NSW,Formulas,By year cumulative,Year 9,Indices,
-NSW,Formulas,By year cumulative,Year 11 Adv,Surds,
-NSW,Formulas,By year cumulative,Year 11 Adv,Indices,
-NSW,Formulas,By year cumulative,Year 11 Adv,Logarithms,
-NSW,Formulas,By year cumulative,Year 11 Adv,Differentiation,
-NSW,Formulas,By year cumulative,Year 12 Adv,Surds,
-NSW,Formulas,By year cumulative,Year 12 Adv,Indices,
-NSW,Formulas,By year cumulative,Year 12 Adv,Logarithms,
-NSW,Formulas,By year cumulative,Year 12 Adv,Statistics,
-NSW,Formulas,By year cumulative,Year 12 Adv,Differentiation,
-NSW,Formulas,By year cumulative,Year 12 Adv,Integration,
-NSW,Formulas,By year cumulative,Year 12 Adv,Summaries,Calculus
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Surds,
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Indices,
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Logarithms,
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Statistics,
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Differentiation,
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Integration,
-NSW,Formulas,By year cumulative,Year 12 Ext 1,Summaries,Calculus
+State,Subject,Content type,Time period,Category
+NSW,Year 9,Topics,By year,Indices
+NSW,Year 9,Topics,By year cumulative,Indices
+NSW,Year 9,Formulas,By year,Surds
+NSW,Year 9,Formulas,By year,Indices
+NSW,Year 9,Formulas,By year cumulative,Surds
+NSW,Year 9,Formulas,By year cumulative,Indices
+NSW,Year 11 Adv,Topics,By year,Calculus
+NSW,Year 11 Adv,Topics,By year cumulative,Indices
+NSW,Year 11 Adv,Topics,By year cumulative,Calculus
+NSW,Year 11 Adv,Formulas,By year,Logarithms
+NSW,Year 11 Adv,Formulas,By year,Differentiation
+NSW,Year 11 Adv,Formulas,By year cumulative,Surds
+NSW,Year 11 Adv,Formulas,By year cumulative,Indices
+NSW,Year 11 Adv,Formulas,By year cumulative,Logarithms
+NSW,Year 11 Adv,Formulas,By year cumulative,Differentiation
+NSW,Year 12 Adv,Topics,By year,Financial mathematics
+NSW,Year 12 Adv,Topics,By year,Calculus
+NSW,Year 12 Adv,Topics,By year cumulative,Indices
+NSW,Year 12 Adv,Topics,By year cumulative,Financial mathematics
+NSW,Year 12 Adv,Topics,By year cumulative,Calculus
+NSW,Year 12 Adv,Formulas,By year,Differentiation
+NSW,Year 12 Adv,Formulas,By year,Integration
+NSW,Year 12 Adv,Formulas,By year,Statistics
+NSW,Year 12 Adv,Formulas,By year,Financial mathematics
+NSW,Year 12 Adv,Formulas,By year cumulative,Surds
+NSW,Year 12 Adv,Formulas,By year cumulative,Indices
+NSW,Year 12 Adv,Formulas,By year cumulative,Logarithms
+NSW,Year 12 Adv,Formulas,By year cumulative,Statistics
+NSW,Year 12 Adv,Formulas,By year cumulative,Differentiation
+NSW,Year 12 Adv,Formulas,By year cumulative,Integration
+NSW,Year 12 Adv,Formula summaries,By year,Calculus
+NSW,Year 12 Adv,Formula summaries,By year cumulative,Calculus
+NSW,Year 12 Ext 1,Formulas,By year,Differentiation
+NSW,Year 12 Ext 1,Formulas,By year,Integration
+NSW,Year 12 Ext 1,Formulas,By year cumulative,Surds
+NSW,Year 12 Ext 1,Formulas,By year cumulative,Indices
+NSW,Year 12 Ext 1,Formulas,By year cumulative,Logarithms
+NSW,Year 12 Ext 1,Formulas,By year cumulative,Statistics
+NSW,Year 12 Ext 1,Formulas,By year cumulative,Differentiation
+NSW,Year 12 Ext 1,Formulas,By year cumulative,Integration
+NSW,Year 12 Ext 1,Formula summaries,By year,Calculus
+NSW,Year 12 Ext 1,Formula summaries,By year cumulative,Calculus

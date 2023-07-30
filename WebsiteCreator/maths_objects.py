@@ -4,8 +4,8 @@
 """
 
 import os
-import pandas as pd
 from collections import namedtuple
+import pandas as pd
 
 
 class DataSource():
@@ -451,35 +451,6 @@ class SiteHierarchies():
         all_path_levels = list(set(all_path_levels))
         return all_path_levels
 
-    def formulas_by_year_ex_summaries_file_paths(self):
-        """Returns formulas by year file paths as a pandas series
-        of named tuples.  Excludes file paths designated as summries"""
-        file_paths = self._hierarchy_data.copy()
-        file_paths = file_paths[
-            (file_paths['Level_1'] == 'Formulas') &
-            (file_paths['Level_2'] == 'By year') &
-            (file_paths['Level_4'] != 'Summaries')
-        ]
-        file_paths = file_paths.apply(
-            self._to_named_tuple, axis='columns')
-        return file_paths
-
-    def _to_named_tuple(self, hierarchy):
-        """Returns a namedtuple representation of the single hierarchy
-
-        Args:
-            hierarchy (pandas series): the single hierarcht to convert to
-            a named tuple
-        """
-
-        return_value = namedtuple('Hiearchy', ['state', 'subject',
-                                               'category', 'path'])
-        return_value.state = hierarchy['Level_0']
-        return_value.subject = hierarchy['Level_3']
-        return_value.category = hierarchy['Level_4']
-        return_value.path = os.path.sep.join(list(hierarchy.dropna()))
-        return return_value
-
 
 class MarkdownFile():
     """Markdown file utilised for creation of Hugo webiite
@@ -642,16 +613,6 @@ class Formulas():
         return_object = Formulas(return_data)
         return return_object
 
-    def formula_pages(self):
-        """Returns formula page of type FormulaPage as a generator"""
-        unique_state_subject_categories = (
-            self._unique_state_subject_categories())
-        for item in unique_state_subject_categories.itertuples():
-            filtered_formulas = self.filter_by_state_subject_category(
-                item.State, item.Subject, item.Category)
-            formula_page = FormulaPage(filtered_formulas)
-            yield formula_page
-
     def _unique_state_subject_categories(self):
         """"Returns dataframe"""
         return (
@@ -659,6 +620,22 @@ class Formulas():
                 'State', 'Subject', 'Category']]
             .drop_duplicates()
             .reset_index(drop=True))
+
+    def by_state_subject_category(self):
+        """Returns a generator of formulas object by state, subject and
+        category combinations as a named tuple"""
+        for current_group in (self._unique_state_subject_categories()
+                              .itertuples()):
+            formula_group = namedtuple('formula_group', ['State', 'Subject',
+                                                         'Category',
+                                                         'Formulas'])
+            formula_group.State = current_group.State
+            formula_group.Subject = current_group.Subject
+            formula_group.Category = current_group.Category
+            formula_group.Formulas = self.filter_by_state_subject_category(
+                current_group.State, current_group.Subject,
+                current_group.Category)
+            yield formula_group
 
 
 class FormulaTable():

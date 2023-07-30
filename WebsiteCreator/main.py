@@ -55,8 +55,8 @@ if __name__ == '__main__':
     site_hierarchies.create_directories(docs_dir)
     create_index_files(site_hierarchies, docs_dir)
 
-    # Create formula pages
-    formula_by_year_hierarchies = (
-        site_hierarchies.formulas_by_year_ex_summaries_file_paths())
-    create_formula_by_year_pages(site_hierarchies, docs_dir)
-    # create_formula_cumulative_pages(docs_dir)
+    # # Create formula pages
+    # formula_by_year_hierarchies = (
+    #     site_hierarchies.formulas_by_year_ex_summaries_file_paths())
+    # create_formula_by_year_pages(site_hierarchies, docs_dir)
+    # # create_formula_cumulative_pages(docs_dir)
