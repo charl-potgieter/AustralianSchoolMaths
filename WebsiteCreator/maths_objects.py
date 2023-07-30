@@ -71,10 +71,9 @@ class DataSource():
         formulas (ex-syllabus) and syllabus files
         """
 
-        # ! Temporarily mark empty boolean fields as false to avoid type errors
-        # ! Remove once all data capture is complete
+        # TODO Temporarily mark empty boolean fields as false to avoid type errors
+        # Remove once all data capture is complete
         formulas_input_converter = {
-            'On formula sheet': lambda x: True if x else False,
             'Proof required': lambda x: True if x else False}
         formulas_ex_syllabus = pd.read_csv(
             filepath_or_buffer=self.formulas_directory(),
@@ -565,6 +564,11 @@ class Formulas():
         ]['Formula'].drop_duplicates())
         return formulas_on_sheet
 
+    def have_formula_sheet_items(self):
+        """Returns true if object has one or more non-null formula field
+        items where field 'On formula sheet' is true"""
+        return len(self.formula_sheet_items()) >= 1
+
     def proofs_required_items(self):
         """Returns a pandas series of formulas where field 'Proof required'
          is True
@@ -577,6 +581,11 @@ class Formulas():
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return proofs_required
+
+    def have_proof_required_items(self):
+        """Returns true if object has one or more non-null formula field
+        items where field 'Proof required' is true"""
+        return len(self.proofs_required_items()) >= 1
 
     def filter_by_function(self, filter_function):
         """Returns a new filtered Formulas object where
@@ -603,23 +612,15 @@ class Formulas():
         return_object = Formulas(return_data)
         return return_object
 
-    def formula_tables(self):
-        """Returns formula tables of type FormulaTable as a generator"""
+    def formula_pages(self):
+        """Returns formula page of type FormulaPage as a generator"""
         unique_state_subject_categories = (
             self._unique_state_subject_categories())
         for item in unique_state_subject_categories.itertuples():
             filtered_formulas = self.filter_by_state_subject_category(
                 item.State, item.Subject, item.Category)
-            formula_table = FormulaTable(filtered_formulas.
-                                         to_dataframe()[['Formula']])
-            formula_table.items_on_formula_sheet = (
-                filtered_formulas.formula_sheet_items())
-            formula_table.items_requiring_proof = (
-                filtered_formulas.proofs_required_items())
-            formula_table.state = item.State
-            formula_table.subject = item.Subject
-            formula_table.category = item.Category
-            yield formula_table
+            formula_page = FormulaPage(filtered_formulas)
+            yield formula_page
 
     def _unique_state_subject_categories(self):
         """"Returns dataframe"""
@@ -630,24 +631,77 @@ class Formulas():
             .reset_index(drop=True))
 
 
-class FormulaTable():
-    """Summary view of formulas
+class FormulaPage():
+    """Summary page of formulas
     """
 
-    def __init__(self, formula_data):
+    def __init__(self, formulas):
         """Initiates the class
 
         Args:
-            formula_data (data frame): the input data
+            formulas (Formulas object): the input data
         """
-        self._formula_data = formula_data
-        self.state = None
-        self.subject = None
-        self.category = None
-        self.items_on_formula_sheet = None
-        self.items_requiring_proof = None
-        self.summary_name = None
+        self._formulas = formulas
+
+    def _unique_states(self):
+        'Returns the unique states in this object as pa pandas series'
+        return self._formulas.to_dataframe()['State'].drop_duplicates()
+
+    def state(self):
+        """Retuns state field of formulas data as a string.  Returns
+        'multiple' if more than one state exists in the data"""
+        if len(self._unique_states()) == 1:
+            return self._unique_states().iloc[0]
+        return 'Multiple'
+
+    def _unique_subjects(self):
+        'Returns the unique subjects in this object as pa pandas series'
+        return self._formulas.to_dataframe()['Subject'].drop_duplicates()
+
+    def subject(self):
+        """Retuns subject field of formulas data as a string.  Returns
+        'multiple' if more than one state exists in the data"""
+        if len(self._unique_subjects()) == 1:
+            return self._unique_subjects().iloc[0]
+        return 'Multiple'
+
+    def _unique_categories(self):
+        'Returns the unique categories in this object as pa pandas series'
+        return self._formulas.to_dataframe()['Category'].drop_duplicates()
+
+    def category(self):
+        """Retuns category field of formulas data as a string.  Returns
+        'multiple' if more than one cateogory exists in the data"""
+        if len(self._unique_categories()) == 1:
+            return self._unique_categories().iloc[0]
+        return 'Multiple'
 
     def to_markdown(self):
         """Return formula table content in as a markdown format string"""
-        return 'blah'
+        formula_table = FormulaTable(self._formulas)
+        return formula_table.to_markdown()
+
+
+class FormulaTable():
+    """Summary table of formulas"""
+
+    def __init__(self, formulas):
+        """Initiates the class
+
+        Args:
+            formulas (Formulas object): the input data
+        """
+        self._formulas = formulas
+
+    def has_tabs(self):
+        """Returns true if table has / requires tabs"""
+        return (
+            self._formulas.have_formula_sheet_items() or
+            self._formulas.have_proof_required_items()
+        )
+
+    def to_markdown(self):
+        """Returns formula table in markdown format"""
+        if self.has_tabs():
+            return 'has tabs'
+        return 'no tabs'

@@ -31,35 +31,35 @@ def create_index_files(hierarchies):
 def create_formula_by_year_pages(base_dir):
     """Creates formula by year pages in base_dir directory"""
     formulas = Formulas(data_source.formulas_by_year())
-    for formula_table in formulas.formula_tables():
+    for formula_page in formulas.formula_pages():
         target_dir = os.path.sep.join([
-            base_dir, formula_table.state, 'Formulas', 'By year',
-            formula_table.subject
+            base_dir, formula_page.state(), 'Formulas', 'By year',
+            formula_page.subject()
         ])
         target_filename = (target_dir + os.path.sep
-                           + formula_table.category + '.md')
+                           + formula_page.category() + '.md')
         if not os.path.isdir(target_dir):
             raise ValueError(target_dir.replace(base_dir, '')
                              + ' does not exist in site_hierarchy.csv')
         with open(target_filename, "w", encoding="utf-8") as text_file:
-            text_file.write(formula_table.to_markdown())
+            text_file.write(formula_page.to_markdown())
 
 
 def create_formula_cumulative_pages(base_dir):
     """Creates formula by year cumulative pages in base_dir directory"""
     formulas = Formulas(data_source.formulas_by_year_cumulative())
-    for formula_table in formulas.formula_tables():
+    for formula_page in formulas.formula_pages():
         target_dir = os.path.sep.join([
-            base_dir, formula_table.state, 'Formulas', 'By year cumulative',
-            formula_table.subject
+            base_dir, formula_page.state(), 'Formulas', 'By year cumulative',
+            formula_page.subject()
         ])
         target_filename = (target_dir + os.path.sep
-                           + formula_table.category + '.md')
+                           + formula_page.category() + '.md')
         if not os.path.isdir(target_dir):
             raise ValueError(target_dir.replace(base_dir, '')
                              + ' does not exist in site_hierarchy.csv')
         with open(target_filename, "w", encoding="utf-8") as text_file:
-            text_file.write(formula_table.to_markdown())
+            text_file.write(formula_page.to_markdown())
 
 
 if __name__ == '__main__':
