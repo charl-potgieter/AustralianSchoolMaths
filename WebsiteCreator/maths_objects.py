@@ -4,7 +4,6 @@
 """
 
 import os
-from collections import namedtuple
 import pandas as pd
 
 
@@ -694,23 +693,19 @@ class FormulaTable():
         if not self.has_tabs():
             return_value = self._table_no_higlights()
         else:
-            return_value = (
-                '{{< tabs "uniqueid" >}}\n\n' +
-                '{{< tab "Standard view" >}}\n\n' +
-                self._table_no_higlights() + '{{< /tab >}}')
+            tabs = PageTabs()
+            tabs.add_tab('Standard view', self._table_no_higlights())
             if self._formulas.have_formula_sheet_items():
-                return_value += '\n\n' + '{{< tab "Formula sheet" >}}'
-                return_value += 'Items on formula sheet are highlighted'
-                return_value += '\n<br>\n'
-                return_value += self._table_formula_sheet_higlights()
-                return_value += '{{< /tab >}}'
+                tabs.add_tab(
+                    'Formula sheet',
+                    'Items on formula sheet are highlighted \n<br>\n'
+                    + self._table_formula_sheet_higlights())
             if self._formulas.have_proof_required_items():
-                return_value += '\n\n' + '{{< tab "Proofs required" >}}'
-                return_value += 'Items where proofs are required are highlighted'
-                return_value += '\n<br>\n'
-                return_value += self._table_proofs_required_higlights()
-                return_value += '{{< /tab >}}'
-            return_value += '\n{{< /tabs >}}'
+                tabs.add_tab(
+                    'Poofs required',
+                    'Items where proofs required are highlighted \n<br>\n'
+                    + self._table_proofs_required_higlights())
+            return_value = tabs.to_markdown()
         return return_value
 
 
@@ -738,3 +733,26 @@ class StyledTable():
     def hide_row_headers(self):
         """Hides headers"""
         self._table = self._table.hide(axis='index')
+
+
+class PageTabs():
+    """Manages page tabs for Hugo wesite creation"""
+
+    def __init__(self):
+        self._tabs = None
+
+    def add_tab(self, tab_name, tab_content):
+        """Adds tab with name and content"""
+        if not self._tabs:
+            self._tabs = {}
+        self._tabs[tab_name] = tab_content
+
+    def to_markdown(self):
+        """Returns the tabs as markdown string"""
+        return_value = '{{< tabs "uniqueid" >}}'
+        for tab_name, tab_content in self._tabs.items():
+            return_value += '\n\n{{< tab "' + tab_name + '" >}}\n\n'
+            return_value += tab_content
+            return_value += '{{< /tab >}}'
+        return_value += '\n{{< /tabs >}}'
+        return return_value
