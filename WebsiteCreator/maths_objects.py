@@ -722,6 +722,10 @@ class StyledTable():
             {'selector': 'td', 'props':
              'text-align: left; font-size:1em;padding: 1.5em;'}])
 
+    def _raw(self):
+        """Returns the pandas styler"""
+        return self._table
+
     def to_html(self):
         """Returns the styled table object in html format"""
         return self._table.to_html()
@@ -733,6 +737,18 @@ class StyledTable():
     def hide_row_headers(self):
         """Hides headers"""
         self._table = self._table.hide(axis='index')
+
+    def highlight_values_in_list(self, value_list,
+                                 columns_to_highlight=None,
+                                 rgba='255,194,10, 0.2'):
+        """Highlights values in columns_to_highlight if they appear in
+        value_list.  Values in all columns are highlighted if
+        colums_to_higlight is None
+        """
+        format_value = 'background-color:rgba(' + rgba + ');'
+        self._table = self._table.applymap(
+            func=lambda x: format_value if x in value_list else None,
+            subset=columns_to_highlight, )
 
 
 class PageTabs():
