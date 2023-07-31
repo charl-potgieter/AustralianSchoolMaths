@@ -55,13 +55,13 @@ class DataSource():
         """
         return_data = self.site_hierarchies()
         return_data = return_data[
-            (return_data['Level_1'] == 'Formulas') &
-            (return_data['Level_2'] == 'By year')
+            (return_data['Content type'] == 'Formulas') &
+            (return_data['Time period'] == 'By year')
         ]
-        return_data = return_data[['Level_0', 'Level_3']].drop_duplicates()
+        return_data = return_data[['State', 'Subject']].drop_duplicates()
         return_data = return_data.reset_index(drop=True)
         return_data = return_data.rename(
-            columns={'Level_0': 'Sort state', 'Level_3': 'Sort subject'}
+            columns={'State': 'Sort state', 'Subject': 'Sort subject'}
         )
         return_data['State subject sort order'] = return_data.index
         return return_data
@@ -313,7 +313,7 @@ class SiteHierarchies():
         matching_hierarchies = self.filter_by_path(dir_paths)
         if len(matching_hierarchies.to_dataframe()):
             return matching_hierarchies.to_dataframe().index[0]
-        return None
+        raise ValueError(dir_to_find + ' not found in hierarchy')
 
     def get_sort_index_in_parent_path(self, dir_to_find):
         """Returns sort_index of dir_to_find relative to other directories
@@ -555,14 +555,14 @@ class Formulas():
         return self._formula_data
 
     def formula_sheet_items(self):
-        """Returns a pandas series of formulas where field 'On formula sheet'
+        """Returns a list of formulas where field 'On formula sheet'
         is True
         """
         formulas_on_sheet = (self._formula_data[
             (self._formula_data['On formula sheet']) &
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
-        return formulas_on_sheet
+        return list(formulas_on_sheet)
 
     def have_formula_sheet_items(self):
         """Returns true if object has one or more non-null formula field
@@ -570,7 +570,7 @@ class Formulas():
         return len(self.formula_sheet_items()) >= 1
 
     def proofs_required_items(self):
-        """Returns a pandas series of formulas where field 'Proof required'
+        """Returns a list of formulas where field 'Proof required'
          is True
 
         Args:
@@ -580,7 +580,7 @@ class Formulas():
             (self._formula_data['Proof required']) &
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
-        return proofs_required
+        return list(proofs_required)
 
     def have_proof_required_items(self):
         """Returns true if object has one or more non-null formula field
@@ -679,6 +679,9 @@ class FormulaTable():
         return_table = StyledTable(self._to_dataframe())
         return_table.hide_column_headers()
         return_table.hide_row_headers()
+        return_table.highlight_values_in_list(
+            self._formulas.formula_sheet_items(),
+            columns_to_highlight=['Formula'])
         return return_table.to_html()
 
     def _table_proofs_required_higlights(self):
@@ -686,6 +689,10 @@ class FormulaTable():
         return_table = StyledTable(self._to_dataframe())
         return_table.hide_column_headers()
         return_table.hide_row_headers()
+        return_table.highlight_values_in_list(
+            self._formulas.proofs_required_items(),
+            columns_to_highlight=['Formula'],
+            rgba='0,150,200, 0.2')
         return return_table.to_html()
 
     def to_markdown(self):

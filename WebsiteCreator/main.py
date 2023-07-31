@@ -28,14 +28,20 @@ def create_index_files(hierarchies, base_dir):
                         + os.path.sep + '_index.md')
 
 
-def create_formula_by_year_pages(hierarchies, formulas, base_dir):
+def create_formula_pages(hierarchies, formulas, base_dir,
+                         is_cumulative=False):
     """Creates formulas by year pages ex ad-hoc summaries"""
+
+    if is_cumulative:
+        time_frame_portion_of_path = 'By year cumulative'
+    else:
+        time_frame_portion_of_path = 'By year'
 
     for formula_group in formulas.by_state_subject_category():
         path_in_hierarchy = os.path.sep.join([formula_group.state,
                                               formula_group.subject,
                                               'Formulas',
-                                              'By year',
+                                              time_frame_portion_of_path,
                                               formula_group.category])
 
         front_matter = FrontMatter()
@@ -56,7 +62,6 @@ if __name__ == '__main__':
 
     data_source = DataSource()
     site_hierarchies = SiteHierarchies(data_source.site_hierarchies())
-    formulas_by_year = Formulas(data_source.formulas_by_year())
 
     # Delete previous directories and create new ones with .index.md files
     docs_dir = data_source.docs_directory()
@@ -65,5 +70,8 @@ if __name__ == '__main__':
     create_index_files(site_hierarchies, docs_dir)
 
     # # Create formula pages
-    create_formula_by_year_pages(site_hierarchies, formulas_by_year, docs_dir)
-    # # create_formula_cumulative_pages(docs_dir)
+    formulas_by_year = Formulas(data_source.formulas_by_year())
+    create_formula_pages(site_hierarchies, formulas_by_year, docs_dir)
+    formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative())
+    create_formula_pages(site_hierarchies, formulas_cumulative, docs_dir,
+                         is_cumulative=True)
