@@ -626,16 +626,24 @@ class Formulas():
         category combinations as a named tuple"""
         for current_group in (self._unique_state_subject_categories()
                               .itertuples()):
-            formula_group = namedtuple('formula_group', ['State', 'Subject',
-                                                         'Category',
-                                                         'Formulas'])
-            formula_group.State = current_group.State
-            formula_group.Subject = current_group.Subject
-            formula_group.Category = current_group.Category
-            formula_group.Formulas = self.filter_by_state_subject_category(
+            formula_group = FormulaGroup()
+            formula_group.state = current_group.State
+            formula_group.subject = current_group.Subject
+            formula_group.category = current_group.Category
+            formula_group.formulas = self.filter_by_state_subject_category(
                 current_group.State, current_group.Subject,
                 current_group.Category)
             yield formula_group
+
+
+class FormulaGroup():
+    """Group of formulas containing attributes and data"""
+
+    def __init__(self):
+        self.state = None
+        self.subject = None
+        self.category = None
+        self.formulas = None
 
 
 class FormulaTable():
@@ -648,6 +656,10 @@ class FormulaTable():
             formulas (Formulas object): the input data
         """
         self._formulas = formulas
+
+    def _to_dataframe(self):
+        """Returns FormulaTable as pandas dataframe"""
+        return self._formulas.to_dataframe()[['Formula']]
 
     def has_tabs(self):
         """Returns true if table has / requires tabs"""
