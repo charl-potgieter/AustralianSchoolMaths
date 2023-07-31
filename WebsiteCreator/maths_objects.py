@@ -668,12 +668,73 @@ class FormulaTable():
             self._formulas.have_proof_required_items()
         )
 
+    def _table_no_higlights(self):
+        """Returns table with no highlights"""
+        return_table = StyledTable(self._to_dataframe())
+        return_table.hide_column_headers()
+        return_table.hide_row_headers()
+        return return_table.to_html()
+
+    def _table_formula_sheet_higlights(self):
+        """Returns table with formulas on formula sheet higlighted"""
+        return_table = StyledTable(self._to_dataframe())
+        return_table.hide_column_headers()
+        return_table.hide_row_headers()
+        return return_table.to_html()
+
+    def _table_proofs_required_higlights(self):
+        """Returns table with formulas where proofs are required higlighted"""
+        return_table = StyledTable(self._to_dataframe())
+        return_table.hide_column_headers()
+        return_table.hide_row_headers()
+        return return_table.to_html()
+
     def to_markdown(self):
         """Returns formula table in markdown format"""
-        if self.has_tabs():
-            return 'has tabs'
-        return 'no tabs'
+        if not self.has_tabs():
+            return_value = self._table_no_higlights()
+        else:
+            return_value = (
+                '{{< tabs "uniqueid" >}}\n\n' +
+                '{{< tab "Standard view" >}}\n\n' +
+                self._table_no_higlights() + '{{< /tab >}}')
+            if self._formulas.have_formula_sheet_items():
+                return_value += '\n\n' + '{{< tab "Formula sheet" >}}'
+                return_value += 'Items on formula sheet are highlighted'
+                return_value += '\n<br>\n'
+                return_value += self._table_formula_sheet_higlights()
+                return_value += '{{< /tab >}}'
+            if self._formulas.have_proof_required_items():
+                return_value += '\n\n' + '{{< tab "Proofs required" >}}'
+                return_value += 'Items where proofs are required are highlighted'
+                return_value += '\n<br>\n'
+                return_value += self._table_proofs_required_higlights()
+                return_value += '{{< /tab >}}'
+            return_value += '\n{{< /tabs >}}'
+        return return_value
 
 
 class StyledTable():
     """Implements a dataframe styler customised for maths formula display"""
+
+    def __init__(self, input_df):
+        """Initialises the class with pandas input dataframe with
+        default table formatting"""
+        self._table = input_df.fillna('').style
+        self._table = self._table.set_table_styles([
+            {'selector': 'th.col_heading',
+             'props': 'text-align: left; font-size:1em;'},
+            {'selector': 'td', 'props':
+             'text-align: left; font-size:1em;padding: 1.5em;'}])
+
+    def to_html(self):
+        """Returns the styled table object in html format"""
+        return self._table.to_html()
+
+    def hide_column_headers(self):
+        """Hides headers"""
+        self._table = self._table.hide(axis='columns')
+
+    def hide_row_headers(self):
+        """Hides headers"""
+        self._table = self._table.hide(axis='index')
