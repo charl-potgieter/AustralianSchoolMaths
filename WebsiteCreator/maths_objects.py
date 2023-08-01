@@ -451,7 +451,69 @@ class SiteHierarchies():
         return all_path_levels
 
 
-class MarkdownFile():
+class IndexFile():
+    """._inded.md file utilised for Hugo site generation"""
+
+    def __init__(self, path_in_hierarchy):
+        self._content = _MarkdownContent()
+        self._front_matter = FrontMatter()
+        self._path_in_hierarchy = path_in_hierarchy
+
+    def add_front_matter_property(self, property_key, property_value):
+        """Adds key / value  to front matter"""
+        self._front_matter.add_property(property_key, property_value)
+
+    def set_weight_based_on_hierarchies(self, hierarchies):
+        """Adds weight property to front matter based on position of
+        path in hierarchy"""
+        weight = hierarchies.get_sort_index_in_parent_path(
+            self._path_in_hierarchy) + 1
+        self.add_front_matter_property('weight', weight)
+
+    def save(self, base_dir):
+        """Saves at base_dir + path_in_hierarcy"""
+        self._content.add_content(self._front_matter.to_string())
+        filename = (base_dir + os.path.sep
+                    + self._path_in_hierarchy + os.path.sep
+                    + '_index.md')
+        self._content.save(filename)
+
+
+class FormulaFile():
+    """..md file containing formula tables for Hugo site generation"""
+
+    def __init__(self, path_in_hierarchy):
+        self._content = _MarkdownContent()
+        self._front_matter = FrontMatter()
+        self._path_in_hierarchy = path_in_hierarchy
+        self._formula_table = None
+
+    def add_front_matter_property(self, property_key, property_value):
+        """Adds key / value  to front matter"""
+        self._front_matter.add_property(property_key, property_value)
+
+    def set_weight_based_on_hierarchies(self, hierarchies):
+        """Adds weight property to front matter based on position of
+        path in hierarchy"""
+        weight = hierarchies.get_sort_index_in_parent_path(
+            self._path_in_hierarchy) + 1
+        self.add_front_matter_property('weight', weight)
+
+    def add_formula_table(self, formula_table):
+        """Adds FormulaTable object to formula file"""
+        self._formula_table = formula_table
+
+    def save(self, base_dir):
+        """Saves at base_dir + path_in_hierarcy"""
+        self._content.add_content(self._front_matter.to_string())
+        if not self._formula_table is None:
+            self._content.add_content(self._formula_table.to_markdown())
+        filename = (base_dir + os.path.sep
+                    + self._path_in_hierarchy + '.md')
+        self._content.save(filename)
+
+
+class _MarkdownContent():
     """Markdown file utilised for creation of Hugo webiite
     """
 
