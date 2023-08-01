@@ -717,10 +717,15 @@ class FormulaTable():
             formulas (Formulas object): the input data
         """
         self._formulas = formulas
+        self._table_type = None
+
+    def set_type(self, table_type):
+        """Sets table type"""
+        self._table_type = table_type(self._formulas)
 
     def _to_dataframe(self):
         """Returns FormulaTable as pandas dataframe"""
-        return self._formulas.to_dataframe()[['Formula']]
+        return self._table_type.to_dataframe()
 
     def has_tabs(self):
         """Returns true if table has / requires tabs"""
@@ -731,29 +736,29 @@ class FormulaTable():
 
     def _table_no_higlights(self):
         """Returns table with no highlights"""
-        return_table = StyledTable(self._to_dataframe())
+        return_table = _StyledTable(self._to_dataframe())
         return_table.hide_column_headers()
         return_table.hide_row_headers()
         return return_table.to_html()
 
     def _table_formula_sheet_higlights(self):
         """Returns table with formulas on formula sheet higlighted"""
-        return_table = StyledTable(self._to_dataframe())
+        return_table = _StyledTable(self._to_dataframe())
         return_table.hide_column_headers()
         return_table.hide_row_headers()
         return_table.highlight_values_in_list(
             self._formulas.formula_sheet_items(),
-            columns_to_highlight=['Formula'])
+            columns_to_highlight=self._table_type.formula_columns())
         return return_table.to_html()
 
     def _table_proofs_required_higlights(self):
         """Returns table with formulas where proofs are required higlighted"""
-        return_table = StyledTable(self._to_dataframe())
+        return_table = _StyledTable(self._to_dataframe())
         return_table.hide_column_headers()
         return_table.hide_row_headers()
         return_table.highlight_values_in_list(
             self._formulas.proofs_required_items(),
-            columns_to_highlight=['Formula'],
+            columns_to_highlight=self._table_type.formula_columns(),
             rgba='0,150,200, 0.2')
         return return_table.to_html()
 
@@ -778,7 +783,22 @@ class FormulaTable():
         return return_value
 
 
-class StyledTable():
+class SimpleFormulaTableType():
+    """Sets type attributes for simple one column formula table"""
+
+    def __init__(self, formulas):
+        self._formulas = formulas
+
+    def formula_columns(self):
+        """Returns the names of columns containing formulas as a list"""
+        return ['Formula']
+
+    def to_dataframe(self):
+        """Returns the table as a dataframe"""
+        return self._formulas.to_dataframe()[['Formula']]
+
+
+class _StyledTable():
     """Implements a dataframe styler customised for maths formula display"""
 
     def __init__(self, input_df):

@@ -5,7 +5,7 @@ generation.
 import os
 from maths_objects import (SiteHierarchies, DataSource,
                            FrontMatter, IndexFile,  FormulaFile,
-                           Formulas, FormulaTable)
+                           Formulas, FormulaTable, SimpleFormulaTableType)
 import utilities
 
 
@@ -50,6 +50,7 @@ def create_formula_pages(hierarchies, formulas, base_dir,
         formula_file = FormulaFile(path_in_hierarchy)
         formula_file.set_weight_based_on_hierarchies(hierarchies)
         formula_table = FormulaTable(formula_group.formulas)
+        formula_table.set_type(SimpleFormulaTableType)
         formula_file.add_formula_table(formula_table)
         formula_file.save(base_dir)
 
