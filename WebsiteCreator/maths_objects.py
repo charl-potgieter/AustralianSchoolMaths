@@ -739,9 +739,7 @@ class FormulaTable():
         """Returns true if the Formula table contains content"""
         if self._table_type is None:
             return False
-        if len(self._table_type.to_dataframe()):
-            return True
-        return False
+        return len(self._table_type.to_dataframe()) > 0
 
     def to_markdown(self):
         """Returns formula table in markdown format"""
@@ -765,7 +763,7 @@ class FormulaTable():
 
 
 class FormulaTableType(ABC):
-    """Implements an abstract class
+    """Implements an abstract base class for various types of Formula Tables
     https://python-course.eu/oop/the-abc-of-abstract-base-classes.php
     https://docs.python.org/3/library/abc.html
     """
@@ -793,6 +791,71 @@ class FormulaTableTypeSimple(FormulaTableType):
     def to_dataframe(self):
         """Returns the table as a dataframe"""
         return self._formulas.to_dataframe()[['Formula']]
+
+
+class FormulaTableTypeCalculus(FormulaTableType):
+    """Table summary of derivatives and their equivalent integrals
+    """
+
+    def formula_columns(self):
+        """Returns the names of columns containing formulas as a list"""
+        return ['Derivative', 'Equivalent integral']
+
+    def to_dataframe(self):
+        """Returns a summary table in dataframe format"""
+
+        if not self._formulas_contain_both_derivatives_and_integrals():
+            return None
+        formulas_df = self._formulas.to_dataframe()
+        calculus_df = (formulas_df[formulas_df["Category"].isin(
+            ["Differentiation", "Integration"])])
+        calculus_df = calculus_df[['Category', 'Group', 'Formula', 'Comment']]
+        calculus_df = calculus_df.pivot(
+            columns='Category', index='Group').fillna('')
+
+        # Flatten the multi-index headings after pivot
+        calculus_df.columns = (
+            calculus_df.columns.get_level_values(0) + ' ' +
+            calculus_df.columns.get_level_values(1))
+        calculus_df = calculus_df.reset_index()
+
+        calculus_df['Comment'] = (
+            calculus_df.apply(self._get_comment, axis='columns'))
+
+        calculus_df = calculus_df.sort_values(by='Group')
+        calculus_df = calculus_df.drop(
+            labels=['Group', 'Comment Differentiation', 'Comment Integration'],
+            axis='columns')
+        calculus_df = calculus_df.rename(columns={
+            "Formula Differentiation": "Derivative",
+            "Formula Integration": "Equivalent integral"})
+
+        # Reorder columns
+        calculus_df = calculus_df[['Derivative', 'Equivalent integral',
+                                   'Comment']]
+        return calculus_df
+
+    def _formulas_contain_both_derivatives_and_integrals(self):
+        """Returns true if formulas contain both derivatives and integrals"""
+        formula_data = self._formulas.to_dataframe()
+        return (
+            ("Differentiation" in formula_data['Category'].values) and
+            ("Integration" in formula_data['Category'].values))
+
+    def _get_comment(self, row):
+        """Returns a comment for calculus formula summary based on
+        combined derivative and integral comments
+        """
+        if row['Comment Differentiation'] == row['Comment Integration']:
+            return_value = row['Comment Differentiation']
+        elif row['Comment Differentiation'] == '':
+            return_value = row['Comment Integration']
+        elif row['Comment Integration'] == '':
+            return_value = row['Comment Differentiation']
+        else:
+            return_value = (row['Comment Differentiation'] + '\n' +
+                            row['Comment Integration'])
+        return return_value
 
 
 class _StyledTable():
