@@ -662,49 +662,21 @@ class Formulas():
         return_data = self._formula_data.copy()[return_rows]
         return Formulas(return_data)
 
-    def filter_by_state_subject_category(self, state, subject, category):
-        """Filters this object by above paramaters and returns a new
-        copy of the object"""
-        return_data = self._formula_data.copy()
-        return_data = return_data[
-            (return_data['State'] == state) &
-            (return_data['Subject'] == subject) &
-            (return_data['Category'] == category)
-        ]
-        return_object = Formulas(return_data)
-        return return_object
+    def field_value(self, field_name):
+        """Returns the value in field_name.  If multiple non-unique values exist
+        return 'Multiple Values'"""
+        unique_values_in_field = (
+            self._formula_data[field_name].drop_duplicates())
+        if len(unique_values_in_field) == 1:
+            return list(unique_values_in_field)[0]
+        return 'Multiple values'
 
-    def _unique_state_subject_categories(self):
-        """"Returns dataframe"""
-        return (
-            self._formula_data[[
-                'State', 'Subject', 'Category']]
-            .drop_duplicates()
-            .reset_index(drop=True))
-
-    def by_state_subject_category(self):
-        """Returns a generator of formulas object by state, subject and
-        category combinations as a named tuple"""
-        for current_group in (self._unique_state_subject_categories()
-                              .itertuples()):
-            formula_group = FormulaGroup()
-            formula_group.state = current_group.State
-            formula_group.subject = current_group.Subject
-            formula_group.category = current_group.Category
-            formula_group.formulas = self.filter_by_state_subject_category(
-                current_group.State, current_group.Subject,
-                current_group.Category)
-            yield formula_group
-
-
-class FormulaGroup():
-    """Group of formulas containing attributes and data"""
-
-    def __init__(self):
-        self.state = None
-        self.subject = None
-        self.category = None
-        self.formulas = None
+    def group_by_columns(self, columns):
+        """Returns a generator of formulas object grouped by columns (iterable)
+        """
+        grouper = self._formula_data.groupby(columns)
+        for _, data in grouper:
+            yield Formulas(data)
 
 
 class FormulaTable():

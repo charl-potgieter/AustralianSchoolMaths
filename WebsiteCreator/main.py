@@ -4,7 +4,7 @@ generation.
 
 import os
 from maths_objects import (SiteHierarchies, DataSource,
-                           FrontMatter, IndexFile,  FormulaFile,
+                           IndexFile,  FormulaFile,
                            Formulas, FormulaTable, SimpleFormulaTableType)
 import utilities
 
@@ -32,11 +32,12 @@ def _get_formula_path_in_hierarchy(formula_group, is_cumulative=False):
         time_frame_portion_of_path = 'By year cumulative'
     else:
         time_frame_portion_of_path = 'By year'
-    path_in_hierarchy = os.path.sep.join([formula_group.state,
-                                          formula_group.subject,
+    path_in_hierarchy = os.path.sep.join([formula_group.field_value('State'),
+                                          formula_group.field_value('Subject'),
                                           'Formulas',
                                           time_frame_portion_of_path,
-                                          formula_group.category])
+                                          formula_group.field_value('Category')
+                                          ])
     return path_in_hierarchy
 
 
@@ -44,12 +45,13 @@ def create_formula_pages(hierarchies, formulas, base_dir,
                          is_cumulative=False):
     """Creates formulas by year pages ex ad-hoc summaries"""
 
-    for formula_group in formulas.by_state_subject_category():
+    for formula_group in formulas.group_by_columns(['State', 'Subject',
+                                                    'Category']):
         path_in_hierarchy = _get_formula_path_in_hierarchy(formula_group,
                                                            is_cumulative)
         formula_file = FormulaFile(path_in_hierarchy)
         formula_file.set_weight_based_on_hierarchies(hierarchies)
-        formula_table = FormulaTable(formula_group.formulas)
+        formula_table = FormulaTable(formula_group)
         formula_table.set_type(SimpleFormulaTableType)
         formula_file.add_formula_table(formula_table)
         formula_file.save(base_dir)
