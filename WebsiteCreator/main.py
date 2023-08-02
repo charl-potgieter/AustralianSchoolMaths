@@ -2,9 +2,8 @@
 generation.
 """
 
-import os
 from maths_objects import (SiteHierarchies, DataSource,
-                           IndexFile,  FormulaFile,
+                           IndexFile,  FormulaFile, HierarchyPaths,
                            Formulas, FormulaTable, SimpleFormulaTableType)
 import utilities
 
@@ -24,31 +23,14 @@ def create_index_files(hierarchies, base_dir):
         index_file.save(base_dir)
 
 
-def _get_formula_path_in_hierarchy(formula_group, is_cumulative=False):
-    """Returns file path in hierarchy based on whether formulas
-    are flagged as being cummulative (by subject / year)
-    """
-    if is_cumulative:
-        time_frame_portion_of_path = 'By year cumulative'
-    else:
-        time_frame_portion_of_path = 'By year'
-    path_in_hierarchy = os.path.sep.join([formula_group.field_value('State'),
-                                          formula_group.field_value('Subject'),
-                                          'Formulas',
-                                          time_frame_portion_of_path,
-                                          formula_group.field_value('Category')
-                                          ])
-    return path_in_hierarchy
-
-
 def create_formula_pages(hierarchies, formulas, base_dir,
                          is_cumulative=False):
     """Creates formulas by year pages ex ad-hoc summaries"""
 
     for formula_group in formulas.group_by_columns(['State', 'Subject',
                                                     'Category']):
-        path_in_hierarchy = _get_formula_path_in_hierarchy(formula_group,
-                                                           is_cumulative)
+        path_in_hierarchy = HierarchyPaths().simple_formula_table_pages(
+            formula_group, is_cumulative)
         formula_file = FormulaFile(path_in_hierarchy)
         formula_file.set_weight_based_on_hierarchies(hierarchies)
         formula_table = FormulaTable(formula_group)
@@ -68,7 +50,7 @@ if __name__ == '__main__':
     site_hierarchies.create_directories(docs_dir)
     create_index_files(site_hierarchies, docs_dir)
 
-    # # # Create formula pages
+    # Create formula pages
     formulas_by_year = Formulas(data_source.formulas_by_year())
     create_formula_pages(site_hierarchies, formulas_by_year, docs_dir)
     formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative())

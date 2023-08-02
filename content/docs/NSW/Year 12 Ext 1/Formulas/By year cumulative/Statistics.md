@@ -7,43 +7,43 @@ weight: 4
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_ab577 th.col_heading {
+#T_8e35c th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ab577 td {
+#T_8e35c td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_ab577">
+<table id="T_8e35c">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ab577_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_8e35c_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_ab577_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_8e35c_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_ab577_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_8e35c_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_ab577_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_8e35c_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_ab577_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_8e35c_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_ab577_row5_col0" class="data row5 col0" >$ \text{Variance } =  \sigma^2 = \dfrac{\sum(x - \overline{x})^2}{n}  $</td>
+      <td id="T_8e35c_row5_col0" class="data row5 col0" >$ \text{Variance } =  \sigma^2 = \dfrac{\sum(x - \overline{x})^2}{n}  $</td>
     </tr>
     <tr>
-      <td id="T_ab577_row6_col0" class="data row6 col0" >$ \text{Standard deviation } = \sqrt{\text{variance}} =  \sigma = \sqrt{\dfrac{\sum(x - \overline{x})^2}{n}}$</td>
+      <td id="T_8e35c_row6_col0" class="data row6 col0" >$ \text{Standard deviation } = \sqrt{\text{variance}} =  \sigma = \sqrt{\dfrac{\sum(x - \overline{x})^2}{n}}$</td>
     </tr>
   </tbody>
 </table>
@@ -54,46 +54,46 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_62c5c th.col_heading {
+#T_88653 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_62c5c td {
+#T_88653 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_62c5c_row4_col0 {
+#T_88653_row4_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_62c5c">
+<table id="T_88653">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_62c5c_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_88653_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_62c5c_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_88653_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_62c5c_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_88653_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_62c5c_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_88653_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_62c5c_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_88653_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_62c5c_row5_col0" class="data row5 col0" >$ \text{Variance } =  \sigma^2 = \dfrac{\sum(x - \overline{x})^2}{n}  $</td>
+      <td id="T_88653_row5_col0" class="data row5 col0" >$ \text{Variance } =  \sigma^2 = \dfrac{\sum(x - \overline{x})^2}{n}  $</td>
     </tr>
     <tr>
-      <td id="T_62c5c_row6_col0" class="data row6 col0" >$ \text{Standard deviation } = \sqrt{\text{variance}} =  \sigma = \sqrt{\dfrac{\sum(x - \overline{x})^2}{n}}$</td>
+      <td id="T_88653_row6_col0" class="data row6 col0" >$ \text{Standard deviation } = \sqrt{\text{variance}} =  \sigma = \sqrt{\dfrac{\sum(x - \overline{x})^2}{n}}$</td>
     </tr>
   </tbody>
 </table>

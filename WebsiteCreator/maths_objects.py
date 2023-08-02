@@ -833,3 +833,24 @@ class PageTabs():
             return_value += '{{< /tab >}}'
         return_value += '\n{{< /tabs >}}'
         return return_value
+
+
+class HierarchyPaths():
+    """Calculates and returns file paths in heriarchy (ex any base dir)"""
+
+    def simple_formula_table_pages(self, formulas, is_cumulative):
+        """Returns hierarchy path for simple formula table pages
+        """
+
+        if is_cumulative:
+            time_frame_portion_of_path = 'By year cumulative'
+        else:
+            time_frame_portion_of_path = 'By year'
+
+        path_in_hierarchy = os.path.sep.join([formulas.field_value('State'),
+                                              formulas.field_value('Subject'),
+                                              'Formulas',
+                                              time_frame_portion_of_path,
+                                              formulas.field_value('Category')
+                                              ])
+        return path_in_hierarchy
