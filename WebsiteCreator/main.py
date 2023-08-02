@@ -4,7 +4,7 @@ generation.
 
 from maths_objects import (SiteHierarchies, DataSource,
                            IndexFile,  FormulaFile, HierarchyPaths,
-                           Formulas, FormulaTable, SimpleFormulaTableType)
+                           Formulas, FormulaTable, FormulaTableTypeSimple)
 import utilities
 
 
@@ -29,14 +29,15 @@ def create_formula_pages(hierarchies, formulas, base_dir,
 
     for formula_group in formulas.group_by_columns(['State', 'Subject',
                                                     'Category']):
-        path_in_hierarchy = HierarchyPaths().simple_formula_table_pages(
-            formula_group, is_cumulative)
-        formula_file = FormulaFile(path_in_hierarchy)
-        formula_file.set_weight_based_on_hierarchies(hierarchies)
         formula_table = FormulaTable(formula_group)
-        formula_table.set_type(SimpleFormulaTableType)
-        formula_file.add_formula_table(formula_table)
-        formula_file.save(base_dir)
+        formula_table.set_type(FormulaTableTypeSimple)
+        if formula_table.contains_content():
+            path_in_hierarchy = HierarchyPaths().simple_formula_table_pages(
+                formula_group, is_cumulative)
+            formula_file = FormulaFile(path_in_hierarchy)
+            formula_file.set_weight_based_on_hierarchies(hierarchies)
+            formula_file.add_formula_table(formula_table)
+            formula_file.save(base_dir)
 
 
 if __name__ == '__main__':

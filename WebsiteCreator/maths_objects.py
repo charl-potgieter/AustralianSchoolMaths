@@ -4,6 +4,7 @@
 """
 
 import os
+from abc import ABC, abstractmethod
 import pandas as pd
 
 
@@ -734,6 +735,14 @@ class FormulaTable():
             rgba='0,150,200, 0.2')
         return return_table.to_html()
 
+    def contains_content(self):
+        """Returns true if the Formula table contains content"""
+        if self._table_type is None:
+            return False
+        if len(self._table_type.to_dataframe()):
+            return True
+        return False
+
     def to_markdown(self):
         """Returns formula table in markdown format"""
         if not self.has_tabs():
@@ -755,11 +764,27 @@ class FormulaTable():
         return return_value
 
 
-class SimpleFormulaTableType():
-    """Sets type attributes for simple one column formula table"""
+class FormulaTableType(ABC):
+    """Implements an abstract class
+    https://python-course.eu/oop/the-abc-of-abstract-base-classes.php
+    https://docs.python.org/3/library/abc.html
+    """
 
     def __init__(self, formulas):
         self._formulas = formulas
+
+    @abstractmethod
+    def formula_columns(self):
+        """Abstract method for returning formulas containing columns"""
+
+    @abstractmethod
+    def to_dataframe(self):
+        """Abstract method for returning table as a dataframe"""
+
+
+class FormulaTableTypeSimple(FormulaTableType):
+    """Simple formula table implementatio of abstract class FormulaTableType
+    """
 
     def formula_columns(self):
         """Returns the names of columns containing formulas as a list"""
