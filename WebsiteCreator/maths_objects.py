@@ -4,9 +4,9 @@
 """
 
 import os
+from enum import Enum
 from abc import ABC, abstractmethod
 import pandas as pd
-from enum import Enum
 
 
 class DataSource():
@@ -509,7 +509,7 @@ class FormulaFile():
         """Adds weight property to front matter based on position of
         path in hierarchy"""
         weight = hierarchies.get_sort_index_in_parent_path(
-            self._path_in_hierarchy) + 1
+            self.path_in_hierarchy()) + 1
         self.add_front_matter_property('weight', weight)
 
     def add_formula_table(self, formula_table):
@@ -537,7 +537,7 @@ class FormulaFile():
         if not self._formula_table is None:
             self._content.add_content(self._formula_table.to_markdown())
         filename = (base_dir + os.path.sep
-                    + self._path_in_hierarchy + '.md')
+                    + self.path_in_hierarchy() + '.md')
         self._content.save(filename)
 
 
@@ -725,7 +725,7 @@ class FormulaTable():
 
     def get_type(self):
         """Returns the table type"""
-        return (self._table_type)
+        return self._table_type
 
     def _to_dataframe(self):
         """Returns FormulaTable as pandas dataframe"""

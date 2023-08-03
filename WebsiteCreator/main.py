@@ -25,22 +25,22 @@ def create_index_files(hierarchies, base_dir):
         index_file.save(base_dir)
 
 
-def create_formula_pages(hierarchies, formulas, base_dir,
-                         is_cumulative=False):
-    """Creates 'simple' formulas pages per state, subjecta and category.
-    Excludes the more complex 'formula summary' pages for example calcululs
-    """
+def create_formula_pages(table_type: FormulaTableType,
+                         group_by: list,
+                         formulas: Formulas,
+                         base_dir: str,
+                         hierarchies: SiteHierarchies,
+                         is_cumulative_by_year: bool = False):
+    """Creates formula pages"""
 
-    for formula_group in formulas.group_by_columns(['State', 'Subject',
-                                                    'Category']):
+    for formula_group in formulas.group_by_columns(group_by):
         formula_table = FormulaTable(formula_group)
-        formula_table.set_type(FormulaTableTypeSimple)
+        formula_table.set_type(table_type)
         if formula_table.contains_content():
-            path_in_hierarchy = hierarchy_paths.simple_formula_table(
-                formula_group, is_cumulative)
-            formula_file = FormulaFile(path_in_hierarchy)
-            formula_file.set_weight_based_on_hierarchies(hierarchies)
+            formula_file = FormulaFile()
+            formula_file.is_cumulative_by_year = is_cumulative_by_year
             formula_file.add_formula_table(formula_table)
+            formula_file.set_weight_based_on_hierarchies(hierarchies)
             formula_file.save(base_dir)
 
 
@@ -55,11 +55,33 @@ if __name__ == '__main__':
     site_hierarchies.create_directories(docs_dir)
     create_index_files(site_hierarchies, docs_dir)
 
-    # Create formula pages
     formulas_by_year = Formulas(data_source.formulas_by_year)
-    create_formula_pages(site_hierarchies, formulas_by_year,
-                         docs_dir)
     formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative)
-    create_formula_pages(site_hierarchies,
-                         formulas_cumulative, docs_dir,
-                         is_cumulative=True)
+
+    create_formula_pages(table_type=FormulaTableTypeSimple,
+                         group_by=['State', 'Subject', 'Category'],
+                         formulas=formulas_by_year,
+                         base_dir=data_source.docs_directory,
+                         hierarchies=site_hierarchies,
+                         is_cumulative_by_year=False)
+
+    create_formula_pages(table_type=FormulaTableTypeSimple,
+                         group_by=['State', 'Subject', 'Category'],
+                         formulas=formulas_cumulative,
+                         base_dir=data_source.docs_directory,
+                         hierarchies=site_hierarchies,
+                         is_cumulative_by_year=True)
+
+    create_formula_pages(table_type=FormulaTableTypeCalculus,
+                         group_by=['State', 'Subject'],
+                         formulas=formulas_by_year,
+                         base_dir=data_source.docs_directory,
+                         hierarchies=site_hierarchies,
+                         is_cumulative_by_year=False)
+
+    create_formula_pages(table_type=FormulaTableTypeCalculus,
+                         group_by=['State', 'Subject'],
+                         formulas=formulas_cumulative,
+                         base_dir=data_source.docs_directory,
+                         hierarchies=site_hierarchies,
+                         is_cumulative_by_year=True)
