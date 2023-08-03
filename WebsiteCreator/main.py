@@ -43,17 +43,17 @@ def create_formula_pages(hierarchies, formulas, base_dir,
 if __name__ == '__main__':
 
     data_source = DataSource()
-    site_hierarchies = SiteHierarchies(data_source.site_hierarchies())
+    site_hierarchies = SiteHierarchies(data_source.site_hierarchies)
 
     # Delete previous directories and create new ones with .index.md files
-    docs_dir = data_source.docs_directory()
+    docs_dir = data_source.docs_directory
     utilities.delete_directory_if_it_exists(docs_dir)
     site_hierarchies.create_directories(docs_dir)
     create_index_files(site_hierarchies, docs_dir)
 
     # Create formula pages
-    formulas_by_year = Formulas(data_source.formulas_by_year())
+    formulas_by_year = Formulas(data_source.formulas_by_year)
     create_formula_pages(site_hierarchies, formulas_by_year, docs_dir)
-    formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative())
+    formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative)
     create_formula_pages(site_hierarchies, formulas_cumulative, docs_dir,
                          is_cumulative=True)

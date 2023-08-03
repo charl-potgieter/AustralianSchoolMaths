@@ -13,14 +13,25 @@ class DataSource():
     requiring merging and filtering and returns data as pandas dataframes)
     """
 
-    def website_creator_directory(self):
+    def __init__(self):
+        self.website_creator_directory = self._get_website_creator_directory()
+        self.docs_directory = self._get_docs_directory()
+        self.hierarchies_directory = self._get_hierarchies_directory()
+        self.formulas_directory = self._get_formulas_directory()
+        self.syllabus_directory = self._get_syllabus_directory()
+        self.site_hierarchies = self._get_site_hierarchies()
+        self.formulas_by_year = self._get_formulas_by_year()
+        self.formulas_by_year_cumulative = (
+            self._get_formulas_by_year_cumulative())
+
+    def _get_website_creator_directory(self):
         """Returns the directory containing various files utilised to
         create the hugo website by relative reference to the directory
         of the file containgin this code"""
         this_file_path = os.path.dirname(__file__)
         return this_file_path
 
-    def docs_directory(self):
+    def _get_docs_directory(self):
         """Returns the docs directory used to generate Hugo website content.
         The directory path is determined by relative reference the file
         containing this code"""
@@ -29,32 +40,32 @@ class DataSource():
             os.path.dirname(this_file_path),
             'content', 'docs'))
 
-    def hierarchies_directory(self):
+    def _get_hierarchies_directory(self):
         """Returns directory string of site_hierarchy.csv file"""
-        return (self.website_creator_directory()
+        return (self.website_creator_directory
                 + os.path.sep
                 + 'site_hierarchy.csv')
 
-    def formulas_directory(self):
+    def _get_formulas_directory(self):
         """Returns directory string of formulas.csv file"""
-        return (self.website_creator_directory() + os.path.sep
+        return (self.website_creator_directory + os.path.sep
                 + 'formulas.csv')
 
-    def syllabus_directory(self):
+    def _get_syllabus_directory(self):
         """Returns directory string of syllabus_topics.csv file"""
-        return (self.website_creator_directory() + os.path.sep
+        return (self.website_creator_directory + os.path.sep
                 + 'syllabus_topics.csv')
 
-    def site_hierarchies(self):
+    def _get_site_hierarchies(self):
         """Returns the site hierarchy data as a pandas dataframe
         """
-        hierarchy_data = pd.read_csv(self.hierarchies_directory())
+        hierarchy_data = pd.read_csv(self.hierarchies_directory)
         return hierarchy_data
 
-    def _state_subject_sort_orders(self):
+    def _get_state_subject_sort_orders(self):
         """Returns subjects in order per state as a dataframe
         """
-        return_data = self.site_hierarchies()
+        return_data = self.site_hierarchies
         return_data = return_data[
             (return_data['Content type'] == 'Formulas') &
             (return_data['Time period'] == 'By year')
@@ -67,7 +78,7 @@ class DataSource():
         return_data['State subject sort order'] = return_data.index
         return return_data
 
-    def formulas_by_year(self):
+    def _get_formulas_by_year(self):
         """Returns dataframe of formulas and related fields by merging
         formulas (ex-syllabus) and syllabus files
         """
@@ -77,9 +88,9 @@ class DataSource():
         formulas_input_converter = {
             'Proof required': lambda x: True if x else False}
         formulas_ex_syllabus = pd.read_csv(
-            filepath_or_buffer=self.formulas_directory(),
+            filepath_or_buffer=self.formulas_directory,
             converters=formulas_input_converter)
-        syllabus = pd.read_csv(self.syllabus_directory())
+        syllabus = pd.read_csv(self.syllabus_directory)
         formulas = pd.merge(
             left=syllabus, right=formulas_ex_syllabus,
             left_on=['State', 'Subject', 'Syllabus subtopic code'],
@@ -87,7 +98,7 @@ class DataSource():
             how='right')
         return formulas
 
-    def formulas_by_year_cumulative(self):
+    def _get_formulas_by_year_cumulative(self):
         """Returns formula details dataframe on a cumulative level by subject
         order  for a given state.
         For example if subject Year 12 is ordered after Year 10 and Year 9 for
@@ -95,8 +106,8 @@ class DataSource():
         in the dataframe under subject Year 12.
         """
 
-        formulas_by_year = self.formulas_by_year()
-        state_subject_sort_orders = self._state_subject_sort_orders()
+        formulas_by_year = self.formulas_by_year
+        state_subject_sort_orders = self._get_state_subject_sort_orders()
 
         # Add the subject Sort order (representing the sort order for the
         # subject by given state) to the formulas data
