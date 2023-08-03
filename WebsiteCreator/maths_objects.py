@@ -750,6 +750,8 @@ class FormulaTable():
         """Returns true if the Formula table contains content"""
         if self._table_type is None:
             return False
+        if self._table_type.to_dataframe() is None:
+            return False
         return len(self._table_type.to_dataframe()) > 0
 
     def to_markdown(self):
@@ -783,6 +785,10 @@ class FormulaTableType(ABC):
         self._formulas = formulas
 
     @abstractmethod
+    def display_name(self):
+        """Abstract method for returning display name"""
+
+    @abstractmethod
     def formula_columns(self):
         """Abstract method for returning formulas containing columns"""
 
@@ -794,6 +800,10 @@ class FormulaTableType(ABC):
 class FormulaTableTypeSimple(FormulaTableType):
     """Simple formula table implementatio of abstract class FormulaTableType
     """
+
+    def display_name(self):
+        """Returns the table's display name"""
+        return 'Formulas'
 
     def formula_columns(self):
         """Returns the names of columns containing formulas as a list"""
@@ -807,6 +817,10 @@ class FormulaTableTypeSimple(FormulaTableType):
 class FormulaTableTypeCalculus(FormulaTableType):
     """Table summary of derivatives and their equivalent integrals
     """
+
+    def display_name(self):
+        """Returns the table's display name"""
+        return 'Calculus'
 
     def formula_columns(self):
         """Returns the names of columns containing formulas as a list"""
@@ -937,7 +951,7 @@ class PageTabs():
 class HierarchyPaths():
     """Calculates and returns file paths in heriarchy (ex any base dir)"""
 
-    def simple_formula_table_pages(self, formulas, is_cumulative):
+    def simple_formula_table(self, formulas, is_cumulative):
         """Returns hierarchy path for simple formula table pages
         """
 
@@ -951,5 +965,22 @@ class HierarchyPaths():
                                               'Formulas',
                                               time_frame_portion_of_path,
                                               formulas.field_value('Category')
+                                              ])
+        return path_in_hierarchy
+
+    def summary_calculus_table(self, formulas, is_cumulative):
+        """Returns hierarchy path for simple formula table pages
+        """
+
+        if is_cumulative:
+            time_frame_portion_of_path = 'By year cumulative'
+        else:
+            time_frame_portion_of_path = 'By year'
+
+        path_in_hierarchy = os.path.sep.join([formulas.field_value('State'),
+                                              formulas.field_value('Subject'),
+                                              'Formula summaries',
+                                              time_frame_portion_of_path,
+                                              'Calculus'
                                               ])
         return path_in_hierarchy

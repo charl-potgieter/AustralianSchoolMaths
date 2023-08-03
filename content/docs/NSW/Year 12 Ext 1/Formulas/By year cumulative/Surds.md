@@ -3,25 +3,25 @@ weight: 1
 ---
 
 <style type="text/css">
-#T_3f5a1 th.col_heading {
+#T_1c1cc th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_3f5a1 td {
+#T_1c1cc td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_3f5a1">
+<table id="T_1c1cc">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3f5a1_row0_col0" class="data row0 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
+      <td id="T_1c1cc_row0_col0" class="data row0 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
     </tr>
     <tr>
-      <td id="T_3f5a1_row1_col0" class="data row1 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
+      <td id="T_1c1cc_row1_col0" class="data row1 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
     </tr>
   </tbody>
 </table>

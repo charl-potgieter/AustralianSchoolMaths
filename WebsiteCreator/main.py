@@ -4,7 +4,8 @@ generation.
 
 from maths_objects import (SiteHierarchies, DataSource,
                            IndexFile,  FormulaFile, HierarchyPaths,
-                           Formulas, FormulaTable, FormulaTableTypeSimple)
+                           Formulas, FormulaTable, FormulaTableTypeSimple,
+                           FormulaTableTypeCalculus)
 import utilities
 
 
@@ -25,14 +26,17 @@ def create_index_files(hierarchies, base_dir):
 
 def create_formula_pages(hierarchies, formulas, base_dir,
                          is_cumulative=False):
-    """Creates formulas by year pages ex ad-hoc summaries"""
+    """Creates 'simple' formulas pages per state, subjecta and category.
+    Excludes the more complex 'formula summary' pages for example calcululs
+    """
 
     for formula_group in formulas.group_by_columns(['State', 'Subject',
                                                     'Category']):
         formula_table = FormulaTable(formula_group)
         formula_table.set_type(FormulaTableTypeSimple)
         if formula_table.contains_content():
-            path_in_hierarchy = HierarchyPaths().simple_formula_table_pages(
+            hierarchy_paths = HierarchyPaths()
+            path_in_hierarchy = hierarchy_paths.simple_formula_table(
                 formula_group, is_cumulative)
             formula_file = FormulaFile(path_in_hierarchy)
             formula_file.set_weight_based_on_hierarchies(hierarchies)
@@ -53,7 +57,9 @@ if __name__ == '__main__':
 
     # Create formula pages
     formulas_by_year = Formulas(data_source.formulas_by_year)
-    create_formula_pages(site_hierarchies, formulas_by_year, docs_dir)
+    create_formula_pages(site_hierarchies, formulas_by_year,
+                         docs_dir)
     formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative)
-    create_formula_pages(site_hierarchies, formulas_cumulative, docs_dir,
+    create_formula_pages(site_hierarchies,
+                         formulas_cumulative, docs_dir,
                          is_cumulative=True)
