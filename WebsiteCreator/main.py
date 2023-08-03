@@ -2,10 +2,11 @@
 generation.
 """
 
+import os
 from maths_objects import (SiteHierarchies, DataSource,
-                           IndexFile,  FormulaFile, HierarchyPaths,
-                           Formulas, FormulaTable, FormulaTableTypeSimple,
-                           FormulaTableTypeCalculus)
+                           IndexFile,  FormulaFile,
+                           Formulas, FormulaTable, FormulaTableType,
+                           FormulaTableTypeSimple,  FormulaTableTypeCalculus)
 import utilities
 
 
@@ -35,7 +36,6 @@ def create_formula_pages(hierarchies, formulas, base_dir,
         formula_table = FormulaTable(formula_group)
         formula_table.set_type(FormulaTableTypeSimple)
         if formula_table.contains_content():
-            hierarchy_paths = HierarchyPaths()
             path_in_hierarchy = hierarchy_paths.simple_formula_table(
                 formula_group, is_cumulative)
             formula_file = FormulaFile(path_in_hierarchy)
