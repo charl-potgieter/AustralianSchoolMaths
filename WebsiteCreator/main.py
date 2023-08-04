@@ -3,11 +3,17 @@ generation.
 """
 
 import os
+import shutil
 from maths_objects import (SiteHierarchies, DataSource,
                            IndexFile,  FormulaFile,
                            Formulas, FormulaTable, FormulaTableType,
                            FormulaTableTypeSimple,  FormulaTableTypeCalculus)
-import utilities
+
+
+def delete_directory_if_it_exists(dir_to_delete):
+    """Deletes directory dir_to_delete and its contents if it exists"""
+    if os.path.isdir(dir_to_delete):
+        shutil.rmtree(dir_to_delete)
 
 
 def create_index_files(hierarchies, base_dir):
@@ -18,7 +24,7 @@ def create_index_files(hierarchies, base_dir):
             _index.md files will be created prefixed by base_dir
         base_dir (string) : Start of direcctory for file saving
     """
-    for path in hierarchies.all_path_levels():
+    for path in hierarchies.all_path_levels:
         index_file = IndexFile(path)
         index_file.add_front_matter_property('bookCollapseSection', 'true')
         index_file.set_weight_based_on_hierarchies(hierarchies)
@@ -51,7 +57,7 @@ if __name__ == '__main__':
 
     # Delete previous directories and create new ones with .index.md files
     docs_dir = data_source.docs_directory
-    utilities.delete_directory_if_it_exists(docs_dir)
+    delete_directory_if_it_exists(docs_dir)
     site_hierarchies.create_directories(docs_dir)
     create_index_files(site_hierarchies, docs_dir)
 

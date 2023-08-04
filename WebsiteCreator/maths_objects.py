@@ -14,25 +14,16 @@ class DataSource():
     requiring merging and filtering and returns data as pandas dataframes)
     """
 
-    def __init__(self):
-        self.website_creator_directory = self._get_website_creator_directory()
-        self.docs_directory = self._get_docs_directory()
-        self.hierarchies_directory = self._get_hierarchies_directory()
-        self.formulas_directory = self._get_formulas_directory()
-        self.syllabus_directory = self._get_syllabus_directory()
-        self.site_hierarchies = self._get_site_hierarchies()
-        self.formulas_by_year = self._get_formulas_by_year()
-        self.formulas_by_year_cumulative = (
-            self._get_formulas_by_year_cumulative())
-
-    def _get_website_creator_directory(self):
+    @property
+    def website_creator_directory(self):
         """Returns the directory containing various files utilised to
         create the hugo website by relative reference to the directory
         of the file containgin this code"""
         this_file_path = os.path.dirname(__file__)
         return this_file_path
 
-    def _get_docs_directory(self):
+    @property
+    def docs_directory(self):
         """Returns the docs directory used to generate Hugo website content.
         The directory path is determined by relative reference the file
         containing this code"""
@@ -41,29 +32,34 @@ class DataSource():
             os.path.dirname(this_file_path),
             'content', 'docs'))
 
-    def _get_hierarchies_directory(self):
+    @property
+    def hierarchies_directory(self):
         """Returns directory string of site_hierarchy.csv file"""
         return (self.website_creator_directory
                 + os.path.sep
                 + 'site_hierarchy.csv')
 
-    def _get_formulas_directory(self):
+    @property
+    def formulas_directory(self):
         """Returns directory string of formulas.csv file"""
         return (self.website_creator_directory + os.path.sep
                 + 'formulas.csv')
 
-    def _get_syllabus_directory(self):
+    @property
+    def syllabus_directory(self):
         """Returns directory string of syllabus_topics.csv file"""
         return (self.website_creator_directory + os.path.sep
                 + 'syllabus_topics.csv')
 
-    def _get_site_hierarchies(self):
+    @property
+    def site_hierarchies(self):
         """Returns the site hierarchy data as a pandas dataframe
         """
         hierarchy_data = pd.read_csv(self.hierarchies_directory)
         return hierarchy_data
 
-    def _get_state_subject_sort_orders(self):
+    @property
+    def state_subject_sort_orders(self):
         """Returns subjects in order per state as a dataframe
         """
         return_data = self.site_hierarchies
@@ -79,7 +75,8 @@ class DataSource():
         return_data['State subject sort order'] = return_data.index
         return return_data
 
-    def _get_formulas_by_year(self):
+    @property
+    def formulas_by_year(self):
         """Returns dataframe of formulas and related fields by merging
         formulas (ex-syllabus) and syllabus files
         """
@@ -99,7 +96,8 @@ class DataSource():
             how='right')
         return formulas
 
-    def _get_formulas_by_year_cumulative(self):
+    @property
+    def formulas_by_year_cumulative(self):
         """Returns formula details dataframe on a cumulative level by subject
         order  for a given state.
         For example if subject Year 12 is ordered after Year 10 and Year 9 for
@@ -108,7 +106,7 @@ class DataSource():
         """
 
         formulas_by_year = self.formulas_by_year
-        state_subject_sort_orders = self._get_state_subject_sort_orders()
+        state_subject_sort_orders = self.state_subject_sort_orders
 
         # Add the subject Sort order (representing the sort order for the
         # subject by given state) to the formulas data
@@ -415,17 +413,19 @@ class SiteHierarchies():
             base_dir (string): The base directory to concentate with the
                 directories stored in this classs
         """
-        for hierarchy_path in self.directory_paths():
+        for hierarchy_path in self.directory_paths:
             dir_to_create = base_dir + os.path.sep + hierarchy_path
             if not os.path.isdir(dir_to_create):
                 os.makedirs(dir_to_create)
 
+    @property
     def file_paths(self):
         """Returns list of file paths in hieararchy as a list of strings"""
         return list(self._hierarchy_data.apply(
             lambda x: os.path.sep.join(list(x.dropna())),
             axis='columns'))
 
+    @property
     def directory_paths(self):
         """Returns list of directory paths in hieararchy as a list of
         strings.  This exludes the last level in the hierarchy which
@@ -445,6 +445,7 @@ class SiteHierarchies():
             axis='columns').drop_duplicates()
         return dir_paths
 
+    @property
     def all_path_levels(self):
         """Returns a list of unique paths recursively at each directory level
         for the directory hierarchies stored in this class.  Excludes the
@@ -509,13 +510,14 @@ class FormulaFile():
         """Adds weight property to front matter based on position of
         path in hierarchy"""
         weight = hierarchies.get_sort_index_in_parent_path(
-            self.path_in_hierarchy()) + 1
+            self.path_in_hierarchy) + 1
         self.add_front_matter_property('weight', weight)
 
     def add_formula_table(self, formula_table):
         """Adds FormulaTable object to formula file"""
         self._formula_table = formula_table
 
+    @property
     def path_in_hierarchy(self):
         """Returns the path in hierarchy (excluding any base
         directory)"""
@@ -537,7 +539,7 @@ class FormulaFile():
         if not self._formula_table is None:
             self._content.add_content(self._formula_table.to_markdown())
         filename = (base_dir + os.path.sep
-                    + self.path_in_hierarchy() + '.md')
+                    + self.path_in_hierarchy + '.md')
         self._content.save(filename)
 
 
@@ -644,6 +646,7 @@ class Formulas():
         """
         return self._formula_data
 
+    @property
     def formula_sheet_items(self):
         """Returns a list of formulas where field 'On formula sheet'
         is True
@@ -654,6 +657,7 @@ class Formulas():
         ]['Formula'].drop_duplicates())
         return list(formulas_on_sheet)
 
+    @property
     def proofs_required_items(self):
         """Returns a list of formulas where field 'Proof required'
          is True
@@ -734,9 +738,9 @@ class FormulaTable():
         formula_columns = self.get_type().formula_columns()
         formulas_in_table = (
             self.get_type().to_dataframe()[formula_columns].stack())
-        proof_required_items = self._formulas.formula_sheet_items()
+        formula_sheet_items = self._formulas.formula_sheet_items
         return (len(
-            set(formulas_in_table).intersection(set(proof_required_items))
+            set(formulas_in_table).intersection(set(formula_sheet_items))
         ) > 0)
 
     def contains_proof_required_items(self):
@@ -744,7 +748,7 @@ class FormulaTable():
         formula_columns = self.get_type().formula_columns()
         formulas_in_table = (
             self.get_type().to_dataframe()[formula_columns].stack())
-        proof_required_items = self._formulas.proofs_required_items()
+        proof_required_items = self._formulas.proofs_required_items
         return (len(
             set(formulas_in_table).intersection(set(proof_required_items))
         ) > 0)
@@ -762,7 +766,7 @@ class FormulaTable():
         return_table.hide_column_headers()
         return_table.hide_row_headers()
         return_table.highlight_values_in_list(
-            self._formulas.formula_sheet_items(),
+            self._formulas.formula_sheet_items,
             columns_to_highlight=self._table_type.formula_columns())
         return return_table.to_html()
 
@@ -772,7 +776,7 @@ class FormulaTable():
         return_table.hide_column_headers()
         return_table.hide_row_headers()
         return_table.highlight_values_in_list(
-            self._formulas.proofs_required_items(),
+            self._formulas.proofs_required_items,
             columns_to_highlight=self._table_type.formula_columns(),
             rgba='0,150,200, 0.2')
         return return_table.to_html()
