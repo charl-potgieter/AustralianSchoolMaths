@@ -654,11 +654,6 @@ class Formulas():
         ]['Formula'].drop_duplicates())
         return list(formulas_on_sheet)
 
-    def have_formula_sheet_items(self):
-        """Returns true if object has one or more non-null formula field
-        items where field 'On formula sheet' is true"""
-        return len(self.formula_sheet_items()) >= 1
-
     def proofs_required_items(self):
         """Returns a list of formulas where field 'Proof required'
          is True
@@ -671,11 +666,6 @@ class Formulas():
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return list(proofs_required)
-
-    def have_proof_required_items(self):
-        """Returns true if object has one or more non-null formula field
-        items where field 'Proof required' is true"""
-        return len(self.proofs_required_items()) >= 1
 
     def filter_by_function(self, filter_function):
         """Returns a new filtered Formulas object where
@@ -734,9 +724,30 @@ class FormulaTable():
     def has_tabs(self):
         """Returns true if table has / requires tabs"""
         return (
-            self._formulas.have_formula_sheet_items() or
-            self._formulas.have_proof_required_items()
+            self.contains_formula_sheet_items() or
+            self.contains_proof_required_items()
         )
+
+    def contains_formula_sheet_items(self):
+        """Returns True if the table contains formulas that appear on the
+        formula sheet"""
+        formula_columns = self.get_type().formula_columns()
+        formulas_in_table = (
+            self.get_type().to_dataframe()[formula_columns].stack())
+        proof_required_items = self._formulas.formula_sheet_items()
+        return (len(
+            set(formulas_in_table).intersection(set(proof_required_items))
+        ) > 0)
+
+    def contains_proof_required_items(self):
+        """Returns True if the table contains formulas that require proofs"""
+        formula_columns = self.get_type().formula_columns()
+        formulas_in_table = (
+            self.get_type().to_dataframe()[formula_columns].stack())
+        proof_required_items = self._formulas.proofs_required_items()
+        return (len(
+            set(formulas_in_table).intersection(set(proof_required_items))
+        ) > 0)
 
     def _table_no_higlights(self):
         """Returns table with no highlights"""
@@ -781,12 +792,12 @@ class FormulaTable():
         else:
             tabs = PageTabs()
             tabs.add_tab('Standard view', self._table_no_higlights())
-            if self._formulas.have_formula_sheet_items():
+            if self.contains_formula_sheet_items():
                 tabs.add_tab(
                     'Formula sheet',
                     'Items on formula sheet are highlighted \n<br>\n'
                     + self._table_formula_sheet_higlights())
-            if self._formulas.have_proof_required_items():
+            if self.contains_proof_required_items():
                 tabs.add_tab(
                     'Poofs required',
                     'Items where proofs required are highlighted \n<br>\n'
