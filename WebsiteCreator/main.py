@@ -4,11 +4,12 @@ generation.
 
 import os
 import shutil
-from maths_objects import (SiteHierarchies, DataSource,
-                           IndexFile,  FormulaFile,
-                           Formulas, FormulaTable, FormulaTableType,
-                           FormulaTableTypeSimple,  FormulaTableTypeCalculus,
-                           FormulaTableTypeFinancial)
+from data_management import DataSource
+from file_management import (SiteHierarchies, IndexFile,  FormulaFile)
+from formula_tables import (FormulaTable, FormulaTableType,
+                            FormulaTableTypeSimple, FormulaTableTypeCalculus,
+                            FormulaTableTypeFinancial)
+from content import Formulas
 
 
 def delete_directory_if_it_exists(dir_to_delete):
