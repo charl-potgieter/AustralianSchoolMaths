@@ -965,6 +965,52 @@ class FormulaTableTypeCalculus(FormulaTableType):
         return return_value
 
 
+class FormulaTableTypeFinancial(FormulaTableType):
+    """Table summary of financial maths formulas"""
+
+    content_type = ContentTypes.FORMULA_SUMMARIES.value
+
+    @property
+    def display_name(self):
+        """Returns the table's display name"""
+        return 'Financial mathematics'
+
+    @property
+    def formula_columns(self):
+        """Returns the names of columns containing formulas as a list"""
+        return ['Arithmetic sequence', 'Geometric sequence']
+
+    def to_dataframe(self):
+        """Returns a summary table in dataframe format"""
+        financial_df = self._formulas.to_dataframe()
+        financial_df = (financial_df[
+            (financial_df['Category'] == 'Financial mathematics') &
+            (
+                (financial_df['Subcategory_1'] == 'Arithmetic sequence') |
+                (financial_df['Subcategory_1'] == 'Geometric sequence')
+            )
+        ])
+        if len(financial_df.index) == 0:
+            return None
+
+        financial_df = financial_df[['Subcategory_1', 'Subcategory_2',
+                                     'Formula']]
+        financial_df = pd.pivot_table(data=financial_df, values='Formula',
+                                      columns='Subcategory_1',
+                                      index='Subcategory_2',
+                                      aggfunc=lambda x: x)
+        financial_df.index.name = None
+        financial_df.columns.name = None
+
+        # Convert index to categorical data to enable custom sort order
+        financial_df.index = pd.Categorical(
+            financial_df.index,
+            ['Recursive definition', 'n-th term', 'Sum of first n terms',
+             'Limiting sum'])
+        financial_df = financial_df.sort_index()
+        return financial_df
+
+
 class _StyledTable():
     """Implements a dataframe styler customised for maths formula display"""
 

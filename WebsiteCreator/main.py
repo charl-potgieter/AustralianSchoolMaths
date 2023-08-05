@@ -7,7 +7,8 @@ import shutil
 from maths_objects import (SiteHierarchies, DataSource,
                            IndexFile,  FormulaFile,
                            Formulas, FormulaTable, FormulaTableType,
-                           FormulaTableTypeSimple,  FormulaTableTypeCalculus)
+                           FormulaTableTypeSimple,  FormulaTableTypeCalculus,
+                           FormulaTableTypeFinancial)
 
 
 def delete_directory_if_it_exists(dir_to_delete):
@@ -86,6 +87,20 @@ if __name__ == '__main__':
                          is_cumulative_by_year=False)
 
     create_formula_pages(table_type=FormulaTableTypeCalculus,
+                         group_by=['State', 'Subject'],
+                         formulas=formulas_cumulative,
+                         base_dir=data_source.docs_directory,
+                         hierarchies=site_hierarchies,
+                         is_cumulative_by_year=True)
+
+    create_formula_pages(table_type=FormulaTableTypeFinancial,
+                         group_by=['State', 'Subject'],
+                         formulas=formulas_by_year,
+                         base_dir=data_source.docs_directory,
+                         hierarchies=site_hierarchies,
+                         is_cumulative_by_year=False)
+
+    create_formula_pages(table_type=FormulaTableTypeFinancial,
                          group_by=['State', 'Subject'],
                          formulas=formulas_cumulative,
                          base_dir=data_source.docs_directory,
