@@ -236,7 +236,6 @@ class SiteHierarchies():
         # of hierarchy being created
         self._hierarchy_data = data_to_load.to_dataframe()
         self._error_check_sort_orders()
-        self._current_index = -1  # Utilised for iterator
 
     def _error_check_sort_orders(self):
         """"Error checks thge hierarchy sort orders"""
@@ -497,10 +496,19 @@ class FormulaFile():
     """..md file containing formula tables for Hugo site generation"""
 
     def __init__(self):
-        self.is_cumulative_by_year = False
+        self._is_cumulative_by_year = False
         self._content = _MarkdownContent()
         self._front_matter = FrontMatter()
         self._formula_table = None
+
+    @property
+    def is_cumulative_by_year(self):
+        """Returns True if formulas are cumulative across years (subjects)"""
+        return self._is_cumulative_by_year
+
+    @is_cumulative_by_year.setter
+    def is_cumulative_by_year(self, value: bool):
+        self._is_cumulative_by_year = value
 
     def add_front_matter_property(self, property_key, property_value):
         """Adds key / value  to front matter"""
@@ -526,12 +534,12 @@ class FormulaFile():
         else:
             time_frame_portion_of_path = 'By year'
 
-        formula_table_type = self._formula_table.get_type()
-        return os.path.sep.join([formula_table_type.state,
-                                formula_table_type.subject,
-                                formula_table_type.content_type,
+        formula_table_type = self._formula_table.type
+        return os.path.sep.join([self._formula_table.state,
+                                self._formula_table.subject,
+                                self._formula_table.type.content_type,
                                 time_frame_portion_of_path,
-                                formula_table_type.display_name])
+                                self._formula_table.type.display_name])
 
     def save(self, base_dir):
         """Saves at base_dir + path_in_hierarcy"""
@@ -711,43 +719,60 @@ class FormulaTable():
             formulas (Formulas object): the input data
         """
         self._formulas = formulas
+        self._state = formulas.field_value('State')
+        self._subject = formulas.field_value('Subject')
         self._table_type = None
 
-    def set_type(self, table_type):
-        """Sets table type"""
-        self._table_type = table_type(self._formulas)
+    @property
+    def state(self):
+        """Returns the state of formulas included in the table"""
+        return self._state
 
-    def get_type(self):
+    @property
+    def subject(self):
+        """Returns the subject of formulas included in the table"""
+        return self._subject
+
+    @property
+    def type(self):
         """Returns the table type"""
         return self._table_type
+
+    @type.setter
+    def type(self, table_type):
+        """Sets table type"""
+        self._table_type = table_type(self._formulas)
 
     def _to_dataframe(self):
         """Returns FormulaTable as pandas dataframe"""
         return self._table_type.to_dataframe()
 
+    @property
     def has_tabs(self):
         """Returns true if table has / requires tabs"""
         return (
-            self.contains_formula_sheet_items() or
-            self.contains_proof_required_items()
+            self.contains_formula_sheet_items or
+            self.contains_proof_required_items
         )
 
+    @property
     def contains_formula_sheet_items(self):
         """Returns True if the table contains formulas that appear on the
         formula sheet"""
-        formula_columns = self.get_type().formula_columns()
+        formula_columns = self.type.formula_columns
         formulas_in_table = (
-            self.get_type().to_dataframe()[formula_columns].stack())
+            self.type.to_dataframe()[formula_columns].stack())
         formula_sheet_items = self._formulas.formula_sheet_items
         return (len(
             set(formulas_in_table).intersection(set(formula_sheet_items))
         ) > 0)
 
+    @property
     def contains_proof_required_items(self):
         """Returns True if the table contains formulas that require proofs"""
-        formula_columns = self.get_type().formula_columns()
+        formula_columns = self.type.formula_columns
         formulas_in_table = (
-            self.get_type().to_dataframe()[formula_columns].stack())
+            self.type.to_dataframe()[formula_columns].stack())
         proof_required_items = self._formulas.proofs_required_items
         return (len(
             set(formulas_in_table).intersection(set(proof_required_items))
@@ -767,7 +792,7 @@ class FormulaTable():
         return_table.hide_row_headers()
         return_table.highlight_values_in_list(
             self._formulas.formula_sheet_items,
-            columns_to_highlight=self._table_type.formula_columns())
+            columns_to_highlight=self._table_type.formula_columns)
         return return_table.to_html()
 
     def _table_proofs_required_higlights(self):
@@ -777,10 +802,11 @@ class FormulaTable():
         return_table.hide_row_headers()
         return_table.highlight_values_in_list(
             self._formulas.proofs_required_items,
-            columns_to_highlight=self._table_type.formula_columns(),
+            columns_to_highlight=self._table_type.formula_columns,
             rgba='0,150,200, 0.2')
         return return_table.to_html()
 
+    @property
     def contains_content(self):
         """Returns true if the Formula table contains content"""
         if self._table_type is None:
@@ -791,17 +817,17 @@ class FormulaTable():
 
     def to_markdown(self):
         """Returns formula table in markdown format"""
-        if not self.has_tabs():
+        if not self.has_tabs:
             return_value = self._table_no_higlights()
         else:
             tabs = PageTabs()
             tabs.add_tab('Standard view', self._table_no_higlights())
-            if self.contains_formula_sheet_items():
+            if self.contains_formula_sheet_items:
                 tabs.add_tab(
                     'Formula sheet',
                     'Items on formula sheet are highlighted \n<br>\n'
                     + self._table_formula_sheet_higlights())
-            if self.contains_proof_required_items():
+            if self.contains_proof_required_items:
                 tabs.add_tab(
                     'Poofs required',
                     'Items where proofs required are highlighted \n<br>\n'
@@ -825,8 +851,6 @@ class FormulaTableType(ABC):
 
     def __init__(self, formulas):
         self._formulas = formulas
-        self.state = formulas.field_value('State')
-        self.subject = formulas.field_value('Subject')
 
     @property
     @abstractmethod
@@ -838,6 +862,7 @@ class FormulaTableType(ABC):
     def display_name(self):
         """Abstract method for returning display name"""
 
+    @property
     @abstractmethod
     def formula_columns(self):
         """Abstract method for returning formulas containing columns"""
@@ -857,6 +882,7 @@ class FormulaTableTypeSimple(FormulaTableType):
     def display_name(self):
         return self._formulas.field_value('Category')
 
+    @property
     def formula_columns(self):
         """Returns the names of columns containing formulas as a list"""
         return ['Formula']
@@ -877,6 +903,7 @@ class FormulaTableTypeCalculus(FormulaTableType):
         """Returns the table's display name"""
         return 'Calculus'
 
+    @property
     def formula_columns(self):
         """Returns the names of columns containing formulas as a list"""
         return ['Derivative', 'Equivalent integral']

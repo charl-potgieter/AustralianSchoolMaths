@@ -41,8 +41,8 @@ def create_formula_pages(table_type: FormulaTableType,
 
     for formula_group in formulas.group_by_columns(group_by):
         formula_table = FormulaTable(formula_group)
-        formula_table.set_type(table_type)
-        if formula_table.contains_content():
+        formula_table.type = table_type
+        if formula_table.contains_content:
             formula_file = FormulaFile()
             formula_file.is_cumulative_by_year = is_cumulative_by_year
             formula_file.add_formula_table(formula_table)
