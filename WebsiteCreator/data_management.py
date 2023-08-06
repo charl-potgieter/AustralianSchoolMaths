@@ -28,17 +28,23 @@ class DataSource():
             'content', 'docs'))
 
     @property
-    def hierarchies_directory(self):
+    def hierarchies_file_path(self):
         """Returns directory string of site_hierarchy.csv file"""
         return (self.website_creator_directory
                 + os.path.sep
                 + 'site_hierarchy.csv')
 
     @property
-    def formulas_directory(self):
+    def formulas_file_path(self):
         """Returns directory string of formulas.csv file"""
         return (self.website_creator_directory + os.path.sep
                 + 'formulas.csv')
+
+    @property
+    def definitions_file_path(self):
+        """Returns directory string of definitions.csv file"""
+        return (self.website_creator_directory + os.path.sep
+                + 'definitions.csv')
 
     @property
     def syllabus_directory(self):
@@ -47,10 +53,15 @@ class DataSource():
                 + 'syllabus_topics.csv')
 
     @property
+    def syllabus(self):
+        """Returns the syllabus data as dataframe"""
+        return pd.read_csv(self.syllabus_directory)
+
+    @property
     def site_hierarchies(self):
         """Returns the site hierarchy data as a pandas dataframe
         """
-        hierarchy_data = pd.read_csv(self.hierarchies_directory)
+        hierarchy_data = pd.read_csv(self.hierarchies_file_path)
         return hierarchy_data
 
     @property
@@ -81,11 +92,10 @@ class DataSource():
         formulas_input_converter = {
             'Proof required': lambda x: True if x else False}
         formulas_ex_syllabus = pd.read_csv(
-            filepath_or_buffer=self.formulas_directory,
+            filepath_or_buffer=self.formulas_file_path,
             converters=formulas_input_converter)
-        syllabus = pd.read_csv(self.syllabus_directory)
         formulas = pd.merge(
-            left=syllabus, right=formulas_ex_syllabus,
+            left=self.syllabus, right=formulas_ex_syllabus,
             left_on=['State', 'Subject', 'Syllabus subtopic code'],
             right_on=['State', 'Subject', 'Syllabus subtopic code'],
             how='right')
@@ -129,6 +139,19 @@ class DataSource():
         return_data = return_data.rename(columns={
             'Sort subject': 'Subject'})
         return return_data
+
+    @property
+    def definitions_by_year(self):
+        """Returns the maths definitions as a pandas dataframe
+        """
+        definitions_data = pd.read_csv(self.definitions_file_path)
+
+        definitions_data = pd.merge(
+            left=self.syllabus, right=definitions_data,
+            left_on=['State', 'Subject', 'Syllabus subtopic code'],
+            right_on=['State', 'Subject', 'Syllabus subtopic code'],
+            how='right')
+        return definitions_data
 
 
 class DataManager():

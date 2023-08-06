@@ -10,8 +10,7 @@ class Formulas():
     of the given input set of formulas
     """
 
-    # Enforces structure of fomulas csv when loaded along with the
-    # _formula_input_converter
+    # Enforces structure of csv when loaded
     _data_structure = {'State': 'object',
                        'Subject': 'object',
                        'Syllabus topic': 'object',
@@ -28,28 +27,12 @@ class Formulas():
                        'Comment': 'object'}
 
     def __init__(self, input_data):
-        """Initiates class with data from input_data
-
-        Args:
-            input_data (dataframe): formula data
-        """
+        """Initiates class with data from input_data"""
         data_to_load = DataManager(input_data)
         self._check_column_names(data_to_load)
         data_to_load.set_column_types(self._data_structure)
         self._formula_data = data_to_load.to_dataframe()
         self._is_cumulative = False
-
-    @property
-    def is_cumulative(self):
-        """Returns whether this Formulas obeject is cumulative across
-        subjects (years)"""
-        return self._is_cumulative
-
-    @is_cumulative.setter
-    def is_cumulative(self, value: bool):
-        """Sets this objects is cumulative status representing whether
-        it contains formulas that are cumulative across subjects / years"""
-        self._is_cumulative = value
 
     def _check_column_names(self, data_to_load):
         """Check if column names in data_to_load match expecations as per
@@ -62,6 +45,18 @@ class Formulas():
         if not data_to_load.column_names_are_correct(expected_columns):
             raise ValueError(
                 data_to_load.column_mismatch_message(expected_columns))
+
+    @property
+    def is_cumulative(self):
+        """Returns whether this Formulas obeject is cumulative across
+        subjects (years)"""
+        return self._is_cumulative
+
+    @is_cumulative.setter
+    def is_cumulative(self, value: bool):
+        """Sets this objects is cumulative status representing whether
+        it contains formulas that are cumulative across subjects / years"""
+        self._is_cumulative = value
 
     def to_dataframe(self):
         """Returns formula data as a pandas dataframe
@@ -121,3 +116,56 @@ class Formulas():
         grouper = self._formula_data.groupby(columns)
         for _, data in grouper:
             yield Formulas(data)
+
+
+class Definitions():
+    """Contains maths definitions"""
+
+    # Enforces structure of csv when loaded
+    _data_structure = {'State': 'object',
+                       'Subject': 'object',
+                       'Syllabus topic': 'object',
+                       'Syllabus subtopic code': 'object',
+                       'Syllabus subtopic': 'object',
+                       'Definition': 'object'}
+
+    def __init__(self, input_data):
+        """Initiates class with data from input_data
+
+        Args:
+            input_data (dataframe): formula data
+        """
+        data_to_load = DataManager(input_data)
+        self._check_column_names(data_to_load)
+        data_to_load.set_column_types(self._data_structure)
+        self._definition_data = data_to_load.to_dataframe()
+        self._is_cumulative = False
+
+    def _check_column_names(self, data_to_load):
+        """Check if column names in data_to_load match expecations as per
+            self._data_structure.  Raise ValueError if not matching.
+
+        Args:
+            data_to_load (DataManager): The data to check
+        """
+        expected_columns = self._data_structure.keys()
+        if not data_to_load.column_names_are_correct(expected_columns):
+            raise ValueError(
+                data_to_load.column_mismatch_message(expected_columns))
+
+    @property
+    def is_cumulative(self):
+        """Returns whether this obeject is cumulative across
+        subjects (years)"""
+        return self._is_cumulative
+
+    @is_cumulative.setter
+    def is_cumulative(self, value: bool):
+        """Sets this objects is cumulative status representing whether
+        it contains definitions that are cumulative across subjects / years"""
+        self._is_cumulative = value
+
+    def to_dataframe(self):
+        """Returns definition data as a pandas dataframe
+        """
+        return self._definition_data
