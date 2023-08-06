@@ -2,7 +2,6 @@
 e.g. formulas, definitions etc
 """
 
-import os
 from data_management import DataManager
 
 
@@ -38,6 +37,19 @@ class Formulas():
         self._check_column_names(data_to_load)
         data_to_load.set_column_types(self._data_structure)
         self._formula_data = data_to_load.to_dataframe()
+        self._is_cumulative = False
+
+    @property
+    def is_cumulative(self):
+        """Returns whether this Formulas obeject is cumulative across
+        subjects (years)"""
+        return self._is_cumulative
+
+    @is_cumulative.setter
+    def is_cumulative(self, value: bool):
+        """Sets this objects is cumulative status representing whether
+        it contains formulas that are cumulative across subjects / years"""
+        self._is_cumulative = value
 
     def _check_column_names(self, data_to_load):
         """Check if column names in data_to_load match expecations as per
