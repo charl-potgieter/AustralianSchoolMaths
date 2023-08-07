@@ -252,28 +252,28 @@ class IndexFile():
     """._inded.md file utilised for Hugo site generation"""
 
     def __init__(self, path_in_hierarchy):
-        self._content = _MarkdownContent()
-        self._front_matter = FrontMatter()
-        self._path_in_hierarchy = path_in_hierarchy
+        self._markdown_content = _MarkdownContent()
+        self._markdown_content.path_in_hierarchy = path_in_hierarchy
+        self._base_dir = None
 
-    def add_front_matter_property(self, property_key, property_value):
-        """Adds key / value  to front matter"""
-        self._front_matter.add_property(property_key, property_value)
+    @property
+    def markdown_content(self):
+        """Returns the markdown_content object"""
+        return self._markdown_content
 
-    def set_weight_based_on_hierarchies(self, hierarchies):
-        """Adds weight property to front matter based on position of
-        path in hierarchy"""
-        weight = hierarchies.get_sort_index_in_parent_path(
-            self._path_in_hierarchy) + 1
-        self.add_front_matter_property('weight', weight)
+    @property
+    def base_dir(self):
+        """"Returns base_dir property"""
+        return self._base_dir
 
-    def save(self, base_dir):
-        """Saves at base_dir + path_in_hierarcy"""
-        self._content.add_content(self._front_matter.to_string())
-        filename = (base_dir + os.path.sep
-                    + self._path_in_hierarchy + os.path.sep
-                    + '_index.md')
-        self._content.save(filename)
+    @base_dir.setter
+    def base_dir(self, value):
+        """"Sets the base_dir property"""
+        self._base_dir = value
+        self._markdown_content.file_path = (
+            self._base_dir + os.path.sep
+            + self._markdown_content.path_in_hierarchy + os.path.sep
+            + '_index.md')
 
 
 class FormulaFile():
@@ -281,9 +281,14 @@ class FormulaFile():
 
     def __init__(self):
         self._is_cumulative_by_year = False
-        self._content = _MarkdownContent()
-        self._front_matter = FrontMatter()
+        self._markdown_content = _MarkdownContent()
         self._formula_table = None
+        self._base_dir = None
+
+    @property
+    def markdown_content(self):
+        """Returns the markdown_content object"""
+        return self._markdown_content
 
     @property
     def is_cumulative_by_year(self):
@@ -294,44 +299,38 @@ class FormulaFile():
     def is_cumulative_by_year(self, value: bool):
         self._is_cumulative_by_year = value
 
-    def add_front_matter_property(self, property_key, property_value):
-        """Adds key / value  to front matter"""
-        self._front_matter.add_property(property_key, property_value)
-
-    def set_weight_based_on_hierarchies(self, hierarchies):
-        """Adds weight property to front matter based on position of
-        path in hierarchy"""
-        weight = hierarchies.get_sort_index_in_parent_path(
-            self.path_in_hierarchy) + 1
-        self.add_front_matter_property('weight', weight)
-
     def add_formula_table(self, formula_table):
         """Adds FormulaTable object to formula file"""
         self._formula_table = formula_table
+        self.markdown_content.add_content(formula_table.to_markdown())
 
-    @property
-    def path_in_hierarchy(self):
-        """Returns the path in hierarchy (excluding any base
+    def set_path_in_hierarchy(self):
+        """Sets the path in hierarchy (excluding any base
         directory)"""
         if self.is_cumulative_by_year:
             time_frame_portion_of_path = 'By year cumulative'
         else:
             time_frame_portion_of_path = 'By year'
+        self.markdown_content.path_in_hierarchy = os.path.sep.join([
+            self._formula_table.state,
+            self._formula_table.subject,
+            self._formula_table.type.content_type,
+            time_frame_portion_of_path,
+            self._formula_table.type.display_name])
 
-        return os.path.sep.join([self._formula_table.state,
-                                self._formula_table.subject,
-                                self._formula_table.type.content_type,
-                                time_frame_portion_of_path,
-                                self._formula_table.type.display_name])
+    @property
+    def base_dir(self):
+        """"Returns base_dir property"""
+        return self._base_dir
 
-    def save(self, base_dir):
-        """Saves at base_dir + path_in_hierarcy"""
-        self._content.add_content(self._front_matter.to_string())
-        if not self._formula_table is None:
-            self._content.add_content(self._formula_table.to_markdown())
-        filename = (base_dir + os.path.sep
-                    + self.path_in_hierarchy + '.md')
-        self._content.save(filename)
+    @base_dir.setter
+    def base_dir(self, value):
+        """"Sets the base_dir property"""
+        self._base_dir = value
+        self._markdown_content.file_path = (
+            self._base_dir + os.path.sep
+            + self._markdown_content.path_in_hierarchy
+            + '.md')
 
 
 class _MarkdownContent():
@@ -340,6 +339,44 @@ class _MarkdownContent():
 
     def __init__(self):
         self._content = None
+        self._front_matter = FrontMatter()
+        self._hierarchies = None
+        self._path_in_hierarchy = None
+        self._file_path = None
+
+    @property
+    def hierarchies(self):
+        """Returns hierarchies property"""
+        return self._hierarchies
+
+    @hierarchies.setter
+    def hierarchies(self, value):
+        """Sets the hierarchies property"""
+        self._hierarchies = value
+
+    @property
+    def path_in_hierarchy(self):
+        """Returns path in hierarchies property"""
+        return self._path_in_hierarchy
+
+    @path_in_hierarchy.setter
+    def path_in_hierarchy(self, value):
+        """Sets the path_in_hierarchies property"""
+        self._path_in_hierarchy = value
+
+    @property
+    def file_path(self):
+        """Returns file name property"""
+        return self._file_path
+
+    @file_path.setter
+    def file_path(self, value):
+        """"Sets the file name property"""
+        self._file_path = value
+
+    def add_front_matter_property(self, property_key, property_value):
+        """Adds key / value  to front matter"""
+        self._front_matter.add_property(property_key, property_value)
 
     def add_content(self, content):
         """Adds content (string) to the object"""
@@ -348,18 +385,30 @@ class _MarkdownContent():
         else:
             self._content = content
 
-    def save(self, file_path):
-        """Saves the content of this object at file_path.
+    def _set_weight_based_on_hierarchies(self):
+        """Adds weight property to front matter based on position of
+        path in hierarchy"""
+        weight = self.hierarchies.get_sort_index_in_parent_path(
+            self.path_in_hierarchy) + 1
+        self.add_front_matter_property('weight', weight)
 
-        Args:
-            file_path (string): The directory excluding file name where
-                the file will be saved.
-        """
-        if os.path.isfile(file_path):
-            raise OSError('Cannot create ' + file_path + ' as it already ' +
+    def _add_front_matter_to_content(self):
+        """Adds front matter to the start of content"""
+        if self._content:
+            self._content = (self._front_matter.to_string()
+                             + '\n\n' + self._content)
+        else:
+            self._content = self._front_matter.to_string()
+
+    def save(self):
+        """Saves the content of this object at file_path."""
+        self._set_weight_based_on_hierarchies()
+        self._add_front_matter_to_content()
+        if os.path.isfile(self.file_path):
+            raise OSError('Cannot create ' + self.file_path + ' as it already ' +
                           'exists')
         else:
-            with open(file_path, "w", encoding="utf-8") as text_file:
+            with open(self.file_path, "w", encoding="utf-8") as text_file:
                 text_file.write(self._content)
 
 
