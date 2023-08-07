@@ -263,6 +263,7 @@ class IndexFile():
         return self._markdown_content
 
     def _get_file_path(self, base_dir, path_in_hierarchy):
+        """returns file path"""
         return (
             base_dir + os.path.sep
             + path_in_hierarchy + os.path.sep
@@ -288,8 +289,7 @@ class FormulaFile():
         return self._markdown_content
 
     def _get_path_in_hierarchy(self, formula_table, is_cumulative_by_year):
-        """Gets the path in hierarchy (excluding any base
-        directory)"""
+        """Gets the path in hierarchy (excluding any base directory)"""
         if is_cumulative_by_year:
             time_frame_portion_of_path = 'By year cumulative'
         else:

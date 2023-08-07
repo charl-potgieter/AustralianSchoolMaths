@@ -77,15 +77,19 @@ class FormulaTable():
     def _table_no_higlights(self):
         """Returns table with no highlights"""
         return_table = _StyledTable(self._to_dataframe())
-        return_table.hide_column_headers()
-        return_table.hide_row_headers()
+        if self._table_type.has_hidden_column_headers:
+            return_table.hide_column_headers()
+        if self._table_type.has_hidden_row_headers:
+            return_table.hide_row_headers()
         return return_table.to_html()
 
     def _table_formula_sheet_higlights(self):
         """Returns table with formulas on formula sheet higlighted"""
         return_table = _StyledTable(self._to_dataframe())
-        return_table.hide_column_headers()
-        return_table.hide_row_headers()
+        if self._table_type.has_hidden_column_headers:
+            return_table.hide_column_headers()
+        if self._table_type.has_hidden_row_headers:
+            return_table.hide_row_headers()
         return_table.highlight_values_in_list(
             self._formulas.formula_sheet_items,
             columns_to_highlight=self._table_type.formula_columns)
@@ -94,8 +98,10 @@ class FormulaTable():
     def _table_proofs_required_higlights(self):
         """Returns table with formulas where proofs are required higlighted"""
         return_table = _StyledTable(self._to_dataframe())
-        return_table.hide_column_headers()
-        return_table.hide_row_headers()
+        if self._table_type.has_hidden_column_headers:
+            return_table.hide_column_headers()
+        if self._table_type.has_hidden_row_headers:
+            return_table.hide_row_headers()
         return_table.highlight_values_in_list(
             self._formulas.proofs_required_items,
             columns_to_highlight=self._table_type.formula_columns,
@@ -155,6 +161,16 @@ class FormulaTableType(ABC):
 
     @property
     @abstractmethod
+    def has_hidden_column_headers(self):
+        """Abstrat method to flag hiding of column headers"""
+
+    @property
+    @abstractmethod
+    def has_hidden_row_headers(self):
+        """Abstrat method to flag hiding of row headers"""
+
+    @property
+    @abstractmethod
     def display_name(self):
         """Abstract method for returning display name"""
 
@@ -172,7 +188,17 @@ class FormulaTableTypeSimple(FormulaTableType):
     """Simple formula table implementatio of abstract class FormulaTableType
     """
 
-    content_type = ContentTypes.FORMULAS.value
+    @property
+    def content_type(self):
+        return ContentTypes.FORMULAS.value
+
+    @property
+    def has_hidden_column_headers(self):
+        return True
+
+    @property
+    def has_hidden_row_headers(self):
+        return True
 
     @property
     def display_name(self):
@@ -192,7 +218,17 @@ class FormulaTableTypeCalculus(FormulaTableType):
     """Table summary of derivatives and their equivalent integrals
     """
 
-    content_type = ContentTypes.FORMULA_SUMMARIES.value
+    @property
+    def content_type(self):
+        return ContentTypes.FORMULA_SUMMARIES.value
+
+    @property
+    def has_hidden_column_headers(self):
+        return False
+
+    @property
+    def has_hidden_row_headers(self):
+        return True
 
     @property
     def display_name(self):
@@ -264,7 +300,17 @@ class FormulaTableTypeCalculus(FormulaTableType):
 class FormulaTableTypeFinancial(FormulaTableType):
     """Table summary of financial maths formulas"""
 
-    content_type = ContentTypes.FORMULA_SUMMARIES.value
+    @property
+    def content_type(self):
+        return ContentTypes.FORMULA_SUMMARIES.value
+
+    @property
+    def has_hidden_column_headers(self):
+        return False
+
+    @property
+    def has_hidden_row_headers(self):
+        return False
 
     @property
     def display_name(self):
