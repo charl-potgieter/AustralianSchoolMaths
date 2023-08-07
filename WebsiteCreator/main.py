@@ -34,11 +34,9 @@ def create_index_files():
     docs_dir = data_source.docs_directory
     hierarchies = SiteHierarchies(data_source.site_hierarchies)
     for path in hierarchies.all_path_levels:
-        index_file = IndexFile(path)
-        index_file.markdown_content.hierarchies = hierarchies
+        index_file = IndexFile(hierarchies, path, docs_dir)
         index_file.markdown_content.add_front_matter_property(
             'bookCollapseSection', 'true')
-        index_file.base_dir = docs_dir
         index_file.markdown_content.save()
 
 
@@ -78,12 +76,8 @@ def _create_single_formula_page(table_type: FormulaTableType,
         formula_table = FormulaTable(formula_group)
         formula_table.type = table_type
         if formula_table.contains_content:
-            formula_file = FormulaFile()
-            formula_file.markdown_content.hierarchies = hierarchies
-            formula_file.is_cumulative_by_year = formulas.is_cumulative
-            formula_file.add_formula_table(formula_table)
-            formula_file.set_path_in_hierarchy()
-            formula_file.base_dir = base_dir
+            formula_file = FormulaFile(hierarchies, base_dir,
+                                       formulas.is_cumulative, formula_table)
             formula_file.markdown_content.save()
 
 
