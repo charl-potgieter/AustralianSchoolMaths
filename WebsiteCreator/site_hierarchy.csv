@@ -1,24 +1,28 @@
 State,Subject,Content type,Time period,Category
-NSW,Year 9,Topics,By year,Indices
-NSW,Year 9,Topics,By year cumulative,Indices
 NSW,Year 9,Formulas,By year,Surds
 NSW,Year 9,Formulas,By year,Indices
 NSW,Year 9,Formulas,By year cumulative,Surds
 NSW,Year 9,Formulas,By year cumulative,Indices
+NSW,Year 11 Adv,Topics,By year,Functions
+NSW,Year 11 Adv,Topics,By year,Trigonometric Functions
 NSW,Year 11 Adv,Topics,By year,Calculus
-NSW,Year 11 Adv,Topics,By year cumulative,Indices
-NSW,Year 11 Adv,Topics,By year cumulative,Calculus
+NSW,Year 11 Adv,Topics,By year,Exponential and Logarithmic Functions
+NSW,Year 11 Adv,Topics,By year,Statistical Analysis
 NSW,Year 11 Adv,Formulas,By year,Logarithms
 NSW,Year 11 Adv,Formulas,By year,Differentiation
 NSW,Year 11 Adv,Formulas,By year cumulative,Surds
 NSW,Year 11 Adv,Formulas,By year cumulative,Indices
 NSW,Year 11 Adv,Formulas,By year cumulative,Logarithms
 NSW,Year 11 Adv,Formulas,By year cumulative,Differentiation
-NSW,Year 12 Adv,Topics,By year,Financial mathematics
+NSW,Year 11 Ext 1,Topics,By year,Functions
+NSW,Year 11 Ext 1,Topics,By year,Trigonometric Functions
+NSW,Year 11 Ext 1,Topics,By year,Calculus
+NSW,Year 11 Ext 1,Topics,By year,Combinatorics
+NSW,Year 12 Adv,Topics,By year,Functions
+NSW,Year 12 Adv,Topics,By year,Trigonometric Functions
 NSW,Year 12 Adv,Topics,By year,Calculus
-NSW,Year 12 Adv,Topics,By year cumulative,Indices
-NSW,Year 12 Adv,Topics,By year cumulative,Financial mathematics
-NSW,Year 12 Adv,Topics,By year cumulative,Calculus
+NSW,Year 12 Adv,Topics,By year,Financial Mathematics
+NSW,Year 12 Adv,Topics,By year,Statistical Analysis
 NSW,Year 12 Adv,Formulas,By year,Differentiation
 NSW,Year 12 Adv,Formulas,By year,Integration
 NSW,Year 12 Adv,Formulas,By year,Statistics
@@ -34,6 +38,11 @@ NSW,Year 12 Adv,Formula summaries,By year,Calculus
 NSW,Year 12 Adv,Formula summaries,By year,Financial mathematics
 NSW,Year 12 Adv,Formula summaries,By year cumulative,Calculus
 NSW,Year 12 Adv,Formula summaries,By year cumulative,Financial mathematics
+NSW,Year 12 Ext 1,Topics,By year,Proof
+NSW,Year 12 Ext 1,Topics,By year,Vectors
+NSW,Year 12 Ext 1,Topics,By year,Trigonometric Functions
+NSW,Year 12 Ext 1,Topics,By year,Calculus
+NSW,Year 12 Ext 1,Topics,By year,Statistical Analysis
 NSW,Year 12 Ext 1,Formulas,By year,Differentiation
 NSW,Year 12 Ext 1,Formulas,By year,Integration
 NSW,Year 12 Ext 1,Formulas,By year cumulative,Surds
@@ -47,3 +56,8 @@ NSW,Year 12 Ext 1,Formula summaries,By year,Calculus
 NSW,Year 12 Ext 1,Formula summaries,By year,Financial mathematics
 NSW,Year 12 Ext 1,Formula summaries,By year cumulative,Calculus
 NSW,Year 12 Ext 1,Formula summaries,By year cumulative,Financial mathematics
+NSW,Year 12 Ext 2,Topics,By year,Proof
+NSW,Year 12 Ext 2,Topics,By year,Vectors
+NSW,Year 12 Ext 2,Topics,By year,Complex Numbers
+NSW,Year 12 Ext 2,Topics,By year,Calculus
+NSW,Year 12 Ext 2,Topics,By year,Mechanics

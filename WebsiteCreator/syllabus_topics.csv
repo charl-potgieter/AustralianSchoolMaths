@@ -1,8 +1,16 @@
 State,Subject,Syllabus topic,Syllabus subtopic code,Syllabus subtopic
-NSW,Year 9,TBA,TBA,TBA
-NSW,Year 11 Adv,TBA,TBA,TBA
-NSW,Year 12 Adv,TBA,TBA,TBA
-NSW,Year 12 Ext 1,TBA,TBA,TBA
+NSW,Year 11 Adv,Functions,MA-FA1,Working with Functions
+NSW,Year 11 Adv,Trigonometric Functions,MA-T1,Trigonometry and Measure of Angles
+NSW,Year 11 Adv,Trigonometric Functions,MA-T1,Trigonometric Functions and Identities
+NSW,Year 11 Adv,Calculus,MA-C1,Introduction to Differentiation
+NSW,Year 11 Adv,Exponential and Logarithmic Functions,MA-E1,Logarithms and Exponentials
+NSW,Year 11 Adv,Statistical Analysis,MA-S1,Probability and Discrete Probability Distributions
+NSW,Year 11 Ext 1,Functions,ME-F1,Further Work with Functions
+NSW,Year 11 Ext 1,Functions,ME-F2,Polynomials
+NSW,Year 11 Ext 1,Trigonometric Functions,ME-T1,Inverse Trigonometric Functions
+NSW,Year 11 Ext 1,Trigonometric Functions,ME-T2,Further Trigonometric Identities
+NSW,Year 11 Ext 1,Calculus,ME-C1,Rates of Change
+NSW,Year 11 Ext 1,Combinatorics,ME-A1,Working with Combinatorics
 NSW,Year 12 Adv,Functions,MA-F2,Graphing Techniques
 NSW,Year 12 Adv,Trigonometric Functions,MA-T3,Trigonometric Functions and Graphs
 NSW,Year 12 Adv,Calculus,MA-C2,Differential Calculus
@@ -11,3 +19,16 @@ NSW,Year 12 Adv,Calculus,MA-C4,Integral Calculus
 NSW,Year 12 Adv,Financial Mathematics,MA-M1,Modelling Financial Situations
 NSW,Year 12 Adv,Statistical Analysis,MA-S2,Descriptive Statistics and Bivariate Data Analysis
 NSW,Year 12 Adv,Statistical Analysis,MA-S3,Random Variables
+NSW,Year 12 Ext 1,Proof,ME-P1,Proof by Mathematical Induction
+NSW,Year 12 Ext 1,Vectors,ME-V1,Introduction to Vectors
+NSW,Year 12 Ext 1,Trigonometric Functions,ME-T3,Trigonometric Equations
+NSW,Year 12 Ext 1,Calculus,ME-C2,Further Calculus Skills
+NSW,Year 12 Ext 1,Calculus,ME-C3,Applications of Calculus
+NSW,Year 12 Ext 1,Statistical Analysis,ME-S1,The Binomial Distribution
+NSW,Year 12 Ext 2,Proof,MEX-P1,The Nature of Proof
+NSW,Year 12 Ext 2,Proof,MEX-P2,Further Proof by Mathematical Induction
+NSW,Year 12 Ext 2,Vectors,MEX-V1,Further Work with Vectors
+NSW,Year 12 Ext 2,Complex Numbers,MEX-N1,Introduction to Complex Numbers
+NSW,Year 12 Ext 2,Complex Numbers,MEX-N2,Using Complex Numbers
+NSW,Year 12 Ext 2,Calculus,MEX-C1,Further Integration
+NSW,Year 12 Ext 2,Mechanics,MEX-M1,Applications of Calculus to Mechanics

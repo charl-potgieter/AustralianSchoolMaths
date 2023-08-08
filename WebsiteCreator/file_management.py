@@ -306,6 +306,20 @@ class FormulaFile():
         return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
 
+# class TopicFile():
+#     """..md file containing topic for Hugo site generation"""
+
+#     def __init__(self, hierarchies, base_dir, is_cumulative_by_year,
+#                  formula_table):
+#         path_in_hierarchy = self._get_path_in_hierarchy(formula_table,
+#                                                         is_cumulative_by_year)
+#         file_path = self._get_file_path(base_dir, path_in_hierarchy)
+#         self._markdown_content = _MarkdownContent(hierarchies,
+#                                                   path_in_hierarchy,
+#                                                   file_path)
+#         self.markdown_content.add_content(formula_table.to_markdown())
+
+
 class _MarkdownContent():
     """Markdown file utilised for creation of Hugo webiite
     """
