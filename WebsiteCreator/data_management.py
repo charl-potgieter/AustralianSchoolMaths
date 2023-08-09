@@ -47,39 +47,33 @@ class DataSource():
                 + 'definitions.csv')
 
     @property
-    def syllabus_directory(self):
+    def syllabus_file_path(self):
         """Returns directory string of syllabus_topics.csv file"""
         return (self.website_creator_directory + os.path.sep
                 + 'syllabus_topics.csv')
 
     @property
+    def subject_dependencies_file_path(self):
+        """Returns directory string of subject_dependencies.csv file"""
+        return (self.website_creator_directory + os.path.sep
+                + 'subject_dependencies.csv')
+
+    @property
     def syllabus(self):
         """Returns the syllabus data as dataframe"""
-        return pd.read_csv(self.syllabus_directory)
+        return pd.read_csv(self.syllabus_file_path)
+
+    @property
+    def subject_dependencies(self):
+        """Returns the subject dependencies as a pandas dataframe
+        """
+        return pd.read_csv(self.subject_dependencies_file_path)
 
     @property
     def site_hierarchies(self):
         """Returns the site hierarchy data as a pandas dataframe
         """
-        hierarchy_data = pd.read_csv(self.hierarchies_file_path)
-        return hierarchy_data
-
-    @property
-    def state_subject_sort_orders(self):
-        """Returns subjects in order per state as a dataframe
-        """
-        return_data = self.site_hierarchies
-        return_data = return_data[
-            (return_data['Content type'] == 'Formulas') &
-            (return_data['Time period'] == 'By year')
-        ]
-        return_data = return_data[['State', 'Subject']].drop_duplicates()
-        return_data = return_data.reset_index(drop=True)
-        return_data = return_data.rename(
-            columns={'State': 'Sort state', 'Subject': 'Sort subject'}
-        )
-        return_data['State subject sort order'] = return_data.index
-        return return_data
+        return pd.read_csv(self.hierarchies_file_path)
 
     @property
     def formulas_by_year(self):
@@ -104,41 +98,22 @@ class DataSource():
     @property
     def formulas_by_year_cumulative(self):
         """Returns formula details dataframe on a cumulative level by subject
-        order  for a given state.
-        For example if subject Year 12 is ordered after Year 10 and Year 9 for
-        a given state then include the formula details for Year 10 and Year 9
-        in the dataframe under subject Year 12.
+        order  for a given state.  (includes the current subjects formulas
+        as well as the formulas from a subjects dependencies)
         """
-
-        formulas_by_year = self.formulas_by_year
-        state_subject_sort_orders = self.state_subject_sort_orders
-
-        # Add the subject Sort order (representing the sort order for the
-        # subject by given state) to the formulas data
-        return_data = state_subject_sort_orders.merge(
-            right=formulas_by_year,
-            how='inner',
-            left_on=['Sort state', 'Sort subject'],
-            right_on=['State', 'Subject']
-        )
-        return_data = return_data.rename(
-            columns={
-                'State subject sort order': 'Data sort index'})
-        return_data = return_data.drop(columns=['Sort state',
-                                                'Sort subject'])
-
-        return_data = return_data.merge(
-            right=state_subject_sort_orders,
-            how='inner', left_on=['State'], right_on=['Sort state']
-        )
-        return_data = return_data[return_data['State subject sort order'] >=
-                                  return_data['Data sort index']]
-        return_data = return_data.drop(columns=['Data sort index',
-                                                'State subject sort order',
-                                                'Sort state', 'Subject'])
-        return_data = return_data.rename(columns={
-            'Sort subject': 'Subject'})
-        return return_data
+        return_value = self.formulas_by_year.copy()
+        return_value = return_value.rename(columns={'Subject': 'Dependency'})
+        return_value = return_value.merge(
+            right=self.subject_dependencies,
+            left_on=['State', 'Dependency'],
+            right_on=['State', 'Dependency'])
+        return_value = return_value.drop('Dependency', axis='columns')
+        # Re-order cols
+        return_value = return_value[['State', 'Subject', 'Syllabus topic', 'Syllabus subtopic code',
+                                     'Syllabus subtopic', 'Category', 'Subcategory_1', 'Subcategory_2',
+                                     'Description', 'Group', 'Formula', 'On formula sheet', 'Proof required',
+                                     'Comment', ]]
+        return return_value
 
     @property
     def definitions_by_year(self):
