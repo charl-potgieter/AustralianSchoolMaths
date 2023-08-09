@@ -2,6 +2,7 @@
 e.g. formulas, definitions etc
 """
 
+import numpy as np
 from data_management import DataManager
 
 
@@ -13,17 +14,17 @@ class Formulas():
     # Enforces structure of csv when loaded
     _data_structure = {'State': 'object',
                        'Subject': 'object',
-                       'Syllabus topic': 'object',
-                       'Syllabus subtopic code': 'object',
-                       'Syllabus subtopic': 'object',
+                       'Syllabus_topic': 'object',
+                       'Syllabus_subtopic_code': 'object',
+                       'Syllabus_subtopic': 'object',
                        'Category': 'object',
                        'Subcategory_1': 'object',
                        'Subcategory_2': 'object',
                        'Description': 'object',
                        'Group': 'object',
                        'Formula': 'object',
-                       'On formula sheet': 'bool',
-                       'Proof required': 'bool',
+                       'On_formula_sheet': 'bool',
+                       'Proof_required': 'bool',
                        'Comment': 'object'}
 
     def __init__(self, input_data):
@@ -65,25 +66,25 @@ class Formulas():
 
     @property
     def formula_sheet_items(self):
-        """Returns a list of formulas where field 'On formula sheet'
+        """Returns a list of formulas where field 'On_formula_sheet'
         is True
         """
         formulas_on_sheet = (self._formula_data[
-            (self._formula_data['On formula sheet']) &
+            (self._formula_data['On_formula_sheet']) &
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return list(formulas_on_sheet)
 
     @property
     def proofs_required_items(self):
-        """Returns a list of formulas where field 'Proof required'
+        """Returns a list of formulas where field 'Proof_required'
          is True
 
         Args:
             state (string): filter to apply before returning items
         """
         proofs_required = (self._formula_data[
-            (self._formula_data['Proof required']) &
+            (self._formula_data['Proof_required']) &
             (self._formula_data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return list(proofs_required)
@@ -118,15 +119,75 @@ class Formulas():
             yield Formulas(data)
 
 
+class Syllabus():
+    """Contains syllabus details"""
+
+    # Enforces structure of csv when loaded
+    _data_structure = {'State': 'object',
+                       'Subject': 'object',
+                       'Syllabus_topic': 'object',
+                       'Syllabus_subtopic_code': 'object',
+                       'Syllabus_subtopic': 'object'}
+
+    def __init__(self, input_data):
+        """Initiates class with data from input_data"""
+        data_to_load = DataManager(input_data)
+        self._check_column_names(data_to_load)
+        data_to_load.set_column_types(self._data_structure)
+        self._syllabus_data = data_to_load.to_dataframe()
+        self._is_cumulative = False
+
+    def _check_column_names(self, data_to_load):
+        """Check if column names in data_to_load match expecations as per
+            self._data_structure.  Raise ValueError if not matching.
+
+        Args:
+            data_to_load (DataManager): The data to check
+        """
+        expected_columns = self._data_structure.keys()
+        if not data_to_load.column_names_are_correct(expected_columns):
+            raise ValueError(
+                data_to_load.column_mismatch_message(expected_columns))
+
+    @property
+    def is_cumulative(self):
+        """Returns whether this Syllabus obeject is cumulative across
+        subjects (years)"""
+        return self._is_cumulative
+
+    @is_cumulative.setter
+    def is_cumulative(self, value: bool):
+        """Sets this objects is cumulative status representing whether
+        it contains syllabus that are cumulative across subjects / years"""
+        self._is_cumulative = value
+
+    def topic_summary_level(self):
+        """Returns syllabus at a unique state, subject topic level with
+        subtopic related fiels as Nan
+        """
+        return_value = self._syllabus_data.copy()
+        return_value = (
+            return_value[['State', 'Subject', 'Syllabus_topic']]
+            .drop_duplicates())
+        return_value['Syllabus_subtopic_code'] = np.NAN
+        return_value['Syllabus_subtopic'] = np.NAN
+        return Syllabus(return_value)
+
+    def to_dataframe(self):
+        """Returns syllabus data as a pandas dataframe
+        """
+        return self._syllabus_data
+
+
 class Definitions():
     """Contains maths definitions"""
 
     # Enforces structure of csv when loaded
     _data_structure = {'State': 'object',
                        'Subject': 'object',
-                       'Syllabus topic': 'object',
-                       'Syllabus subtopic code': 'object',
-                       'Syllabus subtopic': 'object',
+                       'Syllabus_topic': 'object',
+                       'Syllabus_subtopic_code': 'object',
+                       'Syllabus_subtopic': 'object',
                        'Definition': 'object'}
 
     def __init__(self, input_data):

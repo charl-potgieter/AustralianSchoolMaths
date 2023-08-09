@@ -6,11 +6,12 @@ import os
 import shutil
 import itertools
 from data_management import DataSource
-from file_management import (SiteHierarchies, IndexFile,  FormulaFile)
+from file_management import (SiteHierarchies, IndexFile,  FormulaFile,
+                             TopicFile)
 from formula_tables import (FormulaTable, FormulaTableTypeSimple,
                             FormulaTableTypeCalculus,
                             FormulaTableTypeFinancial)
-from content import Formulas
+from content import Formulas, Syllabus
 
 
 def get_data():
@@ -21,10 +22,15 @@ def get_data():
     formulas_by_year = Formulas(data_source.formulas_by_year)
     formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative)
     formulas_cumulative.is_cumulative = True
+    syllabus_by_year = Syllabus(data_source.syllabus_by_year)
+    syllabus_cumulative = Syllabus(data_source.syllabus_by_year_cumulative)
+    syllabus_cumulative.is_cumulative = True
     return {'docs_dir': docs_dir,
             'hierarchies': hierarchies,
             'formulas_by_year': formulas_by_year,
-            'formulas_cumulative': formulas_cumulative}
+            'formulas_cumulative': formulas_cumulative,
+            'syllabus_by_year': syllabus_by_year,
+            'syllabus_cumulative': syllabus_cumulative}
 
 
 def create_directory_structure(docs_dir, hierarchies):
@@ -72,6 +78,26 @@ def create_formula_pages(docs_dir, hierarchies, formulas_by_year,
                 formula_file.markdown_content.save()
 
 
+def create_topic_pages(docs_dir, hierarchies, syllabus_by_year,
+                       syllabus_cumulative, formulas_by_year,
+                       formulas_cumulative):
+    """Creates topic pages"""
+
+    by_year_topic_level = syllabus_by_year.topic_summary_level()
+    for item in by_year_topic_level.to_dataframe().itertuples():
+        topic_file = TopicFile(item.State, item.Subject, item.Syllabus_topic,
+                               hierarchies, docs_dir, False)
+        topic_file.add_text('blah')
+        topic_file.markdown_content.save()
+
+    cumulative_topic_level = syllabus_cumulative.topic_summary_level()
+    for item in cumulative_topic_level.to_dataframe().itertuples():
+        topic_file = TopicFile(item.State, item.Subject, item.Syllabus_topic,
+                               hierarchies, docs_dir, True)
+        topic_file.add_text('blah')
+        topic_file.markdown_content.save()
+
+
 if __name__ == '__main__':
     input_data = get_data()
     create_directory_structure(input_data['docs_dir'],
@@ -82,3 +108,9 @@ if __name__ == '__main__':
                          input_data['hierarchies'],
                          input_data['formulas_by_year'],
                          input_data['formulas_cumulative'])
+    create_topic_pages(input_data['docs_dir'],
+                       input_data['hierarchies'],
+                       input_data['syllabus_by_year'],
+                       input_data['syllabus_cumulative'],
+                       input_data['formulas_by_year'],
+                       input_data['formulas_cumulative'])

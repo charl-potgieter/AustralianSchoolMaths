@@ -306,18 +306,44 @@ class FormulaFile():
         return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
 
-# class TopicFile():
-#     """..md file containing topic for Hugo site generation"""
+class TopicFile():
+    """..md file containing topic for Hugo site generation"""
 
-#     def __init__(self, hierarchies, base_dir, is_cumulative_by_year,
-#                  formula_table):
-#         path_in_hierarchy = self._get_path_in_hierarchy(formula_table,
-#                                                         is_cumulative_by_year)
-#         file_path = self._get_file_path(base_dir, path_in_hierarchy)
-#         self._markdown_content = _MarkdownContent(hierarchies,
-#                                                   path_in_hierarchy,
-#                                                   file_path)
-#         self.markdown_content.add_content(formula_table.to_markdown())
+    def __init__(self, state, subject, syllabus_topic, hierarchies, base_dir,
+                 is_cumulative_by_year):
+        path_in_hierarchy = self._get_path_in_hierarchy(
+            is_cumulative_by_year, state, subject, syllabus_topic)
+        file_path = self._get_file_path(base_dir, path_in_hierarchy)
+        self._markdown_content = _MarkdownContent(hierarchies,
+                                                  path_in_hierarchy,
+                                                  file_path)
+
+    @property
+    def markdown_content(self):
+        """Returns the markdown_content object"""
+        return self._markdown_content
+
+    def add_text(self, input_text):
+        """Adds input_text to the file"""
+        self._markdown_content.add_content(input_text)
+
+    def _get_path_in_hierarchy(self, is_cumulative_by_year, state, subject,
+                               syllabus_topic):
+        """Gets the path in hierarchy (excluding any base directory)"""
+        if is_cumulative_by_year:
+            time_frame_portion_of_path = 'By year cumulative'
+        else:
+            time_frame_portion_of_path = 'By year'
+        return os.path.sep.join([
+            state,
+            subject,
+            'Topics',
+            time_frame_portion_of_path,
+            syllabus_topic])
+
+    def _get_file_path(self, base_dir, path_in_hierarchy):
+        """Returns the file path"""
+        return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
 
 class _MarkdownContent():
