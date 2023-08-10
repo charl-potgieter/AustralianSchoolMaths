@@ -2,4 +2,6 @@
 weight: 1
 ---
 
-blah
+# Further Work with Functions
+
+# Polynomials

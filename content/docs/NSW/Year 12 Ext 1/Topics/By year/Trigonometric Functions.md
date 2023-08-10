@@ -2,4 +2,4 @@
 weight: 3
 ---
 
-blah
+# Trigonometric Equations

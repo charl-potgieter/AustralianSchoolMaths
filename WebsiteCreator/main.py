@@ -82,20 +82,19 @@ def create_topic_pages(docs_dir, hierarchies, syllabus_by_year,
                        syllabus_cumulative, formulas_by_year,
                        formulas_cumulative):
     """Creates topic pages"""
-
-    by_year_topic_level = syllabus_by_year.topic_summary_level()
-    for item in by_year_topic_level.to_dataframe().itertuples():
-        topic_file = TopicFile(item.State, item.Subject, item.Syllabus_topic,
-                               hierarchies, docs_dir, False)
-        topic_file.add_text('blah')
-        topic_file.markdown_content.save()
-
-    cumulative_topic_level = syllabus_cumulative.topic_summary_level()
-    for item in cumulative_topic_level.to_dataframe().itertuples():
-        topic_file = TopicFile(item.State, item.Subject, item.Syllabus_topic,
-                               hierarchies, docs_dir, True)
-        topic_file.add_text('blah')
-        topic_file.markdown_content.save()
+    for syllabus in [syllabus_by_year, syllabus_cumulative]:
+        topics = syllabus.topic_summary_level()
+        for topic in topics.to_dataframe().itertuples():
+            topic_file = TopicFile(topic.State, topic.Subject, topic.Syllabus_topic,
+                                   hierarchies, docs_dir, topics.is_cumulative)
+            syllabus_by_topic = syllabus.filter_by_function(
+                lambda x: (x['State'] == topic.State and
+                           x['Subject'] == topic.Subject and
+                           x['Syllabus_topic'] == topic.Syllabus_topic))
+            subtopics = syllabus_by_topic.subtopics
+            for subtopic in subtopics:
+                topic_file.add_text('# ' + subtopic)
+            topic_file.markdown_content.save()
 
 
 if __name__ == '__main__':

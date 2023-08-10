@@ -2,4 +2,4 @@
 weight: 2
 ---
 
-blah
+# Trigonometric Functions and Graphs

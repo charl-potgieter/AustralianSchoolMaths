@@ -2,4 +2,6 @@
 weight: 2
 ---
 
-blah
+# Working with Functions
+
+# Graphing Techniques

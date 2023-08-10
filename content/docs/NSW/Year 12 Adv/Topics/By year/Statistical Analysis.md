@@ -2,4 +2,6 @@
 weight: 5
 ---
 
-blah
+# Descriptive Statistics and Bivariate Data Analysis
+
+# Random Variables

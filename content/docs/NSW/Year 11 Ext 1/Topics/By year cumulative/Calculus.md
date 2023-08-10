@@ -2,4 +2,6 @@
 weight: 3
 ---
 
-blah
+# Introduction to Differentiation
+
+# Rates of Change

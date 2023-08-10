@@ -92,7 +92,7 @@ class Formulas():
     def filter_by_function(self, filter_function):
         """Returns a new filtered Formulas object where
         filter_function returns True when passed each item in
-        Formuls as a pandas series.
+        Formulas as a pandas series.
 
         Args:
             filter_function (function): Function taking a pandas series as a
@@ -165,13 +165,37 @@ class Syllabus():
         """Returns syllabus at a unique state, subject topic level with
         subtopic related fiels as Nan
         """
-        return_value = self._syllabus_data.copy()
-        return_value = (
-            return_value[['State', 'Subject', 'Syllabus_topic']]
+        return_data = self._syllabus_data.copy()
+        return_data = (
+            return_data[['State', 'Subject', 'Syllabus_topic']]
             .drop_duplicates())
-        return_value['Syllabus_subtopic_code'] = np.NAN
-        return_value['Syllabus_subtopic'] = np.NAN
-        return Syllabus(return_value)
+        return_data['Syllabus_subtopic_code'] = np.NAN
+        return_data['Syllabus_subtopic'] = np.NAN
+        return_value = Syllabus(return_data)
+        # TODO the way the is_cumilative property is being copied across is needs improving
+        return_value.is_cumulative = self.is_cumulative
+        return return_value
+
+    def filter_by_function(self, filter_function):
+        """Returns a new filtered Syllabus object where
+        filter_function returns True when passed each item in
+        Syllabus as a pandas series.
+
+        Args:
+            filter_function (function): Function taking a pandas series as a
+            parameter and returns a Boolean value
+        """
+        return_rows = self._syllabus_data.apply(filter_function, axis=1)
+        return_data = self._syllabus_data.copy()[return_rows]
+        return_value = Syllabus(return_data)
+        # TODO the way the is_cumilative property is being copied across is needs improving
+        return_value.is_cumulative = self.is_cumulative
+        return return_value
+
+    @property
+    def subtopics(self):
+        """Retuns subtopics as a list"""
+        return list(self._syllabus_data['Syllabus_subtopic'])
 
     def to_dataframe(self):
         """Returns syllabus data as a pandas dataframe

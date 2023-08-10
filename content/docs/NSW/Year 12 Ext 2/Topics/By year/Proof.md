@@ -2,4 +2,6 @@
 weight: 1
 ---
 
-blah
+# The Nature of Proof
+
+# Further Proof by Mathematical Induction

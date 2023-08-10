@@ -2,4 +2,6 @@
 weight: 7
 ---
 
-blah
+# Introduction to Vectors
+
+# Further Work with Vectors
