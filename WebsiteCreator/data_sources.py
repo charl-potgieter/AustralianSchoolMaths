@@ -1,4 +1,4 @@
-"""This Module contains classes relating to data management"""
+"""File contains the DataSource class"""
 
 import os
 import pandas as pd
@@ -128,9 +128,12 @@ class DataSource():
             right_on=['State', 'Dependency'])
         return_value = return_value.drop('Dependency', axis='columns')
         # Re-order cols
-        return_value = return_value[['State', 'Subject', 'Syllabus_topic', 'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic', 'Category', 'Subcategory_1', 'Subcategory_2',
-                                     'Description', 'Group', 'Formula', 'On_formula_sheet', 'Proof_required',
+        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
+                                     'Syllabus_subtopic_code',
+                                     'Syllabus_subtopic', 'Category',
+                                     'Subcategory_1', 'Subcategory_2',
+                                     'Description', 'Group', 'Formula',
+                                     'On_formula_sheet', 'Proof_required',
                                      'Comment', ]]
         return return_value
 
@@ -146,87 +149,3 @@ class DataSource():
             right_on=['State', 'Subject', 'Syllabus_subtopic_code'],
             how='right')
         return definitions_data
-
-
-class DataManager():
-    """Validates, sets data types and returns data"""
-
-    def __init__(self, data):
-        """Initiates class with content of data
-
-        Args:
-            data (Pandas dataframe): Input data
-        """
-        self._data = data.copy()
-
-    def set_column_types(self, column_types):
-        """Sets the column types
-
-        Args:
-            column_types (dictionary): The column types to set
-        """
-        self._data = self._data.astype(column_types)
-
-    def to_dataframe(self):
-        """Returns data as a pandas dataframe"""
-        return self._data
-
-    def column_names_are_correct(self, expected_column_names):
-        """Returns true if expected_column_names match the column names
-        of the data stored by this object
-
-        Args:
-            expected_column_names (iterable): The expected colummn names to
-            check against column names of data stored in this object
-        """
-        number_of_unexpected_columns = len(
-            self._unexpected_column_names_in_data(expected_column_names))
-        number_of_missing_columns = len(
-            self._missing_column_names_in_data(expected_column_names))
-        return (number_of_unexpected_columns == 0
-                and number_of_missing_columns == 0)
-
-    def column_mismatch_message(self, expected_column_names):
-        """Returns a string listing any differences between
-        expected_column_names and column_names of data stored in this object.
-        Returns None if no differences
-
-        Args:
-            expected_column_names (iterable): The expected colummn names to
-            check against column names of data stored in this object
-        """
-        if self.column_names_are_correct(expected_column_names):
-            return None
-        message = ''
-        missing_column_names = (
-            self._missing_column_names_in_data(expected_column_names))
-        unexpected_column_names = (
-            self._unexpected_column_names_in_data(expected_column_names)
-        )
-        if missing_column_names:
-            message += ('The following columns are missing from the data: '
-                        + str(missing_column_names) + '\n')
-        if unexpected_column_names:
-            message += ('The following unexpected columns appear in the data: '
-                        + str(unexpected_column_names))
-        return message
-
-    def _unexpected_column_names_in_data(self, expected_column_names):
-        """Returns a list of column names in this objects data that are not
-        in the expected_column_names parameter
-
-        Args:
-            expected_column_names (iterable): column names to check
-        """
-        return list(
-            set(self.to_dataframe().columns) - set(expected_column_names))
-
-    def _missing_column_names_in_data(self, expected_column_names):
-        """Returns a list of column names that are included in in the
-        expected_column_names parameter but do not appear in this objects data
-
-        Args:
-            expected_column_names (iterable): column names to check
-        """
-        return list(
-            set(expected_column_names) - set(self.to_dataframe().columns))

@@ -5,13 +5,14 @@ generation.
 import os
 import shutil
 import itertools
-from data_management import DataSource
+from data_sources import DataSource
 from file_management import (SiteHierarchies, IndexFile,  FormulaFile,
                              TopicFile)
 from formula_tables import (FormulaTable, FormulaTableTypeSimple,
                             FormulaTableTypeCalculus,
                             FormulaTableTypeFinancial)
-from content import Formulas, Syllabus
+from formulas import Formulas
+from content import Syllabus
 
 
 def get_data():

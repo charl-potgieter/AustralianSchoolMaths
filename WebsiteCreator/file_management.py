@@ -1,7 +1,7 @@
 """This Module contains classes relating to file management"""
 
 import os
-from data_management import DataManager
+from WebsiteCreator.data_validator import DataColumnValidator
 
 
 class SiteHierarchies():
@@ -15,7 +15,7 @@ class SiteHierarchies():
         Args:
             data (Pandas dataframe): input data
         """
-        data_to_load = DataManager(input_data)
+        data_to_load = DataColumnValidator(input_data)
         # Do not error check column names as they vary dependent on depth
         # of hierarchy being created
         self._hierarchy_data = data_to_load.to_dataframe()
