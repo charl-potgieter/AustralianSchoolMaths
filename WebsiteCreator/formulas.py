@@ -3,7 +3,6 @@
 # pylint: disable=missing-function-docstring
 
 
-# https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class/70932112#70932112  # pylint: disable=line-too-long
 from typing import Callable, Self
 from collections.abc import Generator
 from data_validator import DataColumnValidator
@@ -36,14 +35,14 @@ class Formulas():
 
     @property
     def is_cumulative(self) -> bool:
-        """Returns whether this Formulas obeject is cumulative across
+        """Returns whether this obeject is cumulative across
         subjects (years)"""
         return self._is_cumulative
 
     @is_cumulative.setter
     def is_cumulative(self, value: bool):
         """Sets this objects is cumulative status representing whether
-        it contains formulas that are cumulative across subjects / years"""
+        it contains items that are cumulative across subjects / years"""
         self._is_cumulative = value
 
     @property
