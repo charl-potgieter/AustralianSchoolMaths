@@ -5,48 +5,45 @@
 
 class DataColumnValidator():
 
-    def validate_column_names(self, column_names, expected_column_names):
-        if not self.column_names_are_correct(column_names,
-                                             expected_column_names):
+    def __init__(self, column_names: list[str],
+                 expected_column_names: list[str]):
+        self._column_names = column_names
+        self._expected_column_names = expected_column_names
+
+    def validate_column_names(self) -> None:
+        if not self.column_names_are_correct:
             raise ValueError(
-                self._column_mismatch_message(column_names,
-                                              expected_column_names))
+                self._column_mismatch_message())
 
-    def column_names_are_correct(self, column_names, expected_column_names):
-        number_of_unexpected_columns = len(
-            self._unexpected_column_names_in_data(column_names,
-                                                  expected_column_names))
-        number_of_missing_columns = len(
-            self._missing_column_names_in_data(column_names,
-                                               expected_column_names))
-        return (number_of_unexpected_columns == 0
-                and number_of_missing_columns == 0)
+    @property
+    def column_names_are_correct(self) -> bool:
+        return (
+            self._number_of_unexpected_columns() == 0
+            and self._number_of_missing_columns() == 0)
 
-    def _column_mismatch_message(self, column_names, expected_column_names):
-        if self.column_names_are_correct(column_names, expected_column_names):
-            return None
+    def _number_of_unexpected_columns(self) -> int:
+        return len(self._unexpected_column_names())
+
+    def _number_of_missing_columns(self) -> int:
+        return len(
+            self._missing_column_names())
+
+    def _missing_column_names(self) -> list[str]:
+        return list(
+            set(self._expected_column_names) - set(self._column_names))
+
+    def _unexpected_column_names(self) -> list[str]:
+        return list(
+            set(self._column_names) - set(self._expected_column_names))
+
+    def _column_mismatch_message(self) -> str:
         message = ''
-        missing_column_names = (
-            self._missing_column_names_in_data(column_names,
-                                               expected_column_names))
-        unexpected_column_names = (
-            self._unexpected_column_names_in_data(column_names,
-                                                  expected_column_names)
-        )
-        if missing_column_names:
+        if self.column_names_are_correct:
+            return message
+        if self._missing_column_names():
             message += ('The following columns are missing from the data: '
-                        + str(missing_column_names) + '\n')
-        if unexpected_column_names:
+                        + str(self._missing_column_names()) + '\n')
+        if self._unexpected_column_names():
             message += ('The following unexpected columns appear in the data: '
-                        + str(unexpected_column_names))
+                        + str(self._unexpected_column_names()))
         return message
-
-    def _unexpected_column_names_in_data(self, column_names,
-                                         expected_column_names):
-        return list(
-            set(column_names) - set(expected_column_names))
-
-    def _missing_column_names_in_data(self, columns_names,
-                                      expected_column_names):
-        return list(
-            set(expected_column_names) - set(columns_names))
