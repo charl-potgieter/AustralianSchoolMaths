@@ -71,7 +71,7 @@ def create_formula_pages(docs_dir, hierarchies, formulas_by_year,
             group_by_cols = ['State', 'Subject']
         for formula_group in current_formulas.group_by_columns(group_by_cols):
             formula_table = FormulaTable(formula_group)
-            formula_table.type = current_table_type
+            formula_table.table_type = current_table_type
             if formula_table.contains_content:
                 formula_file = FormulaFile(hierarchies, docs_dir,
                                            current_formulas.is_cumulative,
