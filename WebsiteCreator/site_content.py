@@ -38,7 +38,7 @@ class _SiteContent():
 
     @property
     def data(self) -> pd.DataFrame:
-        return self._data
+        return self._data.copy()
 
     @data.setter
     def data(self, values: pd.DataFrame):
@@ -75,7 +75,7 @@ class Syllabus(_SiteContent):
         # Needs to reside here rather than _SiteContent parent class
         # as needs to copy all this classes attributes and be of this classes
         # type
-        new_object = Syllabus(self.data.copy())
+        new_object = Syllabus(self.data)
         new_object.is_cumulative = self.is_cumulative
         return new_object
 
@@ -105,7 +105,7 @@ class Syllabus(_SiteContent):
 
     @property
     def unique_subtopics(self) -> list[str]:
-        return list(set(self.data['Syllabus_subtopic']))
+        return list(set(self._data['Syllabus_subtopic']))
 
 
 class Formulas(_SiteContent):
@@ -126,7 +126,7 @@ class Formulas(_SiteContent):
                        'Comment': 'object'}
 
     def copy(self) -> Self:
-        new_object = Formulas(self.data.copy())
+        new_object = Formulas(self.data)
         new_object.is_cumulative = self.is_cumulative
         return new_object
 
@@ -175,7 +175,7 @@ class Definitions(_SiteContent):
                        'Definition': 'object'}
 
     def copy(self) -> Self:
-        new_object = Definitions(self.data.copy())
+        new_object = Definitions(self.data)
         new_object.is_cumulative = self.is_cumulative
         return new_object
 
