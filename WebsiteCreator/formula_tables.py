@@ -20,9 +20,8 @@ class FormulaTableType(ABC):
         self._formulas = formulas
 
     @property
-    @abstractmethod
     def content_type(self) -> str:
-        pass
+        return ContentTypes.FORMULAS.value
 
     @property
     @abstractmethod
@@ -54,10 +53,6 @@ class FormulaTableTypeSimple(FormulaTableType):
     """
 
     @property
-    def content_type(self) -> str:
-        return ContentTypes.FORMULAS.value
-
-    @property
     def has_hidden_column_headers(self) -> bool:
         return True
 
@@ -82,10 +77,6 @@ class FormulaTableTypeSimple(FormulaTableType):
 class FormulaTableTypeCalculus(FormulaTableType):
     """Table summary of derivatives and their equivalent integrals
     """
-
-    @property
-    def content_type(self) -> str:
-        return ContentTypes.FORMULA_SUMMARIES.value
 
     @property
     def has_hidden_column_headers(self) -> bool:
@@ -162,10 +153,6 @@ class FormulaTableTypeCalculus(FormulaTableType):
 class FormulaTableTypeFinancial(FormulaTableType):
 
     @property
-    def content_type(self) -> str:
-        return ContentTypes.FORMULA_SUMMARIES.value
-
-    @property
     def has_hidden_column_headers(self) -> bool:
         return False
 
@@ -215,29 +202,29 @@ class FormulaTableTypeFinancial(FormulaTableType):
 class FormulaTable():
     """Summary table of formulas"""
 
-    def __init__(self, formulas: Formulas, table_type: FormulaTableType):
+    def __init__(self, formulas: Formulas, table_type: type[FormulaTableType]):
         self._formulas = formulas
         self._state = formulas.field_value('State')
         self._subject = formulas.field_value('Subject')
-        self._table_type = table_type
+        self._table_type = table_type(formulas)
 
     @property
-    def state(self):
+    def state(self) -> str | float:
         return self._state
 
     @property
-    def subject(self):
+    def subject(self) -> str | float:
         return self._subject
 
     @property
-    def table_type(self):
+    def table_type(self) -> FormulaTableType:
         return self._table_type
 
-    def _to_dataframe(self):
+    def _to_dataframe(self) -> pd.DataFrame:
         return self._table_type.to_dataframe()
 
     @property
-    def has_tabs(self):
+    def has_tabs(self) -> bool:
         """Returns true if table has / requires tabs"""
         return (
             self.contains_formula_sheet_items or
@@ -245,7 +232,7 @@ class FormulaTable():
         )
 
     @property
-    def contains_formula_sheet_items(self):
+    def contains_formula_sheet_items(self) -> bool:
         """Returns True if the table contains formulas that appear on the
         formula sheet"""
         formula_columns = self.table_type.formula_columns
@@ -257,7 +244,7 @@ class FormulaTable():
         ) > 0)
 
     @property
-    def contains_proof_required_items(self):
+    def contains_proof_required_items(self) -> bool:
         """Returns True if the table contains formulas that require proofs"""
         formula_columns = self.table_type.formula_columns
         formulas_in_table = (
@@ -267,7 +254,7 @@ class FormulaTable():
             set(formulas_in_table).intersection(set(proof_required_items))
         ) > 0)
 
-    def _table_no_higlights(self):
+    def _table_no_higlights(self) -> str:
         """Returns table with no highlights"""
         return_table = _StyledTable(self._to_dataframe())
         if self._table_type.has_hidden_column_headers:
@@ -276,7 +263,7 @@ class FormulaTable():
             return_table.hide_row_headers()
         return return_table.to_html()
 
-    def _table_formula_sheet_higlights(self):
+    def _table_formula_sheet_higlights(self) -> str:
         """Returns table with formulas on formula sheet higlighted"""
         return_table = _StyledTable(self._to_dataframe())
         if self._table_type.has_hidden_column_headers:
@@ -288,7 +275,7 @@ class FormulaTable():
             columns_to_highlight=self._table_type.formula_columns)
         return return_table.to_html()
 
-    def _table_proofs_required_higlights(self):
+    def _table_proofs_required_higlights(self) -> str:
         """Returns table with formulas where proofs are required higlighted"""
         return_table = _StyledTable(self._to_dataframe())
         if self._table_type.has_hidden_column_headers:
@@ -302,7 +289,7 @@ class FormulaTable():
         return return_table.to_html()
 
     @property
-    def contains_content(self):
+    def contains_content(self) -> bool:
         """Returns true if the Formula table contains content"""
         if self._table_type is None:
             return False
@@ -310,8 +297,10 @@ class FormulaTable():
             return False
         return len(self._table_type.to_dataframe()) > 0
 
-    def to_markdown(self):
+    def to_markdown(self) -> str:
         """Returns formula table in markdown format"""
+        if not self.contains_content:
+            return ''
         if not self.has_tabs:
             return_value = self._table_no_higlights()
         else:
