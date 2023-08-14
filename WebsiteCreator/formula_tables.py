@@ -4,6 +4,7 @@
 
 
 from enum import Enum
+import typing
 from abc import ABC, abstractmethod
 import pandas as pd
 from pandas.io.formats.style import Styler
@@ -209,12 +210,12 @@ class FormulaTable():
         self._table_type = table_type(formulas)
 
     @property
-    def state(self) -> str | float:
-        return self._state
+    def state(self) -> str:
+        return typing.cast(str, self._state)
 
     @property
-    def subject(self) -> str | float:
-        return self._subject
+    def subject(self) -> str:
+        return typing.cast(str, self._subject)
 
     @property
     def table_type(self) -> FormulaTableType:
