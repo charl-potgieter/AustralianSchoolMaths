@@ -6,6 +6,6 @@ weight: 4
 
 ## Trigonometric Functions and Identities
 
-## Trigonometric Equations
-
 ## Trigonometry and Measure of Angles
+
+## Trigonometric Equations

@@ -81,8 +81,7 @@ def create_formula_pages(docs_dir: str, hierarchies: SiteHierarchies,
 def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
                        syllabus_by_year: Syllabus,
                        syllabus_cumulative: Syllabus,
-                       formulas_by_year: Formulas,
-                       formulas_cumulative: Formulas):
+                       formulas_by_year: Formulas):
     for syllabus in [syllabus_by_year, syllabus_cumulative]:
         topics = syllabus.topic_summary_level
         for topic in topics.data.itertuples():
@@ -114,5 +113,4 @@ if __name__ == '__main__':
                        input_data['hierarchies'],
                        input_data['syllabus_by_year'],
                        input_data['syllabus_cumulative'],
-                       input_data['formulas_by_year'],
-                       input_data['formulas_cumulative'])
+                       input_data['formulas_by_year'])

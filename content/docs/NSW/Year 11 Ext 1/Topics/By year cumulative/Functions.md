@@ -2,8 +2,8 @@
 weight: 1
 ---
 
-## Polynomials
-
 ## Working with Functions
+
+## Polynomials
 
 ## Further Work with Functions

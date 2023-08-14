@@ -3,6 +3,7 @@
 # pylint: disable=missing-function-docstring
 
 
+import copy
 from typing import Callable, Self, Dict
 from collections.abc import Generator
 import numpy as np
@@ -54,29 +55,13 @@ class _SiteContent():
             return list(unique_values_in_field)[0]
         return 'Multiple values'
 
-
-class Syllabus(_SiteContent):
-
-    _data_structure = {'State': 'object',
-                       'Subject': 'object',
-                       'Syllabus_topic': 'object',
-                       'Syllabus_subtopic_code': 'object',
-                       'Syllabus_subtopic': 'object'}
-
     def copy(self) -> Self:
-        # Needs to reside here rather than _SiteContent parent class
-        # as needs to copy all this classes attributes and be of this classes
-        # type
-        new_object = Syllabus(self.data)
-        new_object.is_cumulative = self.is_cumulative
-        return new_object
+        return copy.deepcopy(self)
 
     def filter_by_function(self, filter_function: Callable) -> Self:
         """Returns a new filtered object where
-        filter_function returns True when passed each item in
-        Formulas as a pandas series.  Needs to reside in child class rather
-        than _SiteContent parent class as needs to access this classes copy
-        method
+        filter_function returns True when passed each data item in the
+        object as a pandas series.
         """
         new_object = self.copy()
         return_mask = new_object.data.apply(filter_function, axis=1)
@@ -90,6 +75,23 @@ class Syllabus(_SiteContent):
         for key, value in filter_dict.items():
             new_object.data = new_object.data[new_object.data[key] == value]
         return new_object
+
+    def group_by_columns(self, columns: list[str]) -> Generator[Self,
+                                                                None, None]:
+        """Returns a generator of this object grouped by columns (iterable)
+        """
+        grouper = self._data.groupby(columns)
+        for _, data in grouper:
+            yield Formulas(data)
+
+
+class Syllabus(_SiteContent):
+
+    _data_structure = {'State': 'object',
+                       'Subject': 'object',
+                       'Syllabus_topic': 'object',
+                       'Syllabus_subtopic_code': 'object',
+                       'Syllabus_subtopic': 'object'}
 
     @property
     def topic_summary_level(self) -> Self:
@@ -125,23 +127,6 @@ class Formulas(_SiteContent):
                        'Proof_required': 'bool',
                        'Comment': 'object'}
 
-    def copy(self) -> Self:
-        new_object = Formulas(self.data)
-        new_object.is_cumulative = self.is_cumulative
-        return new_object
-
-    def filter_by_function(self, filter_function: Callable) -> Self:
-        """Returns a new filtered object where
-        filter_function returns True when passed each item in
-        Formulas as a pandas series.  Needs to reside in child class rather
-        than _SiteContent parent class as needs to access this classes copy
-        method
-        """
-        new_object = self.copy()
-        return_mask = new_object.data.apply(filter_function, axis=1)
-        new_object.data = pd.DataFrame(new_object.data[return_mask])
-        return new_object
-
     @property
     def formula_sheet_items(self) -> list[str]:
         """Returns a list of formulas where field 'On_formula_sheet'
@@ -164,14 +149,6 @@ class Formulas(_SiteContent):
         ]['Formula'].drop_duplicates())
         return proofs_required
 
-    def group_by_columns(self, columns: list[str]) -> Generator[Self,
-                                                                None, None]:
-        """Returns a generator of this object grouped by columns (iterable)
-        """
-        grouper = self._data.groupby(columns)
-        for _, data in grouper:
-            yield Formulas(data)
-
 
 class Definitions(_SiteContent):
 
@@ -181,20 +158,3 @@ class Definitions(_SiteContent):
                        'Syllabus_subtopic_code': 'object',
                        'Syllabus_subtopic': 'object',
                        'Definition': 'object'}
-
-    def copy(self) -> Self:
-        new_object = Definitions(self.data)
-        new_object.is_cumulative = self.is_cumulative
-        return new_object
-
-    def filter_by_function(self, filter_function: Callable) -> Self:
-        """Returns a new filtered object where
-        filter_function returns True when passed each item in
-        Formulas as a pandas series.  Needs to reside in child class rather
-        than _SiteContent parent class as needs to access this classes copy
-        method
-        """
-        new_object = self.copy()
-        return_mask = new_object.data.apply(filter_function, axis=1)
-        new_object.data = pd.DataFrame(new_object.data[return_mask])
-        return new_object

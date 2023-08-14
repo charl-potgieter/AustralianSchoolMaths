@@ -2,14 +2,14 @@
 weight: 7
 ---
 
-## Further Calculus Skills
-
 ## Differential Calculus
 
-## Applications of Calculus
+## Introduction to Differentiation
 
 ## Integral Calculus
 
-## Applications of Differentiation
+## Applications of Calculus
 
-## Introduction to Differentiation
+## Further Calculus Skills
+
+## Applications of Differentiation
