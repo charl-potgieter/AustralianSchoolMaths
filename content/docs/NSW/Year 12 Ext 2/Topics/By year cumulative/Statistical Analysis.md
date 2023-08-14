@@ -2,10 +2,10 @@
 weight: 5
 ---
 
-# Probability and Discrete Probability Distributions
+## Descriptive Statistics and Bivariate Data Analysis
 
-# Descriptive Statistics and Bivariate Data Analysis
+## Random Variables
 
-# Random Variables
+## Probability and Discrete Probability Distributions
 
-# The Binomial Distribution
+## The Binomial Distribution

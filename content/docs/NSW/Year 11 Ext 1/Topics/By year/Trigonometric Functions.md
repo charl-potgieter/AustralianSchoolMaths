@@ -2,6 +2,6 @@
 weight: 2
 ---
 
-# Inverse Trigonometric Functions
+## Inverse Trigonometric Functions
 
-# Further Trigonometric Identities
+## Further Trigonometric Identities

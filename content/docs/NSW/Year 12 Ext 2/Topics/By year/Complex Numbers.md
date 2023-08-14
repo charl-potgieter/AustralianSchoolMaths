@@ -2,6 +2,6 @@
 weight: 3
 ---
 
-# Introduction to Complex Numbers
+## Introduction to Complex Numbers
 
-# Using Complex Numbers
+## Using Complex Numbers

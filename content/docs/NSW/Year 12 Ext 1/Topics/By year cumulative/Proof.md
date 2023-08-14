@@ -2,4 +2,4 @@
 weight: 4
 ---
 
-# Proof by Mathematical Induction
+## Proof by Mathematical Induction

@@ -2,4 +2,4 @@
 weight: 4
 ---
 
-# Working with Combinatorics
+## Working with Combinatorics

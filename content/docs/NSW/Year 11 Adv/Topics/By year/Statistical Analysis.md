@@ -2,4 +2,4 @@
 weight: 5
 ---
 
-# Probability and Discrete Probability Distributions
+## Probability and Discrete Probability Distributions

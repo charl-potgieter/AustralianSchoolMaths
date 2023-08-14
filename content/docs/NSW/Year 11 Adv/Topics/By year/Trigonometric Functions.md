@@ -2,6 +2,6 @@
 weight: 2
 ---
 
-# Trigonometry and Measure of Angles
+## Trigonometric Functions and Identities
 
-# Trigonometric Functions and Identities
+## Trigonometry and Measure of Angles

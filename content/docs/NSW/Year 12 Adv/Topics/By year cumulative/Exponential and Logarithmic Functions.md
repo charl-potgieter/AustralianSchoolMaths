@@ -2,4 +2,4 @@
 weight: 1
 ---
 
-# Logarithms and Exponentials
+## Logarithms and Exponentials

@@ -3,7 +3,7 @@
 # pylint: disable=missing-function-docstring
 
 
-from typing import Callable, Self
+from typing import Callable, Self, Dict
 from collections.abc import Generator
 import numpy as np
 import pandas as pd
@@ -54,14 +54,6 @@ class _SiteContent():
             return list(unique_values_in_field)[0]
         return 'Multiple values'
 
-    def group_by_columns(self, columns: list[str]) -> Generator[Self,
-                                                                None, None]:
-        """Returns a generator of this object grouped by columns (iterable)
-        """
-        grouper = self._data.groupby(columns)
-        for _, data in grouper:
-            yield _SiteContent(data)
-
 
 class Syllabus(_SiteContent):
 
@@ -89,6 +81,14 @@ class Syllabus(_SiteContent):
         new_object = self.copy()
         return_mask = new_object.data.apply(filter_function, axis=1)
         new_object.data = pd.DataFrame(new_object.data[return_mask])
+        return new_object
+
+    def filter_by_dict(self, filter_dict: Dict[str, str]) -> Self:
+        """Returns a new filtered object filtered by field per dictionary
+        key equal to dictionary value"""
+        new_object = self.copy()
+        for key, value in filter_dict.items():
+            new_object.data = new_object.data[new_object.data[key] == value]
         return new_object
 
     @property
@@ -163,6 +163,14 @@ class Formulas(_SiteContent):
             (self._data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return proofs_required
+
+    def group_by_columns(self, columns: list[str]) -> Generator[Self,
+                                                                None, None]:
+        """Returns a generator of this object grouped by columns (iterable)
+        """
+        grouper = self._data.groupby(columns)
+        for _, data in grouper:
+            yield Formulas(data)
 
 
 class Definitions(_SiteContent):

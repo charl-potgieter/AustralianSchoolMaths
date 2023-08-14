@@ -2,4 +2,4 @@
 weight: 1
 ---
 
-# Working with Functions
+## Working with Functions

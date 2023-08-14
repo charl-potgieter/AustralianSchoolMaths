@@ -1,21 +1,21 @@
-"""Main module for generating markdown files to be utilised for Hugo site
-generation.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=missing-function-docstring
 
 import os
 import shutil
 import itertools
+import typing
 from data_sources import DataSource
 from file_management import (SiteHierarchies, IndexFile,  FormulaFile,
                              TopicFile)
 from formula_tables import (FormulaTable, FormulaTableTypeSimple,
                             FormulaTableTypeCalculus,
                             FormulaTableTypeFinancial)
-from formulas import Formulas
-from content import Syllabus
+from site_content import Formulas, Syllabus
 
 
-def get_data():
+def get_data() -> typing.Dict[str, typing.Any]:
     """Reads and returns various reequired data objects as a dictionary"""
     data_source = DataSource()
     docs_dir = data_source.docs_directory
@@ -34,19 +34,18 @@ def get_data():
             'syllabus_cumulative': syllabus_cumulative}
 
 
-def create_directory_structure(docs_dir, hierarchies):
-    """Creates directory structure"""
+def create_directory_structure(docs_dir: str,
+                               hierarchies: SiteHierarchies) -> None:
     _delete_directory_if_it_exists(docs_dir)
     hierarchies.create_directories(docs_dir)
 
 
-def _delete_directory_if_it_exists(dir_to_delete):
-    """Deletes directory dir_to_delete and its contents if it exists"""
+def _delete_directory_if_it_exists(dir_to_delete: str) -> None:
     if os.path.isdir(dir_to_delete):
         shutil.rmtree(dir_to_delete)
 
 
-def create_index_files(docs_dir, hierarchies):
+def create_index_files(docs_dir: str, hierarchies: SiteHierarchies) -> None:
     """Recursively create _index.md file at each level of hieararchies"""
     for path in hierarchies.all_path_levels:
         index_file = IndexFile(hierarchies, path, docs_dir)
@@ -55,9 +54,10 @@ def create_index_files(docs_dir, hierarchies):
         index_file.markdown_content.save()
 
 
-def create_formula_pages(docs_dir, hierarchies, formulas_by_year,
-                         formulas_cumulative):
-    """Creates the formula pages"""
+def create_formula_pages(docs_dir: str, hierarchies: SiteHierarchies,
+                         formulas_by_year: Formulas,
+                         formulas_cumulative: Formulas) -> None:
+
     formulas_all = [formulas_by_year, formulas_cumulative]
 
     table_summary_types = [FormulaTableTypeSimple,
@@ -70,8 +70,7 @@ def create_formula_pages(docs_dir, hierarchies, formulas_by_year,
         else:
             group_by_cols = ['State', 'Subject']
         for formula_group in current_formulas.group_by_columns(group_by_cols):
-            formula_table = FormulaTable(formula_group)
-            formula_table.table_type = current_table_type
+            formula_table = FormulaTable(formula_group, current_table_type)
             if formula_table.contains_content:
                 formula_file = FormulaFile(hierarchies, docs_dir,
                                            current_formulas.is_cumulative,
@@ -79,22 +78,25 @@ def create_formula_pages(docs_dir, hierarchies, formulas_by_year,
                 formula_file.markdown_content.save()
 
 
-def create_topic_pages(docs_dir, hierarchies, syllabus_by_year,
-                       syllabus_cumulative, formulas_by_year,
-                       formulas_cumulative):
-    """Creates topic pages"""
+def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
+                       syllabus_by_year: Syllabus,
+                       syllabus_cumulative: Syllabus,
+                       formulas_by_year: Formulas,
+                       formulas_cumulative: Formulas):
     for syllabus in [syllabus_by_year, syllabus_cumulative]:
-        topics = syllabus.topic_summary_level()
-        for topic in topics.to_dataframe().itertuples():
-            topic_file = TopicFile(topic.State, topic.Subject, topic.Syllabus_topic,
-                                   hierarchies, docs_dir, topics.is_cumulative)
-            syllabus_by_topic = syllabus.filter_by_function(
-                lambda x: (x['State'] == topic.State and
-                           x['Subject'] == topic.Subject and
-                           x['Syllabus_topic'] == topic.Syllabus_topic))
-            subtopics = syllabus_by_topic.subtopics
+        topics = syllabus.topic_summary_level
+        for topic in topics.data.itertuples():
+            topic_file = TopicFile(topic.State, topic.Subject,
+                                   topic.Syllabus_topic,
+                                   hierarchies, docs_dir,
+                                   topics.is_cumulative)
+            syllabus_by_topic = syllabus.filter_by_dict({
+                'State': topic.State,
+                'Subject': topic.Subject,
+                'Syllabus_topic': topic.Syllabus_topic})
+            subtopics = syllabus_by_topic.unique_subtopics
             for subtopic in subtopics:
-                topic_file.add_text('# ' + subtopic)
+                topic_file.add_text('## ' + subtopic)
             topic_file.markdown_content.save()
 
 

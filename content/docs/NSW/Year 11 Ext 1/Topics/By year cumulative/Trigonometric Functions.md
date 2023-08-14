@@ -2,10 +2,10 @@
 weight: 2
 ---
 
-# Trigonometry and Measure of Angles
+## Inverse Trigonometric Functions
 
-# Trigonometric Functions and Identities
+## Trigonometric Functions and Identities
 
-# Inverse Trigonometric Functions
+## Further Trigonometric Identities
 
-# Further Trigonometric Identities
+## Trigonometry and Measure of Angles

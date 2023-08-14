@@ -27,26 +27,36 @@ class DataSource():
     def hierarchies_file_path(self) -> str:
         return (self.website_creator_directory
                 + os.path.sep
+                + 'data_files'
+                + os.path.sep
                 + 'site_hierarchy.csv')
 
     @property
     def formulas_file_path(self) -> str:
         return (self.website_creator_directory + os.path.sep
+                + 'data_files'
+                + os.path.sep
                 + 'formulas.csv')
 
     @property
     def definitions_file_path(self) -> str:
         return (self.website_creator_directory + os.path.sep
+                + 'data_files'
+                + os.path.sep
                 + 'definitions.csv')
 
     @property
     def syllabus_file_path(self) -> str:
         return (self.website_creator_directory + os.path.sep
+                + 'data_files'
+                + os.path.sep
                 + 'syllabus_topics.csv')
 
     @property
     def subject_dependencies_file_path(self) -> str:
         return (self.website_creator_directory + os.path.sep
+                + 'data_files'
+                + os.path.sep
                 + 'subject_dependencies.csv')
 
     @property

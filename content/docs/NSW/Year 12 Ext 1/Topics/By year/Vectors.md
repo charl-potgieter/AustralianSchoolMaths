@@ -2,4 +2,4 @@
 weight: 2
 ---
 
-# Introduction to Vectors
+## Introduction to Vectors

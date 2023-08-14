@@ -2,4 +2,4 @@
 weight: 3
 ---
 
-# Rates of Change
+## Rates of Change

@@ -2,4 +2,4 @@
 weight: 5
 ---
 
-# Applications of Calculus to Mechanics
+## Applications of Calculus to Mechanics

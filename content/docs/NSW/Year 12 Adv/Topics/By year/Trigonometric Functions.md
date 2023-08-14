@@ -2,4 +2,4 @@
 weight: 2
 ---
 
-# Trigonometric Functions and Graphs
+## Trigonometric Functions and Graphs

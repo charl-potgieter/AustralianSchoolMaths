@@ -2,4 +2,4 @@
 weight: 1
 ---
 
-# Graphing Techniques
+## Graphing Techniques

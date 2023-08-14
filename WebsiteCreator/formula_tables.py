@@ -21,8 +21,9 @@ class FormulaTableType(ABC):
         self._formulas = formulas
 
     @property
+    @abstractmethod
     def content_type(self) -> str:
-        return ContentTypes.FORMULAS.value
+        pass
 
     @property
     @abstractmethod
@@ -54,6 +55,10 @@ class FormulaTableTypeSimple(FormulaTableType):
     """
 
     @property
+    def content_type(self) -> str:
+        return ContentTypes.FORMULAS.value
+
+    @property
     def has_hidden_column_headers(self) -> bool:
         return True
 
@@ -78,6 +83,10 @@ class FormulaTableTypeSimple(FormulaTableType):
 class FormulaTableTypeCalculus(FormulaTableType):
     """Table summary of derivatives and their equivalent integrals
     """
+
+    @property
+    def content_type(self) -> str:
+        return ContentTypes.FORMULA_SUMMARIES.value
 
     @property
     def has_hidden_column_headers(self) -> bool:
@@ -152,6 +161,10 @@ class FormulaTableTypeCalculus(FormulaTableType):
 
 
 class FormulaTableTypeFinancial(FormulaTableType):
+
+    @property
+    def content_type(self) -> str:
+        return ContentTypes.FORMULA_SUMMARIES.value
 
     @property
     def has_hidden_column_headers(self) -> bool:
