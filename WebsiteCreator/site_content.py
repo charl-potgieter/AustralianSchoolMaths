@@ -6,7 +6,6 @@
 import copy
 from typing import Callable, Self, Dict
 from collections.abc import Generator
-import numpy as np
 import pandas as pd
 from data_validator import DataColumnValidator
 
@@ -94,20 +93,42 @@ class Syllabus(_SiteContent):
                        'Syllabus_subtopic': 'object'}
 
     @property
-    def topic_summary_level(self) -> Self:
-        """Returns syllabus at a unique state, subject topic level with
-        subtopic related fiels as Nan
-        """
-        new_syllabus = self.copy()
-        new_syllabus.data = new_syllabus.data[
-            ['State', 'Subject', 'Syllabus_topic']].drop_duplicates()
-        new_syllabus.data['Syllabus_subtopic_code'] = np.NAN
-        new_syllabus.data['Syllabus_subtopic'] = np.NAN
-        return new_syllabus
-
-    @property
     def unique_subtopics(self) -> list[str]:
         return list(set(self._data['Syllabus_subtopic']))
+
+    def topics(self):
+        """generator of topics in syllabus (excludes subtopic levels)"""
+        working_data = self.data[['State', 'Subject', 'Syllabus_topic']
+                                 ].drop_duplicates()
+        for item in working_data.itertuples():
+            item = SyllabusTopic(item.State,
+                                 item.Subject,
+                                 item.Syllabus_topic,
+                                 )
+            yield item
+
+
+class SyllabusTopic():
+    """Single syllabus topic item of Syllabus class excluding subtopic level
+    details
+    """
+
+    def __init__(self, state: str, subject: str, syllabus_topic: str):
+        self._state = state
+        self._subject = subject
+        self._syllabus_topic = syllabus_topic
+
+    @property
+    def state(self) -> str:
+        return self._state
+
+    @property
+    def subject(self) -> str:
+        return self._subject
+
+    @property
+    def syllabus_topic(self) -> str:
+        return self._syllabus_topic
 
 
 class Formulas(_SiteContent):

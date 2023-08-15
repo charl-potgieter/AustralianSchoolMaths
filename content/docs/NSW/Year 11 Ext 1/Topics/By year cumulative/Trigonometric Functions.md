@@ -2,9 +2,9 @@
 weight: 2
 ---
 
-## Further Trigonometric Identities
-
 ## Inverse Trigonometric Functions
+
+## Further Trigonometric Identities
 
 ## Trigonometric Functions and Identities
 

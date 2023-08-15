@@ -2,8 +2,8 @@
 weight: 6
 ---
 
-## The Nature of Proof
+## Proof by Mathematical Induction
 
 ## Further Proof by Mathematical Induction
 
-## Proof by Mathematical Induction
+## The Nature of Proof

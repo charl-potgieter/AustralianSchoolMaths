@@ -83,16 +83,16 @@ def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
                        syllabus_cumulative: Syllabus,
                        formulas_by_year: Formulas):
     for syllabus in [syllabus_by_year, syllabus_cumulative]:
-        topics = syllabus.topic_summary_level
-        for topic in topics.data.itertuples():
-            topic_file = TopicFile(topic.State, topic.Subject,
-                                   topic.Syllabus_topic,
+        for syllabus_item in syllabus.topics():
+            topic_file = TopicFile(syllabus_item.state,
+                                   syllabus_item.subject,
+                                   syllabus_item.syllabus_topic,
                                    hierarchies, docs_dir,
-                                   topics.is_cumulative)
+                                   syllabus.is_cumulative)
             syllabus_by_topic = syllabus.filter_by_dict({
-                'State': topic.State,
-                'Subject': topic.Subject,
-                'Syllabus_topic': topic.Syllabus_topic})
+                'State': syllabus_item.state,
+                'Subject': syllabus_item.subject,
+                'Syllabus_topic': syllabus_item.syllabus_topic})
             subtopics = syllabus_by_topic.unique_subtopics
             for subtopic in subtopics:
                 topic_file.add_text('## ' + subtopic)
