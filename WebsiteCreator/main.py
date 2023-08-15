@@ -88,16 +88,16 @@ def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
             formulas_by_subtopic = formulas.filter_by_dict(
                 {'Syllabus_subtopic': subtopic})
 
-            heading_created = False
             for table_type in formula_table_types:
                 formula_table = FormulaTable(formulas_by_subtopic,
                                              table_type)
                 if formula_table.contains_content:
-                    topic_file.add_text('<br>')
-                    if not heading_created:
-                        topic_file.add_text('### Formulas <br>')
-                        heading_created = True
-                    topic_file.add_text(formula_table.to_markdown())
+                    topic_file.add_text('\n<br>\n')
+                    topic_file.add_text(
+                        '### '
+                        + formula_table.table_type.topic_page_heading
+                        + '\n<br>\n'
+                        + formula_table.to_markdown())
         topic_file.markdown_content.save()
 
 

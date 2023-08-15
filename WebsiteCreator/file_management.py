@@ -110,7 +110,7 @@ class FormulaFile():
             formula_table.subject,
             formula_table.table_type.content_type,
             time_frame_portion_of_path,
-            formula_table.table_type.display_name])
+            formula_table.table_type.formula_menu_display_name])
 
 
 class TopicFile():

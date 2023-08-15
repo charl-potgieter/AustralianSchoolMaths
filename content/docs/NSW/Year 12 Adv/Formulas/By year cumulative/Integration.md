@@ -2,56 +2,56 @@
 weight: 6
 ---
 
-{{< tabs "uniqueid" >}}
+{{< tabs "f6967918-57c1-46aa-9344-ab29cb0fe8a7" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_99cdc th.col_heading {
+#T_620f7 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_99cdc td {
+#T_620f7 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_99cdc">
+<table id="T_620f7">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_99cdc_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+      <td id="T_620f7_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
 $ \text{ where } n \neq -1 $</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row1_col0" class="data row1 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_620f7_row1_col0" class="data row1 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row2_col0" class="data row2 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
+      <td id="T_620f7_row2_col0" class="data row2 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
 $ \text { where } a=x_0 \text{ and } b=x_n $</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)cosf(x)dx = sin f(x) + c$</td>
+      <td id="T_620f7_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)cosf(x)dx = sin f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)sin f(x)dx = -cos f(x) + c$</td>
+      <td id="T_620f7_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)sin f(x)dx = -cos f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)sec^2 f(x)dx = tan f(x) + c$</td>
+      <td id="T_620f7_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)sec^2 f(x)dx = tan f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row6_col0" class="data row6 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+      <td id="T_620f7_row6_col0" class="data row6 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row7_col0" class="data row7 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+      <td id="T_620f7_row7_col0" class="data row7 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row8_col0" class="data row8 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+      <td id="T_620f7_row8_col0" class="data row8 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
     </tr>
     <tr>
-      <td id="T_99cdc_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+      <td id="T_620f7_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
     </tr>
   </tbody>
 </table>
@@ -62,57 +62,57 @@ $ \text { where } a=x_0 \text{ and } b=x_n $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_fd05d th.col_heading {
+#T_047b5 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_fd05d td {
+#T_047b5 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_fd05d_row0_col0, #T_fd05d_row1_col0, #T_fd05d_row2_col0, #T_fd05d_row3_col0, #T_fd05d_row4_col0, #T_fd05d_row5_col0, #T_fd05d_row6_col0, #T_fd05d_row7_col0, #T_fd05d_row8_col0 {
+#T_047b5_row0_col0, #T_047b5_row1_col0, #T_047b5_row2_col0, #T_047b5_row3_col0, #T_047b5_row4_col0, #T_047b5_row5_col0, #T_047b5_row6_col0, #T_047b5_row7_col0, #T_047b5_row8_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_fd05d_row9_col0 {
+#T_047b5_row9_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_fd05d">
+<table id="T_047b5">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_fd05d_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+      <td id="T_047b5_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
 $ \text{ where } n \neq -1 $</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row1_col0" class="data row1 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_047b5_row1_col0" class="data row1 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row2_col0" class="data row2 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
+      <td id="T_047b5_row2_col0" class="data row2 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
 $ \text { where } a=x_0 \text{ and } b=x_n $</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)cosf(x)dx = sin f(x) + c$</td>
+      <td id="T_047b5_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)cosf(x)dx = sin f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)sin f(x)dx = -cos f(x) + c$</td>
+      <td id="T_047b5_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)sin f(x)dx = -cos f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)sec^2 f(x)dx = tan f(x) + c$</td>
+      <td id="T_047b5_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)sec^2 f(x)dx = tan f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row6_col0" class="data row6 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+      <td id="T_047b5_row6_col0" class="data row6 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row7_col0" class="data row7 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+      <td id="T_047b5_row7_col0" class="data row7 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row8_col0" class="data row8 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+      <td id="T_047b5_row8_col0" class="data row8 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
     </tr>
     <tr>
-      <td id="T_fd05d_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+      <td id="T_047b5_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
     </tr>
   </tbody>
 </table>

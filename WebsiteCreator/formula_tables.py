@@ -4,6 +4,7 @@
 
 
 from enum import Enum
+import uuid
 import typing
 from abc import ABC, abstractmethod
 import pandas as pd
@@ -37,8 +38,17 @@ class FormulaTableType(ABC):
 
     @property
     @abstractmethod
-    def display_name(self) -> str:
-        pass
+    def formula_menu_display_name(self) -> str:
+        """This is the name as it appears on the formula secion of the site
+        menu / navigator
+        """
+
+    @property
+    @abstractmethod
+    def topic_page_heading(self) -> str:
+        """This is the heading that appears on topic pages above the formula
+        table
+        """
 
     @property
     @abstractmethod
@@ -67,8 +77,12 @@ class FormulaTableTypeSimple(FormulaTableType):
         return True
 
     @property
-    def display_name(self) -> str:
+    def formula_menu_display_name(self) -> str:
         return self._formulas.field_value('Category')
+
+    @property
+    def topic_page_heading(self) -> str:
+        return "Formulas"
 
     @property
     def formula_columns(self) -> list[str]:
@@ -97,8 +111,12 @@ class FormulaTableTypeCalculus(FormulaTableType):
         return True
 
     @property
-    def display_name(self) -> str:
+    def formula_menu_display_name(self) -> str:
         return 'Calculus'
+
+    @property
+    def topic_page_heading(self) -> str:
+        return "Derivatives vs integrals "
 
     @property
     def formula_columns(self) -> list[str]:
@@ -175,8 +193,12 @@ class FormulaTableTypeFinancial(FormulaTableType):
         return False
 
     @property
-    def display_name(self) -> str:
+    def formula_menu_display_name(self) -> str:
         return 'Financial mathematics'
+
+    @property
+    def topic_page_heading(self) -> str:
+        return "Arithmetic vs geometric sequences"
 
     @property
     def formula_columns(self) -> list[str]:
@@ -384,7 +406,8 @@ class PageTabs():
         self._tabs[tab_name] = tab_content
 
     def to_markdown(self) -> str:
-        return_value = '{{< tabs "uniqueid" >}}'
+        unique_id = str(uuid.uuid4())
+        return_value = '{{< tabs "' + unique_id + '" >}}'
         for tab_name, tab_content in self._tabs.items():
             return_value += '\n\n{{< tab "' + tab_name + '" >}}\n\n'
             return_value += tab_content
@@ -394,4 +417,4 @@ class PageTabs():
 
 
 formula_table_types = (FormulaTableTypeSimple,
-               FormulaTableTypeFinancial, FormulaTableTypeCalculus)
+                       FormulaTableTypeFinancial, FormulaTableTypeCalculus)
