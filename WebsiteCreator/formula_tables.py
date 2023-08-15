@@ -391,3 +391,7 @@ class PageTabs():
             return_value += '{{< /tab >}}'
         return_value += '\n{{< /tabs >}}'
         return return_value
+
+
+formula_table_types = (FormulaTableTypeSimple,
+               FormulaTableTypeFinancial, FormulaTableTypeCalculus)
