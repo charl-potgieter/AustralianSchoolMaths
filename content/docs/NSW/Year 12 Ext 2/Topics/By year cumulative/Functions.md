@@ -2,8 +2,8 @@
 weight: 2
 ---
 
-## Graphing Techniques
+## Working with Functions
 <br><br>
 
-## Working with Functions
+## Graphing Techniques
 <br><br>

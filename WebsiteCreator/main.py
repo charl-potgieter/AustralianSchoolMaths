@@ -80,26 +80,32 @@ def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
 if __name__ == '__main__':
     input_data = get_data()
 
+    print('creating directory strucutre...')
     create_directory_structure(input_data['docs_dir'],
                                input_data['hierarchies'])
 
-    # create_index_files(input_data['docs_dir'],
-    #                    input_data['hierarchies'])
+    print('creating index files...')
+    create_index_files(input_data['docs_dir'],
+                       input_data['hierarchies'])
 
-    # create_formula_pages(input_data['docs_dir'],
-    #                      input_data['hierarchies'],
-    #                      input_data['formulas_by_year'])
+    print('creating formulas by year pages...')
+    create_formula_pages(input_data['docs_dir'],
+                         input_data['hierarchies'],
+                         input_data['formulas_by_year'])
 
-    # create_formula_pages(input_data['docs_dir'],
-    #                      input_data['hierarchies'],
-    #                      input_data['formulas_cumulative'])
+    print('creating formulas cumulative pages...')
+    create_formula_pages(input_data['docs_dir'],
+                         input_data['hierarchies'],
+                         input_data['formulas_cumulative'])
 
+    print('creating topics by year pages...')
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
                        input_data['syllabus_by_year'],
                        input_data['formulas_by_year'])
 
+    print('creating topics cumulative pages...')
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
                        input_data['syllabus_cumulative'],
-                       input_data['formulas_by_year'])
+                       input_data['formulas_cumulative'])

@@ -8,8 +8,8 @@ weight: 8
 ## Descriptive Statistics and Bivariate Data Analysis
 <br><br>
 
-## The Binomial Distribution
+## Random Variables
 <br><br>
 
-## Random Variables
+## The Binomial Distribution
 <br><br>

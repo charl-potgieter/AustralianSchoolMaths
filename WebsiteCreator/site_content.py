@@ -92,20 +92,28 @@ class Syllabus(_SiteContent):
                        'Syllabus_subtopic_code': 'object',
                        'Syllabus_subtopic': 'object'}
 
-    @property
-    def unique_subtopics(self) -> list[str]:
-        return list(set(self._data['Syllabus_subtopic']))
-
     def topics(self):
         """generator of topics in syllabus (excludes subtopic levels)"""
-        working_data = self.data[['State', 'Subject', 'Syllabus_topic']
-                                 ].drop_duplicates()
-        for item in working_data.itertuples():
-            item = SyllabusTopic(item.State,
-                                 item.Subject,
-                                 item.Syllabus_topic,
-                                 )
-            yield item
+        topic_data = self.data[['State', 'Subject', 'Syllabus_topic']
+                               ].drop_duplicates()
+        for topic_item in topic_data.itertuples():
+            subtopics = self._get_subtopics(topic_item.State,
+                                            topic_item.Subject,
+                                            topic_item.Syllabus_topic)
+            topic_item = SyllabusTopic(topic_item.Syllabus_topic,
+                                       topic_item.State,
+                                       topic_item.Subject,
+                                       subtopics
+                                       )
+            yield topic_item
+
+    def _get_subtopics(
+            self, state: str, subject: str, topic: str) -> list[str]:
+        return list(self.data[
+            (self.data['State'] == state) &
+            (self.data['Subject'] == subject) &
+            (self.data['Syllabus_topic'] == topic)]['Syllabus_subtopic']
+        )
 
 
 class SyllabusTopic():
@@ -113,10 +121,12 @@ class SyllabusTopic():
     details
     """
 
-    def __init__(self, state: str, subject: str, syllabus_topic: str):
+    def __init__(self, name: str, state: str, subject: str,
+                 subtopics: list[str]):
+        self._name = name
         self._state = state
         self._subject = subject
-        self._syllabus_topic = syllabus_topic
+        self._subtopics = subtopics
 
     @property
     def state(self) -> str:
@@ -127,8 +137,12 @@ class SyllabusTopic():
         return self._subject
 
     @property
-    def syllabus_topic(self) -> str:
-        return self._syllabus_topic
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def subtopics(self) -> list[str]:
+        return self._subtopics
 
 
 class Formulas(_SiteContent):

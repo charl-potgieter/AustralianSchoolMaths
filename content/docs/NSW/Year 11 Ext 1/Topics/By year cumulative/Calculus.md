@@ -2,8 +2,8 @@
 weight: 3
 ---
 
-## Rates of Change
+## Introduction to Differentiation
 <br><br>
 
-## Introduction to Differentiation
+## Rates of Change
 <br><br>

@@ -119,45 +119,50 @@ class TopicFile():
 
     def __init__(self,
                  syllabus_topic: SyllabusTopic,
-                 subtopics: list[str],
                  base_path: str,
                  is_cumulative_by_year: bool,
                  formulas: Formulas,
                  hierarchies: SiteHierarchies):
         self._syllabus_topic = syllabus_topic
-        self._subtopics = subtopics
+        self._formulas = formulas
         path_in_hierarchy = self._get_path_in_hierarchy(
             is_cumulative_by_year, syllabus_topic.state,
-            syllabus_topic.subject, syllabus_topic.syllabus_topic)
+            syllabus_topic.subject, syllabus_topic.name)
         file_path = self._get_file_path(base_path, path_in_hierarchy)
         self._markdown_content = _MarkdownContent(hierarchies,
                                                   path_in_hierarchy,
                                                   file_path)
         self._generate_file()
 
+    def save(self) -> None:
+        self._markdown_content.save()
+
     def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:
         return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
     def _generate_file(self):
-        for subtopic in self._subtopics:
+        for subtopic in self._syllabus_topic.subtopics:
             self._add_subtopic_heading(subtopic)
+            formulas_by_subtopic = self._formulas_by_subtopic(subtopic)
+            self._add_formula_tables(formulas_by_subtopic)
+
+    def _formulas_by_subtopic(self, subtopic):
+        return self._formulas.filter_by_dict({
+            'Syllabus_subtopic': subtopic})
 
     def _add_subtopic_heading(self, subtopic: str) -> None:
         self._markdown_content.add_content(
             '## ' + subtopic + '\n<br><br>'
         )
 
-    # def _add_formula_tables(self) -> None:
-    #     for table_type in formula_table_types:
-    #         formula_table = FormulaTable(formulas_by_subtopic,
-    #                                      table_type)
-    #         if formula_table.contains_content:
-    #             topic_file.add_text('\n<br>\n')
-    #             topic_file.add_text(
-    #                 formula_table.to_markdown_with_heading())
-
-    def save(self) -> None:
-        self._markdown_content.save()
+    def _add_formula_tables(self, formulas_by_subtopic: Formulas) -> None:
+        for table_type in formula_table_types:
+            formula_table = FormulaTable(formulas_by_subtopic,
+                                         table_type)
+            if formula_table.contains_content:
+                self._markdown_content.add_content('\n<br>\n')
+                self._markdown_content.add_content(
+                    formula_table.to_markdown_with_heading())
 
     def _get_path_in_hierarchy(self, is_cumulative_by_year: bool, state: str,
                                subject: str, syllabus_topic: str) -> str:
@@ -190,14 +195,9 @@ class TopicFiles():
             formulas_by_topic = self._formulas.filter_by_dict({
                 'State': syllabus_topic.state,
                 'Subject': syllabus_topic.subject,
-                'Syllabus_topic': syllabus_topic.syllabus_topic
+                'Syllabus_topic': syllabus_topic.name
             })
-            subtopics_by_topic = self._syllabus.filter_by_dict({
-                'State': syllabus_topic.state,
-                'Subject': syllabus_topic.subject,
-                'Syllabus_topic': syllabus_topic.syllabus_topic}
-            ).unique_subtopics
-            topic_file = TopicFile(syllabus_topic, subtopics_by_topic,
+            topic_file = TopicFile(syllabus_topic,
                                    self._base_path,
                                    self._syllabus.is_cumulative,
                                    formulas_by_topic, self._hierarchies)
