@@ -2,8 +2,11 @@
 weight: 3
 ---
 
-## Applications of Differentiation
-
 ## Differential Calculus
+<br><br>
 
 ## Integral Calculus
+<br><br>
+
+## Applications of Differentiation
+<br><br>

@@ -2,10 +2,14 @@
 weight: 6
 ---
 
-## Trigonometric Functions and Graphs
+## Trigonometric Equations
+<br><br>
 
 ## Trigonometry and Measure of Angles
+<br><br>
+
+## Trigonometric Functions and Graphs
+<br><br>
 
 ## Trigonometric Functions and Identities
-
-## Trigonometric Equations
+<br><br>

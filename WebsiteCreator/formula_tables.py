@@ -355,6 +355,12 @@ class FormulaTable():
             return_value = tabs.to_markdown()
         return return_value
 
+    def to_markdown_with_heading(self) -> str:
+        return ('### '
+                + self.table_type.topic_page_heading
+                + '\n<br>\n'
+                + self.to_markdown())
+
 
 class ContentTypes(Enum):
     """Implements enumeration containing website content types"""

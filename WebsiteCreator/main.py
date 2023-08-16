@@ -7,7 +7,7 @@ import shutil
 import typing
 from data_sources import DataSource
 from file_management import (SiteHierarchies, IndexFile,  FormulaFile,
-                             TopicFile)
+                             TopicFiles)
 from formula_tables import (formula_table_types, FormulaTable,
                             FormulaTableTypeSimple, FormulaTableTypeCalculus,
                             FormulaTableTypeFinancial)
@@ -71,34 +71,10 @@ def create_formula_pages(docs_dir: str, hierarchies: SiteHierarchies,
 
 
 def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
-                       syllabus: Syllabus, formulas: Formulas):
-    for syllabus_item in syllabus.topics():
-        topic_file = TopicFile(syllabus_item.state,
-                               syllabus_item.subject,
-                               syllabus_item.syllabus_topic,
-                               hierarchies, docs_dir,
-                               syllabus.is_cumulative)
-        syllabus_by_topic = syllabus.filter_by_dict({
-            'State': syllabus_item.state,
-            'Subject': syllabus_item.subject,
-            'Syllabus_topic': syllabus_item.syllabus_topic})
-        subtopics = syllabus_by_topic.unique_subtopics
-        for subtopic in subtopics:
-            topic_file.add_text('## ' + subtopic)
-            formulas_by_subtopic = formulas.filter_by_dict(
-                {'Syllabus_subtopic': subtopic})
-
-            for table_type in formula_table_types:
-                formula_table = FormulaTable(formulas_by_subtopic,
-                                             table_type)
-                if formula_table.contains_content:
-                    topic_file.add_text('\n<br>\n')
-                    topic_file.add_text(
-                        '### '
-                        + formula_table.table_type.topic_page_heading
-                        + '\n<br>\n'
-                        + formula_table.to_markdown())
-        topic_file.markdown_content.save()
+                       syllabus: Syllabus, formulas: Formulas) -> None:
+    topic_files = TopicFiles(syllabus, hierarchies, formulas, docs_dir)
+    for topic_file in topic_files.iterate():
+        topic_file.save()
 
 
 if __name__ == '__main__':
@@ -107,16 +83,16 @@ if __name__ == '__main__':
     create_directory_structure(input_data['docs_dir'],
                                input_data['hierarchies'])
 
-    create_index_files(input_data['docs_dir'],
-                       input_data['hierarchies'])
+    # create_index_files(input_data['docs_dir'],
+    #                    input_data['hierarchies'])
 
-    create_formula_pages(input_data['docs_dir'],
-                         input_data['hierarchies'],
-                         input_data['formulas_by_year'])
+    # create_formula_pages(input_data['docs_dir'],
+    #                      input_data['hierarchies'],
+    #                      input_data['formulas_by_year'])
 
-    create_formula_pages(input_data['docs_dir'],
-                         input_data['hierarchies'],
-                         input_data['formulas_cumulative'])
+    # create_formula_pages(input_data['docs_dir'],
+    #                      input_data['hierarchies'],
+    #                      input_data['formulas_cumulative'])
 
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
