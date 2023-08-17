@@ -8,7 +8,7 @@ import typing
 from data_sources import DataSource
 from file_management import (SiteHierarchies, IndexFiles,  FormulaFiles,
                              TopicFiles)
-from site_content import Formulas, Syllabus
+from site_content import Formulas, Syllabus, Definitions
 
 
 def get_data() -> typing.Dict[str, typing.Any]:
@@ -16,6 +16,12 @@ def get_data() -> typing.Dict[str, typing.Any]:
     data_source = DataSource()
     docs_dir = data_source.docs_directory
     hierarchies = SiteHierarchies(data_source.site_hierarchies)
+
+    definitions_by_year = Definitions(data_source.definitions_by_year)
+    definitions_cumulative = Definitions(
+        data_source.definitions_by_year_cumulative)
+    definitions_cumulative.is_cumulative = True
+
     formulas_by_year = Formulas(data_source.formulas_by_year)
     formulas_cumulative = Formulas(data_source.formulas_by_year_cumulative)
     formulas_cumulative.is_cumulative = True
@@ -24,6 +30,8 @@ def get_data() -> typing.Dict[str, typing.Any]:
     syllabus_cumulative.is_cumulative = True
     return {'docs_dir': docs_dir,
             'hierarchies': hierarchies,
+            'definitions_by_year': definitions_by_year,
+            'definitions_cumulative': definitions_cumulative,
             'formulas_by_year': formulas_by_year,
             'formulas_cumulative': formulas_cumulative,
             'syllabus_by_year': syllabus_by_year,
@@ -56,8 +64,10 @@ def create_formula_pages(docs_dir: str, hierarchies: SiteHierarchies,
 
 
 def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
-                       syllabus: Syllabus, formulas: Formulas) -> None:
-    topic_files = TopicFiles(syllabus, hierarchies, formulas, docs_dir)
+                       syllabus: Syllabus, definitions: Definitions,
+                       formulas: Formulas) -> None:
+    topic_files = TopicFiles(syllabus, hierarchies, definitions,  formulas,
+                             docs_dir)
     for topic_file in topic_files.iterate():
         topic_file.save()
 
@@ -87,10 +97,12 @@ if __name__ == '__main__':
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
                        input_data['syllabus_by_year'],
+                       input_data['definitions_by_year'],
                        input_data['formulas_by_year'])
 
     print('creating topics cumulative pages...')
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
                        input_data['syllabus_cumulative'],
+                       input_data['definitions_cumulative'],
                        input_data['formulas_cumulative'])

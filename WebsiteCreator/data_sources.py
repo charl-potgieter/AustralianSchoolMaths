@@ -142,3 +142,22 @@ class DataSource():
             right_on=['State', 'Subject', 'Syllabus_subtopic_code'],
             how='right')
         return definitions_data
+
+    @property
+    def definitions_by_year_cumulative(self) -> pd.DataFrame:
+        """Returns definition details on a cumulative level by subject
+        order  for a given state.  (includes the current subjects definitions
+        as well as the definitions from a subjects dependencies)
+        """
+        return_value = self.definitions_by_year.copy()
+        return_value = return_value.rename(columns={'Subject': 'Dependency'})
+        return_value = return_value.merge(
+            right=self.subject_dependencies,
+            left_on=['State', 'Dependency'],
+            right_on=['State', 'Dependency'])
+        return_value = return_value.drop('Dependency', axis='columns')
+        # Re-order cols
+        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
+                                     'Syllabus_subtopic_code',
+                                     'Syllabus_subtopic', 'Definition']]
+        return return_value

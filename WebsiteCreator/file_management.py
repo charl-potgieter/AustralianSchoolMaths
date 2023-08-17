@@ -6,7 +6,7 @@ import os
 from site_hierarchies import SiteHierarchies
 from formula_tables import (FormulaTable, FormulaTableType,
                             FormulaTableTypeSimple, formula_table_types)
-from site_content import Syllabus, Formulas, SyllabusTopic
+from site_content import Syllabus, Formulas, SyllabusTopic, Definitions
 
 
 class _MarkdownContent():
@@ -159,8 +159,10 @@ class TopicFile():
                  syllabus_topic: SyllabusTopic,
                  file_path,
                  weight,
+                 definitions: Definitions,
                  formulas: Formulas):
         self._syllabus_topic = syllabus_topic
+        self._definitions = definitions
         self._formulas = formulas
         self._markdown_content = _MarkdownContent(file_path, weight)
         self._generate_file()
@@ -171,17 +173,29 @@ class TopicFile():
     def _generate_file(self):
         for subtopic in self._syllabus_topic.subtopics:
             self._add_subtopic_heading(subtopic)
+            definitions_by_subtopic = self._defintions_by_subtopic(subtopic)
             formulas_by_subtopic = self._formulas_by_subtopic(subtopic)
+            self._add_definitions(definitions_by_subtopic)
             self._add_formula_tables(formulas_by_subtopic)
 
     def _formulas_by_subtopic(self, subtopic):
         return self._formulas.filter_by_dict({
             'Syllabus_subtopic': subtopic})
 
+    def _defintions_by_subtopic(self, subtopic):
+        return self._definitions.filter_by_dict({
+            'Syllabus_subtopic': subtopic})
+
     def _add_subtopic_heading(self, subtopic: str) -> None:
         self._markdown_content.add_content(
             '## ' + subtopic + '\n<br><br>'
         )
+
+    def _add_definitions(self, definitions_by_subtopic: Definitions) -> None:
+        # ToDo need to complete
+        if len(definitions_by_subtopic.data):
+            self._markdown_content.add_content('### Definitions')
+            self._markdown_content.add_content('need to add definitions here')
 
     def _add_formula_tables(self, formulas_by_subtopic: Formulas) -> None:
         for table_type in formula_table_types:
@@ -198,15 +212,22 @@ class TopicFiles():
     def __init__(self,
                  syllabus: Syllabus,
                  hierarchies: SiteHierarchies,
+                 definitions: Definitions,
                  formulas: Formulas,
                  base_path: str):
         self._syllabus = syllabus
         self._hierarchies = hierarchies
+        self._definitions = definitions
         self._formulas = formulas
         self._base_path = base_path
 
     def iterate(self):
         for syllabus_topic in self._syllabus.topics():
+            definitions_by_topic = self._definitions.filter_by_dict({
+                'State': syllabus_topic.state,
+                'Subject': syllabus_topic.subject,
+                'Syllabus_topic': syllabus_topic.name
+            })
             formulas_by_topic = self._formulas.filter_by_dict({
                 'State': syllabus_topic.state,
                 'Subject': syllabus_topic.subject,
@@ -218,7 +239,7 @@ class TopicFiles():
             file_path = self._get_file_path(self._base_path, path_in_hierarchy)
             weight = self._get_weight_based_on_hierarchies(path_in_hierarchy)
             topic_file = TopicFile(syllabus_topic, file_path, weight,
-                                   formulas_by_topic)
+                                   definitions_by_topic, formulas_by_topic)
             yield topic_file
 
     def _get_path_in_hierarchy(self, is_cumulative_by_year: bool, state: str,
