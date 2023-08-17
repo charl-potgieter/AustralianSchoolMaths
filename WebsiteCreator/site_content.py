@@ -79,9 +79,12 @@ class _SiteContent():
                                                                 None, None]:
         """Returns a generator of this object grouped by columns (iterable)
         """
+
         grouper = self._data.groupby(columns)
-        for _, data in grouper:
-            yield Formulas(data)
+        for _, grouped_data in grouper:
+            new_object = self.copy()
+            new_object.data = grouped_data
+            yield new_object
 
 
 class Syllabus(_SiteContent):
@@ -103,6 +106,7 @@ class Syllabus(_SiteContent):
             topic_item = SyllabusTopic(topic_item.Syllabus_topic,
                                        topic_item.State,
                                        topic_item.Subject,
+                                       self._is_cumulative,
                                        subtopics
                                        )
             yield topic_item
@@ -122,10 +126,11 @@ class SyllabusTopic():
     """
 
     def __init__(self, name: str, state: str, subject: str,
-                 subtopics: list[str]):
+                 is_cumulative: bool, subtopics: list[str]):
         self._name = name
         self._state = state
         self._subject = subject
+        self._is_cumulative = is_cumulative
         self._subtopics = subtopics
 
     @property
@@ -139,6 +144,10 @@ class SyllabusTopic():
     @property
     def name(self) -> str:
         return self._name
+
+    @property
+    def is_cumulative(self) -> bool:
+        return self._is_cumulative
 
     @property
     def subtopics(self) -> list[str]:

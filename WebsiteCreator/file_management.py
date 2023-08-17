@@ -13,14 +13,11 @@ class _MarkdownContent():
     """Markdown file content utilised for creation of Hugo webiite
     """
 
-    def __init__(self, hierarchies: SiteHierarchies, path_in_hierarchy: str,
-                 file_path: str):
+    def __init__(self, file_path: str, weight: int):
         self._content = ''
         self._front_matter = FrontMatter()
-        self._hierarchies = hierarchies
-        self._path_in_hierarchy = path_in_hierarchy
         self._file_path = file_path
-        self._set_weight_based_on_hierarchies()
+        self.add_front_matter_property('weight', weight)
 
     def add_front_matter_property(self, property_key: str | float,
                                   property_value: str | float) -> None:
@@ -31,13 +28,6 @@ class _MarkdownContent():
             self._content += ('\n\n' + content)
         else:
             self._content = content
-
-    def _set_weight_based_on_hierarchies(self) -> None:
-        """Adds weight property to front matter based on position of
-        path in hierarchy"""
-        weight = self._hierarchies.get_sort_index_in_parent_path(
-            self._path_in_hierarchy) + 1
-        self.add_front_matter_property('weight', weight)
 
     def _add_front_matter_to_content(self) -> None:
         if self._content:
@@ -60,21 +50,10 @@ class _MarkdownContent():
 class IndexFile():
     """._index.md file utilised for Hugo site generation"""
 
-    def __init__(self, hierarchies: SiteHierarchies, path_in_hierarchy: str,
-                 base_path: str):
-        file_path = self._get_file_path(base_path, path_in_hierarchy)
-        self._markdown_content = _MarkdownContent(hierarchies,
-                                                  path_in_hierarchy,
-                                                  file_path)
+    def __init__(self, file_path: str, weight: int):
+        self._markdown_content = _MarkdownContent(file_path, weight)
         self._markdown_content.add_front_matter_property(
             'bookCollapseSection', 'true')
-
-    def _get_file_path(self, base_dir, path_in_hierarchy):
-        """returns file path"""
-        return (
-            base_dir + os.path.sep
-            + path_in_hierarchy + os.path.sep
-            + '_index.md')
 
     def save(self) -> None:
         """Returns the markdown_content object"""
@@ -89,42 +68,34 @@ class IndexFiles():
 
     def iterate(self):
         for path in self._hierarchies.all_path_levels:
-            index_file = IndexFile(self._hierarchies, path, self._base_path)
+            weight = self._get_weight_based_on_hierarchies(path)
+            file_path = self._get_file_path(self._base_path, path)
+            index_file = IndexFile(file_path, weight)
             yield index_file
+
+    def _get_weight_based_on_hierarchies(self, path: str) -> int:
+        weight = self._hierarchies.get_sort_index_in_parent_path(
+            path) + 1
+        return weight
+
+    def _get_file_path(self, base_dir, path_in_hierarchy):
+        """returns file path"""
+        return (
+            base_dir + os.path.sep
+            + path_in_hierarchy + os.path.sep
+            + '_index.md')
 
 
 class FormulaFile():
     """..md file containing formula tables for Hugo site generation"""
 
-    def __init__(self, hierarchies: SiteHierarchies, base_path: str,
-                 is_cumulative_by_year: bool, formula_table: FormulaTable):
-        path_in_hierarchy = self._get_path_in_hierarchy(formula_table,
-                                                        is_cumulative_by_year)
-        file_path = self._get_file_path(base_path, path_in_hierarchy)
-        self._markdown_content = _MarkdownContent(hierarchies,
-                                                  path_in_hierarchy,
-                                                  file_path)
+    def __init__(self, file_path: str, weight: int,
+                 formula_table: FormulaTable):
+        self._markdown_content = _MarkdownContent(file_path, weight)
         self._markdown_content.add_content(formula_table.to_markdown())
-
-    def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:
-        return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
     def save(self):
         self._markdown_content.save()
-
-    def _get_path_in_hierarchy(self, formula_table: FormulaTable,
-                               is_cumulative_by_year: bool) -> str:
-        """Gets the path in hierarchy (excluding any base directory)"""
-        if is_cumulative_by_year:
-            time_frame_portion_of_path = 'By year cumulative'
-        else:
-            time_frame_portion_of_path = 'By year'
-        return os.path.sep.join([
-            formula_table.state,
-            formula_table.subject,
-            formula_table.table_type.content_type,
-            time_frame_portion_of_path,
-            formula_table.table_type.formula_menu_display_name])
 
 
 class FormulaFiles():
@@ -142,9 +113,13 @@ class FormulaFiles():
                     group_by_cols):
                 formula_table = FormulaTable(formula_group, current_table_type)
                 if formula_table.contains_content:
-                    formula_file = FormulaFile(self._hierarchies,
-                                               self._base_path,
-                                               self._formulas.is_cumulative,
+                    path_in_hierarchy = self._get_path_in_hierarchy(
+                        formula_table, formula_group.is_cumulative)
+                    file_path = self._get_file_path(self._base_path,
+                                                    path_in_hierarchy)
+                    weight = self._get_weight_based_on_hierarchies(
+                        path_in_hierarchy)
+                    formula_file = FormulaFile(file_path, weight,
                                                formula_table)
                     yield formula_file
 
@@ -154,32 +129,44 @@ class FormulaFiles():
             return ['State', 'Subject', 'Category']
         return ['State', 'Subject']
 
+    def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:
+        return base_dir + os.path.sep + path_in_hierarchy + '.md'
+
+    def _get_path_in_hierarchy(self, formula_table: FormulaTable,
+                               is_cumulative_by_year: bool) -> str:
+        """Gets the path in hierarchy (excluding any base directory)"""
+        if is_cumulative_by_year:
+            time_frame_portion_of_path = 'By year cumulative'
+        else:
+            time_frame_portion_of_path = 'By year'
+        return os.path.sep.join([
+            formula_table.state,
+            formula_table.subject,
+            formula_table.table_type.content_type,
+            time_frame_portion_of_path,
+            formula_table.table_type.formula_menu_display_name])
+
+    def _get_weight_based_on_hierarchies(self, path: str) -> int:
+        weight = self._hierarchies.get_sort_index_in_parent_path(
+            path) + 1
+        return weight
+
 
 class TopicFile():
     """..md file containing topic for Hugo site generation"""
 
     def __init__(self,
                  syllabus_topic: SyllabusTopic,
-                 base_path: str,
-                 is_cumulative_by_year: bool,
-                 formulas: Formulas,
-                 hierarchies: SiteHierarchies):
+                 file_path,
+                 weight,
+                 formulas: Formulas):
         self._syllabus_topic = syllabus_topic
         self._formulas = formulas
-        path_in_hierarchy = self._get_path_in_hierarchy(
-            is_cumulative_by_year, syllabus_topic.state,
-            syllabus_topic.subject, syllabus_topic.name)
-        file_path = self._get_file_path(base_path, path_in_hierarchy)
-        self._markdown_content = _MarkdownContent(hierarchies,
-                                                  path_in_hierarchy,
-                                                  file_path)
+        self._markdown_content = _MarkdownContent(file_path, weight)
         self._generate_file()
 
     def save(self) -> None:
         self._markdown_content.save()
-
-    def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:
-        return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
     def _generate_file(self):
         for subtopic in self._syllabus_topic.subtopics:
@@ -205,19 +192,6 @@ class TopicFile():
                 self._markdown_content.add_content(
                     formula_table.to_markdown_with_heading())
 
-    def _get_path_in_hierarchy(self, is_cumulative_by_year: bool, state: str,
-                               subject: str, syllabus_topic: str) -> str:
-        if is_cumulative_by_year:
-            time_frame_portion_of_path = 'By year cumulative'
-        else:
-            time_frame_portion_of_path = 'By year'
-        return os.path.sep.join([
-            state,
-            subject,
-            'Topics',
-            time_frame_portion_of_path,
-            syllabus_topic])
-
 
 class TopicFiles():
 
@@ -238,11 +212,35 @@ class TopicFiles():
                 'Subject': syllabus_topic.subject,
                 'Syllabus_topic': syllabus_topic.name
             })
-            topic_file = TopicFile(syllabus_topic,
-                                   self._base_path,
-                                   self._syllabus.is_cumulative,
-                                   formulas_by_topic, self._hierarchies)
+            path_in_hierarchy = self._get_path_in_hierarchy(
+                syllabus_topic.is_cumulative, syllabus_topic.state,
+                syllabus_topic.subject, syllabus_topic.name)
+            file_path = self._get_file_path(self._base_path, path_in_hierarchy)
+            weight = self._get_weight_based_on_hierarchies(path_in_hierarchy)
+            topic_file = TopicFile(syllabus_topic, file_path, weight,
+                                   formulas_by_topic)
             yield topic_file
+
+    def _get_path_in_hierarchy(self, is_cumulative_by_year: bool, state: str,
+                               subject: str, syllabus_topic: str) -> str:
+        if is_cumulative_by_year:
+            time_frame_portion_of_path = 'By year cumulative'
+        else:
+            time_frame_portion_of_path = 'By year'
+        return os.path.sep.join([
+            state,
+            subject,
+            'Topics',
+            time_frame_portion_of_path,
+            syllabus_topic])
+
+    def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:
+        return base_dir + os.path.sep + path_in_hierarchy + '.md'
+
+    def _get_weight_based_on_hierarchies(self, path: str) -> int:
+        weight = self._hierarchies.get_sort_index_in_parent_path(
+            path) + 1
+        return weight
 
 
 class FrontMatter():
