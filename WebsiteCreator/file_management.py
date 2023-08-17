@@ -4,7 +4,8 @@
 
 import os
 from site_hierarchies import SiteHierarchies
-from formula_tables import FormulaTable, formula_table_types
+from formula_tables import (FormulaTable, FormulaTableType,
+                            FormulaTableTypeSimple, formula_table_types)
 from site_content import Syllabus, Formulas, SyllabusTopic
 
 
@@ -65,6 +66,8 @@ class IndexFile():
         self._markdown_content = _MarkdownContent(hierarchies,
                                                   path_in_hierarchy,
                                                   file_path)
+        self._markdown_content.add_front_matter_property(
+            'bookCollapseSection', 'true')
 
     def _get_file_path(self, base_dir, path_in_hierarchy):
         """returns file path"""
@@ -73,10 +76,21 @@ class IndexFile():
             + path_in_hierarchy + os.path.sep
             + '_index.md')
 
-    @property
-    def markdown_content(self) -> _MarkdownContent:
+    def save(self) -> None:
         """Returns the markdown_content object"""
-        return self._markdown_content
+        return self._markdown_content.save()
+
+
+class IndexFiles():
+
+    def __init__(self, base_path: str, hierarchies: SiteHierarchies) -> None:
+        self._base_path = base_path
+        self._hierarchies = hierarchies
+
+    def iterate(self):
+        for path in self._hierarchies.all_path_levels:
+            index_file = IndexFile(self._hierarchies, path, self._base_path)
+            yield index_file
 
 
 class FormulaFile():
@@ -90,14 +104,13 @@ class FormulaFile():
         self._markdown_content = _MarkdownContent(hierarchies,
                                                   path_in_hierarchy,
                                                   file_path)
-        self.markdown_content.add_content(formula_table.to_markdown())
+        self._markdown_content.add_content(formula_table.to_markdown())
 
     def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:
         return base_dir + os.path.sep + path_in_hierarchy + '.md'
 
-    @property
-    def markdown_content(self) -> _MarkdownContent:
-        return self._markdown_content
+    def save(self):
+        self._markdown_content.save()
 
     def _get_path_in_hierarchy(self, formula_table: FormulaTable,
                                is_cumulative_by_year: bool) -> str:
@@ -112,6 +125,34 @@ class FormulaFile():
             formula_table.table_type.content_type,
             time_frame_portion_of_path,
             formula_table.table_type.formula_menu_display_name])
+
+
+class FormulaFiles():
+
+    def __init__(self, base_path: str, hierarchies: SiteHierarchies,
+                 formulas: Formulas) -> None:
+        self._base_path = base_path
+        self._hierarchies = hierarchies
+        self._formulas = formulas
+
+    def iterate(self):
+        for current_table_type in formula_table_types:
+            group_by_cols = self._column_groups(current_table_type)
+            for formula_group in self._formulas.group_by_columns(
+                    group_by_cols):
+                formula_table = FormulaTable(formula_group, current_table_type)
+                if formula_table.contains_content:
+                    formula_file = FormulaFile(self._hierarchies,
+                                               self._base_path,
+                                               self._formulas.is_cumulative,
+                                               formula_table)
+                    yield formula_file
+
+    def _column_groups(self, table_type: type[FormulaTableType]
+                       ) -> list[str]:
+        if table_type == FormulaTableTypeSimple:
+            return ['State', 'Subject', 'Category']
+        return ['State', 'Subject']
 
 
 class TopicFile():

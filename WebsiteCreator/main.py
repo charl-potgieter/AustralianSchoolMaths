@@ -6,11 +6,8 @@ import os
 import shutil
 import typing
 from data_sources import DataSource
-from file_management import (SiteHierarchies, IndexFile,  FormulaFile,
+from file_management import (SiteHierarchies, IndexFiles,  FormulaFiles,
                              TopicFiles)
-from formula_tables import (formula_table_types, FormulaTable,
-                            FormulaTableTypeSimple, FormulaTableTypeCalculus,
-                            FormulaTableTypeFinancial)
 from site_content import Formulas, Syllabus
 
 
@@ -46,28 +43,16 @@ def _delete_directory_if_it_exists(dir_to_delete: str) -> None:
 
 def create_index_files(docs_dir: str, hierarchies: SiteHierarchies) -> None:
     """Recursively create _index.md file at each level of hieararchies"""
-    for path in hierarchies.all_path_levels:
-        index_file = IndexFile(hierarchies, path, docs_dir)
-        index_file.markdown_content.add_front_matter_property(
-            'bookCollapseSection', 'true')
-        index_file.markdown_content.save()
+    index_files = IndexFiles(docs_dir, hierarchies)
+    for index_file in index_files.iterate():
+        index_file.save()
 
 
 def create_formula_pages(docs_dir: str, hierarchies: SiteHierarchies,
                          formulas: Formulas) -> None:
-
-    for current_table_type in formula_table_types:
-        if current_table_type == FormulaTableTypeSimple:
-            group_by_cols = ['State', 'Subject', 'Category']
-        else:
-            group_by_cols = ['State', 'Subject']
-        for formula_group in formulas.group_by_columns(group_by_cols):
-            formula_table = FormulaTable(formula_group, current_table_type)
-            if formula_table.contains_content:
-                formula_file = FormulaFile(hierarchies, docs_dir,
-                                           formulas.is_cumulative,
-                                           formula_table)
-                formula_file.markdown_content.save()
+    formula_files = FormulaFiles(docs_dir, hierarchies, formulas)
+    for formula_file in formula_files.iterate():
+        formula_file.save()
 
 
 def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
