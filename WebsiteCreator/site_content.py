@@ -194,6 +194,22 @@ class Formulas(_SiteContent):
         return proofs_required
 
 
+class Definition():
+    """Single definition object consisting of term name and definition only"""
+
+    def __init__(self, term: str, definition: str):
+        self._term = term
+        self._definition = definition
+
+    @property
+    def term(self) -> str:
+        return self._term
+
+    @property
+    def definition(self) -> str:
+        return self._definition
+
+
 class Definitions(_SiteContent):
 
     _data_structure = {'State': 'object',
@@ -201,4 +217,11 @@ class Definitions(_SiteContent):
                        'Syllabus_topic': 'object',
                        'Syllabus_subtopic_code': 'object',
                        'Syllabus_subtopic': 'object',
+                       'Term': 'object',
                        'Definition': 'object'}
+
+    @property
+    def definitions(self) -> Generator[Definition, None, None]:
+        for item in self._data.itertuples():
+            current_definition = Definition(item.Term, item.Definition)
+            yield current_definition

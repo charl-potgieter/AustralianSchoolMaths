@@ -6,6 +6,7 @@ import os
 from site_hierarchies import SiteHierarchies
 from formula_tables import (FormulaTable, FormulaTableType,
                             FormulaTableTypeSimple, formula_table_types)
+from definition_display import DefinitionDisplay
 from site_content import Syllabus, Formulas, SyllabusTopic, Definitions
 
 
@@ -192,10 +193,10 @@ class TopicFile():
         )
 
     def _add_definitions(self, definitions_by_subtopic: Definitions) -> None:
-        # ToDo need to complete
         if len(definitions_by_subtopic.data):
-            self._markdown_content.add_content('### Definitions')
-            self._markdown_content.add_content('need to add definitions here')
+            definition_display = DefinitionDisplay(definitions_by_subtopic)
+            self._markdown_content.add_content(
+                definition_display.to_markdown_with_heading())
 
     def _add_formula_tables(self, formulas_by_subtopic: Formulas) -> None:
         for table_type in formula_table_types:

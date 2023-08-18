@@ -2,14 +2,13 @@
 # pylint: disable=missing-class-docstring
 # pylint: disable=missing-function-docstring
 
-
-from enum import Enum
-import uuid
 import typing
+from enum import Enum
 from abc import ABC, abstractmethod
 import pandas as pd
 from pandas.io.formats.style import Styler
 from site_content import Formulas
+from page_structure import PageTabs
 
 
 class FormulaTableType(ABC):
@@ -400,26 +399,6 @@ class _StyledTable():
         self._table = self._table.applymap(
             func=lambda x: format_value if x in value_list else default_value,
             subset=columns_to_highlight, )
-
-
-class PageTabs():
-    """Manages page tabs for Hugo wesite creation"""
-
-    def __init__(self):
-        self._tabs = {}
-
-    def add_tab(self, tab_name: str, tab_content: str) -> None:
-        self._tabs[tab_name] = tab_content
-
-    def to_markdown(self) -> str:
-        unique_id = str(uuid.uuid4())
-        return_value = '{{< tabs "' + unique_id + '" >}}'
-        for tab_name, tab_content in self._tabs.items():
-            return_value += '\n\n{{< tab "' + tab_name + '" >}}\n\n'
-            return_value += tab_content
-            return_value += '{{< /tab >}}'
-        return_value += '\n{{< /tabs >}}'
-        return return_value
 
 
 formula_table_types = (FormulaTableTypeSimple,

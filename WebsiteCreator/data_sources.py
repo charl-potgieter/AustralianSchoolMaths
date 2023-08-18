@@ -159,5 +159,6 @@ class DataSource():
         # Re-order cols
         return_value = return_value[['State', 'Subject', 'Syllabus_topic',
                                      'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic', 'Definition']]
+                                     'Syllabus_subtopic', 'Term',
+                                     'Definition']]
         return return_value
