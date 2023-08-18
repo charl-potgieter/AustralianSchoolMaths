@@ -1,11 +1,6 @@
 *.xlsx
 *.xlsm
 *.xlam
-*.pdf
-*.jpeg
-*.JPEG
-*.jpg
-*.JPG
 *test*
 *TEST*
 *Test*

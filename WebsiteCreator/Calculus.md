@@ -5,13 +5,16 @@ weight: 3
 ## Differential Calculus
 <br><br>
 
-blah
-
 ![image](/images/dog.jpg)
 
 ![image](/dog.jpg)
 
-blah
+![image](images/dog.jpg)
+
+![image](dog.jpg)
+
+<img src='/dog.jpg'>
+
 
 
 ## Applications of Differentiation
