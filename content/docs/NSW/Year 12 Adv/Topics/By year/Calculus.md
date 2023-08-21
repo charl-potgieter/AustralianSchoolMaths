@@ -5,19 +5,8 @@ weight: 3
 ## Differential Calculus
 <br><br>
 
-blah
-
-![image](/images/dog.jpg)
-
-![image](/dog.jpg)
-
-blah
-
-
 ## Applications of Differentiation
 <br><br>
 
 ## Integral Calculus
 <br><br>
-
-
