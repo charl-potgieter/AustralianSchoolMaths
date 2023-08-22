@@ -3,10 +3,9 @@
 # pylint: disable=missing-function-docstring
 
 from enum import Enum
-import matplotlib.pyplot as plt
 from typing import cast, Any
+import matplotlib.pyplot as plt
 import numpy as np
-import numpy.typing as npt
 import sympy as sp
 plt.style.use('classic')
 
@@ -45,36 +44,24 @@ class _Domain():
 
 class _DataPoints():
 
-    def __init__(self, domain: _Domain, expresion: sp.Expr,
-                 number_of_points: int):
+    def __init__(self, domain: _Domain, x_symbol: sp.Symbol,
+                 expresion: sp.Expr | None, number_of_data_points: int):
         self._domain = domain
         self._expression = expresion
-        self._number_of_points = number_of_points
+        self._number_of_points = number_of_data_points
+        self._x = x_symbol
 
+    @property
     def x_values(self) -> list[float]:
         return np.linspace(
             cast(Any, self._domain.min),
             cast(Any, self._domain.max),
             self._number_of_points)
 
-
-class Values():
-
-    def __init__(self, domain: _Domain, number_of_points: int,
-                 fn: sp.Expr, x: sp.Symbol):
-        self._domain = domain
-        self._number_of_points = number_of_points
-        self._fn = fn
-        self._x = x
-
     @property
-    def x_values(self):
-        return np.linspace(self._domain.min, self._domain.max,
-                           self._number_of_points)
-
-    def y_values(self):
-        f = sp.lambdify(self._x, self._fn, "numpy")
-        return f(self.x_values)
+    def y_values(self) -> list[float]:
+        graph_function = sp.lambdify(self._x, self._expression, "numpy")
+        return graph_function(self.x_values)
 
 
 class _XAxis():
@@ -150,12 +137,13 @@ class Graph():
 
     def __init__(self):
         self._domain = _Domain()
-        self._data_points = _DataPoints()
         self._values = None
         self._x_axis = None
         self._ticks = None
         self._canvas = _Canvas()
         self._expression = None
+        self._number_of_data_points = 500
+        self._x = sp.symbols('x')
 
     @property
     def domain(self) -> _Domain:
@@ -170,11 +158,22 @@ class Graph():
         return self._expression
 
     @expression.setter
-    def expression(self, value: str | sp.Expr) -> None:
-        if isinstance(value, str):
-            self._expression = sp.Expr(sp.sympify(value))
-        else:
-            self._expression = value
+    def expression(self, value: sp.Expr) -> None:
+        self._expression = value
+
+    @property
+    def number_of_data_points(self) -> int:
+        return self._number_of_data_points
+
+    @number_of_data_points.setter
+    def number_of_data_points(self, value: int) -> None:
+        self._number_of_data_points = value
+
+    def create(self):
+        data_points = _DataPoints(self._domain, self._x, self._expression,
+                                  self._number_of_data_points)
+        print(data_points.x_values)
+        print(data_points.y_values)
 
 
 # class _GraphCore():
