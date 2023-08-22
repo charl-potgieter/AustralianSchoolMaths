@@ -4,7 +4,9 @@
 
 from enum import Enum
 import matplotlib.pyplot as plt
+from typing import cast, Any
 import numpy as np
+import numpy.typing as npt
 import sympy as sp
 plt.style.use('classic')
 
@@ -14,29 +16,70 @@ class TickMarkType(Enum):
     DEGREES = 2
 
 
-class GraphDomain():
+class _Domain():
 
-    def __init__(self, domain_min: float, domain_max: float):
-        self._domain_min = domain_min
-        self._domain_max = domain_max
-        self._interval = sp.Interval(domain_min, domain_max)
-
-    @property
-    def interval(self):
-        return self._interval
+    def __init__(self):
+        self._domain_min = None
+        self._domain_max = None
 
     @property
-    def min(self) -> float:
+    def min(self) -> float | None:
         return self._domain_min
 
+    @min.setter
+    def min(self, value) -> None:
+        self._domain_min = value
+
     @property
-    def max(self) -> float:
+    def max(self) -> float | None:
         return self._domain_max
 
+    @max.setter
+    def max(self, value) -> None:
+        self._domain_max = value
 
-class GraphXAxis():
+    @property
+    def interval(self) -> sp.Interval:
+        return sp.Interval(self._domain_min, self._domain_max)
 
-    def __init__(self, domain: GraphDomain,
+
+class _DataPoints():
+
+    def __init__(self, domain: _Domain, expresion: sp.Expr,
+                 number_of_points: int):
+        self._domain = domain
+        self._expression = expresion
+        self._number_of_points = number_of_points
+
+    def x_values(self) -> list[float]:
+        return np.linspace(
+            cast(Any, self._domain.min),
+            cast(Any, self._domain.max),
+            self._number_of_points)
+
+
+class Values():
+
+    def __init__(self, domain: _Domain, number_of_points: int,
+                 fn: sp.Expr, x: sp.Symbol):
+        self._domain = domain
+        self._number_of_points = number_of_points
+        self._fn = fn
+        self._x = x
+
+    @property
+    def x_values(self):
+        return np.linspace(self._domain.min, self._domain.max,
+                           self._number_of_points)
+
+    def y_values(self):
+        f = sp.lambdify(self._x, self._fn, "numpy")
+        return f(self.x_values)
+
+
+class _XAxis():
+
+    def __init__(self, domain: _Domain,
                  percent_buffer_over_domain: float = 0.1,):
         self._domain = domain
         self._percent_buffer_over_domain = percent_buffer_over_domain
@@ -52,13 +95,13 @@ class GraphXAxis():
         return (x_lim_min, x_lim_max)
 
 
-class GraphTicks():
+class _Ticks():
 
-    def __init__(self, tick_values:sp.Set, tick_mark_type:TickMarkType):
+    def __init__(self, tick_values: sp.Set, tick_mark_type: TickMarkType):
         self.__tick_values = tick_values
         self._tick_mark_type = tick_mark_type
 
-    def _format_tick_mark(self, tick_value, tick_position)->str:
+    def _format_tick_mark(self, tick_value, tick_position) -> str:
         _ = tick_position  # Required by matplotlib but not needed here
         if self._tick_mark_type == TickMarkType.DEGREES:
             degree_equivalant = sp.deg(tick_value)
@@ -71,175 +114,228 @@ class GraphTicks():
         return ("$" + latex_equivalent + "$")
 
 
-class GraphCanvas():
+class _Canvas():
 
-    def __init__(self, width:float, height:float, label:str):
-        self._width = width
-        self._height = height
-        self._label = label
-
-
-
-class _GraphCore():
-
-    def __init__(self, points_to_plot: int = 1000):
-
-        self.points_to_plot = points_to_plot
-
-
-        self._graph_figure = self._setup_graph_figure(fig_width, fig_height)
-        self._graph_axes = self._setup_graph_axes()
-        self.set_x_ticks()
-        self.set_y_ticks()
-
-    def set_x_plots(self, x_values: list[float]):
-        '''Set x plots'''
-        self.x_plots = x_values
-
-    def set_y_plots(self, y_values: list[float]):
-        '''Set y plots'''
-        self.y _plots = y_values
+    def __init__(self):
+        self._width = None
+        self._height = None
+        self._label = None
 
     @property
-    def _y_limits(self) -> tuple[float]:
-        y_range = max(self.y_plots) - min(self.y_plots)
+    def width(self) -> float | None:
+        return self._width
 
-        # Cover scenerio where no graph or graph paralell to x-axis
-        if y_range == 0:
-            return (self._x_limits)
+    @width.setter
+    def width(self, value: float) -> None:
+        self._width = value
+
+    @property
+    def height(self) -> float | None:
+        return self._height
+
+    @height.setter
+    def height(self, value: float) -> None:
+        self._height = value
+
+    @property
+    def label(self) -> str | None:
+        return self._label
+
+    @label.setter
+    def label(self, value: str) -> None:
+        self._label = value
+
+
+class Graph():
+
+    def __init__(self):
+        self._domain = _Domain()
+        self._data_points = _DataPoints()
+        self._values = None
+        self._x_axis = None
+        self._ticks = None
+        self._canvas = _Canvas()
+        self._expression = None
+
+    @property
+    def domain(self) -> _Domain:
+        return self._domain
+
+    @property
+    def canvas(self) -> _Canvas:
+        return self._canvas
+
+    @property
+    def expression(self) -> sp.Expr | None:
+        return self._expression
+
+    @expression.setter
+    def expression(self, value: str | sp.Expr) -> None:
+        if isinstance(value, str):
+            self._expression = sp.Expr(sp.sympify(value))
         else:
-            y_lim_min = min(self.y_plots) - (y_range *
-                                             self.graph_buffer_over_domain)
-            y_lim_max = max(self.y_plots) + (y_range *
-                                             self.graph_buffer_over_domain)
-            return (y_lim_min, y_lim_max)
+            self._expression = value
 
 
+# class _GraphCore():
 
-    def _AddlegendInBbox(self, ax, x0=0, y0=0, pad=0.5, **kwargs):
-        '''Creates legend in a box for matplotlib'''
+#     def __init__(self, points_to_plot: int = 1000):
 
-        # Adapted from here
-        # https://stackoverflow.com/questions/47539628/showing-legend-under-matplotlib-plot-with-varying-number-of-plots
-        otrans = ax.figure.transFigure
-        t = ax.legend(bbox_to_anchor=(x0, y0), loc='lower left',
-                      bbox_transform=otrans, frameon=False, fontsize='x-large', **kwargs)
-        # ax.figure.tight_layout(pad=pad)
-        ax.figure.canvas.draw()
-        tbox = t.get_window_extent().transformed(ax.figure.transFigure.inverted())
-        bbox = ax.get_position()
-        ax.set_position([bbox.x0, bbox.y0+tbox.height,
-                        bbox.width, bbox.height-tbox.height])
-
-    def _setup_graph_figure(self, fig_width, fig_height):
-        '''returns a hidden matlpotlib figure containing one axes'''
-        fig = plt.figure()
-        fig.set_size_inches(fig_width, fig_height)
-        fig.set_visible(False)
-        return (fig)
-
-    def _setup_graph_axes(self):
-        '''Sets up a single axis on self._graph_figure and moves spine to origin'''
-        ax = self._graph_figure.add_axes([0, 0, 1, 1])
-
-        # making the top and right spine invisible:
-        ax.spines['top'].set_color('none')
-        ax.spines['right'].set_color('none')
-
-        # moving bottom spine up to y=0 position:
-        ax.xaxis.set_ticks_position('bottom')
-        ax.spines['bottom'].set_position(('data', 0))
-
-        # moving left spine to the right to position x == 0:b
-        ax.yaxis.set_ticks_position('left')
-        ax.spines['left'].set_position(('data', 0))
-
-        return (ax)
-
-    def _plot_graphs(self):
-        '''Plots the graph on the axes'''
-        ax = self._graph_axes
-
-        # f(x)
-        ax.plot(self.x_plots, self.y_plots,
-                color='blue',
-                label=self.graph_label)
-
-        # -f(x)
-        # Need to make this conditional on choice of flag.  Move these y-plot calcs to a seperate
-        # property / method.  Need to make this calcualtion / display conditional on an init
-        # parameter
-        minus = [-x for x in self.y_plots]
-        ax.plot(self.x_plots, minus,
-                color='red',
-                label='TBA')
-
-    def _apply_axis_formatting(self):
-        '''Applies axes formatting'''
-        ax = self._graph_axes
-        ax.xaxis.set_major_formatter(
-            plt.FuncFormatter(self._format_x_tick_mark))
-        ax.yaxis.set_major_formatter(
-            plt.FuncFormatter(self._format_y_tick_mark))
-        # ax.plot(self.x_plots, self.y_plots ,
-        #         color = 'blue',
-        #         label = self.graph_label)
-        ax.legend(loc='upper right', frameon=False, fontsize='x-large')
-        ax.set(
-            xlim=self._x_limits(),
-            ylim=self._y_limits(),
-            xticks=self.x_ticks_floats,
-            yticks=self.y_ticks_floats
-        )
-        self._AddlegendInBbox(ax, borderaxespad=5)
-
-    def display(self):
-        '''Displays the graph'''
-        self._plot_graphs()
-        self._apply_axis_formatting()
-        self._graph_figure.set_visible(True)
+#         self.points_to_plot = points_to_plot
 
 
-class graph_function():
+#         self._graph_figure = self._setup_graph_figure(fig_width, fig_height)
+#         self._graph_axes = self._setup_graph_axes()
+#         self.set_x_ticks()
+#         self.set_y_ticks()
 
-    def __init__(self,
-                 fn,  # where fn is a sympy expression
-                 # Sympy set for example an interval
-                 domain_set=sp.Interval(-10, 10),
-                 points_to_plot=1000, fig_width=10, fig_height=10, set_ticks_equal_intercepts=True,
-                 x_tick_mark_type='standard', y_tick_mark_type='standard', graph_buffer_over_domain=0.1, graph_label=None):
-        '''Graph function inits with the same parameters as graph with the addition of the function parameter'''
+#     def set_x_plots(self, x_values: list[float]):
+#         '''Set x plots'''
+#         self.x_plots = x_values
 
-        self.fn = fn
-        self.x = sp.Symbol('x', real=True)
-        self.y = sp.Symbol('y', real=True)
+#     def set_y_plots(self, y_values: list[float]):
+#         '''Set y plots'''
+#         self.y _plots = y_values
 
-        if graph_label is None:
-            graph_label = '$ f(x) = ' + sp.latex(self.fn) + '$'
-            # use dfrac rather than frac to ensure raction characters are full size
-            graph_label = graph_label.replace('\frac', '\dfrac')
+#     @property
+#     def _y_limits(self) -> tuple[float]:
+#         y_range = max(self.y_plots) - min(self.y_plots)
 
-        self._graph = _GraphCore(
-            domain_set=domain_set,
-            points_to_plot=points_to_plot,
-            fig_width=fig_width,
-            fig_height=fig_height,
-            x_tick_mark_type=x_tick_mark_type,
-            y_tick_mark_type=y_tick_mark_type,
-            graph_buffer_over_domain=graph_buffer_over_domain,
-            graph_label=graph_label)
+#         # Cover scenerio where no graph or graph paralell to x-axis
+#         if y_range == 0:
+#             return (self._x_limits)
+#         else:
+#             y_lim_min = min(self.y_plots) - (y_range *
+#                                              self.graph_buffer_over_domain)
+#             y_lim_max = max(self.y_plots) + (y_range *
+#                                              self.graph_buffer_over_domain)
+#             return (y_lim_min, y_lim_max)
 
-        self._graph.set_x_plots(self._calc_x_plots())
-        self._graph.set_y_plots(self._calc_y_plots(points_to_plot))
 
-        # Get intercepts in sympy numeric format
-        intercepts = graph_axes_intercepts(fn, domain_set)
-        self.x_intercepts = intercepts.x_intercepts
-        self.y_intercepts = intercepts.y_intercepts
+#     def _AddlegendInBbox(self, ax, x0=0, y0=0, pad=0.5, **kwargs):
+#         '''Creates legend in a box for matplotlib'''
 
-        if set_ticks_equal_intercepts:
-            self._graph.set_x_ticks(self.x_intercepts)
-            self._graph.set_y_ticks(self.y_intercepts)
+#         # Adapted from here
+#         # https://stackoverflow.com/questions/47539628/showing-legend-under-matplotlib-plot-with-varying-number-of-plots
+#         otrans = ax.figure.transFigure
+#         t = ax.legend(bbox_to_anchor=(x0, y0), loc='lower left',
+#                       bbox_transform=otrans, frameon=False, fontsize='x-large', **kwargs)
+#         # ax.figure.tight_layout(pad=pad)
+#         ax.figure.canvas.draw()
+#         tbox = t.get_window_extent().transformed(ax.figure.transFigure.inverted())
+#         bbox = ax.get_position()
+#         ax.set_position([bbox.x0, bbox.y0+tbox.height,
+#                         bbox.width, bbox.height-tbox.height])
+
+#     def _setup_graph_figure(self, fig_width, fig_height):
+#         '''returns a hidden matlpotlib figure containing one axes'''
+#         fig = plt.figure()
+#         fig.set_size_inches(fig_width, fig_height)
+#         fig.set_visible(False)
+#         return (fig)
+
+#     def _setup_graph_axes(self):
+#         '''Sets up a single axis on self._graph_figure and moves spine to origin'''
+#         ax = self._graph_figure.add_axes([0, 0, 1, 1])
+
+#         # making the top and right spine invisible:
+#         ax.spines['top'].set_color('none')
+#         ax.spines['right'].set_color('none')
+
+#         # moving bottom spine up to y=0 position:
+#         ax.xaxis.set_ticks_position('bottom')
+#         ax.spines['bottom'].set_position(('data', 0))
+
+#         # moving left spine to the right to position x == 0:b
+#         ax.yaxis.set_ticks_position('left')
+#         ax.spines['left'].set_position(('data', 0))
+
+#         return (ax)
+
+#     def _plot_graphs(self):
+#         '''Plots the graph on the axes'''
+#         ax = self._graph_axes
+
+#         # f(x)
+#         ax.plot(self.x_plots, self.y_plots,
+#                 color='blue',
+#                 label=self.graph_label)
+
+#         # -f(x)
+#         # Need to make this conditional on choice of flag.  Move these y-plot calcs to a seperate
+#         # property / method.  Need to make this calcualtion / display conditional on an init
+#         # parameter
+#         minus = [-x for x in self.y_plots]
+#         ax.plot(self.x_plots, minus,
+#                 color='red',
+#                 label='TBA')
+
+#     def _apply_axis_formatting(self):
+#         '''Applies axes formatting'''
+#         ax = self._graph_axes
+#         ax.xaxis.set_major_formatter(
+#             plt.FuncFormatter(self._format_x_tick_mark))
+#         ax.yaxis.set_major_formatter(
+#             plt.FuncFormatter(self._format_y_tick_mark))
+#         # ax.plot(self.x_plots, self.y_plots ,
+#         #         color = 'blue',
+#         #         label = self.graph_label)
+#         ax.legend(loc='upper right', frameon=False, fontsize='x-large')
+#         ax.set(
+#             xlim=self._x_limits(),
+#             ylim=self._y_limits(),
+#             xticks=self.x_ticks_floats,
+#             yticks=self.y_ticks_floats
+#         )
+#         self._AddlegendInBbox(ax, borderaxespad=5)
+
+#     def display(self):
+#         '''Displays the graph'''
+#         self._plot_graphs()
+#         self._apply_axis_formatting()
+#         self._graph_figure.set_visible(True)
+
+
+# class graph_function():
+
+#     def __init__(self,
+#                  fn,  # where fn is a sympy expression
+#                  # Sympy set for example an interval
+#                  domain_set=sp.Interval(-10, 10),
+#                  points_to_plot=1000, fig_width=10, fig_height=10, set_ticks_equal_intercepts=True,
+#                  x_tick_mark_type='standard', y_tick_mark_type='standard', graph_buffer_over_domain=0.1, graph_label=None):
+#         '''Graph function inits with the same parameters as graph with the addition of the function parameter'''
+
+#         self.fn = fn
+#         self.x = sp.Symbol('x', real=True)
+#         self.y = sp.Symbol('y', real=True)
+
+#         if graph_label is None:
+#             graph_label = '$ f(x) = ' + sp.latex(self.fn) + '$'
+#             # use dfrac rather than frac to ensure raction characters are full size
+#             graph_label = graph_label.replace('\frac', '\dfrac')
+
+#         self._graph = _GraphCore(
+#             domain_set=domain_set,
+#             points_to_plot=points_to_plot,
+#             fig_width=fig_width,
+#             fig_height=fig_height,
+#             x_tick_mark_type=x_tick_mark_type,
+#             y_tick_mark_type=y_tick_mark_type,
+#             graph_buffer_over_domain=graph_buffer_over_domain,
+#             graph_label=graph_label)
+
+#         self._graph.set_x_plots(self._calc_x_plots())
+#         self._graph.set_y_plots(self._calc_y_plots(points_to_plot))
+
+#         # Get intercepts in sympy numeric format
+#         intercepts = graph_axes_intercepts(fn, domain_set)
+#         self.x_intercepts = intercepts.x_intercepts
+#         self.y_intercepts = intercepts.y_intercepts
+
+#         if set_ticks_equal_intercepts:
+#             self._graph.set_x_ticks(self.x_intercepts)
+#             self._graph.set_y_ticks(self.y_intercepts)
 
 #     def _discontinuities(self):
 #         if self.fn.is_constant():
