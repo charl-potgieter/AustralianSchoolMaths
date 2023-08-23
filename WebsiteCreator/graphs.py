@@ -4,7 +4,10 @@
 
 from enum import Enum
 from typing import cast, Any
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.spines import Spines
+from matplotlib.axes import Axes
 import numpy as np
 import sympy as sp
 plt.style.use('classic')
@@ -64,6 +67,17 @@ class _DataPoints():
         return graph_function(self.x_values)
 
 
+class _Spines():
+
+    def __init__(self, spines: Spines):
+        self._spines = spines
+
+    def move_to_centre(self):
+        """Centres spines at zero on x and y-axis"""
+        self._spines[["left", "bottom"]].set_position(("data", 0))
+        self._spines[["top", "right"]].set_visible(False)
+
+
 class _XAxis():
 
     def __init__(self, domain: _Domain,
@@ -101,15 +115,14 @@ class _Ticks():
         return ("$" + latex_equivalent + "$")
 
 
-class _Canvas():
+class _Dimensions():
 
     def __init__(self):
-        self._width = None
-        self._height = None
-        self._label = None
+        self._width = 20
+        self._height = 20
 
     @property
-    def width(self) -> float | None:
+    def width(self) -> float:
         return self._width
 
     @width.setter
@@ -117,30 +130,24 @@ class _Canvas():
         self._width = value
 
     @property
-    def height(self) -> float | None:
+    def height(self) -> float:
         return self._height
 
     @height.setter
     def height(self, value: float) -> None:
         self._height = value
 
-    @property
-    def label(self) -> str | None:
-        return self._label
 
-    @label.setter
-    def label(self, value: str) -> None:
-        self._label = value
+class _SingleAxes():
+    """A simpler purpose specfic wrapper for Matplotlib axes"""
 
-
-class Graph():
-
-    def __init__(self):
+    def __init__(self, axes: Axes):
+        self._axes = axes
         self._domain = _Domain()
-        self._values = None
-        self._x_axis = None
+        self._display_buffer_over_domain = 0.1
+        self._spines = _Spines(axes.spines)
+        self._spines.move_to_centre()
         self._ticks = None
-        self._canvas = _Canvas()
         self._expression = None
         self._number_of_data_points = 500
         self._x = sp.symbols('x')
@@ -150,8 +157,12 @@ class Graph():
         return self._domain
 
     @property
-    def canvas(self) -> _Canvas:
-        return self._canvas
+    def display_buffer_over_domain(self):
+        return self._display_buffer_over_domain
+
+    @display_buffer_over_domain.setter
+    def display_buffer_over_domain(self, value: float):
+        self._display_buffer_over_domain = value
 
     @property
     def expression(self) -> sp.Expr | None:
@@ -172,8 +183,96 @@ class Graph():
     def create(self):
         data_points = _DataPoints(self._domain, self._x, self._expression,
                                   self._number_of_data_points)
-        print(data_points.x_values)
-        print(data_points.y_values)
+        self._axes.plot(data_points.x_values, data_points.y_values,
+                        color='red')
+
+
+class Figure():
+    """A simpler purpose specfic wrapper for Matplotlib figure"""
+
+    def __init__(self):
+        self._figure = plt.figure()
+        self._dimensions = _Dimensions()
+        # TODO consider changing to allow multiple Axes in plot need dependent
+        axes = self._figure.add_axes([0, 0, 1, 1])
+        self._axes = _SingleAxes(axes)
+
+    @property
+    def axes(self) -> _SingleAxes:
+        return self._axes
+
+    def render(self):
+        self._figure.set_figheight(self._dimensions.height)
+        self._figure.set_figwidth(self._dimensions.width)
+        self._axes.create()
+
+    # def _setup_graph_figure(self, fig_width, fig_height):
+    #     '''returns a hidden matlpotlib figure containing one axes'''
+    #     fig = plt.figure()
+    #     fig.set_size_inches(fig_width, fig_height)
+    #     fig.set_visible(False)
+    #     return (fig)
+
+    # def _setup_graph_axes(self):
+    #     '''Sets up a single axis on self._graph_figure and moves spine to origin'''
+    #     ax = self._graph_figure.add_axes([0, 0, 1, 1])
+
+    #     # making the top and right spine invisible:
+    #     ax.spines['top'].set_color('none')
+    #     ax.spines['right'].set_color('none')
+
+    #     # moving bottom spine up to y=0 position:
+    #     ax.xaxis.set_ticks_position('bottom')
+    #     ax.spines['bottom'].set_position(('data', 0))
+
+    #     # moving left spine to the right to position x == 0:b
+    #     ax.yaxis.set_ticks_position('left')
+    #     ax.spines['left'].set_position(('data', 0))
+
+    #     return (ax)
+
+    # def _plot_graphs(self):
+    #     '''Plots the graph on the axes'''
+    #     ax = self._graph_axes
+
+    #     # f(x)
+    #     ax.plot(self.x_plots, self.y_plots,
+    #             color='blue',
+    #             label=self.graph_label)
+
+    #     # -f(x)
+    #     # Need to make this conditional on choice of flag.  Move these y-plot calcs to a seperate
+    #     # property / method.  Need to make this calcualtion / display conditional on an init
+    #     # parameter
+    #     minus = [-x for x in self.y_plots]
+    #     ax.plot(self.x_plots, minus,
+    #             color='red',
+    #             label='TBA')
+
+    # def _apply_axis_formatting(self):
+    #     '''Applies axes formatting'''
+    #     ax = self._graph_axes
+    #     ax.xaxis.set_major_formatter(
+    #         plt.FuncFormatter(self._format_x_tick_mark))
+    #     ax.yaxis.set_major_formatter(
+    #         plt.FuncFormatter(self._format_y_tick_mark))
+    #     # ax.plot(self.x_plots, self.y_plots ,
+    #     #         color = 'blue',
+    #     #         label = self.graph_label)
+    #     ax.legend(loc='upper right', frameon=False, fontsize='x-large')
+    #     ax.set(
+    #         xlim=self._x_limits(),
+    #         ylim=self._y_limits(),
+    #         xticks=self.x_ticks_floats,
+    #         yticks=self.y_ticks_floats
+    #     )
+    #     self._AddlegendInBbox(ax, borderaxespad=5)
+
+    # def display(self):
+    #     '''Displays the graph'''
+    #     self._plot_graphs()
+    #     self._apply_axis_formatting()
+    #     self._graph_figure.set_visible(True)
 
 
 # class _GraphCore():
