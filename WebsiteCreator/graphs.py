@@ -21,23 +21,23 @@ class TickMarkType(Enum):
 class _Domain():
 
     def __init__(self):
-        self._domain_min = None
-        self._domain_max = None
+        self._domain_min = -10
+        self._domain_max = 10
 
     @property
-    def min(self) -> float | None:
+    def min(self) -> float:
         return self._domain_min
 
     @min.setter
-    def min(self, value) -> None:
+    def min(self, value: float) -> None:
         self._domain_min = value
 
     @property
-    def max(self) -> float | None:
+    def max(self) -> float:
         return self._domain_max
 
     @max.setter
-    def max(self, value) -> None:
+    def max(self, value: float) -> None:
         self._domain_max = value
 
     @property
@@ -45,14 +45,33 @@ class _Domain():
         return sp.Interval(self._domain_min, self._domain_max)
 
 
-class _DataPoints():
+class _Data():
 
-    def __init__(self, domain: _Domain, x_symbol: sp.Symbol,
-                 expresion: sp.Expr | None, number_of_data_points: int):
-        self._domain = domain
-        self._expression = expresion
-        self._number_of_points = number_of_data_points
-        self._x = x_symbol
+    def __init__(self):
+        self._domain = _Domain()
+        self._expression = None
+        self._number_of_points = 1000
+        self._x = sp.symbols('x')
+
+    @property
+    def domain(self):
+        return self._domain
+
+    @property
+    def expression(self) -> sp.Expr | None:
+        return self._expression
+
+    @expression.setter
+    def expression(self, value: sp.Expr):
+        self._expression = value
+
+    @property
+    def number_of_points(self) -> int:
+        return self._number_of_points
+
+    @number_of_points.setter
+    def number_of_points(self, value: int):
+        self._number_of_points = value
 
     @property
     def x_values(self) -> list[float]:
@@ -142,48 +161,47 @@ class _SingleAxes():
     """A simpler purpose specfic wrapper for Matplotlib axes"""
 
     def __init__(self, axes: Axes):
+        self._data = _Data()
         self._axes = axes
-        self._domain = _Domain()
-        self._display_buffer_over_domain = 0.1
+        self._display_buffer = 0.1  # percentage buffer over domain / range
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
         self._ticks = None
-        self._expression = None
-        self._number_of_data_points = 500
-        self._x = sp.symbols('x')
 
     @property
-    def domain(self) -> _Domain:
-        return self._domain
+    def data(self):
+        return self._data
 
     @property
-    def display_buffer_over_domain(self):
-        return self._display_buffer_over_domain
+    def display_buffer(self) -> float:
+        return self._display_buffer
 
-    @display_buffer_over_domain.setter
-    def display_buffer_over_domain(self, value: float):
-        self._display_buffer_over_domain = value
-
-    @property
-    def expression(self) -> sp.Expr | None:
-        return self._expression
-
-    @expression.setter
-    def expression(self, value: sp.Expr) -> None:
-        self._expression = value
+    @display_buffer.setter
+    def display_buffer(self, value: float):
+        self._display_buffer = value
 
     @property
-    def number_of_data_points(self) -> int:
-        return self._number_of_data_points
+    def _x_display_limits(self) -> tuple[float, float]:
+        x_min = (self.data.domain.min
+                 - abs(self.data.domain.min) * self.display_buffer)
+        x_max = (self.data.domain.max
+                 + self.data.domain.max * self.display_buffer)
 
-    @number_of_data_points.setter
-    def number_of_data_points(self, value: int) -> None:
-        self._number_of_data_points = value
+        return (x_min, x_max)
+
+    @property
+    def _y_display_limits(self) -> tuple[float, float]:
+        y_min = (min(self.data.y_values)
+                 - abs(min(self.data.y_values)) * self.display_buffer)
+        y_max = (max(self.data.y_values)
+                 + max(self.data.y_values) * self.display_buffer)
+        return (y_min, y_max)
 
     def create(self):
-        data_points = _DataPoints(self._domain, self._x, self._expression,
-                                  self._number_of_data_points)
-        self._axes.plot(data_points.x_values, data_points.y_values,
+        self._axes.set(xlim=self._x_display_limits,
+                       ylim=self._y_display_limits)
+
+        self._axes.plot(self._data.x_values, self._data.y_values,
                         color='red')
 
 
