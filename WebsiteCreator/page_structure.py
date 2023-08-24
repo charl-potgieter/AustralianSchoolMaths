@@ -20,7 +20,7 @@ class HiddenDetails():
             + self._visibile_section
             + '" open=false >}}\n'
             + self._hidden_section + '\n'
-            + '{{< /details >}}'
+            + '{{< /details >}}\n'
         )
 
 

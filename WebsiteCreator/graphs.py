@@ -63,18 +63,37 @@ class _Range():
         return sp.Interval(self.min, self.max)
 
 
-class PlotData():
+class _SeriesStyle():
+
+    def __init__(self):
+        self._colour = 'blue'
+
+    @property
+    def colour(self) -> Any:
+        return self._colour
+
+    @colour.setter
+    def colour(self, value: Any) -> None:
+        self._colour = value
+
+
+class DataSeries():
 
     def __init__(self):
         self._domain = _Domain()
         self._range = None
         self._expression = None
         self._number_of_points = 1000
+        self._series_style = _SeriesStyle()
         self._x = sp.symbols('x')
 
     @property
     def domain(self):
         return self._domain
+
+    @property
+    def style(self) -> _SeriesStyle:
+        return self._series_style
 
     @property
     def range(self):
@@ -109,16 +128,23 @@ class PlotData():
         graph_function = sp.lambdify(self._x, self._expression, "numpy")
         return graph_function(self.x_values)
 
+    @property
+    def label(self):
+        return_value = '$ f(x) = ' + sp.latex(self._expression) + '$'
+        return_value = return_value.replace(r'\frac', r'\dfrac')
+        return return_value
+
 
 class _DataSet():
 
     def __init__(self):
         self._data = []
 
-    def add(self, data: PlotData) -> None:
+    def add(self, data: DataSeries) -> None:
         self._data.append(data)
 
-    def data_items(self) -> Generator[PlotData, None, None]:
+    @property
+    def data_series_items(self) -> Generator[DataSeries, None, None]:
         for item in self._data:
             yield item
 
@@ -126,17 +152,17 @@ class _DataSet():
     def max_domain(self) -> float | None:
         """Returns the max of alll the domain maximums in the data set"""
         max_found = None
-        for data_item in self.data_items():
+        for data_series in self.data_series_items:
             if max_found is None:
-                max_found = data_item.domain.max
-            elif data_item.domain.max > max_found:
-                max_found = data_item.domain.max
+                max_found = data_series.domain.max
+            elif data_series.domain.max > max_found:
+                max_found = data_series.domain.max
         return max_found
 
     @property
     def min_domain(self) -> float | None:
         min_found = None
-        for data_item in self.data_items():
+        for data_item in self.data_series_items:
             if min_found is None:
                 min_found = data_item.domain.min
             elif data_item.domain.min < min_found:
@@ -146,7 +172,7 @@ class _DataSet():
     @property
     def max_range(self) -> float | None:
         max_found = None
-        for data_item in self.data_items():
+        for data_item in self.data_series_items:
             if max_found is None:
                 max_found = data_item.range.max
             elif data_item.range.max > max_found:
@@ -156,10 +182,10 @@ class _DataSet():
     @property
     def min_range(self) -> float | None:
         min_found = None
-        for data_item in self.data_items():
+        for data_item in self.data_series_items:
             if min_found is None:
                 min_found = data_item.range.min
-            elif data_item.range.min > min_found:
+            elif data_item.range.min < min_found:
                 min_found = data_item.range.min
         return min_found
 
@@ -221,16 +247,15 @@ class _SingleAxes():
     """A simpler purpose specfic wrapper for Matplotlib axes"""
 
     def __init__(self, axes: Axes):
-        self._data = PlotData()
+        self._data_set = _DataSet()
         self._axes = axes
         self._display_buffer = 0.1  # percentage buffer over domain / range
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
         self._ticks = None
 
-    @property
-    def data(self):
-        return self._data
+    def add_plot_data(self, plot_data: DataSeries) -> None:
+        self._data_set.add(plot_data)
 
     @property
     def display_buffer(self) -> float:
@@ -258,28 +283,30 @@ class _SingleAxes():
         self._axes.legend(framealpha=1, frameon=True)
 
     def _generate_plot(self):
-        self._axes.plot(self._data.x_values, self._data.y_values,
-                        color='red', label=self._plot_label)
+        for data_series in self._data_set.data_series_items:
+            self._axes.plot(data_series.x_values, data_series.y_values,
+                            color=data_series._series_style.colour,
+                            label=data_series.label)
 
     @property
     def _x_display_limits(self) -> tuple[float, float]:
-        x_range = self.data.domain.max - self.data.domain.min
-        x_min = self.data.domain.min - x_range * self.display_buffer
-        x_max = self.data.domain.max + x_range * self.display_buffer
+        if (self._data_set.max_domain is None
+                or self._data_set.min_domain is None):
+            return (0, 0)
+        x_interval = self._data_set.max_domain - self._data_set.min_domain
+        x_min = self._data_set.min_domain - x_interval * self.display_buffer
+        x_max = self._data_set.max_domain + x_interval * self.display_buffer
         return (x_min, x_max)
 
     @property
     def _y_display_limits(self) -> tuple[float, float]:
-        y_range = max(self.data.y_values) - min(self.data.y_values)
-        y_min = min(self.data.y_values) - y_range * self.display_buffer
-        y_max = max(self.data.y_values) + y_range * self.display_buffer
+        if (self._data_set.max_range is None
+                or self._data_set.min_range is None):
+            return (0, 0)
+        y_interval = self._data_set.max_range - self._data_set.min_range
+        y_min = self._data_set.min_range - y_interval * self.display_buffer
+        y_max = self._data_set.max_range + y_interval * self.display_buffer
         return (y_min, y_max)
-
-    @property
-    def _plot_label(self):
-        return_value = '$ f(x) = ' + sp.latex(self.data.expression) + '$'
-        return_value = return_value.replace(r'\frac', r'\dfrac')
-        return return_value
 
 
 class Figure():
@@ -304,6 +331,11 @@ class Figure():
     def render(self):
         self._apply_properties()
         self._axes.create()
+
+    def save(self, fname: str) -> None:
+        self._apply_properties()
+        self._axes.create()
+        self._figure.savefig(fname)
 
     # def _setup_graph_figure(self, fig_width, fig_height):
     #     '''returns a hidden matlpotlib figure containing one axes'''
