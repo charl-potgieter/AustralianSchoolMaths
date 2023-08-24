@@ -3,7 +3,7 @@
 # pylint: disable=missing-function-docstring
 
 from enum import Enum
-from typing import cast, Any
+from typing import cast, Any, Generator
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.spines import Spines
@@ -45,10 +45,29 @@ class _Domain():
         return sp.Interval(self._domain_min, self._domain_max)
 
 
-class _Data():
+class _Range():
+
+    def __init__(self, y_values: list[float]):
+        self._y_values = y_values
+
+    @property
+    def min(self) -> float:
+        return min(self._y_values)
+
+    @property
+    def max(self) -> float:
+        return max(self._y_values)
+
+    @property
+    def interval(self) -> sp.Interval:
+        return sp.Interval(self.min, self.max)
+
+
+class PlotData():
 
     def __init__(self):
         self._domain = _Domain()
+        self._range = None
         self._expression = None
         self._number_of_points = 1000
         self._x = sp.symbols('x')
@@ -56,6 +75,11 @@ class _Data():
     @property
     def domain(self):
         return self._domain
+
+    @property
+    def range(self):
+        self._range = _Range(self.y_values)
+        return self._range
 
     @property
     def expression(self) -> sp.Expr | None:
@@ -86,6 +110,60 @@ class _Data():
         return graph_function(self.x_values)
 
 
+class _DataSet():
+
+    def __init__(self):
+        self._data = []
+
+    def add(self, data: PlotData) -> None:
+        self._data.append(data)
+
+    def data_items(self) -> Generator[PlotData, None, None]:
+        for item in self._data:
+            yield item
+
+    @property
+    def max_domain(self) -> float | None:
+        """Returns the max of alll the domain maximums in the data set"""
+        max_found = None
+        for data_item in self.data_items():
+            if max_found is None:
+                max_found = data_item.domain.max
+            elif data_item.domain.max > max_found:
+                max_found = data_item.domain.max
+        return max_found
+
+    @property
+    def min_domain(self) -> float | None:
+        min_found = None
+        for data_item in self.data_items():
+            if min_found is None:
+                min_found = data_item.domain.min
+            elif data_item.domain.min < min_found:
+                min_found = data_item.domain.min
+        return min_found
+
+    @property
+    def max_range(self) -> float | None:
+        max_found = None
+        for data_item in self.data_items():
+            if max_found is None:
+                max_found = data_item.range.max
+            elif data_item.range.max > max_found:
+                max_found = data_item.range.max
+        return max_found
+
+    @property
+    def min_range(self) -> float | None:
+        min_found = None
+        for data_item in self.data_items():
+            if min_found is None:
+                min_found = data_item.range.min
+            elif data_item.range.min > min_found:
+                min_found = data_item.range.min
+        return min_found
+
+
 class _Spines():
 
     def __init__(self, spines: Spines):
@@ -95,24 +173,6 @@ class _Spines():
         """Centres spines at zero on x and y-axis"""
         self._spines[["left", "bottom"]].set_position(("data", 0))
         self._spines[["top", "right"]].set_visible(False)
-
-
-class _XAxis():
-
-    def __init__(self, domain: _Domain,
-                 percent_buffer_over_domain: float = 0.1,):
-        self._domain = domain
-        self._percent_buffer_over_domain = percent_buffer_over_domain
-
-    @property
-    def limits(self) -> tuple[float, float]:
-        """ x_limits factors in buffer over domain"""
-        x_range = self._domain.max - self._domain.min
-        x_lim_min = (self._domain.min
-                     - x_range * self._percent_buffer_over_domain)
-        x_lim_max = float(self._domain.max
-                          + x_range * self._percent_buffer_over_domain)
-        return (x_lim_min, x_lim_max)
 
 
 class _Ticks():
@@ -161,7 +221,7 @@ class _SingleAxes():
     """A simpler purpose specfic wrapper for Matplotlib axes"""
 
     def __init__(self, axes: Axes):
-        self._data = _Data()
+        self._data = PlotData()
         self._axes = axes
         self._display_buffer = 0.1  # percentage buffer over domain / range
         self._spines = _Spines(axes.spines)
@@ -180,29 +240,46 @@ class _SingleAxes():
     def display_buffer(self, value: float):
         self._display_buffer = value
 
+    def create(self):
+        self._set_tick_position()
+        self._set_axes_limits()
+        self._generate_plot()
+        self._setlegend()
+
+    def _set_tick_position(self) -> None:
+        self._axes.xaxis.set_ticks_position('bottom')
+        self._axes.yaxis.set_ticks_position('left')
+
+    def _set_axes_limits(self):
+        self._axes.set(xlim=self._x_display_limits,
+                       ylim=self._y_display_limits)
+
+    def _setlegend(self):
+        self._axes.legend(framealpha=1, frameon=True)
+
+    def _generate_plot(self):
+        self._axes.plot(self._data.x_values, self._data.y_values,
+                        color='red', label=self._plot_label)
+
     @property
     def _x_display_limits(self) -> tuple[float, float]:
-        x_min = (self.data.domain.min
-                 - abs(self.data.domain.min) * self.display_buffer)
-        x_max = (self.data.domain.max
-                 + self.data.domain.max * self.display_buffer)
-
+        x_range = self.data.domain.max - self.data.domain.min
+        x_min = self.data.domain.min - x_range * self.display_buffer
+        x_max = self.data.domain.max + x_range * self.display_buffer
         return (x_min, x_max)
 
     @property
     def _y_display_limits(self) -> tuple[float, float]:
-        y_min = (min(self.data.y_values)
-                 - abs(min(self.data.y_values)) * self.display_buffer)
-        y_max = (max(self.data.y_values)
-                 + max(self.data.y_values) * self.display_buffer)
+        y_range = max(self.data.y_values) - min(self.data.y_values)
+        y_min = min(self.data.y_values) - y_range * self.display_buffer
+        y_max = max(self.data.y_values) + y_range * self.display_buffer
         return (y_min, y_max)
 
-    def create(self):
-        self._axes.set(xlim=self._x_display_limits,
-                       ylim=self._y_display_limits)
-
-        self._axes.plot(self._data.x_values, self._data.y_values,
-                        color='red')
+    @property
+    def _plot_label(self):
+        return_value = '$ f(x) = ' + sp.latex(self.data.expression) + '$'
+        return_value = return_value.replace(r'\frac', r'\dfrac')
+        return return_value
 
 
 class Figure():
@@ -219,9 +296,13 @@ class Figure():
     def axes(self) -> _SingleAxes:
         return self._axes
 
-    def render(self):
+    def _apply_properties(self):
         self._figure.set_figheight(self._dimensions.height)
         self._figure.set_figwidth(self._dimensions.width)
+        self._figure.frameon = False
+
+    def render(self):
+        self._apply_properties()
         self._axes.create()
 
     # def _setup_graph_figure(self, fig_width, fig_height):
