@@ -5,17 +5,14 @@
 from enum import Enum
 from typing import cast, Any, Generator
 import matplotlib as mpl
+from matplotlib.ticker import FuncFormatter
 import matplotlib.pyplot as plt
 from matplotlib.spines import Spines
 from matplotlib.axes import Axes
+from matplotlib.axis import XAxis, YAxis
 import numpy as np
 import sympy as sp
 plt.style.use('classic')
-
-
-class TickMarkType(Enum):
-    STANDARD = 1
-    DEGREES = 2
 
 
 class _Domain():
@@ -203,19 +200,18 @@ class _Spines():
 
 class _Ticks():
 
-    def __init__(self, tick_values: sp.Set, tick_mark_type: TickMarkType):
-        self.__tick_values = tick_values
-        self._tick_mark_type = tick_mark_type
+    def __init__(self, axis: XAxis | YAxis):
+        self._axis = axis
 
-    def _format_tick_mark(self, tick_value, tick_position) -> str:
+    def format_as_degrees(self):
+        self._axis.set_major_formatter(
+            FuncFormatter(self._degree_func_formatter))
+
+    def _degree_func_formatter(self, tick_value, tick_position) -> str:
         _ = tick_position  # Required by matplotlib but not needed here
-        if self._tick_mark_type == TickMarkType.DEGREES:
-            degree_equivalant = sp.deg(tick_value)
-            latex_equivalent = sp.latex(degree_equivalant) + r'\degree'
-        else:
-            latex_equivalent = sp.latex(tick_value)
-        # use dfrac rather than frac to ensure fraction characters are full
-        # size
+        degree_equivalant = sp.deg(tick_value)
+        latex_equivalent = sp.latex(degree_equivalant) + r'\degree'
+        # use dfrac rather than frac to ensure fraction is visible size
         latex_equivalent = latex_equivalent.replace(r'\frac', r'\dfrac')
         return ("$" + latex_equivalent + "$")
 
@@ -243,26 +239,86 @@ class _Dimensions():
         self._height = value
 
 
+class _DisplayBuffer():
+    """Records percentage buffer to display over graph domain and range"""
+
+    def __init__(self):
+        self._left = 0.1
+        self._right = 0.1
+        self._top = 0.1
+        self._bottom = 0.1
+
+    @property
+    def left(self) -> float:
+        return self._left
+
+    @left.setter
+    def left(self, value: float):
+        self._left = value
+
+    @property
+    def right(self) -> float:
+        return self._right
+
+    @right.setter
+    def right(self, value: float):
+        self._right = value
+
+    @property
+    def top(self) -> float:
+        return self._top
+
+    @top.setter
+    def top(self, value: float):
+        self._top = value
+
+    @property
+    def bottom(self) -> float:
+        return self._bottom
+
+    @bottom.setter
+    def bottom(self, value: float):
+        self._bottom = value
+
+
 class _SingleAxes():
     """A simpler purpose specfic wrapper for Matplotlib axes"""
 
     def __init__(self, axes: Axes):
         self._data_set = _DataSet()
         self._axes = axes
-        self._display_buffer = 0.1  # percentage buffer over domain / range
+        self._display_buffer = _DisplayBuffer()
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
-        self._ticks = None
+        self._legend_location = 'upper right'
+        self._x_ticks = _Ticks(axes.xaxis)
+        self._y_ticks = _Ticks(axes.yaxis)
+
+    @property
+    def legend_location(self) -> str | tuple[float, float]:
+        return self._legend_location
+
+    @legend_location.setter
+    def legend_location(self, value: str | tuple[float, float]):
+        self._legend_location = value
+
+    @property
+    def x_ticks(self) -> _Ticks:
+        return self._x_ticks
+
+    @property
+    def y_ticks(self) -> _Ticks:
+        return self._y_ticks
 
     def add_plot_data(self, plot_data: DataSeries) -> None:
         self._data_set.add(plot_data)
 
     @property
-    def display_buffer(self) -> float:
+    def display_buffer(self) -> _DisplayBuffer:
         return self._display_buffer
 
     @display_buffer.setter
-    def display_buffer(self, value: float):
+    def display_buffer(self, value: _DisplayBuffer):
         self._display_buffer = value
 
     def create(self):
@@ -280,12 +336,13 @@ class _SingleAxes():
                        ylim=self._y_display_limits)
 
     def _setlegend(self):
-        self._axes.legend(framealpha=1, frameon=True)
+        self._axes.legend(framealpha=1, frameon=True,
+                          loc=self._legend_location)
 
     def _generate_plot(self):
         for data_series in self._data_set.data_series_items:
             self._axes.plot(data_series.x_values, data_series.y_values,
-                            color=data_series._series_style.colour,
+                            color=data_series.style.colour,
                             label=data_series.label)
 
     @property
@@ -294,8 +351,10 @@ class _SingleAxes():
                 or self._data_set.min_domain is None):
             return (0, 0)
         x_interval = self._data_set.max_domain - self._data_set.min_domain
-        x_min = self._data_set.min_domain - x_interval * self.display_buffer
-        x_max = self._data_set.max_domain + x_interval * self.display_buffer
+        x_min = (self._data_set.min_domain
+                 - x_interval * self.display_buffer.left)
+        x_max = (self._data_set.max_domain +
+                 x_interval * self.display_buffer.right)
         return (x_min, x_max)
 
     @property
@@ -304,8 +363,10 @@ class _SingleAxes():
                 or self._data_set.min_range is None):
             return (0, 0)
         y_interval = self._data_set.max_range - self._data_set.min_range
-        y_min = self._data_set.min_range - y_interval * self.display_buffer
-        y_max = self._data_set.max_range + y_interval * self.display_buffer
+        y_min = (self._data_set.min_range
+                 - y_interval * self.display_buffer.bottom)
+        y_max = (self._data_set.max_range +
+                 y_interval * self.display_buffer.top)
         return (y_min, y_max)
 
 
