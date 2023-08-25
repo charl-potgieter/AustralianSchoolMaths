@@ -2,10 +2,9 @@
 # pylint: disable=missing-class-docstring
 # pylint: disable=missing-function-docstring
 
-from enum import Enum
 from typing import cast, Any, Generator
 import matplotlib as mpl
-from matplotlib.ticker import FuncFormatter
+from matplotlib.ticker import FuncFormatter, MultipleLocator
 import matplotlib.pyplot as plt
 from matplotlib.spines import Spines
 from matplotlib.axes import Axes
@@ -198,22 +197,87 @@ class _Spines():
         self._spines[["top", "right"]].set_visible(False)
 
 
-class _Ticks():
+class _Axis():
 
     def __init__(self, axis: XAxis | YAxis):
         self._axis = axis
 
-    def format_as_degrees(self):
+    def format_ticks_as_degrees(self):
         self._axis.set_major_formatter(
             FuncFormatter(self._degree_func_formatter))
 
     def _degree_func_formatter(self, tick_value, tick_position) -> str:
         _ = tick_position  # Required by matplotlib but not needed here
-        degree_equivalant = sp.deg(tick_value)
-        latex_equivalent = sp.latex(degree_equivalant) + r'\degree'
-        # use dfrac rather than frac to ensure fraction is visible size
-        latex_equivalent = latex_equivalent.replace(r'\frac', r'\dfrac')
+        degree_equivalant = int(round(float(sp.deg(tick_value))))
+        latex_equivalent = str(degree_equivalant) + r'\degree'
         return ("$" + latex_equivalent + "$")
+
+    def set_major_locator_multiple(self, locator_multiple: Any) -> None:
+        self._axis.set_major_locator(MultipleLocator(locator_multiple))
+
+
+class SymbolicNumberIntervals():
+    """manages a list of sympy symbolic values with given start,
+    end and interval.  If zero lies in the range the intervals
+    are calculated from zero, otherwise from start"""
+    # TODO attempt to add hinting couldn't easily get this working
+
+    def __init__(self, start, end, interval):
+        self._start = start
+        self._end = end
+        self._interval = interval
+
+    @property
+    def as_list(self):
+
+        if self._range_spans_zero():
+            return (self._intervals_from_start_to_zero()
+                    + [sp.Rational(0)]
+                    + self._intervals_from_zero_to_end()
+                    )
+        else:
+            return self._intervals_from_start_to_end()
+
+    def _range_spans_zero(self) -> bool:
+        return (float(self._start) * float(self._end)) < 0
+
+    def _intervals_from_start_to_end(self):
+        return_list = []
+        current_item = self._start
+        while current_item <= self._end:
+            return_list.append(current_item)
+            current_item += self._interval
+        return return_list
+
+    def _intervals_from_start_to_zero(self):
+        return_list = []
+        current_item = -self._interval
+        while current_item >= self._start:
+            return_list.append(current_item)
+            current_item -= self._interval
+        return sorted(return_list)
+
+    def _intervals_from_zero_to_end(self):
+        return_list = []
+        current_item = self._interval
+        while current_item <= self._end:
+            return_list.append(current_item)
+            current_item += self._interval
+        return return_list
+
+
+class SymbolicNumbers():
+
+    def __init__(self, symbols: list[sp.Expr]):
+        self._symbols = symbols
+
+    @property
+    def as_symbols(self) -> list[sp.Expr] | list[None]:
+        return self._symbols
+
+    @property
+    def as_floats(self) -> list[float] | list[None]:
+        return [float(x) for x in self._symbols]
 
 
 class _Dimensions():
@@ -291,8 +355,8 @@ class _SingleAxes():
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
         self._legend_location = 'upper right'
-        self._x_ticks = _Ticks(axes.xaxis)
-        self._y_ticks = _Ticks(axes.yaxis)
+        self._x_axis = _Axis(axes.xaxis)
+        self._y_axis = _Axis(axes.yaxis)
 
     @property
     def legend_location(self) -> str | tuple[float, float]:
@@ -303,12 +367,12 @@ class _SingleAxes():
         self._legend_location = value
 
     @property
-    def x_ticks(self) -> _Ticks:
-        return self._x_ticks
+    def x_axis(self) -> _Axis:
+        return self._x_axis
 
     @property
-    def y_ticks(self) -> _Ticks:
-        return self._y_ticks
+    def y_axis(self) -> _Axis:
+        return self._y_axis
 
     def add_plot_data(self, plot_data: DataSeries) -> None:
         self._data_set.add(plot_data)
