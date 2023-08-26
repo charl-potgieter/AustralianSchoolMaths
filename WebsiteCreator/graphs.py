@@ -197,26 +197,34 @@ class _Spines():
         self._spines[["top", "right"]].set_visible(False)
 
 
-class _Axis():
+class _SymbolicNumbers():
+    """Manages list of sympy numbers and equivalent floats"""
+    # TODO attempt to add hinting couldn't easily get this working
 
-    def __init__(self, axis: XAxis | YAxis):
-        self._axis = axis
+    def __init__(self, symbols):
+        self._symbols = symbols
 
-    def format_ticks_as_degrees(self):
-        self._axis.set_major_formatter(
-            FuncFormatter(self._degree_func_formatter))
+    @property
+    def as_symbols(self):
+        return self._symbols
 
-    def _degree_func_formatter(self, tick_value, tick_position) -> str:
-        _ = tick_position  # Required by matplotlib but not needed here
-        degree_equivalant = int(round(float(sp.deg(tick_value))))
-        latex_equivalent = str(degree_equivalant) + r'\degree'
-        return ("$" + latex_equivalent + "$")
+    @property
+    def as_latex(self):
+        return ['$' + sp.latex(x).replace(r'\frac', r'\dfrac') + '$'
+                for x in self._symbols]
 
-    def set_major_locator_multiple(self, locator_multiple: Any) -> None:
-        self._axis.set_major_locator(MultipleLocator(locator_multiple))
+    @property
+    def as_latex_in_degrees(self):
+        return ['$' + sp.latex(sp.deg(x))
+                .replace(r'\frac', r'\dfrac') + r'\degree $'
+                for x in self._symbols]
+
+    @property
+    def as_floats(self):
+        return [float(x) for x in self._symbols]
 
 
-class SymbolicNumberIntervals():
+class _SymbolicNumberIntervals():
     """manages a list of sympy symbolic values with given start,
     end and interval.  If zero lies in the range the intervals
     are calculated from zero, otherwise from start"""
@@ -228,7 +236,11 @@ class SymbolicNumberIntervals():
         self._interval = interval
 
     @property
-    def as_list(self):
+    def values(self) -> _SymbolicNumbers:
+        return _SymbolicNumbers(self._as_list)
+
+    @property
+    def _as_list(self):
 
         if self._range_spans_zero():
             return (self._intervals_from_start_to_zero()
@@ -264,20 +276,6 @@ class SymbolicNumberIntervals():
             return_list.append(current_item)
             current_item += self._interval
         return return_list
-
-
-class SymbolicNumbers():
-
-    def __init__(self, symbols: list[sp.Expr]):
-        self._symbols = symbols
-
-    @property
-    def as_symbols(self) -> list[sp.Expr] | list[None]:
-        return self._symbols
-
-    @property
-    def as_floats(self) -> list[float] | list[None]:
-        return [float(x) for x in self._symbols]
 
 
 class _Dimensions():
@@ -355,8 +353,10 @@ class _SingleAxes():
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
         self._legend_location = 'upper right'
-        self._x_axis = _Axis(axes.xaxis)
-        self._y_axis = _Axis(axes.yaxis)
+        self._x_axis_tick_interval = None
+        self._y_axis_tick_interval = None
+        self._display_x_ticks_in_degrees = False
+        self._display_y_ticks_in_degrees = False
 
     @property
     def legend_location(self) -> str | tuple[float, float]:
@@ -367,12 +367,36 @@ class _SingleAxes():
         self._legend_location = value
 
     @property
-    def x_axis(self) -> _Axis:
-        return self._x_axis
+    def x_axis_tick_interval(self) -> None | sp.Expr:
+        return self._x_axis_tick_interval
+
+    @x_axis_tick_interval.setter
+    def x_axis_tick_interval(self, value):
+        self._x_axis_tick_interval = value
 
     @property
-    def y_axis(self) -> _Axis:
-        return self._y_axis
+    def y_axis_tick_interval(self) -> None | sp.Expr:
+        return self._y_axis_tick_interval
+
+    @y_axis_tick_interval.setter
+    def y_axis_tick_interval(self, value):
+        self._y_axis_tick_interval = value
+
+    @property
+    def display_x_ticks_in_degrees(self) -> bool:
+        return self._display_x_ticks_in_degrees
+
+    @display_x_ticks_in_degrees.setter
+    def display_x_ticks_in_degrees(self, value: bool):
+        self._display_x_ticks_in_degrees = value
+
+    @property
+    def display_y_ticks_in_degrees(self) -> bool:
+        return self._display_y_ticks_in_degrees
+
+    @display_y_ticks_in_degrees.setter
+    def display_y_ticks_in_degrees(self, value: bool):
+        self._display_y_ticks_in_degrees = value
 
     def add_plot_data(self, plot_data: DataSeries) -> None:
         self._data_set.add(plot_data)
@@ -388,6 +412,8 @@ class _SingleAxes():
     def create(self):
         self._set_tick_position()
         self._set_axes_limits()
+        self._set_x_ticks_based_on_intervals()
+        self._set_y_ticks_based_on_intervals()
         self._generate_plot()
         self._setlegend()
 
@@ -399,15 +425,41 @@ class _SingleAxes():
         self._axes.set(xlim=self._x_display_limits,
                        ylim=self._y_display_limits)
 
-    def _setlegend(self):
-        self._axes.legend(framealpha=1, frameon=True,
-                          loc=self._legend_location)
+    def _set_x_ticks_based_on_intervals(self):
+        if self._x_axis_tick_interval:
+            x_ticks = _SymbolicNumberIntervals(
+                self._x_display_limits[0],
+                self._x_display_limits[1],
+                self._x_axis_tick_interval)
+            if self._display_x_ticks_in_degrees:
+                self._axes.set_xticks(x_ticks.values.as_floats,
+                                      x_ticks.values.as_latex_in_degrees)
+            else:
+                self._axes.set_xticks(x_ticks.values.as_floats,
+                                      x_ticks.values.as_latex)
+
+    def _set_y_ticks_based_on_intervals(self):
+        if self._y_axis_tick_interval:
+            y_ticks = _SymbolicNumberIntervals(
+                self._y_display_limits[0],
+                self._y_display_limits[1],
+                self._y_axis_tick_interval)
+            if self._display_y_ticks_in_degrees:
+                self._axes.set_yticks(y_ticks.values.as_floats,
+                                      y_ticks.values.as_latex_in_degrees)
+            else:
+                self._axes.set_yticks(y_ticks.values.as_floats,
+                                      y_ticks.values.as_latex)
 
     def _generate_plot(self):
         for data_series in self._data_set.data_series_items:
             self._axes.plot(data_series.x_values, data_series.y_values,
                             color=data_series.style.colour,
                             label=data_series.label)
+
+    def _setlegend(self):
+        self._axes.legend(framealpha=1, frameon=True,
+                          loc=self._legend_location)
 
     @property
     def _x_display_limits(self) -> tuple[float, float]:
