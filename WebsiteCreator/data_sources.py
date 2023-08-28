@@ -24,6 +24,14 @@ class DataSource():
             'content', 'docs'))
 
     @property
+    def static_images_directory(self) -> str:
+        """Returns the docs directory containinng content of Hugo website"""
+        this_file_path = os.path.dirname(__file__)
+        return (os.path.join(
+            os.path.dirname(this_file_path),
+            'static', 'images'))
+
+    @property
     def hierarchies_file_path(self) -> str:
         return (self.website_creator_directory
                 + os.path.sep

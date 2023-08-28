@@ -595,6 +595,10 @@ class Figure():
         self._axes = _SingleAxes(axes)
 
     @property
+    def dimensions(self) -> _Dimensions:
+        return self._dimensions
+
+    @property
     def axes(self) -> _SingleAxes:
         return self._axes
 
