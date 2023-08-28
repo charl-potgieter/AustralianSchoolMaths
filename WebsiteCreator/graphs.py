@@ -61,6 +61,8 @@ class _SeriesStyle():
 
     def __init__(self):
         self._colour = 'blue'
+        self._has_left_arrow = False
+        self._has_right_arrow = False
 
     @property
     def colour(self) -> Any:
@@ -69,6 +71,22 @@ class _SeriesStyle():
     @colour.setter
     def colour(self, value: Any) -> None:
         self._colour = value
+
+    @property
+    def has_left_arrow(self) -> bool:
+        return self._has_left_arrow
+
+    @has_left_arrow.setter
+    def has_left_arrow(self, value: bool):
+        self._has_left_arrow = value
+
+    @property
+    def has_right_arrow(self) -> bool:
+        return self._has_right_arrow
+
+    @has_right_arrow.setter
+    def has_right_arrow(self, value: bool):
+        self._has_right_arrow = value
 
 
 class DataSeries():
@@ -127,6 +145,28 @@ class DataSeries():
         return_value = '$ f(x) = ' + sp.latex(self._expression) + '$'
         return_value = return_value.replace(r'\frac', r'\dfrac')
         return return_value
+
+    @property
+    def second_left_most_co_ordinate(self) -> tuple[float, float]:
+        """utilised for optionaly displaying arrow at end of curve"""
+        return (self.x_values[1], self.y_values[1])
+
+    @property
+    def left_most_co_ordinate(self) -> tuple[float, float]:
+        """utilised for optionaly displaying arrow at end of curve"""
+        return (self.x_values[0], self.y_values[0])
+
+    @property
+    def second_right_most_co_ordinate(self) -> tuple[float, float]:
+        """utilised for optionaly displaying arrow at end of curve"""
+        return (self.x_values[self.number_of_points-2],
+                self.y_values[self.number_of_points - 2])
+
+    @property
+    def right_most_co_ordinate(self) -> tuple[float, float]:
+        """utilised for optionaly displaying arrow at end of curve"""
+        return (self.x_values[self.number_of_points-1],
+                self.y_values[self.number_of_points - 1])
 
 
 class _DataSet():
@@ -258,13 +298,13 @@ class _SymbolicNumberIntervals():
     def _intervals_from_start_to_zero(self):
         return_list = []
         current_item = -self._interval
-        while current_item >= self._start:
+        while cast(Any, current_item) >= self._start:
             return_list.append(current_item)
             current_item -= self._interval
         return sorted(return_list)
 
     def _intervals_from_zero_to_end(self):
-        return_list = []
+        return_list: list[sp.Expr] = []
         current_item = self._interval
         while current_item <= self._end:
             return_list.append(current_item)
@@ -347,8 +387,8 @@ class _SingleAxes():
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
         self._legend_location = 'upper right'
-        self._x_ticks_symbolic: list[sp.Expr] = []
-        self._y_ticks_symbolic: list[sp.Expr] = []
+        self._x_ticks_symbolic = []
+        self._y_ticks_symbolic = []
         self._x_axis_tick_symbolic_interval = None
         self._y_axis_tick_symbolic_interval = None
         self._display_x_ticks_in_degrees = False
@@ -364,7 +404,7 @@ class _SingleAxes():
 
     @property
     def x_ticks_symbolic(self) -> list[sp.Expr]:
-        return self._x_ticks_symbolic
+        return cast(list[sp.Expr], self._x_ticks_symbolic)
 
     @x_ticks_symbolic.setter
     def x_ticks_symbolic(self, value: list[sp.Expr]):
@@ -372,7 +412,7 @@ class _SingleAxes():
 
     @property
     def y_ticks_symbolics(self) -> list[sp.Expr]:
-        return self._y_ticks_symbolic
+        return cast(list[sp.Expr], self._y_ticks_symbolic)
 
     @y_ticks_symbolics.setter
     def y_ticks_symbolic(self, value: list[sp.Expr]):
@@ -424,6 +464,7 @@ class _SingleAxes():
     def create(self):
         self._set_tick_position()
         self._set_axes_limits()
+        self._add_spine_arrows()
         if self._x_axis_tick_symbolic_interval:
             self._add_intervals_to_x_ticks()
         if self._y_axis_tick_symbolic_interval:
@@ -433,6 +474,18 @@ class _SingleAxes():
 
         self._generate_plot()
         self._setlegend()
+
+    def _add_spine_arrows(self):
+        self._axes.plot(1, 0, ">k",
+                        transform=self._axes.get_yaxis_transform(),
+                        clip_on=False)
+        self._axes.plot(0, 0, "<k",
+                        transform=self._axes.get_yaxis_transform(),
+                        clip_on=False)
+        self._axes.plot(0, 1, "^k", transform=self._axes.get_xaxis_transform(),
+                        clip_on=False)
+        self._axes.plot(0, 0, "vk", transform=self._axes.get_xaxis_transform(),
+                        clip_on=False)
 
     def _set_tick_position(self) -> None:
         self._axes.xaxis.set_ticks_position('bottom')
@@ -481,6 +534,26 @@ class _SingleAxes():
             self._axes.plot(data_series.x_values, data_series.y_values,
                             color=data_series.style.colour,
                             label=data_series.label)
+            if data_series.style.has_left_arrow:
+                self._render_arrow_on_left_of_curve(data_series)
+            if data_series.style.has_right_arrow:
+                self._render_arrow_on_right_of_curve(data_series)
+
+    def _render_arrow_on_left_of_curve(self, data_series: DataSeries):
+        self._axes.annotate(
+            "", xy=data_series.second_left_most_co_ordinate,
+            xytext=data_series.left_most_co_ordinate,
+            arrowprops=dict(
+                arrowstyle="<-",
+                color=data_series.style.colour))
+
+    def _render_arrow_on_right_of_curve(self, data_series: DataSeries):
+        self._axes.annotate(
+            "", xy=data_series.second_right_most_co_ordinate,
+            xytext=data_series.right_most_co_ordinate,
+            arrowprops=dict(
+                arrowstyle="<-",
+                color=data_series.style.colour))
 
     def _setlegend(self):
         self._axes.legend(framealpha=1, frameon=True,
