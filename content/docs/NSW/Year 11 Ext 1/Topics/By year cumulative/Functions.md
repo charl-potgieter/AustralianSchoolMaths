@@ -2,11 +2,11 @@
 weight: 1
 ---
 
-## Working with Functions
-<br><br>
+## <span style="color:RGB(0,0,150"> Working with Functions </span> 
+<br>
 
-## Further Work with Functions
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Work with Functions </span> 
+<br>
 
-## Polynomials
-<br><br>
+## <span style="color:RGB(0,0,150"> Polynomials </span> 
+<br>

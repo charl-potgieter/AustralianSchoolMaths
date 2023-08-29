@@ -19,6 +19,6 @@ class DefinitionDisplay():
         return return_value
 
     def to_markdown_with_heading(self) -> str:
-        return ('### Concepts'
+        return ('### <span style="color:RGB(139,69,19)"> Concepts  </span>'
                 + '\n\n\n'
                 + self.to_markdown())

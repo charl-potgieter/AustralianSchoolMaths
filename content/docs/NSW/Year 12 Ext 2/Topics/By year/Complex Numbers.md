@@ -2,8 +2,8 @@
 weight: 3
 ---
 
-## Introduction to Complex Numbers
-<br><br>
+## <span style="color:RGB(0,0,150"> Introduction to Complex Numbers </span> 
+<br>
 
-## Using Complex Numbers
-<br><br>
+## <span style="color:RGB(0,0,150"> Using Complex Numbers </span> 
+<br>

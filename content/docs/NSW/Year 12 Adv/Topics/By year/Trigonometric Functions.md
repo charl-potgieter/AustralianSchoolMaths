@@ -2,5 +2,5 @@
 weight: 2
 ---
 
-## Trigonometric Functions and Graphs
-<br><br>
+## <span style="color:RGB(0,0,150"> Trigonometric Functions and Graphs </span> 
+<br>

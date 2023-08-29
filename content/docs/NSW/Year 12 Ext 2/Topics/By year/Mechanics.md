@@ -2,5 +2,5 @@
 weight: 5
 ---
 
-## Applications of Calculus to Mechanics
-<br><br>
+## <span style="color:RGB(0,0,150"> Applications of Calculus to Mechanics </span> 
+<br>

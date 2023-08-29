@@ -15,10 +15,10 @@ class NoteDisplay():
     def to_markdown(self) -> str:
         return_value = ''
         for note_item in self._notes.notes:
-            return_value += '* ' + note_item.note + '\n'
+            return_value += '* ' + note_item.note + '\n<BR><BR>'
         return return_value
 
     def to_markdown_with_heading(self) -> str:
-        return ('### Notes'
+        return ('### <span style="color:RGB(150,0,0)">  Notes </span>'
                 + '\n\n\n'
                 + self.to_markdown())

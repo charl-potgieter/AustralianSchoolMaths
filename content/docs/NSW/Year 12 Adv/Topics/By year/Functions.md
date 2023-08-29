@@ -2,5 +2,5 @@
 weight: 1
 ---
 
-## Graphing Techniques
-<br><br>
+## <span style="color:RGB(0,0,150"> Graphing Techniques </span> 
+<br>

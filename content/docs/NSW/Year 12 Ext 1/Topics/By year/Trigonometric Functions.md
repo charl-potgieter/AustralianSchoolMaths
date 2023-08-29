@@ -2,5 +2,5 @@
 weight: 3
 ---
 
-## Trigonometric Equations
-<br><br>
+## <span style="color:RGB(0,0,150"> Trigonometric Equations </span> 
+<br>

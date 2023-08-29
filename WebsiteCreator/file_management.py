@@ -198,7 +198,8 @@ class TopicFile():
 
     def _add_subtopic_heading(self, subtopic: str) -> None:
         self._markdown_content.add_content(
-            '## ' + subtopic + '\n<br><br>'
+            '## <span style="color:RGB(0,0,150"> ' +
+            subtopic + ' </span> \n<br>'
         )
 
     def _add_definitions(self, definitions_by_subtopic: Definitions) -> None:

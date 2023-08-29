@@ -2,8 +2,8 @@
 weight: 5
 ---
 
-## Descriptive Statistics and Bivariate Data Analysis
-<br><br>
+## <span style="color:RGB(0,0,150"> Descriptive Statistics and Bivariate Data Analysis </span> 
+<br>
 
-## Random Variables
-<br><br>
+## <span style="color:RGB(0,0,150"> Random Variables </span> 
+<br>

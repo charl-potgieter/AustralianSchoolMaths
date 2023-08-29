@@ -2,5 +2,5 @@
 weight: 1
 ---
 
-## Logarithms and Exponentials
-<br><br>
+## <span style="color:RGB(0,0,150"> Logarithms and Exponentials </span> 
+<br>

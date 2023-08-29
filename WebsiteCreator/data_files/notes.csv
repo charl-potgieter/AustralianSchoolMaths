@@ -1,3 +1,24 @@
 ﻿State,Subject,Syllabus_subtopic_code,Note
-NSW,Year 11 Adv,MA-S1,"Probability trees: Use the product rule along branches to find $P( A \cap B )$   = ""A and B"""
+NSW,Year 11 Adv,MA-S1,Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
 NSW,Year 11 Adv,MA-S1,Probability trees: Use the additional rule for different branches to find $P(A \cup B) $ representing A or B.
+NSW,Year 11 Adv,MA-S1,$A \cup B $ is A union B
+NSW,Year 11 Adv,MA-S1,$A \cap B $  is A intersection B
+NSW,Year 11 Adv,MA-S1,The probability formula applies where each outcome is equally likely: $ P(E) = \dfrac{n(E)}{n(S)} $
+NSW,Year 11 Adv,MA-S1,The sum of all mutually exclusive probabilities is 1
+NSW,Year 11 Adv,MA-S1,$A \cup B = P(A) + P(B) $ is the addition rule for mutually exclusive events
+NSW,Year 11 Adv,MA-S1,$A \cup B = P(A) + P(B) - P(A \cap B) $ is the addition rule 
+NSW,Year 11 Adv,MA-S1,$A \cap B  = P(A)P(B)$ is the product rule for independent events only
+NSW,Year 11 Adv,MA-S1,"Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $ while conditional proability for independent events is $ P(A|B) = P(A) $"
+NSW,Year 11 Adv,MA-S1,"Capital letter, e.g. X is often used for a random variable"
+NSW,Year 11 Adv,MA-S1,Lower case letter such as x is used for the values of X
+NSW,Year 11 Adv,MA-S1,"Properties of discrete probability distributions:
+(a) All possible value of X are mutually exclusive
+(b) The sum of probabilities = 1
+(c) For each value of x: 0<=P(X=x)<=1"
+NSW,Year 11 Adv,MA-S1,The expected values E(X) mof a probability distribution measures the centre of the distribution  = mean or average
+NSW,Year 11 Adv,MA-S1,$\overline{x} $ is the mean of a sample
+NSW,Year 11 Adv,MA-S1,$\mu $ is the mean of the population
+NSW,Year 11 Adv,MA-S1,$s$ is the sample standard deviation
+NSW,Year 11 Adv,MA-S1,$\sigma$ is the poplulation standard deviation
+NSW,Year 11 Adv,MA-S1,As the sample size increases $\overline{x} $ approaches  $\mu $
+NSW,Year 11 Adv,MA-S1,The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$

@@ -2,5 +2,5 @@
 weight: 2
 ---
 
-## Further Work with Vectors
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Work with Vectors </span> 
+<br>

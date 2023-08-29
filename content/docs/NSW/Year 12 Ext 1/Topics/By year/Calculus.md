@@ -2,8 +2,8 @@
 weight: 4
 ---
 
-## Further Calculus Skills
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Calculus Skills </span> 
+<br>
 
-## Applications of Calculus
-<br><br>
+## <span style="color:RGB(0,0,150"> Applications of Calculus </span> 
+<br>

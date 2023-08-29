@@ -2,23 +2,23 @@
 weight: 9
 ---
 
-## Introduction to Differentiation
-<br><br>
+## <span style="color:RGB(0,0,150"> Introduction to Differentiation </span> 
+<br>
 
-## Differential Calculus
-<br><br>
+## <span style="color:RGB(0,0,150"> Differential Calculus </span> 
+<br>
 
-## Applications of Differentiation
-<br><br>
+## <span style="color:RGB(0,0,150"> Applications of Differentiation </span> 
+<br>
 
-## Integral Calculus
-<br><br>
+## <span style="color:RGB(0,0,150"> Integral Calculus </span> 
+<br>
 
-## Further Calculus Skills
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Calculus Skills </span> 
+<br>
 
-## Applications of Calculus
-<br><br>
+## <span style="color:RGB(0,0,150"> Applications of Calculus </span> 
+<br>
 
-## Further Integration
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Integration </span> 
+<br>

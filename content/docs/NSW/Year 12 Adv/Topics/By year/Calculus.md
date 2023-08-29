@@ -2,11 +2,11 @@
 weight: 3
 ---
 
-## Differential Calculus
-<br><br>
+## <span style="color:RGB(0,0,150"> Differential Calculus </span> 
+<br>
 
-## Applications of Differentiation
-<br><br>
+## <span style="color:RGB(0,0,150"> Applications of Differentiation </span> 
+<br>
 
-## Integral Calculus
-<br><br>
+## <span style="color:RGB(0,0,150"> Integral Calculus </span> 
+<br>

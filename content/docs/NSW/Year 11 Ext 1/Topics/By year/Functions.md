@@ -2,8 +2,8 @@
 weight: 1
 ---
 
-## Further Work with Functions
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Work with Functions </span> 
+<br>
 
-## Polynomials
-<br><br>
+## <span style="color:RGB(0,0,150"> Polynomials </span> 
+<br>

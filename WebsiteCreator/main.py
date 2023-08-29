@@ -90,15 +90,15 @@ if __name__ == '__main__':
     create_index_files(input_data['docs_dir'],
                        input_data['hierarchies'])
 
-    # print('creating formulas by year pages...')
-    # create_formula_pages(input_data['docs_dir'],
-    #                      input_data['hierarchies'],
-    #                      input_data['formulas_by_year'])
+    print('creating formulas by year pages...')
+    create_formula_pages(input_data['docs_dir'],
+                         input_data['hierarchies'],
+                         input_data['formulas_by_year'])
 
-    # print('creating formulas cumulative pages...')
-    # create_formula_pages(input_data['docs_dir'],
-    #                      input_data['hierarchies'],
-    #                      input_data['formulas_cumulative'])
+    print('creating formulas cumulative pages...')
+    create_formula_pages(input_data['docs_dir'],
+                         input_data['hierarchies'],
+                         input_data['formulas_cumulative'])
 
     print('creating topics by year pages...')
     create_topic_pages(input_data['docs_dir'],

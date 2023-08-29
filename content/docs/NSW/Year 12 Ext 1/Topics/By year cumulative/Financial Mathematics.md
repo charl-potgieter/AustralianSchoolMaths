@@ -2,10 +2,10 @@
 weight: 3
 ---
 
-## Modelling Financial Situations
-<br><br>
+## <span style="color:RGB(0,0,150"> Modelling Financial Situations </span> 
+<br>
 
-### Concepts
+### <span style="color:RGB(139,69,19)"> Concepts  </span>
 
 
 * annuities
@@ -23,50 +23,50 @@ weight: 3
 <br>
 
 
-### Formulas
+###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
-{{< tabs "ac9b42d9-a720-4143-908a-a25f19bd51be" >}}
+{{< tabs "2b8d5592-8c1f-4f18-99be-7dfa1108540e" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_7d356 th.col_heading {
+#T_f1fc3 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_7d356 td {
+#T_f1fc3 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_7d356">
+<table id="T_f1fc3">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_7d356_row0_col0" class="data row0 col0" >$A = P(1+r)^n$</td>
+      <td id="T_f1fc3_row0_col0" class="data row0 col0" >$A = P(1+r)^n$</td>
     </tr>
     <tr>
-      <td id="T_7d356_row1_col0" class="data row1 col0" >$ T_n = T_{n-1} + d $</td>
+      <td id="T_f1fc3_row1_col0" class="data row1 col0" >$ T_n = T_{n-1} + d $</td>
     </tr>
     <tr>
-      <td id="T_7d356_row2_col0" class="data row2 col0" >$T_n = a + (n-1)d$</td>
+      <td id="T_f1fc3_row2_col0" class="data row2 col0" >$T_n = a + (n-1)d$</td>
     </tr>
     <tr>
-      <td id="T_7d356_row3_col0" class="data row3 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
+      <td id="T_f1fc3_row3_col0" class="data row3 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
     </tr>
     <tr>
-      <td id="T_7d356_row4_col0" class="data row4 col0" >$T_n = rT_{n-1}$</td>
+      <td id="T_f1fc3_row4_col0" class="data row4 col0" >$T_n = rT_{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_7d356_row5_col0" class="data row5 col0" >$T_n = ar^{n-1}$</td>
+      <td id="T_f1fc3_row5_col0" class="data row5 col0" >$T_n = ar^{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_7d356_row6_col0" class="data row6 col0" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
+      <td id="T_f1fc3_row6_col0" class="data row6 col0" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
     </tr>
     <tr>
-      <td id="T_7d356_row7_col0" class="data row7 col0" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
+      <td id="T_f1fc3_row7_col0" class="data row7 col0" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
     </tr>
   </tbody>
 </table>
@@ -77,49 +77,49 @@ weight: 3
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_cd179 th.col_heading {
+#T_e96a0 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_cd179 td {
+#T_e96a0 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_cd179_row0_col0, #T_cd179_row2_col0, #T_cd179_row3_col0, #T_cd179_row5_col0, #T_cd179_row6_col0, #T_cd179_row7_col0 {
+#T_e96a0_row0_col0, #T_e96a0_row2_col0, #T_e96a0_row3_col0, #T_e96a0_row5_col0, #T_e96a0_row6_col0, #T_e96a0_row7_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_cd179_row1_col0, #T_cd179_row4_col0 {
+#T_e96a0_row1_col0, #T_e96a0_row4_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_cd179">
+<table id="T_e96a0">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_cd179_row0_col0" class="data row0 col0" >$A = P(1+r)^n$</td>
+      <td id="T_e96a0_row0_col0" class="data row0 col0" >$A = P(1+r)^n$</td>
     </tr>
     <tr>
-      <td id="T_cd179_row1_col0" class="data row1 col0" >$ T_n = T_{n-1} + d $</td>
+      <td id="T_e96a0_row1_col0" class="data row1 col0" >$ T_n = T_{n-1} + d $</td>
     </tr>
     <tr>
-      <td id="T_cd179_row2_col0" class="data row2 col0" >$T_n = a + (n-1)d$</td>
+      <td id="T_e96a0_row2_col0" class="data row2 col0" >$T_n = a + (n-1)d$</td>
     </tr>
     <tr>
-      <td id="T_cd179_row3_col0" class="data row3 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
+      <td id="T_e96a0_row3_col0" class="data row3 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
     </tr>
     <tr>
-      <td id="T_cd179_row4_col0" class="data row4 col0" >$T_n = rT_{n-1}$</td>
+      <td id="T_e96a0_row4_col0" class="data row4 col0" >$T_n = rT_{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_cd179_row5_col0" class="data row5 col0" >$T_n = ar^{n-1}$</td>
+      <td id="T_e96a0_row5_col0" class="data row5 col0" >$T_n = ar^{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_cd179_row6_col0" class="data row6 col0" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
+      <td id="T_e96a0_row6_col0" class="data row6 col0" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
     </tr>
     <tr>
-      <td id="T_cd179_row7_col0" class="data row7 col0" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
+      <td id="T_e96a0_row7_col0" class="data row7 col0" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
     </tr>
   </tbody>
 </table>
@@ -130,49 +130,49 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_945ee th.col_heading {
+#T_2ae8c th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_945ee td {
+#T_2ae8c td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_945ee_row0_col0, #T_945ee_row1_col0, #T_945ee_row4_col0 {
+#T_2ae8c_row0_col0, #T_2ae8c_row1_col0, #T_2ae8c_row4_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_945ee_row2_col0, #T_945ee_row3_col0, #T_945ee_row5_col0, #T_945ee_row6_col0, #T_945ee_row7_col0 {
+#T_2ae8c_row2_col0, #T_2ae8c_row3_col0, #T_2ae8c_row5_col0, #T_2ae8c_row6_col0, #T_2ae8c_row7_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_945ee">
+<table id="T_2ae8c">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_945ee_row0_col0" class="data row0 col0" >$A = P(1+r)^n$</td>
+      <td id="T_2ae8c_row0_col0" class="data row0 col0" >$A = P(1+r)^n$</td>
     </tr>
     <tr>
-      <td id="T_945ee_row1_col0" class="data row1 col0" >$ T_n = T_{n-1} + d $</td>
+      <td id="T_2ae8c_row1_col0" class="data row1 col0" >$ T_n = T_{n-1} + d $</td>
     </tr>
     <tr>
-      <td id="T_945ee_row2_col0" class="data row2 col0" >$T_n = a + (n-1)d$</td>
+      <td id="T_2ae8c_row2_col0" class="data row2 col0" >$T_n = a + (n-1)d$</td>
     </tr>
     <tr>
-      <td id="T_945ee_row3_col0" class="data row3 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
+      <td id="T_2ae8c_row3_col0" class="data row3 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
     </tr>
     <tr>
-      <td id="T_945ee_row4_col0" class="data row4 col0" >$T_n = rT_{n-1}$</td>
+      <td id="T_2ae8c_row4_col0" class="data row4 col0" >$T_n = rT_{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_945ee_row5_col0" class="data row5 col0" >$T_n = ar^{n-1}$</td>
+      <td id="T_2ae8c_row5_col0" class="data row5 col0" >$T_n = ar^{n-1}$</td>
     </tr>
     <tr>
-      <td id="T_945ee_row6_col0" class="data row6 col0" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
+      <td id="T_2ae8c_row6_col0" class="data row6 col0" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
     </tr>
     <tr>
-      <td id="T_945ee_row7_col0" class="data row7 col0" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
+      <td id="T_2ae8c_row7_col0" class="data row7 col0" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
     </tr>
   </tbody>
 </table>
@@ -183,51 +183,51 @@ Items where proofs required are highlighted
 <br>
 
 
-### Arithmetic vs geometric sequences
+###  <span style="color:RGB(150,0,0)"> Arithmetic vs geometric sequences </span>
 <br>
-{{< tabs "d7eccdb0-a6e9-4099-bb02-9b0acdfe57b8" >}}
+{{< tabs "80699fba-099d-4ae0-b042-555dbdd26355" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_d62ad th.col_heading {
+#T_eb9c5 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_d62ad td {
+#T_eb9c5 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_d62ad">
+<table id="T_eb9c5">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_d62ad_level0_col0" class="col_heading level0 col0" >Arithmetic sequence</th>
-      <th id="T_d62ad_level0_col1" class="col_heading level0 col1" >Geometric sequence</th>
+      <th id="T_eb9c5_level0_col0" class="col_heading level0 col0" >Arithmetic sequence</th>
+      <th id="T_eb9c5_level0_col1" class="col_heading level0 col1" >Geometric sequence</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_d62ad_level0_row0" class="row_heading level0 row0" >Recursive definition</th>
-      <td id="T_d62ad_row0_col0" class="data row0 col0" >$ T_n = T_{n-1} + d $</td>
-      <td id="T_d62ad_row0_col1" class="data row0 col1" >$T_n = rT_{n-1}$</td>
+      <th id="T_eb9c5_level0_row0" class="row_heading level0 row0" >Recursive definition</th>
+      <td id="T_eb9c5_row0_col0" class="data row0 col0" >$ T_n = T_{n-1} + d $</td>
+      <td id="T_eb9c5_row0_col1" class="data row0 col1" >$T_n = rT_{n-1}$</td>
     </tr>
     <tr>
-      <th id="T_d62ad_level0_row1" class="row_heading level0 row1" >n-th term</th>
-      <td id="T_d62ad_row1_col0" class="data row1 col0" >$T_n = a + (n-1)d$</td>
-      <td id="T_d62ad_row1_col1" class="data row1 col1" >$T_n = ar^{n-1}$</td>
+      <th id="T_eb9c5_level0_row1" class="row_heading level0 row1" >n-th term</th>
+      <td id="T_eb9c5_row1_col0" class="data row1 col0" >$T_n = a + (n-1)d$</td>
+      <td id="T_eb9c5_row1_col1" class="data row1 col1" >$T_n = ar^{n-1}$</td>
     </tr>
     <tr>
-      <th id="T_d62ad_level0_row2" class="row_heading level0 row2" >Sum of first n terms</th>
-      <td id="T_d62ad_row2_col0" class="data row2 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
-      <td id="T_d62ad_row2_col1" class="data row2 col1" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
+      <th id="T_eb9c5_level0_row2" class="row_heading level0 row2" >Sum of first n terms</th>
+      <td id="T_eb9c5_row2_col0" class="data row2 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
+      <td id="T_eb9c5_row2_col1" class="data row2 col1" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
     </tr>
     <tr>
-      <th id="T_d62ad_level0_row3" class="row_heading level0 row3" >Limiting sum</th>
-      <td id="T_d62ad_row3_col0" class="data row3 col0" ></td>
-      <td id="T_d62ad_row3_col1" class="data row3 col1" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
+      <th id="T_eb9c5_level0_row3" class="row_heading level0 row3" >Limiting sum</th>
+      <td id="T_eb9c5_row3_col0" class="data row3 col0" ></td>
+      <td id="T_eb9c5_row3_col1" class="data row3 col1" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
     </tr>
   </tbody>
 </table>
@@ -238,50 +238,50 @@ Items where proofs required are highlighted
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_ada98 th.col_heading {
+#T_32d64 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ada98 td {
+#T_32d64 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_ada98_row0_col0, #T_ada98_row0_col1, #T_ada98_row3_col0 {
+#T_32d64_row0_col0, #T_32d64_row0_col1, #T_32d64_row3_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_ada98_row1_col0, #T_ada98_row1_col1, #T_ada98_row2_col0, #T_ada98_row2_col1, #T_ada98_row3_col1 {
+#T_32d64_row1_col0, #T_32d64_row1_col1, #T_32d64_row2_col0, #T_32d64_row2_col1, #T_32d64_row3_col1 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_ada98">
+<table id="T_32d64">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_ada98_level0_col0" class="col_heading level0 col0" >Arithmetic sequence</th>
-      <th id="T_ada98_level0_col1" class="col_heading level0 col1" >Geometric sequence</th>
+      <th id="T_32d64_level0_col0" class="col_heading level0 col0" >Arithmetic sequence</th>
+      <th id="T_32d64_level0_col1" class="col_heading level0 col1" >Geometric sequence</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_ada98_level0_row0" class="row_heading level0 row0" >Recursive definition</th>
-      <td id="T_ada98_row0_col0" class="data row0 col0" >$ T_n = T_{n-1} + d $</td>
-      <td id="T_ada98_row0_col1" class="data row0 col1" >$T_n = rT_{n-1}$</td>
+      <th id="T_32d64_level0_row0" class="row_heading level0 row0" >Recursive definition</th>
+      <td id="T_32d64_row0_col0" class="data row0 col0" >$ T_n = T_{n-1} + d $</td>
+      <td id="T_32d64_row0_col1" class="data row0 col1" >$T_n = rT_{n-1}$</td>
     </tr>
     <tr>
-      <th id="T_ada98_level0_row1" class="row_heading level0 row1" >n-th term</th>
-      <td id="T_ada98_row1_col0" class="data row1 col0" >$T_n = a + (n-1)d$</td>
-      <td id="T_ada98_row1_col1" class="data row1 col1" >$T_n = ar^{n-1}$</td>
+      <th id="T_32d64_level0_row1" class="row_heading level0 row1" >n-th term</th>
+      <td id="T_32d64_row1_col0" class="data row1 col0" >$T_n = a + (n-1)d$</td>
+      <td id="T_32d64_row1_col1" class="data row1 col1" >$T_n = ar^{n-1}$</td>
     </tr>
     <tr>
-      <th id="T_ada98_level0_row2" class="row_heading level0 row2" >Sum of first n terms</th>
-      <td id="T_ada98_row2_col0" class="data row2 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
-      <td id="T_ada98_row2_col1" class="data row2 col1" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
+      <th id="T_32d64_level0_row2" class="row_heading level0 row2" >Sum of first n terms</th>
+      <td id="T_32d64_row2_col0" class="data row2 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
+      <td id="T_32d64_row2_col1" class="data row2 col1" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
     </tr>
     <tr>
-      <th id="T_ada98_level0_row3" class="row_heading level0 row3" >Limiting sum</th>
-      <td id="T_ada98_row3_col0" class="data row3 col0" ></td>
-      <td id="T_ada98_row3_col1" class="data row3 col1" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
+      <th id="T_32d64_level0_row3" class="row_heading level0 row3" >Limiting sum</th>
+      <td id="T_32d64_row3_col0" class="data row3 col0" ></td>
+      <td id="T_32d64_row3_col1" class="data row3 col1" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
     </tr>
   </tbody>
 </table>
@@ -292,50 +292,50 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_dc3ca th.col_heading {
+#T_f55c6 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_dc3ca td {
+#T_f55c6 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_dc3ca_row0_col0, #T_dc3ca_row0_col1, #T_dc3ca_row3_col0 {
+#T_f55c6_row0_col0, #T_f55c6_row0_col1, #T_f55c6_row3_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_dc3ca_row1_col0, #T_dc3ca_row1_col1, #T_dc3ca_row2_col0, #T_dc3ca_row2_col1, #T_dc3ca_row3_col1 {
+#T_f55c6_row1_col0, #T_f55c6_row1_col1, #T_f55c6_row2_col0, #T_f55c6_row2_col1, #T_f55c6_row3_col1 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_dc3ca">
+<table id="T_f55c6">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_dc3ca_level0_col0" class="col_heading level0 col0" >Arithmetic sequence</th>
-      <th id="T_dc3ca_level0_col1" class="col_heading level0 col1" >Geometric sequence</th>
+      <th id="T_f55c6_level0_col0" class="col_heading level0 col0" >Arithmetic sequence</th>
+      <th id="T_f55c6_level0_col1" class="col_heading level0 col1" >Geometric sequence</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_dc3ca_level0_row0" class="row_heading level0 row0" >Recursive definition</th>
-      <td id="T_dc3ca_row0_col0" class="data row0 col0" >$ T_n = T_{n-1} + d $</td>
-      <td id="T_dc3ca_row0_col1" class="data row0 col1" >$T_n = rT_{n-1}$</td>
+      <th id="T_f55c6_level0_row0" class="row_heading level0 row0" >Recursive definition</th>
+      <td id="T_f55c6_row0_col0" class="data row0 col0" >$ T_n = T_{n-1} + d $</td>
+      <td id="T_f55c6_row0_col1" class="data row0 col1" >$T_n = rT_{n-1}$</td>
     </tr>
     <tr>
-      <th id="T_dc3ca_level0_row1" class="row_heading level0 row1" >n-th term</th>
-      <td id="T_dc3ca_row1_col0" class="data row1 col0" >$T_n = a + (n-1)d$</td>
-      <td id="T_dc3ca_row1_col1" class="data row1 col1" >$T_n = ar^{n-1}$</td>
+      <th id="T_f55c6_level0_row1" class="row_heading level0 row1" >n-th term</th>
+      <td id="T_f55c6_row1_col0" class="data row1 col0" >$T_n = a + (n-1)d$</td>
+      <td id="T_f55c6_row1_col1" class="data row1 col1" >$T_n = ar^{n-1}$</td>
     </tr>
     <tr>
-      <th id="T_dc3ca_level0_row2" class="row_heading level0 row2" >Sum of first n terms</th>
-      <td id="T_dc3ca_row2_col0" class="data row2 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
-      <td id="T_dc3ca_row2_col1" class="data row2 col1" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
+      <th id="T_f55c6_level0_row2" class="row_heading level0 row2" >Sum of first n terms</th>
+      <td id="T_f55c6_row2_col0" class="data row2 col0" >$S_n = \dfrac{n}{2}[2a + (n-1)d] = \dfrac{n}{2}(a+l)$</td>
+      <td id="T_f55c6_row2_col1" class="data row2 col1" >$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$</td>
     </tr>
     <tr>
-      <th id="T_dc3ca_level0_row3" class="row_heading level0 row3" >Limiting sum</th>
-      <td id="T_dc3ca_row3_col0" class="data row3 col0" ></td>
-      <td id="T_dc3ca_row3_col1" class="data row3 col1" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
+      <th id="T_f55c6_level0_row3" class="row_heading level0 row3" >Limiting sum</th>
+      <td id="T_f55c6_row3_col0" class="data row3 col0" ></td>
+      <td id="T_f55c6_row3_col1" class="data row3 col1" >$S=\dfrac{a}{1-r},\ \ |r|<1$</td>
     </tr>
   </tbody>
 </table>

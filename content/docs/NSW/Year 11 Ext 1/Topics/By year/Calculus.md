@@ -2,5 +2,5 @@
 weight: 3
 ---
 
-## Rates of Change
-<br><br>
+## <span style="color:RGB(0,0,150"> Rates of Change </span> 
+<br>

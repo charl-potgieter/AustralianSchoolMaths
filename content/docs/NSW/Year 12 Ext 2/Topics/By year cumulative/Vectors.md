@@ -2,8 +2,8 @@
 weight: 7
 ---
 
-## Introduction to Vectors
-<br><br>
+## <span style="color:RGB(0,0,150"> Introduction to Vectors </span> 
+<br>
 
-## Further Work with Vectors
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Work with Vectors </span> 
+<br>

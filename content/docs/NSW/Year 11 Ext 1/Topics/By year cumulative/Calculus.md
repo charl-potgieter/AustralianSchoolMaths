@@ -2,8 +2,8 @@
 weight: 3
 ---
 
-## Introduction to Differentiation
-<br><br>
+## <span style="color:RGB(0,0,150"> Introduction to Differentiation </span> 
+<br>
 
-## Rates of Change
-<br><br>
+## <span style="color:RGB(0,0,150"> Rates of Change </span> 
+<br>

@@ -355,8 +355,9 @@ class FormulaTable():
         return return_value
 
     def to_markdown_with_heading(self) -> str:
-        return ('### '
+        return ('###  <span style="color:RGB(150,0,0)"> '
                 + self.table_type.topic_page_heading
+                + ' </span>'
                 + '\n<br>\n'
                 + self.to_markdown())
 

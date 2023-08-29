@@ -58,16 +58,16 @@ NSW,TBA,Integration,,,,24,$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ tan
 NSW,TBA,Differentiation,,,,25,"$y=tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} $ <br>",Year 12 Ext 1,FALSE,,
 NSW,TBA,Integration,,,,25,$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} tan^{-1} \dfrac{f(x)}{a} + c$,Year 12 Ext 1,TRUE,,
 NSW,TBA,Differentiation,,,,26,"$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br>",Year 12 Ext 1,FALSE,,Formula can be utilised to calculate otherwise hard to differentiate inverse functions
-NSW,TBA,Statistics,,,,,$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $,Year 12 Adv,FALSE,,
-NSW,TBA,Statistics,,,,,"$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+NSW,TBA,Statistical Analysis,,,,,$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $,Year 12 Adv,FALSE,,
+NSW,TBA,Statistical Analysis,,,,,"$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $",Year 12 Adv,FALSE,,
-NSW,TBA,Statistics,,,,,$ \text{Range = highest score - lowest score} $,Year 12 Adv,FALSE,,
-NSW,TBA,Statistics,,,,,$ \text{Interquartile range = Q3 - Q1} $,Year 12 Adv,FALSE,,
-NSW,TBA,Statistics,,,,,"$\text{An outlier is a score with} $
+NSW,TBA,Statistical Analysis,,,,,$ \text{Range = highest score - lowest score} $,Year 12 Adv,FALSE,,
+NSW,TBA,Statistical Analysis,,,,,$ \text{Interquartile range = Q3 - Q1} $,Year 12 Adv,FALSE,,
+NSW,TBA,Statistical Analysis,,,,,"$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $",Year 12 Adv,TRUE,,
-NSW,TBA,Statistics,,,,,$ \text{Variance } =  \sigma^2 = \dfrac{\sum(x - \overline{x})^2}{n}  $,Year 12 Adv,FALSE,,
-NSW,TBA,Statistics,,,,,$ \text{Standard deviation } = \sqrt{\text{variance}} =  \sigma = \sqrt{\dfrac{\sum(x - \overline{x})^2}{n}}$,Year 12 Adv,FALSE,,
+NSW,TBA,Statistical Analysis,,,,,$ \text{Variance } =  \sigma^2 = \dfrac{\sum(x - \overline{x})^2}{n}  $,Year 12 Adv,FALSE,,
+NSW,TBA,Statistical Analysis,,,,,$ \text{Standard deviation } = \sqrt{\text{variance}} =  \sigma = \sqrt{\dfrac{\sum(x - \overline{x})^2}{n}}$,Year 12 Adv,FALSE,,
 NSW,TBA,Surds,,,,,$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $,Year 9,FALSE,,
 NSW,TBA,Surds,,,,,$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $,Year 9,FALSE,,
 NSW,MA-M1,Financial mathematics,,,Compounding interest,,$A = P(1+r)^n$,Year 12 Adv,TRUE,,
@@ -78,3 +78,16 @@ NSW,MA-M1,Financial mathematics,Geometric sequence,Recursive definition,Recursiv
 NSW,MA-M1,Financial mathematics,Geometric sequence,n-th term,n-th term of a geometric sequence,,$T_n = ar^{n-1}$,Year 12 Adv,TRUE,TRUE,
 NSW,MA-M1,Financial mathematics,Geometric sequence,Sum of first n terms,Sum of the first n terms of a geometric sequence,,"$S_n = \dfrac{a(1-r^n)}{1-r} = \dfrac{a(r^n-1)}{r-1},\ \  r \neq 1$",Year 12 Adv,TRUE,TRUE,
 NSW,MA-M1,Financial mathematics,Geometric sequence,Limiting sum,Limiting sum of a geometric sequence,,"$S=\dfrac{a}{1-r},\ \ |r|<1$",Year 12 Adv,TRUE,TRUE,
+NSW,MA-S1,Statistical Analysis,,,,,$ P(E) = \dfrac{n(E)}{n(S)} $,Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$A \cup B = P(A) + P(B) - P(A \cap B) $,Year 11 Adv,TRUE,TRUE,
+NSW,MA-S1,Statistical Analysis,,,,,$A \cap B  = P(A)P(B)$,Year 11 Adv,TRUE,,
+NSW,MA-S1,Statistical Analysis,,,,,$P(\overline{E}) = 1 - P(E)$,Year 11 Adv,FALSE,TRUE,
+NSW,MA-S1,Statistical Analysis,,,,,"$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $",Year 11 Adv,TRUE,,
+NSW,MA-S1,Statistical Analysis,,,,,"$ P(X=x) =  \dfrac{1}{n} 
+\text {applies only to uniform proability distributions with n values} $",Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ E(X) = \mu = \sum xp(x $),Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$,Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ Var(X) = E[(x-\mu)^2]$,Year 11 Adv,TRUE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ Var(X) = \sum[x^2p(x)] - \mu^2$,Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ Var(X) = E(X^2) - \mu^2$,Year 11 Adv,TRUE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ \sigma = \sqrt{Var(X)}$,Year 11 Adv,FALSE,,

@@ -2,11 +2,11 @@
 weight: 3
 ---
 
-## Trigonometry and Measure of Angles
-<br><br>
+## <span style="color:RGB(0,0,150"> Trigonometry and Measure of Angles </span> 
+<br>
 
-## Trigonometric Functions and Identities
-<br><br>
+## <span style="color:RGB(0,0,150"> Trigonometric Functions and Identities </span> 
+<br>
 
-## Trigonometric Functions and Graphs
-<br><br>
+## <span style="color:RGB(0,0,150"> Trigonometric Functions and Graphs </span> 
+<br>

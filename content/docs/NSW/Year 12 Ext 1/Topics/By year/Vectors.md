@@ -2,5 +2,5 @@
 weight: 2
 ---
 
-## Introduction to Vectors
-<br><br>
+## <span style="color:RGB(0,0,150"> Introduction to Vectors </span> 
+<br>

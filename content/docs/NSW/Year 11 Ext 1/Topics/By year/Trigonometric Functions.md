@@ -2,8 +2,8 @@
 weight: 2
 ---
 
-## Inverse Trigonometric Functions
-<br><br>
+## <span style="color:RGB(0,0,150"> Inverse Trigonometric Functions </span> 
+<br>
 
-## Further Trigonometric Identities
-<br><br>
+## <span style="color:RGB(0,0,150"> Further Trigonometric Identities </span> 
+<br>

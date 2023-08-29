@@ -2,5 +2,5 @@
 weight: 5
 ---
 
-## The Binomial Distribution
-<br><br>
+## <span style="color:RGB(0,0,150"> The Binomial Distribution </span> 
+<br>
