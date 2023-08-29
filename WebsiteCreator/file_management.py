@@ -7,7 +7,8 @@ from site_hierarchies import SiteHierarchies
 from formula_tables import (FormulaTable, FormulaTableType,
                             FormulaTableTypeSimple, formula_table_types)
 from definition_display import DefinitionDisplay
-from site_content import Syllabus, Formulas, SyllabusTopic, Definitions
+from note_display import NoteDisplay
+from site_content import Syllabus, Formulas, SyllabusTopic, Definitions, Notes
 
 
 class _MarkdownContent():
@@ -161,9 +162,11 @@ class TopicFile():
                  file_path,
                  weight,
                  definitions: Definitions,
+                 notes: Notes,
                  formulas: Formulas):
         self._syllabus_topic = syllabus_topic
         self._definitions = definitions
+        self._notes = notes
         self._formulas = formulas
         self._markdown_content = _MarkdownContent(file_path, weight)
         self._generate_file()
@@ -175,8 +178,10 @@ class TopicFile():
         for subtopic in self._syllabus_topic.subtopics:
             self._add_subtopic_heading(subtopic)
             definitions_by_subtopic = self._defintions_by_subtopic(subtopic)
+            notes_by_subtopic = self._notes_by_subtopic(subtopic)
             formulas_by_subtopic = self._formulas_by_subtopic(subtopic)
             self._add_definitions(definitions_by_subtopic)
+            self._add_notes(notes_by_subtopic)
             self._add_formula_tables(formulas_by_subtopic)
 
     def _formulas_by_subtopic(self, subtopic):
@@ -185,6 +190,10 @@ class TopicFile():
 
     def _defintions_by_subtopic(self, subtopic):
         return self._definitions.filter_by_dict({
+            'Syllabus_subtopic': subtopic})
+
+    def _notes_by_subtopic(self, subtopic):
+        return self._notes.filter_by_dict({
             'Syllabus_subtopic': subtopic})
 
     def _add_subtopic_heading(self, subtopic: str) -> None:
@@ -197,6 +206,12 @@ class TopicFile():
             definition_display = DefinitionDisplay(definitions_by_subtopic)
             self._markdown_content.add_content(
                 definition_display.to_markdown_with_heading())
+
+    def _add_notes(self, notes_by_subtopic: Notes) -> None:
+        if len(notes_by_subtopic.data):
+            note_display = NoteDisplay(notes_by_subtopic)
+            self._markdown_content.add_content(
+                note_display.to_markdown_with_heading())
 
     def _add_formula_tables(self, formulas_by_subtopic: Formulas) -> None:
         for table_type in formula_table_types:
@@ -214,17 +229,24 @@ class TopicFiles():
                  syllabus: Syllabus,
                  hierarchies: SiteHierarchies,
                  definitions: Definitions,
+                 notes: Notes,
                  formulas: Formulas,
                  base_path: str):
         self._syllabus = syllabus
         self._hierarchies = hierarchies
         self._definitions = definitions
+        self._notes = notes
         self._formulas = formulas
         self._base_path = base_path
 
     def iterate(self):
         for syllabus_topic in self._syllabus.topics():
             definitions_by_topic = self._definitions.filter_by_dict({
+                'State': syllabus_topic.state,
+                'Subject': syllabus_topic.subject,
+                'Syllabus_topic': syllabus_topic.name
+            })
+            notes_by_topic = self._notes.filter_by_dict({
                 'State': syllabus_topic.state,
                 'Subject': syllabus_topic.subject,
                 'Syllabus_topic': syllabus_topic.name
@@ -240,7 +262,8 @@ class TopicFiles():
             file_path = self._get_file_path(self._base_path, path_in_hierarchy)
             weight = self._get_weight_based_on_hierarchies(path_in_hierarchy)
             topic_file = TopicFile(syllabus_topic, file_path, weight,
-                                   definitions_by_topic, formulas_by_topic)
+                                   definitions_by_topic, notes_by_topic,
+                                   formulas_by_topic)
             yield topic_file
 
     def _get_path_in_hierarchy(self, is_cumulative_by_year: bool, state: str,

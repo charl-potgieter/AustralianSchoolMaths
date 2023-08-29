@@ -54,6 +54,13 @@ class DataSource():
                 + 'definitions.csv')
 
     @property
+    def notes_file_path(self) -> str:
+        return (self.website_creator_directory + os.path.sep
+                + 'data_files'
+                + os.path.sep
+                + 'notes.csv')
+
+    @property
     def syllabus_file_path(self) -> str:
         return (self.website_creator_directory + os.path.sep
                 + 'data_files'
@@ -169,4 +176,34 @@ class DataSource():
                                      'Syllabus_subtopic_code',
                                      'Syllabus_subtopic', 'Term',
                                      'Definition']]
+        return return_value
+
+    @property
+    def notes_by_year(self) -> pd.DataFrame:
+        notes_data = pd.read_csv(self.notes_file_path)
+
+        notes_data = pd.merge(
+            left=self.syllabus_by_year, right=notes_data,
+            left_on=['State', 'Subject', 'Syllabus_subtopic_code'],
+            right_on=['State', 'Subject', 'Syllabus_subtopic_code'],
+            how='right')
+        return notes_data
+
+    @property
+    def notes_by_year_cumulative(self) -> pd.DataFrame:
+        """Returns note details on a cumulative level by subject
+        order  for a given state.  (includes the current subjects notes
+        as well as the notes from a subjects dependencies)
+        """
+        return_value = self.notes_by_year.copy()
+        return_value = return_value.rename(columns={'Subject': 'Dependency'})
+        return_value = return_value.merge(
+            right=self.subject_dependencies,
+            left_on=['State', 'Dependency'],
+            right_on=['State', 'Dependency'])
+        return_value = return_value.drop('Dependency', axis='columns')
+        # Re-order cols
+        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
+                                     'Syllabus_subtopic_code',
+                                     'Syllabus_subtopic', 'Note']]
         return return_value

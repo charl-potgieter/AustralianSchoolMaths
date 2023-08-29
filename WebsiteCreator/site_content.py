@@ -225,3 +225,30 @@ class Definitions(_SiteContent):
         for item in self._data.itertuples():
             current_definition = Definition(item.Term, item.Definition)
             yield current_definition
+
+
+class Note():
+    """Single note object consisting of term name and note only"""
+
+    def __init__(self, note: str):
+        self._note = note
+
+    @property
+    def note(self) -> str:
+        return self._note
+
+
+class Notes(_SiteContent):
+
+    _data_structure = {'State': 'object',
+                       'Subject': 'object',
+                       'Syllabus_topic': 'object',
+                       'Syllabus_subtopic_code': 'object',
+                       'Syllabus_subtopic': 'object',
+                       'Note': 'object'}
+
+    @property
+    def notes(self) -> Generator[Note, None, None]:
+        for item in self._data.itertuples():
+            current_note = Note(item.Note)
+            yield current_note

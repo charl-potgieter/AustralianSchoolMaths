@@ -5,7 +5,6 @@
 """This file handles the displaying of definitions of the web page"""
 
 from site_content import Definitions
-from page_structure import HiddenDetails
 
 
 class DefinitionDisplay():
@@ -16,11 +15,10 @@ class DefinitionDisplay():
     def to_markdown(self) -> str:
         return_value = ''
         for definition in self._definitions.definitions:
-            return_value += HiddenDetails(definition.term,
-                                          definition.definition).to_markdown()
+            return_value += '* ' + definition.term + '\n'
         return return_value
 
     def to_markdown_with_heading(self) -> str:
-        return ('### Definitions'
-                + '\n<br>\n'
+        return ('### Concepts'
+                + '\n\n\n'
                 + self.to_markdown())
