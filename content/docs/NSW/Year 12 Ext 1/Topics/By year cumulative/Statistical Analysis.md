@@ -8,36 +8,36 @@ weight: 8
 ### <span style="color:RGB(139,69,19)"> Concepts  </span>
 
 
-* complement
-* theoretical probability
-* conditional probability
-* probability scale
-* outcome
-* equally likely outcomes
 * event
+* complement
 * independent events
 * mutually exclusive events
 * non-mutually exclusive events
+* outcome
+* equally likely outcomes
+* theoretical probability
+* conditional probability
+* probability scale
 * probability tree
+* tree diagram
+* array $($table$)$
 * relative frequency
+* population
 * sample space
 * set
-* tree diagram
-* array (table)
 * Venn diagram
 * random variable
 * discrete random variable
 * continuous random variable
-* expected value
-* population
-* probability distribution
-* discrete probability distribution
-* standard deviation
 * uniform discrete random variables
 * non-uniform discrete random variables
+* expected value
+* probability distribution
+* discrete probability distribution
 * uniform probability distribution
-* variance
 * mean or expected value
+* variance
+* standard deviation
 
 
 ### <span style="color:RGB(150,0,0)">  Notes </span>
@@ -56,9 +56,10 @@ weight: 8
 <BR><BR>* Capital letter, e.g. X is often used for a random variable
 <BR><BR>* Lower case letter such as x is used for the values of X
 <BR><BR>* Properties of discrete probability distributions:
-(a) All possible value of X are mutually exclusive
-(b) The sum of probabilities = 1
-(c) For each value of x: 0<=P(X=x)<=1
+$($a$)$ All possible value of X are mutually exclusive
+$($b$)$ The sum of probabilities = 1
+$($c$)$ For each value of x: 0<=P(X=x)<=1
+<BR><BR>* A probability distribution can be drawn as a table with columns for x and P$($x$)$
 <BR><BR>* The expected values E(X) mof a probability distribution measures the centre of the distribution  = mean or average
 <BR><BR>* $\overline{x} $ is the mean of a sample
 <BR><BR>* $\mu $ is the mean of the population
@@ -66,6 +67,8 @@ weight: 8
 <BR><BR>* $\sigma$ is the poplulation standard deviation
 <BR><BR>* As the sample size increases $\overline{x} $ approaches  $\mu $
 <BR><BR>* The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$
+<BR><BR>* The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
+<BR><BR>* Know how to capture frequencies and calculate statistics on calculator
 <BR><BR>
 
 
@@ -74,61 +77,64 @@ weight: 8
 
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
-{{< tabs "2a2f6e66-cb0e-4db0-9d1c-3ad709851410" >}}
+{{< tabs "3638950a-7067-4808-91ee-aca271232f86" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_db8d5 th.col_heading {
+#T_421ca th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_db8d5 td {
+#T_421ca td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_db8d5">
+<table id="T_421ca">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_db8d5_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_421ca_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_421ca_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
+      <td id="T_421ca_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_421ca_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_421ca_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_421ca_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row6_col0" class="data row6 col0" >$ E(X) = \mu = \sum xp(x $)</td>
+      <td id="T_421ca_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row7_col0" class="data row7 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_421ca_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row8_col0" class="data row8 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_421ca_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row9_col0" class="data row9 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_421ca_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row10_col0" class="data row10 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_421ca_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_db8d5_row11_col0" class="data row11 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_421ca_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+    </tr>
+    <tr>
+      <td id="T_421ca_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -139,62 +145,65 @@ weight: 8
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_b3613 th.col_heading {
+#T_fd085 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_b3613 td {
+#T_fd085 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_b3613_row0_col0, #T_b3613_row3_col0, #T_b3613_row5_col0, #T_b3613_row6_col0, #T_b3613_row7_col0, #T_b3613_row9_col0, #T_b3613_row11_col0 {
+#T_fd085_row0_col0, #T_fd085_row3_col0, #T_fd085_row5_col0, #T_fd085_row6_col0, #T_fd085_row8_col0, #T_fd085_row10_col0, #T_fd085_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_b3613_row1_col0, #T_b3613_row2_col0, #T_b3613_row4_col0, #T_b3613_row8_col0, #T_b3613_row10_col0 {
+#T_fd085_row1_col0, #T_fd085_row2_col0, #T_fd085_row4_col0, #T_fd085_row7_col0, #T_fd085_row9_col0, #T_fd085_row11_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_b3613">
+<table id="T_fd085">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_b3613_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_fd085_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_b3613_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_fd085_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_b3613_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
+      <td id="T_fd085_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_b3613_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_fd085_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_b3613_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_fd085_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_b3613_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_fd085_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_b3613_row6_col0" class="data row6 col0" >$ E(X) = \mu = \sum xp(x $)</td>
+      <td id="T_fd085_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_b3613_row7_col0" class="data row7 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_fd085_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_b3613_row8_col0" class="data row8 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_fd085_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_b3613_row9_col0" class="data row9 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_fd085_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_b3613_row10_col0" class="data row10 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_fd085_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_b3613_row11_col0" class="data row11 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_fd085_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+    </tr>
+    <tr>
+      <td id="T_fd085_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -205,62 +214,65 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_8ce62 th.col_heading {
+#T_acaa2 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_8ce62 td {
+#T_acaa2 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_8ce62_row0_col0, #T_8ce62_row2_col0, #T_8ce62_row4_col0, #T_8ce62_row5_col0, #T_8ce62_row6_col0, #T_8ce62_row7_col0, #T_8ce62_row8_col0, #T_8ce62_row9_col0, #T_8ce62_row10_col0, #T_8ce62_row11_col0 {
+#T_acaa2_row0_col0, #T_acaa2_row2_col0, #T_acaa2_row4_col0, #T_acaa2_row5_col0, #T_acaa2_row6_col0, #T_acaa2_row7_col0, #T_acaa2_row8_col0, #T_acaa2_row9_col0, #T_acaa2_row10_col0, #T_acaa2_row11_col0, #T_acaa2_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_8ce62_row1_col0, #T_8ce62_row3_col0 {
+#T_acaa2_row1_col0, #T_acaa2_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_8ce62">
+<table id="T_acaa2">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_8ce62_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_acaa2_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_acaa2_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
+      <td id="T_acaa2_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_acaa2_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_acaa2_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_acaa2_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row6_col0" class="data row6 col0" >$ E(X) = \mu = \sum xp(x $)</td>
+      <td id="T_acaa2_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row7_col0" class="data row7 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_acaa2_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row8_col0" class="data row8 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_acaa2_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row9_col0" class="data row9 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_acaa2_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row10_col0" class="data row10 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_acaa2_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_8ce62_row11_col0" class="data row11 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_acaa2_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+    </tr>
+    <tr>
+      <td id="T_acaa2_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>

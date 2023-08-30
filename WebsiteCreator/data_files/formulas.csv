@@ -85,7 +85,8 @@ NSW,MA-S1,Statistical Analysis,,,,,$P(\overline{E}) = 1 - P(E)$,Year 11 Adv,FALS
 NSW,MA-S1,Statistical Analysis,,,,,"$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $",Year 11 Adv,TRUE,,
 NSW,MA-S1,Statistical Analysis,,,,,"$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $",Year 11 Adv,FALSE,,
-NSW,MA-S1,Statistical Analysis,,,,,$ E(X) = \mu = \sum xp(x $),Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ E(X) =\sum xp(x)$,Year 11 Adv,FALSE,,
+NSW,MA-S1,Statistical Analysis,,,,,$ E(X) = \mu $,Year 11 Adv,TRUE,,
 NSW,MA-S1,Statistical Analysis,,,,,$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$,Year 11 Adv,FALSE,,
 NSW,MA-S1,Statistical Analysis,,,,,$ Var(X) = E[(x-\mu)^2]$,Year 11 Adv,TRUE,,
 NSW,MA-S1,Statistical Analysis,,,,,$ Var(X) = \sum[x^2p(x)] - \mu^2$,Year 11 Adv,FALSE,,
