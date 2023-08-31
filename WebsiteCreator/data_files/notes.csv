@@ -8,15 +8,15 @@ NSW,Year 11 Adv,MA-S1,The sum of all mutually exclusive probabilities is 1
 NSW,Year 11 Adv,MA-S1,$A \cup B = P(A) + P(B) $ is the addition rule for mutually exclusive events
 NSW,Year 11 Adv,MA-S1,$A \cup B = P(A) + P(B) - P(A \cap B) $ is the addition rule 
 NSW,Year 11 Adv,MA-S1,$A \cap B  = P(A)P(B)$ is the product rule for independent events only
-NSW,Year 11 Adv,MA-S1,"Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $ while conditional proability for independent events is $ P(A|B) = P(A) $"
+NSW,Year 11 Adv,MA-S1,"Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) eq 0 $ while conditional probability for independent events is $ P(A|B) = P(A) $"
 NSW,Year 11 Adv,MA-S1,"Capital letter, e.g. X is often used for a random variable"
 NSW,Year 11 Adv,MA-S1,Lower case letter such as x is used for the values of X
 NSW,Year 11 Adv,MA-S1,"Properties of discrete probability distributions:
-$($a$)$ All possible value of X are mutually exclusive
-$($b$)$ The sum of probabilities = 1
-$($c$)$ For each value of x: 0<=P(X=x)<=1"
+    * All possible value of X are mutually exclusive
+    * The sum of probabilities = 1
+    * For each value of x: 0<=P(X=x)<=1"
 NSW,Year 11 Adv,MA-S1,A probability distribution can be drawn as a table with columns for x and P$($x$)$
-NSW,Year 11 Adv,MA-S1,The expected values E(X) mof a probability distribution measures the centre of the distribution  = mean or average
+NSW,Year 11 Adv,MA-S1,The expected values E(X) of a probability distribution measures the centre of the distribution  = mean or average
 NSW,Year 11 Adv,MA-S1,$\overline{x} $ is the mean of a sample
 NSW,Year 11 Adv,MA-S1,$\mu $ is the mean of the population
 NSW,Year 11 Adv,MA-S1,$s$ is the sample standard deviation
@@ -25,3 +25,38 @@ NSW,Year 11 Adv,MA-S1,As the sample size increases $\overline{x} $ approaches  $
 NSW,Year 11 Adv,MA-S1,The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$
 NSW,Year 11 Adv,MA-S1,The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
 NSW,Year 11 Adv,MA-S1,Know how to capture frequencies and calculate statistics on calculator
+NSW,Year 12 Adv,MA-S2,Categorical data can be nominal or ordinal
+NSW,Year 12 Adv,MA-S2,Numerical data can be discrete or continuous
+NSW,Year 12 Adv,MA-S2,"Displaying numerical data: 
+    * histogram $($centre of column is lined up with value on x-axis.  No gap between columns$)$ 
+    * Frequency polygon $($line graph displaying frequency, starts and ends on x-axis$)$ 
+    * Cumulative frequency histogram 
+    * Ogive $($cumulative frequency polygon$)$ 
+    * Stem and leaf plot $[$graphical display of tens $($stems$)$ and units $($leaves$)]$"
+NSW,Year 12 Adv,MA-S2,"Displaying categorical data:
+    * Two way table
+    * Bar chart $($there are gaps between columns, unlike the histogram$)$
+    * Pie chart
+    * Pareto chart $($bar chart of frequencies in descending order.  No gaps.  Non cumulative.   + Cumulative percentage frequency line graph starting at 0% on left and ending with 100% on right.  Two y-axis: frequency units on left and cumulative percentage frequency on the right$)$"
+NSW,Year 12 Adv,MA-S2,"3 Measures of central tendency:
+    * mean
+    * mode
+    * median"
+NSW,Year 12 Adv,MA-S2,"If ranges are provided in a frequency table a class centre will generally need to be added as an additional column in order to calculate statistics such as mean, standard deviation etc."
+NSW,Year 12 Adv,MA-S2,Grouped data has a modal class rather than a mode
+NSW,Year 12 Adv,MA-S2,"If there are two middle values. In other words an even number of values, the median is the average of these values."
+NSW,Year 12 Adv,MA-S2,The median on an ogive is the halfway point on the cumulative frequency axis
+NSW,Year 12 Adv,MA-S2,"Recommended, but not universal, method for computing quartiles:
+    * Use the median to divide the ordered set into 2 halves.  
+    * If there is an odd number in the original set then do not include the median in either half.
+    * If there is an even number in the original set then split the set exactly in half
+    * Q1 and Q3 are the medians of the lower and upper halves respectively"
+NSW,Year 12 Adv,MA-S2,"Quantile is a general term, quartiles divide set into 4 parts, deciles into 10 parts and percentiles into 100 parts"
+NSW,Year 12 Adv,MA-S2,"Shapes of data: 
+    * negatively skewed = more data to left of the centre
+    * positively skewed = more data to the right of the centre
+    * symmetrical"
+NSW,Year 12 Adv,MA-S2,"Modality of data:
+    * unimodal  = 1 peak
+    * bimodal  = 2 peaks
+    * multimodal = has many peaks"

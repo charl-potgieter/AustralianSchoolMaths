@@ -15,7 +15,7 @@ class NoteDisplay():
     def to_markdown(self) -> str:
         return_value = ''
         for note_item in self._notes.notes:
-            return_value += '* ' + note_item.note + '\n<BR><BR>'
+            return_value += '* ' + note_item.note + '\n<BR><BR>\n'
         return return_value
 
     def to_markdown_with_heading(self) -> str:
