@@ -43,6 +43,7 @@ weight: 5
 * bimodal
 * multimodal
 * bivariate data
+* dependent and independent variables
 * extrapolation
 * interpolation
 * least-squares regression line
@@ -111,7 +112,7 @@ weight: 5
 * Don't need to utilise a formula to calculate Pearson's correlation co-efficient $($r$)$ but need to be able to calculate using calculator
 <BR><BR>
 * Values of  Pearson's correlation co-efficient $($r$)$:
-    *$ -1 \le r \le 1$
+    * $ -1 \le r \le 1$
     * $ 0 \le r \le 1$ &emsp;&ensp;&nbsp;  scatterplot with positive direction
     * $r=1$ &emsp;&emsp;&emsp;&emsp; perfect positive correlation 
     * $ -1 \le r \le 0$ &ensp;&nbsp; scatterplot with negative direction 
@@ -128,45 +129,45 @@ weight: 5
 
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
-{{< tabs "543bc773-60fc-4df9-b081-4aa3ce4ab7a1" >}}
+{{< tabs "cb62c72c-f5cb-4ff3-af60-c0a9b41fceff" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_d86a7 th.col_heading {
+#T_3a472 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_d86a7 td {
+#T_3a472 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_d86a7">
+<table id="T_3a472">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_d86a7_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_3a472_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_d86a7_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_3a472_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_d86a7_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_3a472_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_d86a7_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_3a472_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_d86a7_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_3a472_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_d86a7_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_3a472_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -177,46 +178,46 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_b7d51 th.col_heading {
+#T_53876 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_b7d51 td {
+#T_53876 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_b7d51_row0_col0, #T_b7d51_row1_col0, #T_b7d51_row2_col0, #T_b7d51_row3_col0, #T_b7d51_row5_col0 {
+#T_53876_row0_col0, #T_53876_row1_col0, #T_53876_row2_col0, #T_53876_row3_col0, #T_53876_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_b7d51_row4_col0 {
+#T_53876_row4_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_b7d51">
+<table id="T_53876">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_b7d51_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_53876_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_b7d51_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_53876_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_b7d51_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_53876_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_b7d51_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_53876_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_b7d51_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_53876_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_b7d51_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_53876_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
