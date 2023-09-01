@@ -27,13 +27,17 @@ NSW,Year 11 Adv,MA-S1,The formula sheet defines variance as follows:  $ Var(X) =
 NSW,Year 11 Adv,MA-S1,Know how to capture frequencies and calculate statistics on calculator
 NSW,Year 12 Adv,MA-S2,Categorical data can be nominal or ordinal
 NSW,Year 12 Adv,MA-S2,Numerical data can be discrete or continuous
-NSW,Year 12 Adv,MA-S2,"Displaying numerical data: 
+NSW,Year 12 Adv,MA-S2,"Displaying numerical data:
+    *Frequency table
     * histogram $($centre of column is lined up with value on x-axis.  No gap between columns$)$ 
-    * Frequency polygon $($line graph displaying frequency, starts and ends on x-axis$)$ 
-    * Cumulative frequency histogram 
-    * Ogive $($cumulative frequency polygon$)$ 
-    * Stem and leaf plot $[$graphical display of tens $($stems$)$ and units $($leaves$)]$"
-NSW,Year 12 Adv,MA-S2,"Displaying categorical data:
+    * frequency polygon $($line graph displaying frequency, starts and ends on x-axis$)$ 
+    * cumulative frequency histogram 
+    * ogive $($cumulative frequency polygon$)$ 
+    * stem and leaf plot $[$graphical display of tens $($stems$)$ and units $($leaves$)]$
+    * dot plot
+    * five-number summary
+    * box plot $($box-and-whisker-plot$)$"
+NSW,Year 12 Adv,  ,"Displaying categorical data:
     * Two way table
     * Bar chart $($there are gaps between columns, unlike the histogram$)$
     * Pie chart
@@ -60,3 +64,17 @@ NSW,Year 12 Adv,MA-S2,"Modality of data:
     * unimodal  = 1 peak
     * bimodal  = 2 peaks
     * multimodal = has many peaks"
+NSW,Year 12 Adv,MA-S2,Scatterplots are used to graph bivariate data
+NSW,Year 12 Adv,MA-S2,"Scatterplots can be:
+    * linear
+    * non-linear
+    * have no shape"
+NSW,Year 12 Adv,MA-S2,Don't need to utilise a formula to calculate Pearson's correlation co-efficient $($r$)$ but need to be able to calculate using calculator
+NSW,Year 12 Adv,MA-S2,"Values of  Pearson's correlation co-efficient $($r$)$:
+    * $ -1 \le r \le 1$
+    * $ 0 \le r \le 1$ &emsp;&ensp;&nbsp;  scatterplot with positive direction
+    * $r=1$ &emsp;&emsp;&emsp;&emsp; perfect positive correlation 
+    * $ -1 \le r \le 0$ &ensp;&nbsp; scatterplot with negative direction 
+    * $r=-1$ &emsp;&emsp;&emsp; perfect negative correlation
+    * $r=0$ &emsp;&emsp;&emsp;&emsp; no correlation"
+NSW,Year 12 Adv,MA-S2,Need to be able to calculate least squares regression line on a calculator but don’t need to be able to manually calculate with formula
