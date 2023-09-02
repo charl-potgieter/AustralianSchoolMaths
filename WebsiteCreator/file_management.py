@@ -198,7 +198,7 @@ class TopicFile():
 
     def _add_subtopic_heading(self, subtopic: str) -> None:
         self._markdown_content.add_content(
-            '## <span style="color:RGB(0,0,150"> ' +
+            '## <span style="color:RGB(0,32,96"> ' +
             subtopic + ' </span> \n<br>'
         )
 

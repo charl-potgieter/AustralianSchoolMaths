@@ -2,8 +2,8 @@
 weight: 2
 ---
 
-## <span style="color:RGB(0,0,150"> Working with Functions </span> 
+## <span style="color:RGB(0,32,96"> Working with Functions </span> 
 <br>
 
-## <span style="color:RGB(0,0,150"> Graphing Techniques </span> 
+## <span style="color:RGB(0,32,96"> Graphing Techniques </span> 
 <br>

@@ -2,7 +2,7 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,0,150"> Descriptive Statistics and Bivariate Data Analysis </span> 
+## <span style="color:RGB(0,32,96"> Descriptive Statistics and Bivariate Data Analysis </span> 
 <br>
 
 ### <span style="color:RGB(139,69,19)"> Concepts  </span>
@@ -129,45 +129,45 @@ weight: 5
 
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
-{{< tabs "cb62c72c-f5cb-4ff3-af60-c0a9b41fceff" >}}
+{{< tabs "25387e14-f9a9-41aa-b380-8f511aa31853" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_3a472 th.col_heading {
+#T_d17b2 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_3a472 td {
+#T_d17b2 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_3a472">
+<table id="T_d17b2">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3a472_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_d17b2_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_3a472_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_d17b2_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_3a472_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_d17b2_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_3a472_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_d17b2_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_3a472_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_d17b2_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_3a472_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_d17b2_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -178,51 +178,51 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_53876 th.col_heading {
+#T_fc6d0 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_53876 td {
+#T_fc6d0 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_53876_row0_col0, #T_53876_row1_col0, #T_53876_row2_col0, #T_53876_row3_col0, #T_53876_row5_col0 {
+#T_fc6d0_row0_col0, #T_fc6d0_row1_col0, #T_fc6d0_row2_col0, #T_fc6d0_row3_col0, #T_fc6d0_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_53876_row4_col0 {
+#T_fc6d0_row4_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_53876">
+<table id="T_fc6d0">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_53876_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_fc6d0_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_53876_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_fc6d0_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_53876_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_fc6d0_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_53876_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_fc6d0_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_53876_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_fc6d0_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_53876_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_fc6d0_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,0,150"> Random Variables </span> 
+## <span style="color:RGB(0,32,96"> Random Variables </span> 
 <br>

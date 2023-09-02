@@ -2,5 +2,5 @@
 weight: 1
 ---
 
-## <span style="color:RGB(0,0,150"> Working with Functions </span> 
+## <span style="color:RGB(0,32,96"> Working with Functions </span> 
 <br>
