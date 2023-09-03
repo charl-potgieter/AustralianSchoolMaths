@@ -78,3 +78,9 @@ NSW,Year 12 Adv,MA-S2,"Values of  Pearson's correlation co-efficient $($r$)$:
     * $r=-1$ &emsp;&emsp;&emsp; perfect negative correlation
     * $r=0$ &emsp;&emsp;&emsp;&emsp; no correlation"
 NSW,Year 12 Adv,MA-S2,Need to be able to calculate least squares regression line on a calculator but don’t need to be able to manually calculate with formula
+NSW,Year 12 Adv,MA-S3,The cumulative distribution function is the integral of the probability density function
+NSW,Year 12 Adv,MA-S3,A continuous probability distribution is reported by a probability density function
+NSW,Year 12 Adv,MA-S3,"The probability of a single outcome of a continuous probability distribution cannot be calculated, in other words P(X=x) = 0.  The probability can only be calculated for a range"
+NSW,Year 12 Adv,MA-S3,"Given $P(X=a) = 0$ and $P(X=b) = 0$, therefore $P(a < X < b) = P(a \leq X \leq b)$"
+NSW,Year 12 Adv,MA-S3,The area under a probability density function is 1 : $ {\int}^\infty_{-\infty} f(x)dx = 1$
+NSW,Year 12 Adv,MA-S3,"Given probability density function $f(x)$ over domain [a,b] and cumulative distribution function $F(x)$ $F(a) = 0$ and $F(b) = 1$"
