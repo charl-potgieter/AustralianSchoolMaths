@@ -25,6 +25,12 @@ NSW,Year 11 Adv,MA-S1,As the sample size increases $\overline{x} $ approaches  $
 NSW,Year 11 Adv,MA-S1,The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$
 NSW,Year 11 Adv,MA-S1,The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
 NSW,Year 11 Adv,MA-S1,Know how to capture frequencies and calculate statistics on calculator
+NSW,Year 11 Ext 1,ME-A1,$ n!$ is the number of ways of selecting n objects with no replacement or repetition.
+NSW,Year 11 Ext 1,ME-A1,Permutations = ordered
+NSW,Year 11 Ext 1,ME-A1,$^nP_r$ is the number of ways of making an ordered selection or r objects from a total of n objects.
+NSW,Year 11 Ext 1,ME-A1,"Combinations = unordered.  Given the order is not important, therefore will be a smaller number than the equivalent permutation."
+NSW,Year 11 Ext 1,ME-A1,$^nC_r = (^n_r)$ is the number of ways of making an unordered selection or r objects from a total of n objects.
+NSW,Year 11 Ext 1,ME-A1,Each item in Pascals triangle can be written as $^{\text{row index}}C_{\text{column index}}$ where both the indices start from zero.
 NSW,Year 12 Adv,MA-S2,Categorical data can be nominal or ordinal
 NSW,Year 12 Adv,MA-S2,Numerical data can be discrete or continuous
 NSW,Year 12 Adv,MA-S2,"Displaying numerical data:
