@@ -129,45 +129,45 @@ weight: 5
 
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
-{{< tabs "951b1090-5f4b-4201-a0e4-52c5285b7172" >}}
+{{< tabs "64e8c571-8cb6-482b-b4d7-bac8140a516a" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_5776d th.col_heading {
+#T_4a468 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_5776d td {
+#T_4a468 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_5776d">
+<table id="T_4a468">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_5776d_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_4a468_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_5776d_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_4a468_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_5776d_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_4a468_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_5776d_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_4a468_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_5776d_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_4a468_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_5776d_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_4a468_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -178,46 +178,46 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_3e848 th.col_heading {
+#T_2e8dd th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_3e848 td {
+#T_2e8dd td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_3e848_row0_col0, #T_3e848_row1_col0, #T_3e848_row2_col0, #T_3e848_row3_col0, #T_3e848_row5_col0 {
+#T_2e8dd_row0_col0, #T_2e8dd_row1_col0, #T_2e8dd_row2_col0, #T_2e8dd_row3_col0, #T_2e8dd_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_3e848_row4_col0 {
+#T_2e8dd_row4_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_3e848">
+<table id="T_2e8dd">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3e848_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_2e8dd_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_3e848_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_2e8dd_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_3e848_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_2e8dd_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_3e848_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_2e8dd_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_3e848_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_2e8dd_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_3e848_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_2e8dd_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -252,9 +252,17 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 <BR><BR>
 * Given $P(X=a) = 0$ and $P(X=b) = 0$, therefore $P(a < X < b) = P(a \leq X \leq b)$
 <BR><BR>
-* The area under a probability density function is 1 : $ {\int}^\infty_{-\infty} f(x)dx = 1$
+* The area under a probability density function is 1 : $ {\Large\int}^\infty_{-\infty} f(x)dx = 1$
 <BR><BR>
 * Given probability density function $f(x)$ over domain [a,b] and cumulative distribution function $F(x)$ $F(a) = 0$ and $F(b) = 1$
+<BR><BR>
+* The median lies at point x where ${\Large\int}^x_a f(x)dx = \dfrac{1}{2}$ where $f(x)$ is a pdf defined on domaimn [a,b].  Similiar rules apply to other quantiles.
+<BR><BR>
+* The mean, mode, and median are equal for a normal distribution
+<BR><BR>
+* Finding probability by integration in a normal distribution is complex, therefore use tables where 
+<BR><BR>
+* Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$
 <BR><BR>
 
 
@@ -264,29 +272,79 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
+{{< tabs "bad53d3a-4cb7-4623-bbc9-bbf3ccd804de" >}}
+
+{{< tab "Standard view" >}}
+
 <style type="text/css">
-#T_57031 th.col_heading {
+#T_583fc th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_57031 td {
+#T_583fc td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_57031">
+<table id="T_583fc">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_57031_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_583fc_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_57031_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = \int^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_583fc_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_57031_row2_col0" class="data row2 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_583fc_row2_col0" class="data row2 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+    </tr>
+    <tr>
+      <td id="T_583fc_row3_col0" class="data row3 col0" >$x = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
+{{< /tab >}}
+
+{{< tab "Formula sheet" >}}
+
+Items on formula sheet are highlighted 
+<br>
+<style type="text/css">
+#T_c4028 th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_c4028 td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+#T_c4028_row0_col0, #T_c4028_row1_col0, #T_c4028_row2_col0 {
+  background-color: rgba(0,0,0,0);
+}
+#T_c4028_row3_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
+</style>
+<table id="T_c4028">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_c4028_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+    </tr>
+    <tr>
+      <td id="T_c4028_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+    </tr>
+    <tr>
+      <td id="T_c4028_row2_col0" class="data row2 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+    </tr>
+    <tr>
+      <td id="T_c4028_row3_col0" class="data row3 col0" >$x = \dfrac{x-\mu}{\sigma} $</td>
+    </tr>
+  </tbody>
+</table>
+{{< /tab >}}
+{{< /tabs >}}

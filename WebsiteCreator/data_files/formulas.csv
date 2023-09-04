@@ -92,5 +92,6 @@ $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $",Year 12 Adv,TRUE,,
 NSW,MA-S2,Statistical Analysis,,,,,$ \overline{x} = \dfrac{\sum fx}{\sum f} $,Year 12 Adv,FALSE,,
 NSW,MA-S3,Statistical Analysis,,,,,$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$,Year 12 Adv,FALSE,,
-NSW,MA-S3,Statistical Analysis,,,,,"$F(x) = P(X\leq x) = \int^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$",Year 12 Adv,FALSE,,
+NSW,MA-S3,Statistical Analysis,,,,,"$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$",Year 12 Adv,FALSE,,
 NSW,MA-S3,Statistical Analysis,,,,,"$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$",Year 12 Adv,FALSE,,
+NSW,MA-S3,Statistical Analysis,,,,,$x = \dfrac{x-\mu}{\sigma} $,Year 12 Adv,TRUE,,

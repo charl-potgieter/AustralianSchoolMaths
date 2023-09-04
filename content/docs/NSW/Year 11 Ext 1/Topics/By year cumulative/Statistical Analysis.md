@@ -100,64 +100,64 @@ weight: 6
 
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
-{{< tabs "c417ad76-a92b-4d26-a9f2-a2def47fd43e" >}}
+{{< tabs "e33442d5-db8a-4c1c-bbac-c1da63471b1d" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_6b1a3 th.col_heading {
+#T_a7ac3 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_6b1a3 td {
+#T_a7ac3 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_6b1a3">
+<table id="T_a7ac3">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_6b1a3_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_a7ac3_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_a7ac3_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
+      <td id="T_a7ac3_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_a7ac3_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_a7ac3_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_a7ac3_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_a7ac3_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_a7ac3_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_a7ac3_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_a7ac3_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_a7ac3_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_a7ac3_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_6b1a3_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_a7ac3_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -168,65 +168,65 @@ weight: 6
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_27a44 th.col_heading {
+#T_38af7 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_27a44 td {
+#T_38af7 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_27a44_row0_col0, #T_27a44_row3_col0, #T_27a44_row5_col0, #T_27a44_row6_col0, #T_27a44_row8_col0, #T_27a44_row10_col0, #T_27a44_row12_col0 {
+#T_38af7_row0_col0, #T_38af7_row3_col0, #T_38af7_row5_col0, #T_38af7_row6_col0, #T_38af7_row8_col0, #T_38af7_row10_col0, #T_38af7_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_27a44_row1_col0, #T_27a44_row2_col0, #T_27a44_row4_col0, #T_27a44_row7_col0, #T_27a44_row9_col0, #T_27a44_row11_col0 {
+#T_38af7_row1_col0, #T_38af7_row2_col0, #T_38af7_row4_col0, #T_38af7_row7_col0, #T_38af7_row9_col0, #T_38af7_row11_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_27a44">
+<table id="T_38af7">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_27a44_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_38af7_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_27a44_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_38af7_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_27a44_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
+      <td id="T_38af7_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_38af7_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_38af7_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_27a44_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_38af7_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_27a44_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_38af7_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_38af7_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_27a44_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_38af7_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_38af7_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_38af7_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_38af7_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_27a44_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_38af7_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -237,65 +237,65 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_c1cdc th.col_heading {
+#T_3efec th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_c1cdc td {
+#T_3efec td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_c1cdc_row0_col0, #T_c1cdc_row2_col0, #T_c1cdc_row4_col0, #T_c1cdc_row5_col0, #T_c1cdc_row6_col0, #T_c1cdc_row7_col0, #T_c1cdc_row8_col0, #T_c1cdc_row9_col0, #T_c1cdc_row10_col0, #T_c1cdc_row11_col0, #T_c1cdc_row12_col0 {
+#T_3efec_row0_col0, #T_3efec_row2_col0, #T_3efec_row4_col0, #T_3efec_row5_col0, #T_3efec_row6_col0, #T_3efec_row7_col0, #T_3efec_row8_col0, #T_3efec_row9_col0, #T_3efec_row10_col0, #T_3efec_row11_col0, #T_3efec_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_c1cdc_row1_col0, #T_c1cdc_row3_col0 {
+#T_3efec_row1_col0, #T_3efec_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_c1cdc">
+<table id="T_3efec">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_c1cdc_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_3efec_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_3efec_row1_col0" class="data row1 col0" >$A \cup B = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
+      <td id="T_3efec_row2_col0" class="data row2 col0" >$A \cap B  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_3efec_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_3efec_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_3efec_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_3efec_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_3efec_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_3efec_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_3efec_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_3efec_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_3efec_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_c1cdc_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_3efec_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
