@@ -63,8 +63,8 @@ NSW,Year 12 Adv,MA-S2,"Recommended, but not universal, method for computing quar
     * Q1 and Q3 are the medians of the lower and upper halves respectively"
 NSW,Year 12 Adv,MA-S2,"Quantile is a general term, quartiles divide set into 4 parts, deciles into 10 parts and percentiles into 100 parts"
 NSW,Year 12 Adv,MA-S2,"Shapes of data: 
-    * negatively skewed = more data to left of the centre
-    * positively skewed = more data to the right of the centre
+    * negatively skewed = more area to left of the centre = the tail points to low scores
+    * positively skewed = more area to the right of the centre = the tail points to high scores
     * symmetrical"
 NSW,Year 12 Adv,MA-S2,"Modality of data:
     * unimodal  = 1 peak
@@ -93,3 +93,12 @@ NSW,Year 12 Adv,MA-S3,"Given probability density function $f(x)$ over domain [a,
 NSW,Year 12 Adv,MA-S3,"The median lies at point x where ${\Large\int}^x_a f(x)dx = \dfrac{1}{2}$ where $f(x)$ is a pdf defined on domaimn [a,b].  Similiar rules apply to other quantiles."
 NSW,Year 12 Adv,MA-S3,"The mean, mode, and median are equal for a normal distribution"
 NSW,Year 12 Adv,MA-S3,"Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$"
+NSW,Year 12 Ext 1,ME-S1,"Properties of binomial distribution:
+    * fixed number of trials
+    * there are only 2 outcomes: success or failure
+    * each trial is independent
+    * Probabilities are the same for each trial"
+NSW,Year 12 Ext 1,ME-S1,"Share of a binomial distribution:
+    * p<0.5 : positively skewed
+    * p=0.5 : normal / symmetrical
+    * p>0.5 : negatively skewed"
