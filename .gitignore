@@ -1,12 +1,9 @@
-*.xlsx
-*.xlsm
-*.xlam
 *test*
 *TEST*
 *Test*
+*TEST/*
+*Test/*
 *backup*
-*.xlsx
-*.xlsm
 AddInsforGithub/*
 _image_caption_config.py
 WebsiteCreator/Experimentation/*
@@ -15,3 +12,5 @@ WebsiteCreator/.ipynb_checkpoints/*
 .vscode/*
 */Temp/*
 */temp/*
+*/Backups/*
+*/backups/*
