@@ -98,6 +98,12 @@ weight: 5
 <br>
 
 
+### <span style="color:RGB(150,0,0)">  Spreadsheets </span>
+
+[Random variables](https://github.com/charl-potgieter/AustralianSchoolMaths/raw/main/WebsiteCreator/spreadsheets/MA-S3.xlsx)
+
+<br>
+
 ###  <span style="color:RGB(150,0,0)"> Formulas </span>
 <br>
 {{< tabs "a55343d4-cc39-4b45-a3bb-1ae834d65ea8" >}}

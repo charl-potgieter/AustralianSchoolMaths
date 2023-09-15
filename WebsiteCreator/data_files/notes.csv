@@ -5,9 +5,9 @@ NSW,Year 11 Adv,MA-S1,$A \cup B $ is A union B
 NSW,Year 11 Adv,MA-S1,$A \cap B $  is A intersection B
 NSW,Year 11 Adv,MA-S1,The probability formula applies where each outcome is equally likely: $ P(E) = \dfrac{n(E)}{n(S)} $
 NSW,Year 11 Adv,MA-S1,The sum of all mutually exclusive probabilities is 1
-NSW,Year 11 Adv,MA-S1,$A \cup B = P(A) + P(B) $ is the addition rule for mutually exclusive events
-NSW,Year 11 Adv,MA-S1,$A \cup B = P(A) + P(B) - P(A \cap B) $ is the addition rule 
-NSW,Year 11 Adv,MA-S1,$A \cap B  = P(A)P(B)$ is the product rule for independent events only
+NSW,Year 11 Adv,MA-S1,$P(A \cup B) = P(A) + P(B) $ is the addition rule for mutually exclusive events
+NSW,Year 11 Adv,MA-S1,$P(A \cup B) = P(A) + P(B) - P(A \cap B) $ is the addition rule 
+NSW,Year 11 Adv,MA-S1,$P(A \cap B)  = P(A)P(B)$ is the product rule for independent events only
 NSW,Year 11 Adv,MA-S1,"Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) eq 0 $ while conditional probability for independent events is $ P(A|B) = P(A) $"
 NSW,Year 11 Adv,MA-S1,"Capital letter, e.g. X is often used for a random variable"
 NSW,Year 11 Adv,MA-S1,Lower case letter such as x is used for the values of X
@@ -86,11 +86,11 @@ NSW,Year 12 Adv,MA-S2,"Values of  Pearson's correlation co-efficient $($r$)$:
 NSW,Year 12 Adv,MA-S2,Need to be able to calculate least squares regression line on a calculator but don’t need to be able to manually calculate with formula
 NSW,Year 12 Adv,MA-S3,The cumulative distribution function is the integral of the probability density function
 NSW,Year 12 Adv,MA-S3,A continuous probability distribution is reported by a probability density function
-NSW,Year 12 Adv,MA-S3,"The probability of a single outcome of a continuous probability distribution cannot be calculated, in other words P(X=x) = 0.  The probability can only be calculated for a range"
+NSW,Year 12 Adv,MA-S3,"The probability of a single outcome of a continuous probability distribution cannot be calculated, in other words $P(X=x) = 0$.  The probability can only be calculated for a range"
 NSW,Year 12 Adv,MA-S3,"Given $P(X=a) = 0$ and $P(X=b) = 0$, therefore $P(a < X < b) = P(a \leq X \leq b)$"
 NSW,Year 12 Adv,MA-S3,The area under a probability density function is 1 : $ {\Large\int}^\infty_{-\infty} f(x)dx = 1$
 NSW,Year 12 Adv,MA-S3,"Given probability density function $f(x)$ over domain [a,b] and cumulative distribution function $F(x)$ $F(a) = 0$ and $F(b) = 1$"
-NSW,Year 12 Adv,MA-S3,"The median lies at point x where ${\Large\int}^x_a f(x)dx = \dfrac{1}{2}$ where $f(x)$ is a pdf defined on domaimn [a,b].  Similiar rules apply to other quantiles."
+NSW,Year 12 Adv,MA-S3,"The median lies at point x where ${\Large\int}^x_a f(x)dx = \dfrac{1}{2}$ where $f(x)$ is a pdf defined on domain [a,b].  Alternatively $F(x)-F(a) = \dfrac{1}{2}$ Similiar rules apply to other quantiles."
 NSW,Year 12 Adv,MA-S3,"The mean, mode, and median are equal for a normal distribution"
 NSW,Year 12 Adv,MA-S3,"Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$"
 NSW,Year 12 Ext 1,ME-S1,"Properties of binomial distribution:
