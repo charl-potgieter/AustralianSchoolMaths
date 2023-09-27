@@ -239,7 +239,7 @@ class DataSource():
         order  for a given state.  (includes the current subjects definitions
         as well as the definitions from a subjects dependencies)
         """
-        return_value = self.definitions_by_year.copy()
+        return_value = self.spreadsheets_by_year.copy()
         return_value = return_value.rename(columns={'Subject': 'Dependency'})
         return_value = return_value.merge(
             right=self.subject_dependencies,
@@ -249,6 +249,6 @@ class DataSource():
         # Re-order cols
         return_value = return_value[['State', 'Subject', 'Syllabus_topic',
                                      'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic', 'Term',
-                                     'Definition']]
+                                     'Syllabus_subtopic', 'Spreadsheet']]
+
         return return_value

@@ -9,132 +9,68 @@ weight: 2
 <br>
 
 
-###  <span style="color:RGB(150,0,0)"> Formulas </span>
+###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "28190868-78bf-483e-be63-3d851444e839" >}}
-
-{{< tab "Standard view" >}}
-
 <style type="text/css">
-#T_a7026 th.col_heading {
+#T_7b87b th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_a7026 td {
+#T_7b87b td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_a7026">
+<table id="T_7b87b">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_a7026_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
+      <td id="T_7b87b_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
+      <td id="T_7b87b_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
+      <td id="T_7b87b_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
+      <td id="T_7b87b_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
+      <td id="T_7b87b_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row5_col0" class="data row5 col0" >$a^0=1$</td>
+      <td id="T_7b87b_row5_col0" class="data row5 col0" >$a^0=1$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
+      <td id="T_7b87b_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
+      <td id="T_7b87b_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
+      <td id="T_7b87b_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
     </tr>
     <tr>
-      <td id="T_a7026_row9_col0" class="data row9 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
+      <td id="T_7b87b_row9_col0" class="data row9 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
     </tr>
     <tr>
-      <td id="T_a7026_row10_col0" class="data row10 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
+      <td id="T_7b87b_row10_col0" class="data row10 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
     </tr>
     <tr>
-      <td id="T_a7026_row11_col0" class="data row11 col0" >$ (\sqrt{x})^2 = \sqrt{x^2} = x \text{ for } x\ge 0 $</td>
+      <td id="T_7b87b_row11_col0" class="data row11 col0" >$ (\sqrt{x})^2 = \sqrt{x^2} = x \text{ for } x\ge 0 $</td>
     </tr>
   </tbody>
 </table>
-{{< /tab >}}
 
-{{< tab "Formula sheet" >}}
 
-Items on formula sheet are highlighted 
-<br>
-<style type="text/css">
-#T_6f23b th.col_heading {
-  text-align: left;
-  font-size: 1em;
-}
-#T_6f23b td {
-  text-align: left;
-  font-size: 1em;
-  padding: 1.5em;
-}
-#T_6f23b_row0_col0, #T_6f23b_row1_col0, #T_6f23b_row2_col0, #T_6f23b_row3_col0, #T_6f23b_row4_col0, #T_6f23b_row5_col0, #T_6f23b_row6_col0, #T_6f23b_row7_col0, #T_6f23b_row8_col0, #T_6f23b_row9_col0, #T_6f23b_row10_col0 {
-  background-color: rgba(0,0,0,0);
-}
-#T_6f23b_row11_col0 {
-  background-color: rgba(255,194,10, 0.2);
-}
-</style>
-<table id="T_6f23b">
-  <thead>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="T_6f23b_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row5_col0" class="data row5 col0" >$a^0=1$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row9_col0" class="data row9 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row10_col0" class="data row10 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
-    </tr>
-    <tr>
-      <td id="T_6f23b_row11_col0" class="data row11 col0" >$ (\sqrt{x})^2 = \sqrt{x^2} = x \text{ for } x\ge 0 $</td>
-    </tr>
-  </tbody>
-</table>
-{{< /tab >}}
-{{< /tabs >}}
+### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+
+
+* WorkingWithFunctions
+
 
 ## <span style="color:RGB(0,32,96"> Graphing Techniques </span> 
 <br>

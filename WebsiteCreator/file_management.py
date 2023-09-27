@@ -8,7 +8,9 @@ from formula_tables import (FormulaTable, FormulaTableType,
                             FormulaTableTypeSimple, formula_table_types)
 from definition_display import DefinitionDisplay
 from note_display import NoteDisplay
-from site_content import Syllabus, Formulas, SyllabusTopic, Definitions, Notes
+from spreadsheet_link_display import SpreadsheetLinkDisplay
+from site_content import (Syllabus, Formulas, SyllabusTopic, Definitions,
+                          Notes, Spreadsheets)
 
 
 class _MarkdownContent():
@@ -163,11 +165,13 @@ class TopicFile():
                  weight,
                  definitions: Definitions,
                  notes: Notes,
-                 formulas: Formulas):
+                 formulas: Formulas,
+                 spreadsheets: Spreadsheets):
         self._syllabus_topic = syllabus_topic
         self._definitions = definitions
         self._notes = notes
         self._formulas = formulas
+        self._spreadshets = spreadsheets
         self._markdown_content = _MarkdownContent(file_path, weight)
         self._generate_file()
 
@@ -180,9 +184,11 @@ class TopicFile():
             definitions_by_subtopic = self._defintions_by_subtopic(subtopic)
             notes_by_subtopic = self._notes_by_subtopic(subtopic)
             formulas_by_subtopic = self._formulas_by_subtopic(subtopic)
+            spreadsheets_by_subtopic = self._spreadsheets_by_subtopic(subtopic)
             self._add_definitions(definitions_by_subtopic)
             self._add_notes(notes_by_subtopic)
             self._add_formula_tables(formulas_by_subtopic)
+            self._add_spreadsheets(spreadsheets_by_subtopic)
 
     def _formulas_by_subtopic(self, subtopic):
         return self._formulas.filter_by_dict({
@@ -194,6 +200,10 @@ class TopicFile():
 
     def _notes_by_subtopic(self, subtopic):
         return self._notes.filter_by_dict({
+            'Syllabus_subtopic': subtopic})
+
+    def _spreadsheets_by_subtopic(self, subtopic):
+        return self._spreadshets.filter_by_dict({
             'Syllabus_subtopic': subtopic})
 
     def _add_subtopic_heading(self, subtopic: str) -> None:
@@ -223,6 +233,14 @@ class TopicFile():
                 self._markdown_content.add_content(
                     formula_table.to_markdown_with_heading())
 
+    def _add_spreadsheets(self, spreadsheets_by_subtopic: Spreadsheets) -> None:
+        if len(spreadsheets_by_subtopic.data):
+            # TODO placeholder wip
+            spreadsheet_display = SpreadsheetLinkDisplay(
+                spreadsheets_by_subtopic)
+            self._markdown_content.add_content(
+                spreadsheet_display.to_markdown_with_heading())
+
 
 class TopicFiles():
 
@@ -232,12 +250,14 @@ class TopicFiles():
                  definitions: Definitions,
                  notes: Notes,
                  formulas: Formulas,
+                 spreadsheets: Spreadsheets,
                  base_path: str):
         self._syllabus = syllabus
         self._hierarchies = hierarchies
         self._definitions = definitions
         self._notes = notes
         self._formulas = formulas
+        self._spreadsheets = spreadsheets
         self._base_path = base_path
 
     def iterate(self):
@@ -257,6 +277,11 @@ class TopicFiles():
                 'Subject': syllabus_topic.subject,
                 'Syllabus_topic': syllabus_topic.name
             })
+            spreadsheets_by_topic = self._spreadsheets.filter_by_dict({
+                'State': syllabus_topic.state,
+                'Subject': syllabus_topic.subject,
+                'Syllabus_topic': syllabus_topic.name
+            })
             path_in_hierarchy = self._get_path_in_hierarchy(
                 syllabus_topic.is_cumulative, syllabus_topic.state,
                 syllabus_topic.subject, syllabus_topic.name)
@@ -264,7 +289,7 @@ class TopicFiles():
             weight = self._get_weight_based_on_hierarchies(path_in_hierarchy)
             topic_file = TopicFile(syllabus_topic, file_path, weight,
                                    definitions_by_topic, notes_by_topic,
-                                   formulas_by_topic)
+                                   formulas_by_topic, spreadsheets_by_topic)
             yield topic_file
 
     def _get_path_in_hierarchy(self, is_cumulative_by_year: bool, state: str,

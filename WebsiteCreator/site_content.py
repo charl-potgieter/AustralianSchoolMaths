@@ -252,3 +252,31 @@ class Notes(_SiteContent):
         for item in self._data.itertuples():
             current_note = Note(item.Note)
             yield current_note
+
+
+class Spreadsheet():
+    """Single spreadsheet object cotaining name of spreadsheet display (via
+    link) on the various website pages"""
+
+    def __init__(self, name: str):
+        self._name = name
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+
+class Spreadsheets(_SiteContent):
+
+    _data_structure = {'State': 'object',
+                       'Subject': 'object',
+                       'Syllabus_topic': 'object',
+                       'Syllabus_subtopic_code': 'object',
+                       'Syllabus_subtopic': 'object',
+                       'Spreadsheet': 'object'}
+
+    @property
+    def spreadsheets(self) -> Generator[Spreadsheet, None, None]:
+        for item in self._data.itertuples():
+            current_spreadsheet = Spreadsheet(item.Spreadsheet)
+            yield current_spreadsheet

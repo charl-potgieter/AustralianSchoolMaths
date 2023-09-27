@@ -19,6 +19,6 @@ class NoteDisplay():
         return return_value
 
     def to_markdown_with_heading(self) -> str:
-        return ('### <span style="color:RGB(150,0,0)">  Notes </span>'
+        return ('### <span style="color:RGB(139,69,19)">  Notes </span>'
                 + '\n\n\n'
                 + self.to_markdown())
