@@ -1,12 +1,4 @@
 State,Subject,Content type,Time period,Category
-NSW,Year 9,Formulas,By year,Surds
-NSW,Year 9,Formulas,By year,Indices
-NSW,Year 9,Formulas,By year cumulative,Surds
-NSW,Year 9,Formulas,By year cumulative,Indices
-NSW,Year 10,Formulas,By year,Surds
-NSW,Year 10,Formulas,By year,Indices
-NSW,Year 10,Formulas,By year cumulative,Surds
-NSW,Year 10,Formulas,By year cumulative,Indices
 NSW,Year 11 Adv,Topics,By year,Functions
 NSW,Year 11 Adv,Topics,By year,Trigonometric Functions
 NSW,Year 11 Adv,Topics,By year,Calculus
@@ -17,6 +9,8 @@ NSW,Year 11 Adv,Topics,By year cumulative,Trigonometric Functions
 NSW,Year 11 Adv,Topics,By year cumulative,Calculus
 NSW,Year 11 Adv,Topics,By year cumulative,Exponential and Logarithmic Functions
 NSW,Year 11 Adv,Topics,By year cumulative,Statistical Analysis
+NSW,Year 11 Adv,Formulas,By year,Surds
+NSW,Year 11 Adv,Formulas,By year,Indices
 NSW,Year 11 Adv,Formulas,By year,Logarithms
 NSW,Year 11 Adv,Formulas,By year,Differentiation
 NSW,Year 11 Adv,Formulas,By year,Statistical Analysis
