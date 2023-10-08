@@ -63,7 +63,7 @@ def create_directory_structure(docs_dir: str,
 
 def _delete_directory_if_it_exists(dir_to_delete: str) -> None:
     if os.path.isdir(dir_to_delete):
-        shutil.rmtree(dir_to_delete)
+        shutil.rmtree(path=dir_to_delete)
 
 
 def create_index_files(docs_dir: str, hierarchies: SiteHierarchies) -> None:
