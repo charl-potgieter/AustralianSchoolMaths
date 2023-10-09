@@ -13,7 +13,6 @@ class SpreadsheetLinkDisplay():
         self._spreadsheets = spreadsheets
 
     def to_markdown(self) -> str:
-        #  TODO need to  update to the main branch once spreadsheet dev branch is complete
         SPREADSHEET_URL_BASE = ('https://github.com/charl-potgieter/'
                                 + 'AustralianSchoolMaths/raw/main/'
                                 + 'WebsiteCreator/spreadsheets/')
