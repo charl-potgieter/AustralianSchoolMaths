@@ -235,7 +235,6 @@ class TopicFile():
 
     def _add_spreadsheets(self, spreadsheets_by_subtopic: Spreadsheets) -> None:
         if len(spreadsheets_by_subtopic.data):
-            # TODO placeholder wip
             spreadsheet_display = SpreadsheetLinkDisplay(
                 spreadsheets_by_subtopic)
             self._markdown_content.add_content(
