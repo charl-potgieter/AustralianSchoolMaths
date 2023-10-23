@@ -146,7 +146,7 @@ NSW,MEX-N1,Complex Numbers,,,,,$ |\overline{z}| = |z| \text{ and arg } |\overlin
 NSW,MEX-N1,Complex Numbers,,,,,$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $,FALSE,,
 NSW,MEX-N1,Complex Numbers,,,,,"$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $",FALSE,,
 NSW,MEX-N1,Complex Numbers,,,,,$ z + \overline{z} = 2Re(z)  $,FALSE,,
-NSW,MEX-N1,Complex Numbers,,,,,$ z - \overline{z} = Im(z)  $,FALSE,,
+NSW,MEX-N1,Complex Numbers,,,,,$ z - \overline{z} = 2Im(z)  $,FALSE,,
 NSW,MEX-N1,Complex Numbers,,,,,$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $,FALSE,,
 NSW,MEX-N1,Complex Numbers,,,,,"$ e^{i\theta} = cos \theta + i sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$",FALSE,,
 NSW,MEX-N1,Complex Numbers,,,,,$ z = a+ib = r(cos \theta + i sin \theta) = re^{i \theta}$,TRUE,,
