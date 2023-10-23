@@ -120,3 +120,15 @@ NSW,ME-S1,"Be able to represent a Bernoulli distribution as a :
     * piecewise function
     * distribution table
     * bar chart"
+NSW,MEX-N1,Equivalence of complex numbers
+NSW,MEX-N1,Realising the denominator
+NSW,MEX-N1,Calculating the square of a complex number
+NSW,MEX-N1,Add and subtract complex numbers utilising vector parallelogram rule
+NSW,MEX-N1,Multiply complex numbers by a constant
+NSW,MEX-N1,"Tip: If a question provides 2 complex roots of a quadratic, it is simpler to substitute symbols for the roots such as a and b e.g. $(x-a)(x-b)  = 0$ and then multiply out before inserting the complex numbers"
+NSW,MEX-N1,Be able to factorise a quadratic as a difference of squares by adding an $i^2$ to one of the sides in place of a minus one.
+NSW,MEX-N1,"Complex numbers can be written in :
+    * cartesian or rectangular form
+    * polar of modulus-argument form
+    * exponential form"
+NSW,MEX-N1,Writing complex numbers in exponential form enables the use of index laws that can simplify calculations
