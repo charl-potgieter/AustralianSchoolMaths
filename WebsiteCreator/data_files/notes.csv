@@ -141,3 +141,17 @@ NSW,ME-P1,"The conclusion can look like this :
     * The statement is true for n=k+1
     * The statement is true for n=1
     * Therefore by mathematical induction it is true for all integers $n \ge 1$"
+NSW,MEX-P1,$ P \implies Q \text { : P implies Q}$
+NSW,MEX-P1,$ \neg P \text{ or } P' \text{ or }  \overline P \text { : not P}$
+NSW,MEX-P1,$ P \iff Q \text { or } P \text { iff } Q { : equivalence}$
+NSW,MEX-P1,$ \forall \text{ : For all}$
+NSW,MEX-P1,$ \exists \text{ : There exists}$
+NSW,MEX-P1,$ \mathbb{N} \text { The set of natural numbers}$
+NSW,MEX-P1,$ \mathbb{Z}  \text { The set of integers (includes natural numbers)}$
+NSW,MEX-P1,$ \mathbb{Q}  \text { The set of rational numbers (includes integers)}$
+NSW,MEX-P1,$ \mathbb{R}  \text { The set of real numbers (includes rational numbers)}$
+NSW,MEX-P1,$ \mathbb{C}  \text { The set of complex numbers (includes real numbers)}$
+NSW,MEX-P1,$ \in  \text { is an element of or belongs to}$
+NSW,MEX-P1,$ :  \text { such that}$
+NSW,MEX-P1,"Note that in general concepts such as even numbers, odd numbers etc are taken to refer to positive integers only"
+NSW,MEX-P1,"$ \text {The inequality definition: for } a, b \in \mathbb{R}, a > b \text{ if } a-b > 0$"
