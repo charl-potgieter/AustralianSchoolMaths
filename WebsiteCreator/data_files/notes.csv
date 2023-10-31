@@ -155,3 +155,14 @@ NSW,MEX-P1,$ \in  \text { is an element of or belongs to}$
 NSW,MEX-P1,$ :  \text { such that}$
 NSW,MEX-P1,"Note that in general concepts such as even numbers, odd numbers etc are taken to refer to positive integers only"
 NSW,MEX-P1,"$ \text {The inequality definition: for } a, b \in \mathbb{R}, a > b \text{ if } a-b > 0$"
+NSW,ME-V1,Vectors vs scalars
+NSW,ME-V1,Triangle law of addition
+NSW,ME-V1,Parallelogram law of addition
+NSW,ME-V1,Subtracting vectors using the triangle rule
+NSW,ME-V1,Subtracting vectors using the parallelogram rule
+NSW,ME-V1,Adding and subtracting vectors numerically
+NSW,ME-V1,Scalar multiplication
+NSW,ME-V1,Magnitude of a position vector
+NSW,ME-V1,Magnitude of a displacement vector
+NSW,ME-V1,Direction of a position vector
+NSW,ME-V1,Direction of a displacement vector
