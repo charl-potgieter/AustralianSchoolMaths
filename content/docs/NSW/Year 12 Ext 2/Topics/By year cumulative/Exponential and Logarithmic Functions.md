@@ -12,34 +12,34 @@ weight: 1
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
 <style type="text/css">
-#T_db021 th.col_heading {
+#T_e6c63 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_db021 td {
+#T_e6c63 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_db021">
+<table id="T_e6c63">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_db021_row0_col0" class="data row0 col0" >$\log_a{(xy)} = \log_a{x} + log_a{y}$</td>
+      <td id="T_e6c63_row0_col0" class="data row0 col0" >$\log_a{(xy)} = \log_a{x} + log_a{y}$</td>
     </tr>
     <tr>
-      <td id="T_db021_row1_col0" class="data row1 col0" >$\log_a{\left(\dfrac{x}{y}\right)} = \log_a{x} - log_a{y}$</td>
+      <td id="T_e6c63_row1_col0" class="data row1 col0" >$\log_a{\left(\dfrac{x}{y}\right)} = \log_a{x} - log_a{y}$</td>
     </tr>
     <tr>
-      <td id="T_db021_row2_col0" class="data row2 col0" >$\log_a{x^n} = n\log_a{x}$</td>
+      <td id="T_e6c63_row2_col0" class="data row2 col0" >$\log_a{x^n} = n\log_a{x}$</td>
     </tr>
     <tr>
-      <td id="T_db021_row3_col0" class="data row3 col0" >$\log_a{\left(\dfrac{1}{x}\right)} = -\log_a{x}$</td>
+      <td id="T_e6c63_row3_col0" class="data row3 col0" >$\log_a{\left(\dfrac{1}{x}\right)} = -\log_a{x}$</td>
     </tr>
     <tr>
-      <td id="T_db021_row4_col0" class="data row4 col0" >$\log_a{x} = \dfrac{\log_b{x}}{\log_b{a}}$</td>
+      <td id="T_e6c63_row4_col0" class="data row4 col0" >$\log_a{x} = \dfrac{\log_b{x}}{\log_b{a}}$</td>
     </tr>
   </tbody>
 </table>
