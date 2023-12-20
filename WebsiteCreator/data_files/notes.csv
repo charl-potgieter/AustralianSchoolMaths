@@ -123,10 +123,11 @@ NSW,ME-S1,"Be able to represent a Bernoulli distribution as a :
 NSW,MEX-N1,Equivalence of complex numbers
 NSW,MEX-N1,Realising the denominator
 NSW,MEX-N1,Calculating the square of a complex number
+NSW,MEX-N1,Vectors of a complex number and its conjugate are reflections in  the real axis on an Argand diagram.
 NSW,MEX-N1,Add and subtract complex numbers utilising vector parallelogram rule
 NSW,MEX-N1,Multiply complex numbers by a constant
 NSW,MEX-N1,"Tip: If a question provides 2 complex roots of a quadratic, it is simpler to substitute symbols for the roots such as a and b e.g. $(x-a)(x-b)  = 0$ and then multiply out before inserting the complex numbers"
-NSW,MEX-N1,Be able to factorise a quadratic as a difference of squares by adding an $i^2$ to one of the sides in place of a minus one.
+NSW,MEX-N1,Be able to factorise a quadratic as a difference of squares by adding an $i^2$ to one of the sides in place of a minus one.  The real part of the square may need to be obtained by completing the square.
 NSW,MEX-N1,"Complex numbers can be written in :
     * cartesian or rectangular form
     * polar of modulus-argument form
@@ -190,8 +191,8 @@ NSW,ME-V1,"In order to calculate the displacement vector of a projectile :
     * Get the displacement vector at time zero assuming horizontal component  = 0 = the start point and vertical component  = distance from vertical end point
     *  Substitute the above equations into one another to solve for the constant D"
 NSW,ME-V1,"Projectile calculation notes :
-    * Measure vertical displacement vector from where an object lands
-    * Measure horizontal displacement vector from starting point that is starting point =  zero horizontal displacement
+    * Measure vertical displacement vector from where an object lands  - it should make no difference if measured from starting vertical point but ending vertical point is generally used if it is known
+    * Measure horizontal displacement vector from starting point that is starting point =  zero horizontal displacement.  This is done as we generally dont know the ending point but in theory doesnt make a difference and end point may have to be used depending on question.
     * Speed  = magnitude of velocity vector at a specific time = $| \underset{\sim}{v} |$
     * Max height occurs when the vertical component of the velocity vector is zero
     * Max height is the vertical component of the displacement vector when the vertical component of the velocity vector is zero

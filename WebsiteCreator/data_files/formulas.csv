@@ -142,7 +142,7 @@ NSW,MEX-N1,Complex Numbers,,,,,"$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } 
 NSW,MEX-N1,Complex Numbers,,,,,$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$,FALSE,TRUE,
 NSW,MEX-N1,Complex Numbers,,,,,"$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $",FALSE,TRUE,
 NSW,MEX-N1,Complex Numbers,,,,,$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $,FALSE,TRUE,
-NSW,MEX-N1,Complex Numbers,,,,,$ |\overline{z}| = |z| \text{ and arg } |\overline{z}| = -{arg } z $,FALSE,TRUE,
+NSW,MEX-N1,Complex Numbers,,,,,$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $,FALSE,TRUE,
 NSW,MEX-N1,Complex Numbers,,,,,$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $,FALSE,TRUE,
 NSW,MEX-N1,Complex Numbers,,,,,"$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $",FALSE,TRUE,
 NSW,MEX-N1,Complex Numbers,,,,,$ z + \overline{z} = 2Re(z)  $,FALSE,TRUE,
