@@ -61,11 +61,9 @@ class DataSource():
                 + 'definitions.csv')
 
     @property
-    def notes_file_path(self) -> str:
+    def notes_folder_path(self) -> str:
         return (self.website_creator_directory + os.path.sep
-                + 'data_files'
-                + os.path.sep
-                + 'notes.csv')
+                + 'data_files_notes')
 
     @property
     def syllabus_file_path(self) -> str:
@@ -110,6 +108,7 @@ class DataSource():
                                      'Syllabus_subtopic_code',
                                      'Syllabus_subtopic']]
         return return_value
+
 
     @property
     def subject_dependencies(self) -> pd.DataFrame:
@@ -193,7 +192,7 @@ class DataSource():
         return return_value
 
     @property
-    def notes_by_year(self) -> pd.DataFrame:
+    def  notes_by_year(self) -> pd.DataFrame:
         notes_data = pd.read_csv(self.notes_file_path)
 
         notes_data = pd.merge(
