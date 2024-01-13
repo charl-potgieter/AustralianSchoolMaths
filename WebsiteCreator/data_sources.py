@@ -40,7 +40,6 @@ class DataSource():
 
         return output[0]
 
-
     @property
     def website_creator_directory(self) -> str:
         """Returns the directory containing various code utilised to
