@@ -19,6 +19,12 @@ class DataSource():
         cell_tags=list(set(cell_tags))
         return cell_tags
 
+    def _notebook_cell_tags_ex_heading(self, filepath):
+        cell_tags = self._notebook_cell_tags(filepath)
+        if 'Heading' in cell_tags:
+            cell_tags.remove('Heading')
+        return cell_tags
+
     @property
     def website_creator_directory(self) -> str:
         """Returns the directory containing various code utilised to
@@ -119,13 +125,6 @@ class DataSource():
                                      'Syllabus_subtopic_code',
                                      'Syllabus_subtopic']]
         return return_value
-
-    @property
-    def _state_subtopic_codes(self)->list[str]:
-        state_subtopic = list(
-            self.syllabus_by_year['State'] + "|" +
-            self.syllabus_by_year['Syllabus_subtopic_code'])
-        return state_subtopic
 
     @property
     def subject_dependencies(self) -> pd.DataFrame:
