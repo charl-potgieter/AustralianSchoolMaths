@@ -3,42 +3,21 @@
 # pylint: disable=missing-function-docstring
 
 import os
+import json
 import pandas as pd
-from traitlets.config import Config
-from nbconvert.exporters import MarkdownExporter
-from nbconvert.preprocessors import TagRemovePreprocessor
+
 
 class DataSource():
 
-    def _jupyter_notebook_to_markdown(
-        self,
-        input_file_path:str,
-        exclude_tags:list[str]|None = None,
-        exclude_input_tags:list[str]|None = None)->str:
-
-        # code adapted from here:
-        # https://nbconvert.readthedocs.io/en/latest/removing_cells.html
-
-        if not exclude_tags:
-            exclude_tags=[]
-        if not exclude_input_tags:
-            exclude_input_tags=[]
-
-        c = Config()
-        c.TagRemovePreprocessor.remove_cell_tags = exclude_tags
-        c.TagRemovePreprocessor.remove_input_tags = exclude_input_tags
-        c.TagRemovePreprocessor.enabled = True
-
-        # Not sure why below 3 steps are needed but are included in official docs
-        # so have left this in place
-        c.MarkdownExporter.preprocessors = (
-            ["nbconvert.preprocessors.TagRemovePreprocessor"])
-        exporter = MarkdownExporter(config=c)
-        exporter.register_preprocessor(TagRemovePreprocessor(config=c), True)
-
-        output = MarkdownExporter(config=c).from_filename(input_file_path)
-
-        return output[0]
+    def _notebook_cell_tags(self, file_path:str)->list[str]:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            file_content=file.read()
+        notebook_content = json.loads(file_content)
+        cell_tags=[]
+        for cell in notebook_content['cells']:
+            cell_tags+=cell['metadata']['tags']
+        cell_tags=list(set(cell_tags))
+        return cell_tags
 
     @property
     def website_creator_directory(self) -> str:
