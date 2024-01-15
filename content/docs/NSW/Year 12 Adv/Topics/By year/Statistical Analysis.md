@@ -5,58 +5,11 @@ weight: 5
 ## <span style="color:RGB(0,32,96"> Descriptive Statistics and Bivariate Data Analysis </span> 
 <br>
 
-### <span style="color:RGB(139,69,19)"> Concepts  </span>
-
-
-* categorical data
-* numerical data
-* nominal data
-* ordinal data
-* discrete data
-* continuous data
-* frequency table
-* histogram
-* frequency polygon
-* cumulative frequency histogram
-* ogive $($cumulative frequency polygon$)$
-* stem-and-leaf plot
-* dot plot
-* five-number summary
-* box plot $($box-and-whisker-plot$)$
-* two-way table
-* bar chart
-* pie chart
-* Pareto chart
-* mode
-* median
-* outlier
-* quantile
-* quartile
-* decile
-* percentile
-* range
-* interquartile range
-* skewness
-* symmetrical distribution
-* modality
-* unimodal
-* bimodal
-* multimodal
-* bivariate data
-* dependent and independent variables
-* extrapolation
-* interpolation
-* least-squares regression line
-* line of best fit
-* Pearson's correlation coefficient
-* scatterplot
-* causality
-
-
 ### <span style="color:RGB(139,69,19)">  Notes </span>
- - Categorical data can be nominal or ordinal
+ * Categorical data can be nominal or ordinal
  
- - Numerical data can be discrete or continuous
+ 
+  Numerical data can be discrete or continuous
 
  - Displaying numerical data:
     *Frequency table
@@ -129,45 +82,45 @@ weight: 5
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "107db8bc-12c4-4c9c-ab52-8dbafcc627f9" >}}
+{{< tabs "53c09905-e069-46b1-b691-d0fca46a8e26" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_133ce th.col_heading {
+#T_cfeb3 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_133ce td {
+#T_cfeb3 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_133ce">
+<table id="T_cfeb3">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_133ce_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_cfeb3_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_133ce_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_cfeb3_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_133ce_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_cfeb3_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_133ce_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_cfeb3_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_133ce_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_cfeb3_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_133ce_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_cfeb3_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -178,46 +131,46 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_b815d th.col_heading {
+#T_e1f74 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_b815d td {
+#T_e1f74 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_b815d_row0_col0, #T_b815d_row1_col0, #T_b815d_row2_col0, #T_b815d_row3_col0, #T_b815d_row5_col0 {
+#T_e1f74_row0_col0, #T_e1f74_row1_col0, #T_e1f74_row2_col0, #T_e1f74_row3_col0, #T_e1f74_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_b815d_row4_col0 {
+#T_e1f74_row4_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_b815d">
+<table id="T_e1f74">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_b815d_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_e1f74_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_b815d_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_e1f74_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_b815d_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_e1f74_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_b815d_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_e1f74_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_b815d_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_e1f74_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_b815d_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_e1f74_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -227,62 +180,48 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 ## <span style="color:RGB(0,32,96"> Random Variables </span> 
 <br>
 
-### <span style="color:RGB(139,69,19)"> Concepts  </span>
-
-
-* random variable
-* continuous random variable
-* continuous probability distribution
-* uniform probability distribution
-* probability density function $($pdf$)$
-* cumulative distribution function $($cdf$)$
-* empirical rule
-* normal distribution
-* z-score
-
-
 
 <br>
 
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "4a628987-b2b0-42ef-bc9c-adece1afaecb" >}}
+{{< tabs "f5ca8247-8900-4058-9711-b5f705f69a74" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_ff230 th.col_heading {
+#T_8121d th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ff230 td {
+#T_8121d td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_ff230">
+<table id="T_8121d">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ff230_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_8121d_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_ff230_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_8121d_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_ff230_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_8121d_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_ff230_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_8121d_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_ff230_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_8121d_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_ff230_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_8121d_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
@@ -293,43 +232,43 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_f7cce th.col_heading {
+#T_6b114 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_f7cce td {
+#T_6b114 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_f7cce_row0_col0, #T_f7cce_row1_col0, #T_f7cce_row4_col0 {
+#T_6b114_row0_col0, #T_6b114_row1_col0, #T_6b114_row4_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_f7cce_row2_col0, #T_f7cce_row3_col0, #T_f7cce_row5_col0 {
+#T_6b114_row2_col0, #T_6b114_row3_col0, #T_6b114_row5_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_f7cce">
+<table id="T_6b114">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_f7cce_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_6b114_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_f7cce_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_6b114_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_f7cce_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_6b114_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_f7cce_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_6b114_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_f7cce_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_6b114_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_f7cce_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_6b114_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>

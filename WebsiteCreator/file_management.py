@@ -180,11 +180,11 @@ class TopicFile():
     def _generate_file(self):
         for subtopic in self._syllabus_topic.subtopics:
             self._add_subtopic_heading(subtopic)
-            definitions_by_subtopic = self._defintions_by_subtopic(subtopic)
+            # definitions_by_subtopic = self._defintions_by_subtopic(subtopic)
             notes_by_subtopic = self._notes_by_subtopic(subtopic)
             formulas_by_subtopic = self._formulas_by_subtopic(subtopic)
             spreadsheets_by_subtopic = self._spreadsheets_by_subtopic(subtopic)
-            self._add_definitions(definitions_by_subtopic)
+            # self._add_definitions(definitions_by_subtopic)
             self._add_notes(notes_by_subtopic)
             self._add_formula_tables(formulas_by_subtopic)
             self._add_spreadsheets(spreadsheets_by_subtopic)
@@ -218,9 +218,9 @@ class TopicFile():
                 definition_display.to_markdown_with_heading())
 
     def _add_notes(self, notes_by_subtopic: Notes) -> None:
+        note_to_display = ''
         if len(notes_by_subtopic.data):
-            note_to_display = ''
-            for note_item in self._notes.notes:
+            for note_item in notes_by_subtopic.notes:
                 note_to_display += note_item.note + '\n<BR><BR>\n'
             self._markdown_content.add_content(
                 note_to_display)
