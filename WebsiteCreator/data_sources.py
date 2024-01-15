@@ -9,10 +9,13 @@ import pandas as pd
 
 class DataSource():
 
-    def _notebook_cell_tags(self, file_path:str)->list[str]:
+    def _read_json_from_notebook(self, file_path:str):
         with open(file_path, 'r', encoding='utf-8') as file:
-            file_content=file.read()
-        notebook_content = json.loads(file_content)
+            notebook_content = json.load(file)
+        return notebook_content
+
+    def _notebook_cell_tags(self, file_path:str)->list[str]:
+        notebook_content = self._read_json_from_notebook(file_path)
         cell_tags=[]
         for cell in notebook_content['cells']:
             cell_tags+=cell['metadata']['tags']
@@ -24,6 +27,11 @@ class DataSource():
         if 'Heading' in cell_tags:
             cell_tags.remove('Heading')
         return cell_tags
+
+    def _convert_notebook_markdown_content_to_string(self, cell_content)->str:
+        # Jupyter markdown cell is saved to json as a list of strings.
+        # This function returns content as a single string.
+        return ''.join(cell_content)
 
     @property
     def website_creator_directory(self) -> str:
@@ -78,7 +86,7 @@ class DataSource():
                 + 'definitions.csv')
 
     @property
-    def notes_folder_path(self) -> str:
+    def notes_directory(self) -> str:
         return (self.website_creator_directory + os.path.sep
                 + 'data_files_notes')
 
@@ -209,8 +217,27 @@ class DataSource():
 
     @property
     def  notes_by_year(self) -> pd.DataFrame:
-        notes_data = pd.read_csv(self.notes_file_path)
-
+        note_list=[]
+        for filename in os.listdir(self.notes_directory):
+            filepath = os.path.join(self.notes_directory, filename)
+            notebook_content = self._read_json_from_notebook(filepath)
+            cell_tags_ex_heading = (
+                self._notebook_cell_tags_ex_heading(filepath))
+            for tag in cell_tags_ex_heading:
+                for cell in notebook_content['cells']:
+                    if tag in cell['metadata']['tags']:
+                        state = tag.split('|')[0]
+                        subtopic_code = tag.split('|')[1]
+                        note = (
+                            self._convert_notebook_markdown_content_to_string(
+                                cell['source']
+                            ))
+                        note_list = note_list + [{
+                            'State':state,
+                            'Syllabus_subtopic_code':subtopic_code,
+                            'Note':note
+                        }]
+        notes_data  = pd.DataFrame(note_list)
         notes_data = pd.merge(
             left=self.syllabus_by_year, right=notes_data,
             left_on=['State', 'Syllabus_subtopic_code'],
