@@ -11,93 +11,93 @@ weight: 5
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "1953ccf7-7e4d-44b7-ab88-22d2877cf265" >}}
+{{< tabs "f36b0e90-d1f4-47c3-b1e4-1dffcdb81f22" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_39d2d th.col_heading {
+#T_c01e9 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_39d2d td {
+#T_c01e9 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_39d2d">
+<table id="T_c01e9">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_39d2d_row0_col0" class="data row0 col0" >$ \vec{AB} + \vec{BC} = \vec{AC} $</td>
+      <td id="T_c01e9_row0_col0" class="data row0 col0" >$ \vec{AB} + \vec{BC} = \vec{AC} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row1_col0" class="data row1 col0" >$ |\underset{\sim}{u}| = |x\underset{\sim}{i} + y\underset{\sim}{j}| = \sqrt{x^2+y^2}  $</td>
+      <td id="T_c01e9_row1_col0" class="data row1 col0" >$ |\underset{\sim}{u}| = |x\underset{\sim}{i} + y\underset{\sim}{j}| = \sqrt{x^2+y^2}  $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row2_col0" class="data row2 col0" >$ \underset{\sim}{a} +  (-\underset{\sim}{a}) =0  $</td>
+      <td id="T_c01e9_row2_col0" class="data row2 col0" >$ \underset{\sim}{a} +  (-\underset{\sim}{a}) =0  $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row3_col0" class="data row3 col0" >$ \vec{AB} - \vec{AD} =  \vec{AB} + \vec{DA} =  \vec{DA} + \vec{AB} = \vec{DB}  $</td>
+      <td id="T_c01e9_row3_col0" class="data row3 col0" >$ \vec{AB} - \vec{AD} =  \vec{AB} + \vec{DA} =  \vec{DA} + \vec{AB} = \vec{DB}  $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row4_col0" class="data row4 col0" >$ \text{The unit vector parallel to } \underset{\sim}{v} =  \underset{\sim}{v} * \dfrac{1}{|\underset{\sim}{v}|} $</td>
+      <td id="T_c01e9_row4_col0" class="data row4 col0" >$ \text{The unit vector parallel to } \underset{\sim}{v} =  \underset{\sim}{v} * \dfrac{1}{|\underset{\sim}{v}|} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row5_col0" class="data row5 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 + a_2 \\b_1 + b_2 \end{pmatrix} $</td>
+      <td id="T_c01e9_row5_col0" class="data row5 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 + a_2 \\b_1 + b_2 \end{pmatrix} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row6_col0" class="data row6 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 - a_2 \\b_1 - b_2 \end{pmatrix} $</td>
+      <td id="T_c01e9_row6_col0" class="data row6 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 - a_2 \\b_1 - b_2 \end{pmatrix} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row7_col0" class="data row7 col0" >$\lambda \begin{pmatrix} a \\b \end{pmatrix} =  \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}$</td>
+      <td id="T_c01e9_row7_col0" class="data row7 col0" >$\lambda \begin{pmatrix} a \\b \end{pmatrix} =  \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}$</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row8_col0" class="data row8 col0" >$|\underset{\sim}{u}| = \sqrt{x^2 + y^2}$</td>
+      <td id="T_c01e9_row8_col0" class="data row8 col0" >$|\underset{\sim}{u}| = \sqrt{x^2 + y^2}$</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row9_col0" class="data row9 col0" >$|\vec{XY}|  =  \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$</td>
+      <td id="T_c01e9_row9_col0" class="data row9 col0" >$|\vec{XY}|  =  \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row10_col0" class="data row10 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 + a_2)\underset{\sim}{i} + (b_1+b_2)\underset{\sim}{j} $</td>
+      <td id="T_c01e9_row10_col0" class="data row10 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 + a_2)\underset{\sim}{i} + (b_1+b_2)\underset{\sim}{j} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row11_col0" class="data row11 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 - a_2)\underset{\sim}{i} + (b_1-b_2)\underset{\sim}{j} $</td>
+      <td id="T_c01e9_row11_col0" class="data row11 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 - a_2)\underset{\sim}{i} + (b_1-b_2)\underset{\sim}{j} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row12_col0" class="data row12 col0" >$\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}|\cos\theta = x_1x_2 + y_1y_2 $</td>
+      <td id="T_c01e9_row12_col0" class="data row12 col0" >$\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}|\cos\theta = x_1x_2 + y_1y_2 $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row13_col0" class="data row13 col0" >$\underset{\sim}{v}.\underset{\sim}{v} = |\underset{\sim}{v}|^2 $</td>
+      <td id="T_c01e9_row13_col0" class="data row13 col0" >$\underset{\sim}{v}.\underset{\sim}{v} = |\underset{\sim}{v}|^2 $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row14_col0" class="data row14 col0" >$ \text{perpendicular vectors: }\underset{\sim}{u}.\underset{\sim}{v} = 0 $</td>
+      <td id="T_c01e9_row14_col0" class="data row14 col0" >$ \text{perpendicular vectors: }\underset{\sim}{u}.\underset{\sim}{v} = 0 $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row15_col0" class="data row15 col0" >$ \text{parallel vectors like directions: }\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}| $</td>
+      <td id="T_c01e9_row15_col0" class="data row15 col0" >$ \text{parallel vectors like directions: }\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}| $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row16_col0" class="data row16 col0" >$ \text{parallel vectors unlike directions: }\underset{\sim}{u}.\underset{\sim}{v} = -|\underset{\sim}{u}||\underset{\sim}{v}| $</td>
+      <td id="T_c01e9_row16_col0" class="data row16 col0" >$ \text{parallel vectors unlike directions: }\underset{\sim}{u}.\underset{\sim}{v} = -|\underset{\sim}{u}||\underset{\sim}{v}| $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row17_col0" class="data row17 col0" >$ P_{\underset{\sim}{u}}\underset{\sim}{v} = \dfrac{\underset{\sim}{u}.\underset{\sim}{v}}{|\underset{\sim}{u}|^2} \underset{\sim}{u} $</td>
+      <td id="T_c01e9_row17_col0" class="data row17 col0" >$ P_{\underset{\sim}{u}}\underset{\sim}{v} = \dfrac{\underset{\sim}{u}.\underset{\sim}{v}}{|\underset{\sim}{u}|^2} \underset{\sim}{u} $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row18_col0" class="data row18 col0" >$ \underset{\sim}{u} = (r\cos\theta, r\sin\theta) = r\cos\theta \underset{\sim}{i} + r\sin\theta \underset{\sim}{j}  $</td>
+      <td id="T_c01e9_row18_col0" class="data row18 col0" >$ \underset{\sim}{u} = (r\cos\theta, r\sin\theta) = r\cos\theta \underset{\sim}{i} + r\sin\theta \underset{\sim}{j}  $</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row19_col0" class="data row19 col0" >$ \underset{\sim}{v}  =  \int \underset{\sim}{a} \; dt$</td>
+      <td id="T_c01e9_row19_col0" class="data row19 col0" >$ \underset{\sim}{v}  =  \int \underset{\sim}{a} \; dt$</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row20_col0" class="data row20 col0" >$ \underset{\sim}{s}  =  \int \underset{\sim}{v} \; dt$</td>
+      <td id="T_c01e9_row20_col0" class="data row20 col0" >$ \underset{\sim}{s}  =  \int \underset{\sim}{v} \; dt$</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row21_col0" class="data row21 col0" >$\text{Initial velocity of a vector } =  \underset{\sim}{v}  =  v\cos\theta \underset{\sim}{i}  + v \sin \theta \underset{\sim}{j} \text{ where v is the initial speed, a scalar}$</td>
+      <td id="T_c01e9_row21_col0" class="data row21 col0" >$\text{Initial velocity of a vector } =  \underset{\sim}{v}  =  v\cos\theta \underset{\sim}{i}  + v \sin \theta \underset{\sim}{j} \text{ where v is the initial speed, a scalar}$</td>
     </tr>
     <tr>
-      <td id="T_39d2d_row22_col0" class="data row22 col0" >$\text{acceleration due to gravity } =  \underset{\sim}{a}  =  -g\underset{\sim}{j}$</td>
+      <td id="T_c01e9_row22_col0" class="data row22 col0" >$\text{acceleration due to gravity } =  \underset{\sim}{a}  =  -g\underset{\sim}{j}$</td>
     </tr>
   </tbody>
 </table>
@@ -108,94 +108,94 @@ weight: 5
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_e5952 th.col_heading {
+#T_11453 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_e5952 td {
+#T_11453 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_e5952_row0_col0, #T_e5952_row2_col0, #T_e5952_row3_col0, #T_e5952_row4_col0, #T_e5952_row5_col0, #T_e5952_row6_col0, #T_e5952_row7_col0, #T_e5952_row8_col0, #T_e5952_row9_col0, #T_e5952_row10_col0, #T_e5952_row11_col0, #T_e5952_row13_col0, #T_e5952_row14_col0, #T_e5952_row15_col0, #T_e5952_row16_col0, #T_e5952_row17_col0, #T_e5952_row18_col0, #T_e5952_row19_col0, #T_e5952_row20_col0, #T_e5952_row21_col0, #T_e5952_row22_col0 {
+#T_11453_row0_col0, #T_11453_row2_col0, #T_11453_row3_col0, #T_11453_row4_col0, #T_11453_row5_col0, #T_11453_row6_col0, #T_11453_row7_col0, #T_11453_row8_col0, #T_11453_row9_col0, #T_11453_row10_col0, #T_11453_row11_col0, #T_11453_row13_col0, #T_11453_row14_col0, #T_11453_row15_col0, #T_11453_row16_col0, #T_11453_row17_col0, #T_11453_row18_col0, #T_11453_row19_col0, #T_11453_row20_col0, #T_11453_row21_col0, #T_11453_row22_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_e5952_row1_col0, #T_e5952_row12_col0 {
+#T_11453_row1_col0, #T_11453_row12_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_e5952">
+<table id="T_11453">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_e5952_row0_col0" class="data row0 col0" >$ \vec{AB} + \vec{BC} = \vec{AC} $</td>
+      <td id="T_11453_row0_col0" class="data row0 col0" >$ \vec{AB} + \vec{BC} = \vec{AC} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row1_col0" class="data row1 col0" >$ |\underset{\sim}{u}| = |x\underset{\sim}{i} + y\underset{\sim}{j}| = \sqrt{x^2+y^2}  $</td>
+      <td id="T_11453_row1_col0" class="data row1 col0" >$ |\underset{\sim}{u}| = |x\underset{\sim}{i} + y\underset{\sim}{j}| = \sqrt{x^2+y^2}  $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row2_col0" class="data row2 col0" >$ \underset{\sim}{a} +  (-\underset{\sim}{a}) =0  $</td>
+      <td id="T_11453_row2_col0" class="data row2 col0" >$ \underset{\sim}{a} +  (-\underset{\sim}{a}) =0  $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row3_col0" class="data row3 col0" >$ \vec{AB} - \vec{AD} =  \vec{AB} + \vec{DA} =  \vec{DA} + \vec{AB} = \vec{DB}  $</td>
+      <td id="T_11453_row3_col0" class="data row3 col0" >$ \vec{AB} - \vec{AD} =  \vec{AB} + \vec{DA} =  \vec{DA} + \vec{AB} = \vec{DB}  $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row4_col0" class="data row4 col0" >$ \text{The unit vector parallel to } \underset{\sim}{v} =  \underset{\sim}{v} * \dfrac{1}{|\underset{\sim}{v}|} $</td>
+      <td id="T_11453_row4_col0" class="data row4 col0" >$ \text{The unit vector parallel to } \underset{\sim}{v} =  \underset{\sim}{v} * \dfrac{1}{|\underset{\sim}{v}|} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row5_col0" class="data row5 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 + a_2 \\b_1 + b_2 \end{pmatrix} $</td>
+      <td id="T_11453_row5_col0" class="data row5 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 + a_2 \\b_1 + b_2 \end{pmatrix} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row6_col0" class="data row6 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 - a_2 \\b_1 - b_2 \end{pmatrix} $</td>
+      <td id="T_11453_row6_col0" class="data row6 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  \begin{pmatrix} a_1 - a_2 \\b_1 - b_2 \end{pmatrix} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row7_col0" class="data row7 col0" >$\lambda \begin{pmatrix} a \\b \end{pmatrix} =  \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}$</td>
+      <td id="T_11453_row7_col0" class="data row7 col0" >$\lambda \begin{pmatrix} a \\b \end{pmatrix} =  \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}$</td>
     </tr>
     <tr>
-      <td id="T_e5952_row8_col0" class="data row8 col0" >$|\underset{\sim}{u}| = \sqrt{x^2 + y^2}$</td>
+      <td id="T_11453_row8_col0" class="data row8 col0" >$|\underset{\sim}{u}| = \sqrt{x^2 + y^2}$</td>
     </tr>
     <tr>
-      <td id="T_e5952_row9_col0" class="data row9 col0" >$|\vec{XY}|  =  \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$</td>
+      <td id="T_11453_row9_col0" class="data row9 col0" >$|\vec{XY}|  =  \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$</td>
     </tr>
     <tr>
-      <td id="T_e5952_row10_col0" class="data row10 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 + a_2)\underset{\sim}{i} + (b_1+b_2)\underset{\sim}{j} $</td>
+      <td id="T_11453_row10_col0" class="data row10 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} +  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 + a_2)\underset{\sim}{i} + (b_1+b_2)\underset{\sim}{j} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row11_col0" class="data row11 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 - a_2)\underset{\sim}{i} + (b_1-b_2)\underset{\sim}{j} $</td>
+      <td id="T_11453_row11_col0" class="data row11 col0" >$\begin{pmatrix} a_1 \\b_1 \end{pmatrix} -  \begin{pmatrix} a_2 \\b_2 \end{pmatrix}  =  (a_1 - a_2)\underset{\sim}{i} + (b_1-b_2)\underset{\sim}{j} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row12_col0" class="data row12 col0" >$\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}|\cos\theta = x_1x_2 + y_1y_2 $</td>
+      <td id="T_11453_row12_col0" class="data row12 col0" >$\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}|\cos\theta = x_1x_2 + y_1y_2 $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row13_col0" class="data row13 col0" >$\underset{\sim}{v}.\underset{\sim}{v} = |\underset{\sim}{v}|^2 $</td>
+      <td id="T_11453_row13_col0" class="data row13 col0" >$\underset{\sim}{v}.\underset{\sim}{v} = |\underset{\sim}{v}|^2 $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row14_col0" class="data row14 col0" >$ \text{perpendicular vectors: }\underset{\sim}{u}.\underset{\sim}{v} = 0 $</td>
+      <td id="T_11453_row14_col0" class="data row14 col0" >$ \text{perpendicular vectors: }\underset{\sim}{u}.\underset{\sim}{v} = 0 $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row15_col0" class="data row15 col0" >$ \text{parallel vectors like directions: }\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}| $</td>
+      <td id="T_11453_row15_col0" class="data row15 col0" >$ \text{parallel vectors like directions: }\underset{\sim}{u}.\underset{\sim}{v} = |\underset{\sim}{u}||\underset{\sim}{v}| $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row16_col0" class="data row16 col0" >$ \text{parallel vectors unlike directions: }\underset{\sim}{u}.\underset{\sim}{v} = -|\underset{\sim}{u}||\underset{\sim}{v}| $</td>
+      <td id="T_11453_row16_col0" class="data row16 col0" >$ \text{parallel vectors unlike directions: }\underset{\sim}{u}.\underset{\sim}{v} = -|\underset{\sim}{u}||\underset{\sim}{v}| $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row17_col0" class="data row17 col0" >$ P_{\underset{\sim}{u}}\underset{\sim}{v} = \dfrac{\underset{\sim}{u}.\underset{\sim}{v}}{|\underset{\sim}{u}|^2} \underset{\sim}{u} $</td>
+      <td id="T_11453_row17_col0" class="data row17 col0" >$ P_{\underset{\sim}{u}}\underset{\sim}{v} = \dfrac{\underset{\sim}{u}.\underset{\sim}{v}}{|\underset{\sim}{u}|^2} \underset{\sim}{u} $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row18_col0" class="data row18 col0" >$ \underset{\sim}{u} = (r\cos\theta, r\sin\theta) = r\cos\theta \underset{\sim}{i} + r\sin\theta \underset{\sim}{j}  $</td>
+      <td id="T_11453_row18_col0" class="data row18 col0" >$ \underset{\sim}{u} = (r\cos\theta, r\sin\theta) = r\cos\theta \underset{\sim}{i} + r\sin\theta \underset{\sim}{j}  $</td>
     </tr>
     <tr>
-      <td id="T_e5952_row19_col0" class="data row19 col0" >$ \underset{\sim}{v}  =  \int \underset{\sim}{a} \; dt$</td>
+      <td id="T_11453_row19_col0" class="data row19 col0" >$ \underset{\sim}{v}  =  \int \underset{\sim}{a} \; dt$</td>
     </tr>
     <tr>
-      <td id="T_e5952_row20_col0" class="data row20 col0" >$ \underset{\sim}{s}  =  \int \underset{\sim}{v} \; dt$</td>
+      <td id="T_11453_row20_col0" class="data row20 col0" >$ \underset{\sim}{s}  =  \int \underset{\sim}{v} \; dt$</td>
     </tr>
     <tr>
-      <td id="T_e5952_row21_col0" class="data row21 col0" >$\text{Initial velocity of a vector } =  \underset{\sim}{v}  =  v\cos\theta \underset{\sim}{i}  + v \sin \theta \underset{\sim}{j} \text{ where v is the initial speed, a scalar}$</td>
+      <td id="T_11453_row21_col0" class="data row21 col0" >$\text{Initial velocity of a vector } =  \underset{\sim}{v}  =  v\cos\theta \underset{\sim}{i}  + v \sin \theta \underset{\sim}{j} \text{ where v is the initial speed, a scalar}$</td>
     </tr>
     <tr>
-      <td id="T_e5952_row22_col0" class="data row22 col0" >$\text{acceleration due to gravity } =  \underset{\sim}{a}  =  -g\underset{\sim}{j}$</td>
+      <td id="T_11453_row22_col0" class="data row22 col0" >$\text{acceleration due to gravity } =  \underset{\sim}{a}  =  -g\underset{\sim}{j}$</td>
     </tr>
   </tbody>
 </table>

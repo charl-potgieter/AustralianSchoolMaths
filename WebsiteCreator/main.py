@@ -8,7 +8,7 @@ import typing
 from data_sources import DataSource
 from file_management import (SiteHierarchies, IndexFiles,  FormulaFiles,
                              TopicFiles)
-from site_content import Formulas, Syllabus, Definitions, Notes, Spreadsheets
+from site_content import Formulas, Syllabus, Notes, Spreadsheets
 
 
 def get_data() -> typing.Dict[str, typing.Any]:
@@ -16,11 +16,6 @@ def get_data() -> typing.Dict[str, typing.Any]:
     data_source = DataSource()
     docs_dir = data_source.docs_directory
     hierarchies = SiteHierarchies(data_source.site_hierarchies)
-
-    definitions_by_year = Definitions(data_source.definitions_by_year)
-    definitions_cumulative = Definitions(
-        data_source.definitions_by_year_cumulative)
-    definitions_cumulative.is_cumulative = True
 
     notes_by_year = Notes(data_source.notes_by_year)
     notes_cumulative = Notes(
@@ -42,8 +37,6 @@ def get_data() -> typing.Dict[str, typing.Any]:
 
     return {'docs_dir': docs_dir,
             'hierarchies': hierarchies,
-            'definitions_by_year': definitions_by_year,
-            'definitions_cumulative': definitions_cumulative,
             'notes_by_year': notes_by_year,
             'notes_cumulative': notes_cumulative,
             'formulas_by_year': formulas_by_year,
@@ -81,10 +74,10 @@ def create_formula_pages(docs_dir: str, hierarchies: SiteHierarchies,
 
 
 def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
-                       syllabus: Syllabus, definitions: Definitions,
+                       syllabus: Syllabus,
                        notes: Notes, formulas: Formulas,
                        spreadsheets: Spreadsheets) -> None:
-    topic_files = TopicFiles(syllabus, hierarchies, definitions, notes,
+    topic_files = TopicFiles(syllabus, hierarchies, notes,
                              formulas, spreadsheets, docs_dir)
     for topic_file in topic_files.iterate():
         topic_file.save()
@@ -115,7 +108,6 @@ if __name__ == '__main__':
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
                        input_data['syllabus_by_year'],
-                       input_data['definitions_by_year'],
                        input_data['notes_by_year'],
                        input_data['formulas_by_year'],
                        input_data['spreadsheets_by_year'])
@@ -124,7 +116,6 @@ if __name__ == '__main__':
     create_topic_pages(input_data['docs_dir'],
                        input_data['hierarchies'],
                        input_data['syllabus_cumulative'],
-                       input_data['definitions_cumulative'],
                        input_data['notes_cumulative'],
                        input_data['formulas_cumulative'],
                        input_data['spreadsheets_cumulative'])

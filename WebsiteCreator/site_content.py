@@ -12,7 +12,7 @@ from data_validator import DataColumnValidator
 
 class _SiteContent():
     """Defines a base class for site content used to derive other classes
-    such as formulas, definitions etc"""
+    such as formulas, notes etc"""
 
     # Enforces structure of csv when loaded
     _data_structure = {}
@@ -192,39 +192,6 @@ class Formulas(_SiteContent):
             (self._data['Formula'].notnull())
         ]['Formula'].drop_duplicates())
         return proofs_required
-
-
-class Definition():
-    """Single definition object consisting of term name and definition only"""
-
-    def __init__(self, term: str, definition: str):
-        self._term = term
-        self._definition = definition
-
-    @property
-    def term(self) -> str:
-        return self._term
-
-    @property
-    def definition(self) -> str:
-        return self._definition
-
-
-class Definitions(_SiteContent):
-
-    _data_structure = {'State': 'object',
-                       'Subject': 'object',
-                       'Syllabus_topic': 'object',
-                       'Syllabus_subtopic_code': 'object',
-                       'Syllabus_subtopic': 'object',
-                       'Term': 'object',
-                       'Definition': 'object'}
-
-    @property
-    def definitions(self) -> Generator[Definition, None, None]:
-        for item in self._data.itertuples():
-            current_definition = Definition(item.Term, item.Definition)
-            yield current_definition
 
 
 class Note():
