@@ -7,7 +7,6 @@ from site_hierarchies import SiteHierarchies
 from formula_tables import (FormulaTable, FormulaTableType,
                             FormulaTableTypeSimple, formula_table_types)
 from definition_display import DefinitionDisplay
-from note_display import NoteDisplay
 from spreadsheet_link_display import SpreadsheetLinkDisplay
 from site_content import (Syllabus, Formulas, SyllabusTopic, Definitions,
                           Notes, Spreadsheets)
@@ -220,9 +219,11 @@ class TopicFile():
 
     def _add_notes(self, notes_by_subtopic: Notes) -> None:
         if len(notes_by_subtopic.data):
-            note_display = NoteDisplay(notes_by_subtopic)
+            note_to_display = ''
+            for note_item in self._notes.notes:
+                note_to_display += note_item.note + '\n<BR><BR>\n'
             self._markdown_content.add_content(
-                note_display.to_markdown_with_heading())
+                note_to_display)
 
     def _add_formula_tables(self, formulas_by_subtopic: Formulas) -> None:
         for table_type in formula_table_types:

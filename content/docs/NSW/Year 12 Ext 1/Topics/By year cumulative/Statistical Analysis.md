@@ -42,55 +42,125 @@ weight: 8
 
 ### <span style="color:RGB(139,69,19)">  Notes </span>
 
-
-* Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
-<BR><BR>
-* Probability trees: Use the additional rule for different branches to find $P(A \cup B) $ representing A or B.
-<BR><BR>
-* $A \cup B $ is A union B
-<BR><BR>
-* $A \cap B $  is A intersection B
-<BR><BR>
-* The probability formula applies where each outcome is equally likely: $ P(E) = \dfrac{n(E)}{n(S)} $
-<BR><BR>
-* The sum of all mutually exclusive probabilities is 1
-<BR><BR>
-* $P(A \cup B) = P(A) + P(B) $ is the addition rule for mutually exclusive events
-<BR><BR>
-* $P(A \cup B) = P(A) + P(B) - P(A \cap B) $ is the addition rule 
-<BR><BR>
-* $P(A \cap B)  = P(A)P(B)$ is the product rule for independent events only
-<BR><BR>
-* Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) eq 0 $ while conditional probability for independent events is $ P(A|B) = P(A) $
-<BR><BR>
-* Capital letter, e.g. X is often used for a random variable
-<BR><BR>
-* Lower case letter such as x is used for the values of X
-<BR><BR>
-* Properties of discrete probability distributions:
+ - Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
+  
+ - Probability trees: Use the additional rule for different branches to find $P(A \cup B) $ representing A or B.
+   
+ - $A \cup B $ is A union B
+   
+ - $A \cap B $  is A intersection B
+   
+ - The probability formula applies where each outcome is equally likely: $ P(E) = \dfrac{n(E)}{n(S)} $
+   
+ - The sum of all mutually exclusive probabilities is 1
+   
+ - $P(A \cup B) = P(A) + P(B) $ is the addition rule for mutually exclusive events
+   
+ - $P(A \cup B) = P(A) + P(B) - P(A \cap B) $ is the addition rule
+   
+ - $P(A \cap B)  = P(A)P(B)$ is the product rule for independent events only
+   
+ - Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $ while conditional probability for independent events is $ P(A|B) = P(A) $
+   
+ - Capital letter, e.g. X is often used for a random variable
+   
+ - Lower case letter such as x is used for the values of X
+   
+ - Properties of discrete probability distributions:
     * All possible value of X are mutually exclusive
     * The sum of probabilities = 1
     * For each value of x: 0<=P(X=x)<=1
+      
+ - A probability distribution can be drawn as a table with columns for x and P$($x$)$
+ 
+ - The expected values E(X) of a probability distribution measures the centre of the distribution  = mean or average
+   
+ - $\overline{x} $ is the mean of a sample
+   
+ - $\mu $ is the mean of the population
+   
+ - $s$ is the sample standard deviation
+   
+ - $\sigma$ is the poplulation standard deviation
+   
+ - As the sample size increases $\overline{x} $ approaches  $\mu $
+   
+ - The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$
+   
+ - The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
+   
+ - Know how to capture frequencies and calculate statistics on calculator
+
 <BR><BR>
-* A probability distribution can be drawn as a table with columns for x and P$($x$)$
+blah blah 
 <BR><BR>
-* The expected values E(X) of a probability distribution measures the centre of the distribution  = mean or average
-<BR><BR>
-* $\overline{x} $ is the mean of a sample
-<BR><BR>
-* $\mu $ is the mean of the population
-<BR><BR>
-* $s$ is the sample standard deviation
-<BR><BR>
-* $\sigma$ is the poplulation standard deviation
-<BR><BR>
-* As the sample size increases $\overline{x} $ approaches  $\mu $
-<BR><BR>
-* The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$
-<BR><BR>
-* The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
-<BR><BR>
-* Know how to capture frequencies and calculate statistics on calculator
+### <span style="color:RGB(139,69,19)">  Notes </span>
+ - Categorical data can be nominal or ordinal
+ 
+ - Numerical data can be discrete or continuous
+
+ - Displaying numerical data:
+    *Frequency table
+    * histogram (centre of column is lined up with value on x-axis.  No gap between columns)
+    * frequency polygon (line graph displaying frequency, starts and ends on x-axis)
+    * cumulative frequency histogram 
+    * ogive (cumulative frequency polygon)
+    * stem and leaf plot [graphical display of tens (stems) and units (leaves)
+    * dot plot
+    * five-number summary
+    * box plot (box-and-whisker-plot)
+
+ - 3 Measures of central tendency:
+    * mean
+    * mode
+    * median
+
+ - If ranges are provided in a frequency table a class centre will generally need to be added as an additional column in order to calculate statistics such as mean, standard deviation etc.
+
+ - Grouped data has a modal class rather than a mode
+
+ - If there are two middle values. In other words an even number of values, the median is the average of these values.
+
+ - The median on an ogive is the halfway point on the cumulative frequency axis
+
+ - Recommended, but not universal, method for computing quartiles:
+    * Use the median to divide the ordered set into 2 halves.  
+    * If there is an odd number in the original set then do not include the median in either half.
+    * If there is an even number in the original set then split the set exactly in half
+    * Q1 and Q3 are the medians of the lower and upper halves respectively
+
+ - Quantile is a general term, quartiles divide set into 4 parts, deciles into 10 parts and percentiles into 100 parts
+
+ - Shapes of data: 
+    * negatively skewed = more area to left of the centre = the tail points to low scores
+    * positively skewed = more area to the right of the centre = the tail points to high scores
+    * symmetrical
+
+ - Modality of data:
+    * unimodal  = 1 peak
+    * bimodal  = 2 peaks
+    * multimodal = has many peaks
+
+ - Scatterplots are used to graph bivariate data
+
+ - Scatterplots can be:
+    * linear
+    * non-linear
+    * have no shape
+
+ - Don't need to utilise a formula to calculate Pearson's correlation co-efficient $($r$)$ but need to be able to calculate using calculator
+
+ - Values of  Pearson's correlation co-efficient (r):
+    * $ -1 \le r \le 1$
+    * $ 0 \le r \le 1$ &emsp;&ensp;&nbsp;  scatterplot with positive direction
+    * $r=1$ &emsp;&emsp;&emsp;&emsp; perfect positive correlation 
+    * $ -1 \le r \le 0$ &ensp;&nbsp; scatterplot with negative direction 
+    * $r=-1$ &emsp;&emsp;&emsp; perfect negative correlation
+    * $r=0$ &emsp;&emsp;&emsp;&emsp; no correlation
+    
+ - Need to be able to calculate least squares regression line on a calculator but don’t need to be able to manually calculate with formula
+
+
 <BR><BR>
 
 
@@ -100,64 +170,64 @@ weight: 8
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "a82b2a0c-0cb0-4d82-94ef-3eaed289a7ef" >}}
+{{< tabs "1980d51b-5787-4257-a2db-7b57de99ac47" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_99d09 th.col_heading {
+#T_aab43 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_99d09 td {
+#T_aab43 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_99d09">
+<table id="T_aab43">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_99d09_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_aab43_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_99d09_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_aab43_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_99d09_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
+      <td id="T_aab43_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_aab43_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_aab43_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_99d09_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_aab43_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_99d09_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_aab43_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_aab43_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_99d09_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_aab43_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_aab43_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_aab43_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_aab43_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_99d09_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_aab43_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -168,65 +238,65 @@ weight: 8
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_45b14 th.col_heading {
+#T_5d199 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_45b14 td {
+#T_5d199 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_45b14_row0_col0, #T_45b14_row3_col0, #T_45b14_row5_col0, #T_45b14_row6_col0, #T_45b14_row8_col0, #T_45b14_row10_col0, #T_45b14_row12_col0 {
+#T_5d199_row0_col0, #T_5d199_row3_col0, #T_5d199_row5_col0, #T_5d199_row6_col0, #T_5d199_row8_col0, #T_5d199_row10_col0, #T_5d199_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_45b14_row1_col0, #T_45b14_row2_col0, #T_45b14_row4_col0, #T_45b14_row7_col0, #T_45b14_row9_col0, #T_45b14_row11_col0 {
+#T_5d199_row1_col0, #T_5d199_row2_col0, #T_5d199_row4_col0, #T_5d199_row7_col0, #T_5d199_row9_col0, #T_5d199_row11_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_45b14">
+<table id="T_5d199">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_45b14_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_5d199_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_45b14_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_5d199_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_45b14_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
+      <td id="T_5d199_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_5d199_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_5d199_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_45b14_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_5d199_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_45b14_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_5d199_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_5d199_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_45b14_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_5d199_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_5d199_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_5d199_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_5d199_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_45b14_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_5d199_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -237,65 +307,65 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_a96f1 th.col_heading {
+#T_bfc14 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_a96f1 td {
+#T_bfc14 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_a96f1_row0_col0, #T_a96f1_row2_col0, #T_a96f1_row4_col0, #T_a96f1_row5_col0, #T_a96f1_row6_col0, #T_a96f1_row7_col0, #T_a96f1_row8_col0, #T_a96f1_row9_col0, #T_a96f1_row10_col0, #T_a96f1_row11_col0, #T_a96f1_row12_col0 {
+#T_bfc14_row0_col0, #T_bfc14_row2_col0, #T_bfc14_row4_col0, #T_bfc14_row5_col0, #T_bfc14_row6_col0, #T_bfc14_row7_col0, #T_bfc14_row8_col0, #T_bfc14_row9_col0, #T_bfc14_row10_col0, #T_bfc14_row11_col0, #T_bfc14_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_a96f1_row1_col0, #T_a96f1_row3_col0 {
+#T_bfc14_row1_col0, #T_bfc14_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_a96f1">
+<table id="T_bfc14">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_a96f1_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_bfc14_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_bfc14_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
+      <td id="T_bfc14_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_bfc14_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_bfc14_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_bfc14_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_bfc14_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_bfc14_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_bfc14_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_bfc14_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_bfc14_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_bfc14_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_a96f1_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_bfc14_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
   </tbody>
 </table>
@@ -355,71 +425,125 @@ Items where proofs required are highlighted
 
 ### <span style="color:RGB(139,69,19)">  Notes </span>
 
+ - Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
+  
+ - Probability trees: Use the additional rule for different branches to find $P(A \cup B) $ representing A or B.
+   
+ - $A \cup B $ is A union B
+   
+ - $A \cap B $  is A intersection B
+   
+ - The probability formula applies where each outcome is equally likely: $ P(E) = \dfrac{n(E)}{n(S)} $
+   
+ - The sum of all mutually exclusive probabilities is 1
+   
+ - $P(A \cup B) = P(A) + P(B) $ is the addition rule for mutually exclusive events
+   
+ - $P(A \cup B) = P(A) + P(B) - P(A \cap B) $ is the addition rule
+   
+ - $P(A \cap B)  = P(A)P(B)$ is the product rule for independent events only
+   
+ - Conditional probability is $ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $ while conditional probability for independent events is $ P(A|B) = P(A) $
+   
+ - Capital letter, e.g. X is often used for a random variable
+   
+ - Lower case letter such as x is used for the values of X
+   
+ - Properties of discrete probability distributions:
+    * All possible value of X are mutually exclusive
+    * The sum of probabilities = 1
+    * For each value of x: 0<=P(X=x)<=1
+      
+ - A probability distribution can be drawn as a table with columns for x and P$($x$)$
+ 
+ - The expected values E(X) of a probability distribution measures the centre of the distribution  = mean or average
+   
+ - $\overline{x} $ is the mean of a sample
+   
+ - $\mu $ is the mean of the population
+   
+ - $s$ is the sample standard deviation
+   
+ - $\sigma$ is the poplulation standard deviation
+   
+ - As the sample size increases $\overline{x} $ approaches  $\mu $
+   
+ - The complement of A can be written as $\overline A$ or $ \text{A'}$ or $A^c$
+   
+ - The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
+   
+ - Know how to capture frequencies and calculate statistics on calculator
 
-* Categorical data can be nominal or ordinal
 <BR><BR>
-* Numerical data can be discrete or continuous
+blah blah 
 <BR><BR>
-* Displaying numerical data:
+### <span style="color:RGB(139,69,19)">  Notes </span>
+ - Categorical data can be nominal or ordinal
+ 
+ - Numerical data can be discrete or continuous
+
+ - Displaying numerical data:
     *Frequency table
-    * histogram $($centre of column is lined up with value on x-axis.  No gap between columns$)$ 
-    * frequency polygon $($line graph displaying frequency, starts and ends on x-axis$)$ 
+    * histogram (centre of column is lined up with value on x-axis.  No gap between columns)
+    * frequency polygon (line graph displaying frequency, starts and ends on x-axis)
     * cumulative frequency histogram 
-    * ogive $($cumulative frequency polygon$)$ 
-    * stem and leaf plot $[$graphical display of tens $($stems$)$ and units $($leaves$)]$
+    * ogive (cumulative frequency polygon)
+    * stem and leaf plot [graphical display of tens (stems) and units (leaves)
     * dot plot
     * five-number summary
-    * box plot $($box-and-whisker-plot$)$
-<BR><BR>
-* 3 Measures of central tendency:
+    * box plot (box-and-whisker-plot)
+
+ - 3 Measures of central tendency:
     * mean
     * mode
     * median
-<BR><BR>
-* If ranges are provided in a frequency table a class centre will generally need to be added as an additional column in order to calculate statistics such as mean, standard deviation etc.
-<BR><BR>
-* Grouped data has a modal class rather than a mode
-<BR><BR>
-* If there are two middle values. In other words an even number of values, the median is the average of these values.
-<BR><BR>
-* The median on an ogive is the halfway point on the cumulative frequency axis
-<BR><BR>
-* Recommended, but not universal, method for computing quartiles:
+
+ - If ranges are provided in a frequency table a class centre will generally need to be added as an additional column in order to calculate statistics such as mean, standard deviation etc.
+
+ - Grouped data has a modal class rather than a mode
+
+ - If there are two middle values. In other words an even number of values, the median is the average of these values.
+
+ - The median on an ogive is the halfway point on the cumulative frequency axis
+
+ - Recommended, but not universal, method for computing quartiles:
     * Use the median to divide the ordered set into 2 halves.  
     * If there is an odd number in the original set then do not include the median in either half.
     * If there is an even number in the original set then split the set exactly in half
     * Q1 and Q3 are the medians of the lower and upper halves respectively
-<BR><BR>
-* Quantile is a general term, quartiles divide set into 4 parts, deciles into 10 parts and percentiles into 100 parts
-<BR><BR>
-* Shapes of data: 
+
+ - Quantile is a general term, quartiles divide set into 4 parts, deciles into 10 parts and percentiles into 100 parts
+
+ - Shapes of data: 
     * negatively skewed = more area to left of the centre = the tail points to low scores
     * positively skewed = more area to the right of the centre = the tail points to high scores
     * symmetrical
-<BR><BR>
-* Modality of data:
+
+ - Modality of data:
     * unimodal  = 1 peak
     * bimodal  = 2 peaks
     * multimodal = has many peaks
-<BR><BR>
-* Scatterplots are used to graph bivariate data
-<BR><BR>
-* Scatterplots can be:
+
+ - Scatterplots are used to graph bivariate data
+
+ - Scatterplots can be:
     * linear
     * non-linear
     * have no shape
-<BR><BR>
-* Don't need to utilise a formula to calculate Pearson's correlation co-efficient $($r$)$ but need to be able to calculate using calculator
-<BR><BR>
-* Values of  Pearson's correlation co-efficient $($r$)$:
+
+ - Don't need to utilise a formula to calculate Pearson's correlation co-efficient $($r$)$ but need to be able to calculate using calculator
+
+ - Values of  Pearson's correlation co-efficient (r):
     * $ -1 \le r \le 1$
     * $ 0 \le r \le 1$ &emsp;&ensp;&nbsp;  scatterplot with positive direction
     * $r=1$ &emsp;&emsp;&emsp;&emsp; perfect positive correlation 
     * $ -1 \le r \le 0$ &ensp;&nbsp; scatterplot with negative direction 
     * $r=-1$ &emsp;&emsp;&emsp; perfect negative correlation
     * $r=0$ &emsp;&emsp;&emsp;&emsp; no correlation
-<BR><BR>
-* Need to be able to calculate least squares regression line on a calculator but don’t need to be able to manually calculate with formula
+    
+ - Need to be able to calculate least squares regression line on a calculator but don’t need to be able to manually calculate with formula
+
+
 <BR><BR>
 
 
@@ -429,45 +553,45 @@ Items where proofs required are highlighted
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "70f68bfc-c601-4507-b9ae-979af6fc519f" >}}
+{{< tabs "3827c169-e864-47a5-9bee-3bf1be75ac1c" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_52dec th.col_heading {
+#T_a2a64 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_52dec td {
+#T_a2a64 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_52dec">
+<table id="T_a2a64">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_52dec_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_a2a64_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_52dec_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_a2a64_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_52dec_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_a2a64_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_52dec_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_a2a64_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_52dec_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_a2a64_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_52dec_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_a2a64_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -478,46 +602,46 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_abed8 th.col_heading {
+#T_3a275 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_abed8 td {
+#T_3a275 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_abed8_row0_col0, #T_abed8_row1_col0, #T_abed8_row2_col0, #T_abed8_row3_col0, #T_abed8_row5_col0 {
+#T_3a275_row0_col0, #T_3a275_row1_col0, #T_3a275_row2_col0, #T_3a275_row3_col0, #T_3a275_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_abed8_row4_col0 {
+#T_3a275_row4_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_abed8">
+<table id="T_3a275">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_abed8_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_3a275_row0_col0" class="data row0 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_abed8_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_3a275_row1_col0" class="data row1 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_abed8_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_3a275_row2_col0" class="data row2 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_abed8_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_3a275_row3_col0" class="data row3 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_abed8_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
+      <td id="T_3a275_row4_col0" class="data row4 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_abed8_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_3a275_row5_col0" class="data row5 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
   </tbody>
 </table>
@@ -541,71 +665,48 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 * z-score
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
-
-
-* The cumulative distribution function is the integral of the probability density function
-<BR><BR>
-* A continuous probability distribution is reported by a probability density function
-<BR><BR>
-* The probability of a single outcome of a continuous probability distribution cannot be calculated, in other words $P(X=x) = 0$.  The probability can only be calculated for a range
-<BR><BR>
-* Given $P(X=a) = 0$ and $P(X=b) = 0$, therefore $P(a < X < b) = P(a \leq X \leq b)$
-<BR><BR>
-* The area under a probability density function is 1 : $ {\Large\int}^\infty_{-\infty} f(x)dx = 1$
-<BR><BR>
-* Given probability density function $f(x)$ over domain [a,b] and cumulative distribution function $F(x)$ $F(a) = 0$ and $F(b) = 1$
-<BR><BR>
-* The median lies at point x where ${\Large\int}^x_a f(x)dx = \dfrac{1}{2}$ where $f(x)$ is a pdf defined on domain [a,b].  Alternatively $F(x)-F(a) = \dfrac{1}{2}$ Similiar rules apply to other quantiles.
-<BR><BR>
-* The mean, mode, and median are equal for a normal distribution
-<BR><BR>
-* Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$
-<BR><BR>
-
-
 
 <br>
 
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "c2889dce-61d0-4741-8202-f769ec96acbc" >}}
+{{< tabs "e1dd0c7e-f149-4dd6-bd93-b3b28a1b9368" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_0cd65 th.col_heading {
+#T_30293 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_0cd65 td {
+#T_30293 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_0cd65">
+<table id="T_30293">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_0cd65_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_30293_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_0cd65_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_30293_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_0cd65_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_30293_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_0cd65_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_30293_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_0cd65_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_30293_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_0cd65_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_30293_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
@@ -616,43 +717,43 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_c693b th.col_heading {
+#T_25a79 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_c693b td {
+#T_25a79 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_c693b_row0_col0, #T_c693b_row1_col0, #T_c693b_row4_col0 {
+#T_25a79_row0_col0, #T_25a79_row1_col0, #T_25a79_row4_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_c693b_row2_col0, #T_c693b_row3_col0, #T_c693b_row5_col0 {
+#T_25a79_row2_col0, #T_25a79_row3_col0, #T_25a79_row5_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_c693b">
+<table id="T_25a79">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_c693b_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_25a79_row0_col0" class="data row0 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_c693b_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_25a79_row1_col0" class="data row1 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_c693b_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_25a79_row2_col0" class="data row2 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_c693b_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_25a79_row3_col0" class="data row3 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_c693b_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_25a79_row4_col0" class="data row4 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_c693b_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_25a79_row5_col0" class="data row5 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
@@ -684,80 +785,59 @@ Click on below to open spreadsheet examples
 * central limit theorem
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
-
-
-* Properties of binomial distribution:
-    * fixed number of trials
-    * there are only 2 outcomes: success or failure
-    * each trial is independent
-    * Probabilities are the same for each trial
-<BR><BR>
-* Share of a binomial distribution:
-    * p<0.5 : positively skewed
-    * p=0.5 : normal / symmetrical
-    * p>0.5 : negatively skewed
-<BR><BR>
-* Be able to represent a Bernoulli distribution as a :
-    * piecewise function
-    * distribution table
-    * bar chart
-<BR><BR>
-
-
 
 <br>
 
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "f519fae0-dc7d-4693-83cc-89c01ccfa0a9" >}}
+{{< tabs "0ae18099-d56b-477a-ab62-38a8048be14f" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_713b3 th.col_heading {
+#T_97396 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_713b3 td {
+#T_97396 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_713b3">
+<table id="T_97396">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_713b3_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
+      <td id="T_97396_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
     </tr>
     <tr>
-      <td id="T_713b3_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
+      <td id="T_97396_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_713b3_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
+      <td id="T_97396_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
     </tr>
     <tr>
-      <td id="T_713b3_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
+      <td id="T_97396_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
 $ \Rightarrow P(X=x) $
 $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$</td>
     </tr>
     <tr>
-      <td id="T_713b3_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
+      <td id="T_97396_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
     </tr>
     <tr>
-      <td id="T_713b3_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
+      <td id="T_97396_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_713b3_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
+      <td id="T_97396_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
     </tr>
     <tr>
-      <td id="T_713b3_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
+      <td id="T_97396_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
     </tr>
     <tr>
-      <td id="T_713b3_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
+      <td id="T_97396_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
     </tr>
   </tbody>
 </table>
@@ -768,54 +848,54 @@ $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_feead th.col_heading {
+#T_fa442 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_feead td {
+#T_fa442 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_feead_row0_col0, #T_feead_row1_col0, #T_feead_row7_col0, #T_feead_row8_col0 {
+#T_fa442_row0_col0, #T_fa442_row1_col0, #T_fa442_row7_col0, #T_fa442_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_feead_row2_col0, #T_feead_row3_col0, #T_feead_row4_col0, #T_feead_row5_col0, #T_feead_row6_col0 {
+#T_fa442_row2_col0, #T_fa442_row3_col0, #T_fa442_row4_col0, #T_fa442_row5_col0, #T_fa442_row6_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_feead">
+<table id="T_fa442">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_feead_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
+      <td id="T_fa442_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
     </tr>
     <tr>
-      <td id="T_feead_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
+      <td id="T_fa442_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_feead_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
+      <td id="T_fa442_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
     </tr>
     <tr>
-      <td id="T_feead_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
+      <td id="T_fa442_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
 $ \Rightarrow P(X=x) $
 $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$</td>
     </tr>
     <tr>
-      <td id="T_feead_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
+      <td id="T_fa442_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
     </tr>
     <tr>
-      <td id="T_feead_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
+      <td id="T_fa442_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_feead_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
+      <td id="T_fa442_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
     </tr>
     <tr>
-      <td id="T_feead_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
+      <td id="T_fa442_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
     </tr>
     <tr>
-      <td id="T_feead_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
+      <td id="T_fa442_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
     </tr>
   </tbody>
 </table>
