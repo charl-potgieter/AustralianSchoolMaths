@@ -9,6 +9,23 @@ import pandas as pd
 
 class DataSource():
 
+    def _file_is_empty(self, filepath:str)->bool:
+        return os.stat(filepath).st_size == 0
+
+    def _state_from_filename(self, filename:str)->str:
+        """
+        Returns state where filename is in format
+        State_SubtopicCode_Description
+        """
+        return filename.split('_')[0]
+
+    def _subtopic_code_from_filename(self, filename:str)->str:
+        """
+        Returns subtopic code where filename is in format
+        State_SubtopicCode_Description
+        """
+        return filename.split('_')[1]
+
     def _read_json_from_notebook(self, file_path:str):
         with open(file_path, 'r', encoding='utf-8') as file:
             notebook_content = json.load(file)
@@ -180,18 +197,19 @@ class DataSource():
     @property
     def  notes_by_year(self) -> pd.DataFrame:
         note_list=[]
-        for filename in os.listdir(self.notes_directory):
-            filepath = os.path.join(self.notes_directory, filename)
-            notebook_content = self._read_json_from_notebook(filepath)
-            cell_tags_ex_heading = (
-                self._notebook_cell_tags_ex_heading(filepath))
-            for tag in cell_tags_ex_heading:
-                for cell in notebook_content['cells']:
-                    if tag in cell['metadata']['tags']:
-                        state = tag.split('|')[0]
-                        subtopic_code = tag.split('|')[1]
+
+        for subdir, _, files in os.walk(self.notes_directory):
+            for file in files:
+                state = self._state_from_filename(file)
+                subtopic_code = self._subtopic_code_from_filename(file)
+                filepath = os.path.join(subdir, file)
+                if not self._file_is_empty(filepath):
+                    notebook_content = (
+                        self._read_json_from_notebook(filepath))
+                    for cell in notebook_content['cells']:
                         note = (
-                            self._convert_notebook_markdown_content_to_string(
+                            self.
+                            _convert_notebook_markdown_content_to_string(
                                 cell['source']
                             ))
                         note_list = note_list + [{
@@ -200,6 +218,7 @@ class DataSource():
                             'Note':note
                         }]
         notes_data  = pd.DataFrame(note_list)
+
         notes_data = pd.merge(
             left=self.syllabus_by_year, right=notes_data,
             left_on=['State', 'Syllabus_subtopic_code'],
