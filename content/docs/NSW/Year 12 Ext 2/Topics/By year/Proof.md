@@ -7,10 +7,49 @@ weight: 1
 
 ### <span style="color:RGB(139,69,19)">  Concepts </span>
 
+ - contrapositive
+ - converse
+ - counterexample
+ - equivalence
+ - implication statement
+ - negation
+ - proof by contradiction - don’t confuse with counterexample
+ - QED
+ - statement / propisition / premise
+ - triangle of inequality
 
 
 
 ### <span style="color:RGB(139,69,19)">  Notes </span>
+
+ - $ P \implies Q \text { : P implies Q}$
+
+ - $ \neg P \text{ or } P' \text{ or }  \overline P \text { : not P}$
+
+ - $ P \iff Q \text { or } P \text { iff } Q { : equivalence}$
+
+ - $ \forall \text{ : For all}$
+
+ - $ \exists \text{ : There exists}$
+
+ - $ \mathbb{N} \text { The set of natural numbers}$
+
+ - $ \mathbb{Z}  \text { The set of integers (includes natural numbers)}$
+
+ - $ \mathbb{Q}  \text { The set of rational numbers (includes integers)}$
+
+ - $ \mathbb{R}  \text { The set of real numbers (includes rational numbers)}$
+
+ - $ \mathbb{C}  \text { The set of complex numbers (includes real numbers)}$
+
+ - $ \in  \text { is an element of or belongs to}$
+
+ - $ :  \text { such that}$
+
+ - Note that in general concepts such as even numbers, odd numbers etc are taken to refer to positive integers only
+ 
+ - $ \text {The inequality definition: for } a, b \in \mathbb{R}, a > b \text{ if } a-b > 0$
+
 <BR><BR>
 
 
@@ -20,54 +59,54 @@ weight: 1
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "1a5ed4ca-5580-4161-8754-e984c1c2624c" >}}
+{{< tabs "548e06f8-cae5-4c0d-8c23-56ecb6889c72" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_46699 th.col_heading {
+#T_a5e68 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_46699 td {
+#T_a5e68 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_46699">
+<table id="T_a5e68">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_46699_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_a5e68_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_a5e68_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_a5e68_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_a5e68_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_a5e68_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
+      <td id="T_a5e68_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_a5e68_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_a5e68_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_a5e68_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_46699_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
+      <td id="T_a5e68_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
     </tr>
   </tbody>
 </table>
@@ -78,55 +117,55 @@ weight: 1
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_3d155 th.col_heading {
+#T_84546 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_3d155 td {
+#T_84546 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_3d155_row0_col0, #T_3d155_row1_col0, #T_3d155_row2_col0, #T_3d155_row3_col0, #T_3d155_row4_col0, #T_3d155_row6_col0, #T_3d155_row7_col0, #T_3d155_row8_col0, #T_3d155_row9_col0 {
+#T_84546_row0_col0, #T_84546_row1_col0, #T_84546_row2_col0, #T_84546_row3_col0, #T_84546_row4_col0, #T_84546_row6_col0, #T_84546_row7_col0, #T_84546_row8_col0, #T_84546_row9_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_3d155_row5_col0 {
+#T_84546_row5_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_3d155">
+<table id="T_84546">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3d155_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_84546_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_84546_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_84546_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_84546_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_84546_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
+      <td id="T_84546_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_84546_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_84546_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_84546_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_3d155_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
+      <td id="T_84546_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
     </tr>
   </tbody>
 </table>
