@@ -86,7 +86,7 @@ def create_topic_pages(docs_dir: str, hierarchies: SiteHierarchies,
 if __name__ == '__main__':
     input_data = get_data()
 
-    print('creating directory strucutre...')
+    print('creating directory structure...')
     create_directory_structure(input_data['docs_dir'],
                                input_data['hierarchies'])
 

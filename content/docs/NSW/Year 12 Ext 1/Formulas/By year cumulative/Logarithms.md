@@ -3,34 +3,34 @@ weight: 3
 ---
 
 <style type="text/css">
-#T_0e237 th.col_heading {
+#T_c38e6 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_0e237 td {
+#T_c38e6 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_0e237">
+<table id="T_c38e6">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_0e237_row0_col0" class="data row0 col0" >$\log_a{(xy)} = \log_a{x} + log_a{y}$</td>
+      <td id="T_c38e6_row0_col0" class="data row0 col0" >$\log_a{(xy)} = \log_a{x} + log_a{y}$</td>
     </tr>
     <tr>
-      <td id="T_0e237_row1_col0" class="data row1 col0" >$\log_a{\left(\dfrac{x}{y}\right)} = \log_a{x} - log_a{y}$</td>
+      <td id="T_c38e6_row1_col0" class="data row1 col0" >$\log_a{\left(\dfrac{x}{y}\right)} = \log_a{x} - log_a{y}$</td>
     </tr>
     <tr>
-      <td id="T_0e237_row2_col0" class="data row2 col0" >$\log_a{x^n} = n\log_a{x}$</td>
+      <td id="T_c38e6_row2_col0" class="data row2 col0" >$\log_a{x^n} = n\log_a{x}$</td>
     </tr>
     <tr>
-      <td id="T_0e237_row3_col0" class="data row3 col0" >$\log_a{\left(\dfrac{1}{x}\right)} = -\log_a{x}$</td>
+      <td id="T_c38e6_row3_col0" class="data row3 col0" >$\log_a{\left(\dfrac{1}{x}\right)} = -\log_a{x}$</td>
     </tr>
     <tr>
-      <td id="T_0e237_row4_col0" class="data row4 col0" >$\log_a{x} = \dfrac{\log_b{x}}{\log_b{a}}$</td>
+      <td id="T_c38e6_row4_col0" class="data row4 col0" >$\log_a{x} = \dfrac{\log_b{x}}{\log_b{a}}$</td>
     </tr>
   </tbody>
 </table>
