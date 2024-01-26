@@ -74,13 +74,6 @@ class DataSource():
             'static', 'images'))
 
     @property
-    def spreadsheets_directory(self) -> str:
-        """Returns directory containing spreadsheets to be included as
-        links on web pages"""
-        return (self.website_creator_directory + os.path.sep
-                + 'spreadsheets')
-
-    @property
     def hierarchies_file_path(self) -> str:
         return (self.website_creator_directory
                 + os.path.sep
@@ -106,13 +99,6 @@ class DataSource():
                 + 'data_files'
                 + os.path.sep
                 + 'syllabus_topics.csv')
-
-    @property
-    def spreadhsheet_inventory_file_path(self) -> str:
-        return (self.website_creator_directory + os.path.sep
-                + 'data_files'
-                + os.path.sep
-                + 'spreadsheet_inventory.csv')
 
     @property
     def subject_dependencies_file_path(self) -> str:
@@ -243,35 +229,4 @@ class DataSource():
         return_value = return_value[['State', 'Subject', 'Syllabus_topic',
                                      'Syllabus_subtopic_code',
                                      'Syllabus_subtopic', 'Note']]
-        return return_value
-
-    @property
-    def spreadsheets_by_year(self) -> pd.DataFrame:
-        spreadsheets_data = pd.read_csv(self.spreadhsheet_inventory_file_path)
-
-        spreadsheets_data = pd.merge(
-            left=self.syllabus_by_year, right=spreadsheets_data,
-            left_on=['State', 'Syllabus_subtopic_code'],
-            right_on=['State', 'Syllabus_subtopic_code'],
-            how='right')
-        return spreadsheets_data
-
-    @property
-    def spreadsheets_by_year_cumulative(self) -> pd.DataFrame:
-        """Returns spreadsheet details on a cumulative level by subject
-        order  for a given state.  (includes the current subjects spreadsheets
-        as well as the spreadsheets from a subjects dependencies)
-        """
-        return_value = self.spreadsheets_by_year.copy()
-        return_value = return_value.rename(columns={'Subject': 'Dependency'})
-        return_value = return_value.merge(
-            right=self.subject_dependencies,
-            left_on=['State', 'Dependency'],
-            right_on=['State', 'Dependency'])
-        return_value = return_value.drop('Dependency', axis='columns')
-        # Re-order cols
-        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
-                                     'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic', 'Spreadsheet']]
-
         return return_value
