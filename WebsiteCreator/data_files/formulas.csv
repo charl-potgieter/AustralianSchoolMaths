@@ -185,3 +185,7 @@ NSW,ME-V1,Vectors,,,,,$ \underset{\sim}{v}  =  \int \underset{\sim}{a} \; dt$,FA
 NSW,ME-V1,Vectors,,,,,$ \underset{\sim}{s}  =  \int \underset{\sim}{v} \; dt$,FALSE,,
 NSW,ME-V1,Vectors,,,,,"$\text{Initial velocity of a vector } =  \underset{\sim}{v}  =  v\cos\theta \underset{\sim}{i}  + v \sin \theta \underset{\sim}{j} \text{ where v is the initial speed, a scalar}$",FALSE,,
 NSW,ME-V1,Vectors,,,,,$\text{acceleration due to gravity } =  \underset{\sim}{a}  =  -g\underset{\sim}{j}$,FALSE,,
+NSW,MEX-N2,Complex Numbers,,,,,$(e ^ {i \theta})^n = e ^ {in \theta} $,FALSE,,
+NSW,MEX-N2,Complex Numbers,,,,,$z^n + \dfrac{1}{z^n} = 2 \cos n \theta $,FALSE,,
+NSW,MEX-N2,Complex Numbers,,,,,$z^n - \dfrac{1}{z^n} = 2i \sin n \theta $,FALSE,,
+NSW,MEX-N2,Complex Numbers,,,,,$ i = 1(\cos \dfrac{\pi}{2} + i \sin \dfrac{\pi}{2})$,FALSE,,
