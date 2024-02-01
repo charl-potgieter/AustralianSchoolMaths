@@ -2,53 +2,53 @@
 weight: 4
 ---
 
-{{< tabs "cf62092e-45e0-4971-9744-6de75a667ebe" >}}
+{{< tabs "d6551d76-40f7-4a5b-9d9b-cde796538d9d" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_56c9b th.col_heading {
+#T_603e2 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_56c9b td {
+#T_603e2 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_56c9b">
+<table id="T_603e2">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_56c9b_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
+      <td id="T_603e2_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
+      <td id="T_603e2_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
+      <td id="T_603e2_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
+      <td id="T_603e2_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
 $ \Rightarrow P(X=x) $
 $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
+      <td id="T_603e2_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
+      <td id="T_603e2_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
+      <td id="T_603e2_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
+      <td id="T_603e2_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
     </tr>
     <tr>
-      <td id="T_56c9b_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
+      <td id="T_603e2_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
     </tr>
   </tbody>
 </table>
@@ -59,54 +59,54 @@ $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_36cc6 th.col_heading {
+#T_c6376 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_36cc6 td {
+#T_c6376 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_36cc6_row0_col0, #T_36cc6_row1_col0, #T_36cc6_row7_col0, #T_36cc6_row8_col0 {
+#T_c6376_row0_col0, #T_c6376_row1_col0, #T_c6376_row7_col0, #T_c6376_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_36cc6_row2_col0, #T_36cc6_row3_col0, #T_36cc6_row4_col0, #T_36cc6_row5_col0, #T_36cc6_row6_col0 {
+#T_c6376_row2_col0, #T_c6376_row3_col0, #T_c6376_row4_col0, #T_c6376_row5_col0, #T_c6376_row6_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_36cc6">
+<table id="T_c6376">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_36cc6_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
+      <td id="T_c6376_row0_col0" class="data row0 col0" >$ \text{Bernoulli distribution: } E(X) = p $</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
+      <td id="T_c6376_row1_col0" class="data row1 col0" >$ \text{Bernoulli distribution: } VAR(X) = p(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
+      <td id="T_c6376_row2_col0" class="data row2 col0" >$\text{Binomial distribution}: P(X=r) = ^nC_rp^r(1-p)^{n-r}$</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
+      <td id="T_c6376_row3_col0" class="data row3 col0" >$\text{Binomial distribution}: X\sim Bin(n,p) $
 $ \Rightarrow P(X=x) $
 $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
+      <td id="T_c6376_row4_col0" class="data row4 col0" >$ \text{binomial distribution: } E(X) = np $</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
+      <td id="T_c6376_row5_col0" class="data row5 col0" >$ \text{binmomial distribution: } VAR(X) = np(1-p)  $</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
+      <td id="T_c6376_row6_col0" class="data row6 col0" >$ \hat{p} = \dfrac{x}{n} $</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
+      <td id="T_c6376_row7_col0" class="data row7 col0" >$ \text{sample proportions: } E(\hat{p}) = p $</td>
     </tr>
     <tr>
-      <td id="T_36cc6_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
+      <td id="T_c6376_row8_col0" class="data row8 col0" >$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $</td>
     </tr>
   </tbody>
 </table>
