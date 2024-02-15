@@ -30,8 +30,13 @@ weight: 2
  - parallel vectors in the same direction $\underset{\sim}{u} . \underset{\sim}{v} = |\underset{\sim}{u}|\underset{\sim}{v}|$ 
  - parallel vectors in the opposite direction $\underset{\sim}{u} . \underset{\sim}{v} = |\underset{\sim}{u}|\underset{\sim}{v}|$ 
   - Below 2 vectors are parallel if $x_2,y_2,z_2$ are in same ratio (fixed multiple) as $x_1,y_1,z_1$ <br>
-    $\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} + \begin{pmatrix}x_1 \\ y_1 \\ z_1\end{pmatrix}$ <br>
-    $\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}d \\ e \\ f\end{pmatrix} + \begin{pmatrix}x_2 \\ y_2 \\ z_2\end{pmatrix}$
+
+  
+    <div>
+    $\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} + \begin{pmatrix}x_1 \\ y_1 \\ z_1\end{pmatrix}$ 
+    </div>
+    <br>
+    <div>$\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}d \\ e \\ f\end{pmatrix} + \begin{pmatrix}x_2 \\ y_2 \\ z_2\end{pmatrix}$</div>
   - perpendicular vectors $\underset{\sim}{u} . \underset{\sim}{v} =0$
   - single vector midpoint $\dfrac{\underset{\sim}{u}}{2}$
   - sum of vector midpoint $\dfrac{\underset{\sim}{u} + \underset{\sim}{v}}{2}$
@@ -41,9 +46,14 @@ weight: 2
   - Parametric equations can be used to represent a line in 3D space using vectors
   - The equation is a function of parameter t (note: not a function of x like "standard" graphs)
   - vector equation format <br>
-   $\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} + t \begin{pmatrix}x_1 \\ y_1 \\ z_1\end{pmatrix}$ <br> 
-   or <br>
+  
+   <div>
+   $\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} + t \begin{pmatrix}x_1 \\ y_1 \\ z_1\end{pmatrix}$
+   </div> 
+   <br> or <br>
+   <div>
    $\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}f(t) \\ g(t) \\ h(t)\end{pmatrix}$
+   </div>
  - The above vector equation can be represented by below parametric equations:
     - $ x = a + tx_1$
     - $ y = b + ty_1$
@@ -79,51 +89,51 @@ $ \lambda = \dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3} $
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "d215adb2-b61a-44e0-a1f8-ca8c1bc8f6cd" >}}
+{{< tabs "e30b53ba-0e71-40c1-beb7-aac901ecbbae" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_c5dfd th.col_heading {
+#T_0dfd1 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_c5dfd td {
+#T_0dfd1 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_c5dfd">
+<table id="T_0dfd1">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_c5dfd_row0_col0" class="data row0 col0" >$\underset{\sim}{u} + \underset{\sim}{v} = \underset{\sim}{v} + \underset{\sim}{u}$ </td>
+      <td id="T_0dfd1_row0_col0" class="data row0 col0" >$\underset{\sim}{u} + \underset{\sim}{v} = \underset{\sim}{v} + \underset{\sim}{u}$ </td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row1_col0" class="data row1 col0" >$(\underset{\sim}{u} + \underset{\sim}{v}) + \underset{\sim}{w} = \underset{\sim}{u} + (\underset{\sim}{v} + \underset{\sim}{w} )$ </td>
+      <td id="T_0dfd1_row1_col0" class="data row1 col0" >$(\underset{\sim}{u} + \underset{\sim}{v}) + \underset{\sim}{w} = \underset{\sim}{u} + (\underset{\sim}{v} + \underset{\sim}{w} )$ </td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row2_col0" class="data row2 col0" >$\underset{\sim}{u} + 0 = \underset{\sim}{u}$ </td>
+      <td id="T_0dfd1_row2_col0" class="data row2 col0" >$\underset{\sim}{u} + 0 = \underset{\sim}{u}$ </td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row3_col0" class="data row3 col0" >$|\underset{\sim}{u} + \underset{\sim}{v}| \le |\underset{\sim}{u}| + |\underset{\sim}{v}|$ </td>
+      <td id="T_0dfd1_row3_col0" class="data row3 col0" >$|\underset{\sim}{u} + \underset{\sim}{v}| \le |\underset{\sim}{u}| + |\underset{\sim}{v}|$ </td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row4_col0" class="data row4 col0" >$|r| = \sqrt{x^2+y^2+z^2}$</td>
+      <td id="T_0dfd1_row4_col0" class="data row4 col0" >$|r| = \sqrt{x^2+y^2+z^2}$</td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row5_col0" class="data row5 col0" >$\underset{\sim}{u} . \underset{\sim}{v} = x_1x_2 + y_1y_2 + z_1z_2 = |\underset{\sim}{u}|\underset{\sim}{v}| \cos \theta$</td>
+      <td id="T_0dfd1_row5_col0" class="data row5 col0" >$\underset{\sim}{u} . \underset{\sim}{v} = x_1x_2 + y_1y_2 + z_1z_2 = |\underset{\sim}{u}|\underset{\sim}{v}| \cos \theta$</td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row6_col0" class="data row6 col0" >$\underset{\sim}{u} . \underset{\sim}{v}  = \underset{\sim}{v} . \underset{\sim}{u}$</td>
+      <td id="T_0dfd1_row6_col0" class="data row6 col0" >$\underset{\sim}{u} . \underset{\sim}{v}  = \underset{\sim}{v} . \underset{\sim}{u}$</td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row7_col0" class="data row7 col0" >$\underset{\sim}{u} . (\underset{\sim}{v} +\underset{\sim}{w})   = \underset{\sim}{u} . \underset{\sim}{v} + \underset{\sim}{u} . \underset{\sim}{w}$</td>
+      <td id="T_0dfd1_row7_col0" class="data row7 col0" >$\underset{\sim}{u} . (\underset{\sim}{v} +\underset{\sim}{w})   = \underset{\sim}{u} . \underset{\sim}{v} + \underset{\sim}{u} . \underset{\sim}{w}$</td>
     </tr>
     <tr>
-      <td id="T_c5dfd_row8_col0" class="data row8 col0" >$r = \underset{\sim}{a} + \lambda \underset{\sim}{b}$</td>
+      <td id="T_0dfd1_row8_col0" class="data row8 col0" >$r = \underset{\sim}{a} + \lambda \underset{\sim}{b}$</td>
     </tr>
   </tbody>
 </table>
@@ -134,52 +144,52 @@ $ \lambda = \dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3} $
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_11bfe th.col_heading {
+#T_431ee th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_11bfe td {
+#T_431ee td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_11bfe_row0_col0, #T_11bfe_row1_col0, #T_11bfe_row2_col0, #T_11bfe_row3_col0, #T_11bfe_row4_col0, #T_11bfe_row5_col0, #T_11bfe_row6_col0, #T_11bfe_row7_col0 {
+#T_431ee_row0_col0, #T_431ee_row1_col0, #T_431ee_row2_col0, #T_431ee_row3_col0, #T_431ee_row4_col0, #T_431ee_row5_col0, #T_431ee_row6_col0, #T_431ee_row7_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_11bfe_row8_col0 {
+#T_431ee_row8_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_11bfe">
+<table id="T_431ee">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_11bfe_row0_col0" class="data row0 col0" >$\underset{\sim}{u} + \underset{\sim}{v} = \underset{\sim}{v} + \underset{\sim}{u}$ </td>
+      <td id="T_431ee_row0_col0" class="data row0 col0" >$\underset{\sim}{u} + \underset{\sim}{v} = \underset{\sim}{v} + \underset{\sim}{u}$ </td>
     </tr>
     <tr>
-      <td id="T_11bfe_row1_col0" class="data row1 col0" >$(\underset{\sim}{u} + \underset{\sim}{v}) + \underset{\sim}{w} = \underset{\sim}{u} + (\underset{\sim}{v} + \underset{\sim}{w} )$ </td>
+      <td id="T_431ee_row1_col0" class="data row1 col0" >$(\underset{\sim}{u} + \underset{\sim}{v}) + \underset{\sim}{w} = \underset{\sim}{u} + (\underset{\sim}{v} + \underset{\sim}{w} )$ </td>
     </tr>
     <tr>
-      <td id="T_11bfe_row2_col0" class="data row2 col0" >$\underset{\sim}{u} + 0 = \underset{\sim}{u}$ </td>
+      <td id="T_431ee_row2_col0" class="data row2 col0" >$\underset{\sim}{u} + 0 = \underset{\sim}{u}$ </td>
     </tr>
     <tr>
-      <td id="T_11bfe_row3_col0" class="data row3 col0" >$|\underset{\sim}{u} + \underset{\sim}{v}| \le |\underset{\sim}{u}| + |\underset{\sim}{v}|$ </td>
+      <td id="T_431ee_row3_col0" class="data row3 col0" >$|\underset{\sim}{u} + \underset{\sim}{v}| \le |\underset{\sim}{u}| + |\underset{\sim}{v}|$ </td>
     </tr>
     <tr>
-      <td id="T_11bfe_row4_col0" class="data row4 col0" >$|r| = \sqrt{x^2+y^2+z^2}$</td>
+      <td id="T_431ee_row4_col0" class="data row4 col0" >$|r| = \sqrt{x^2+y^2+z^2}$</td>
     </tr>
     <tr>
-      <td id="T_11bfe_row5_col0" class="data row5 col0" >$\underset{\sim}{u} . \underset{\sim}{v} = x_1x_2 + y_1y_2 + z_1z_2 = |\underset{\sim}{u}|\underset{\sim}{v}| \cos \theta$</td>
+      <td id="T_431ee_row5_col0" class="data row5 col0" >$\underset{\sim}{u} . \underset{\sim}{v} = x_1x_2 + y_1y_2 + z_1z_2 = |\underset{\sim}{u}|\underset{\sim}{v}| \cos \theta$</td>
     </tr>
     <tr>
-      <td id="T_11bfe_row6_col0" class="data row6 col0" >$\underset{\sim}{u} . \underset{\sim}{v}  = \underset{\sim}{v} . \underset{\sim}{u}$</td>
+      <td id="T_431ee_row6_col0" class="data row6 col0" >$\underset{\sim}{u} . \underset{\sim}{v}  = \underset{\sim}{v} . \underset{\sim}{u}$</td>
     </tr>
     <tr>
-      <td id="T_11bfe_row7_col0" class="data row7 col0" >$\underset{\sim}{u} . (\underset{\sim}{v} +\underset{\sim}{w})   = \underset{\sim}{u} . \underset{\sim}{v} + \underset{\sim}{u} . \underset{\sim}{w}$</td>
+      <td id="T_431ee_row7_col0" class="data row7 col0" >$\underset{\sim}{u} . (\underset{\sim}{v} +\underset{\sim}{w})   = \underset{\sim}{u} . \underset{\sim}{v} + \underset{\sim}{u} . \underset{\sim}{w}$</td>
     </tr>
     <tr>
-      <td id="T_11bfe_row8_col0" class="data row8 col0" >$r = \underset{\sim}{a} + \lambda \underset{\sim}{b}$</td>
+      <td id="T_431ee_row8_col0" class="data row8 col0" >$r = \underset{\sim}{a} + \lambda \underset{\sim}{b}$</td>
     </tr>
   </tbody>
 </table>
