@@ -97,54 +97,54 @@ weight: 7
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "53423641-f6ad-4cfa-a976-0577daf955ba" >}}
+{{< tabs "2d6d2989-5f63-4603-b556-f7f96f1318aa" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_0f680 th.col_heading {
+#T_9a239 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_0f680 td {
+#T_9a239 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_0f680">
+<table id="T_9a239">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_0f680_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_9a239_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_9a239_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_9a239_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_9a239_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_9a239_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
+      <td id="T_9a239_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_9a239_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_9a239_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_9a239_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_0f680_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
+      <td id="T_9a239_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
     </tr>
   </tbody>
 </table>
@@ -155,55 +155,55 @@ weight: 7
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_ff875 th.col_heading {
+#T_c3cbf th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ff875 td {
+#T_c3cbf td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_ff875_row0_col0, #T_ff875_row1_col0, #T_ff875_row2_col0, #T_ff875_row3_col0, #T_ff875_row4_col0, #T_ff875_row6_col0, #T_ff875_row7_col0, #T_ff875_row8_col0, #T_ff875_row9_col0 {
+#T_c3cbf_row0_col0, #T_c3cbf_row1_col0, #T_c3cbf_row2_col0, #T_c3cbf_row3_col0, #T_c3cbf_row4_col0, #T_c3cbf_row6_col0, #T_c3cbf_row7_col0, #T_c3cbf_row8_col0, #T_c3cbf_row9_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_ff875_row5_col0 {
+#T_c3cbf_row5_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_ff875">
+<table id="T_c3cbf">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ff875_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_c3cbf_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_c3cbf_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_c3cbf_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_c3cbf_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_c3cbf_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
+      <td id="T_c3cbf_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_c3cbf_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_c3cbf_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_c3cbf_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_ff875_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
+      <td id="T_c3cbf_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
     </tr>
   </tbody>
 </table>
@@ -213,10 +213,64 @@ Items where proofs required are highlighted
 ## <span style="color:RGB(0,32,96"> Further Proof by Mathematical Induction </span> 
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+ 
+ ### <span style="color:RGB(139,69,19)">  Concepts </span>
+
+ - divisibility
+ - induction
+ - recursive formula
+ - series
+ - sigma notation
+
 
 
 
 
 ### <span style="color:RGB(139,69,19)">  Notes </span>
+
+
+#### Proof of divisibility
+If X is divisible by Y then X = pY for some $P \in \mathbb{N}$
+
+#### Further mathematical induction
+Proving propositions that are only true for a subset of integer values n such as 
+ - $ n \ge \text {some value}$
+ - odd integers
+ - even integers
+
+#### Series and sigma notation
+
+$\displaystyle \sum_{n=1}^n T_r - T_1 + T_2 + T_3+...+T_n$
+
+RTP = required to prove
+
+Tip: Sequences that alternate between positive and negative can be prefixed by $(-1)^r$
+
+#### Applications of mathematical induction
+
+Below are examples of results that can be ussed in inequality proofs:
+ 
+ - if a>b then a-b >0
+
+ - if a>b and b>c then a>c
+
+ - if a>b and c>d then a+c>b+d
+
+ - if a,b,c > 0  and a>b then ac>bc
+ 
+ - if a>b>0 then $\dfrac{1}{a}<\dfrac{1}{b}$
+
+
+#### Recursive proofs
+ - Recursive formulas: An item  in a sequence is defined in terms of the precvious item in the sequence.
+
+ - Induction can be utilised to prove a recursive formula in terms of n (without referencing the previous term in the sequence)
+
+ - Tip: When assuming  P(k) is true, it is also assumed that P(k-1), P(k-2) and earlier are true.  It is only the next item that needs to be proven, e.g P(k+1) or say P(k+2) for odd or even numbers
+
+
+
+#### Proofs involving inequalities and graphs
+Graphs can be utlised when inequalities are difficult to solve  algebraically. 
+
 <BR><BR>
