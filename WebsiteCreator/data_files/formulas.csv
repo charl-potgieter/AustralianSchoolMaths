@@ -199,3 +199,7 @@ NSW,MEX-V1,Vectors,,,,,$\underset{\sim}{u} . \underset{\sim}{v} = x_1x_2 + y_1y_
 NSW,MEX-V1,Vectors,,,,,$\underset{\sim}{u} . \underset{\sim}{v}  = \underset{\sim}{v} . \underset{\sim}{u}$,FALSE,,
 NSW,MEX-V1,Vectors,,,,,$\underset{\sim}{u} . (\underset{\sim}{v} +\underset{\sim}{w})   = \underset{\sim}{u} . \underset{\sim}{v} + \underset{\sim}{u} . \underset{\sim}{w}$,FALSE,,
 NSW,MEX-V1,Vectors,,,,,$r = \underset{\sim}{a} + \lambda \underset{\sim}{b}$,TRUE,,
+NSW,ME-C1,Differentiation,,,,27,$v = \dot x = \dfrac{dx}{dt}$,FALSE,,
+NSW,ME-C1,Differentiation,,,,28,$a = \ddot x = \dfrac{dv}{dt} = \dfrac{d^{2}x}{dt^2}$,FALSE,,
+NSW,ME-C1,Differentiation,,,,29,$\dfrac{dN}{dt} = kn \text{ is satisfied by } N(t) = Ae^{kt}$,FALSE,TRUE,
+NSW,ME-C1,Differentiation,,,,30,$\dfrac{dN}{dt} = k(N-p) \text{ is satisfied by } N(t) = P + Ae^{kt}$,FALSE,TRUE,

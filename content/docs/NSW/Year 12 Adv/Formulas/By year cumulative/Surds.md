@@ -3,28 +3,28 @@ weight: 1
 ---
 
 <style type="text/css">
-#T_9393f th.col_heading {
+#T_7372c th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_9393f td {
+#T_7372c td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_9393f">
+<table id="T_7372c">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_9393f_row0_col0" class="data row0 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
+      <td id="T_7372c_row0_col0" class="data row0 col0" >$ \sqrt{xy} = \sqrt{x} \times \sqrt{y} $</td>
     </tr>
     <tr>
-      <td id="T_9393f_row1_col0" class="data row1 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
+      <td id="T_7372c_row1_col0" class="data row1 col0" >$ \sqrt{\dfrac{x}{y}} = \dfrac{\sqrt{x}}{\sqrt{y}} $</td>
     </tr>
     <tr>
-      <td id="T_9393f_row2_col0" class="data row2 col0" >$ (\sqrt{x})^2 = \sqrt{x^2} = x \text{ for } x\ge 0 $</td>
+      <td id="T_7372c_row2_col0" class="data row2 col0" >$ (\sqrt{x})^2 = \sqrt{x^2} = x \text{ for } x\ge 0 $</td>
     </tr>
   </tbody>
 </table>
