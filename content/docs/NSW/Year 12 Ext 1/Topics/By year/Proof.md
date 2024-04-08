@@ -5,21 +5,6 @@ weight: 1
 ## <span style="color:RGB(0,32,96"> Proof by Mathematical Induction </span> 
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
-
- - contrapositive
- - converse
- - counterexample
- - equivalence
- - implication statement
- - negation
- - proof by contradiction - don’t confuse with counterexample
- - QED
- - statement / propisition / premise
- - triangle of inequality
-
-
-
 ### <span style="color:RGB(139,69,19)">  Notes </span>
 
  - Can be utilised to prove a statement true for all positive integers, n
