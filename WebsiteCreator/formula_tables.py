@@ -130,6 +130,7 @@ class FormulaTableTypeCalculus(FormulaTableType):
         formulas_df = self._formulas.data
         calculus_df = (formulas_df[formulas_df["Category"].isin(
             ["Differentiation", "Integration"])])
+        calculus_df = calculus_df.dropna(subset=['Group'])
         calculus_df = calculus_df[['Category', 'Group', 'Formula', 'Comment']]
         calculus_df = calculus_df.pivot(
             columns='Category', index='Group').fillna('')
