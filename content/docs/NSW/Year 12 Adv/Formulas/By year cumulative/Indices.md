@@ -3,46 +3,46 @@ weight: 2
 ---
 
 <style type="text/css">
-#T_224a6 th.col_heading {
+#T_660bf th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_224a6 td {
+#T_660bf td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_224a6">
+<table id="T_660bf">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_224a6_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
+      <td id="T_660bf_row0_col0" class="data row0 col0" >$a^m \times a^n = a^{m+n}$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
+      <td id="T_660bf_row1_col0" class="data row1 col0" >$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
+      <td id="T_660bf_row2_col0" class="data row2 col0" >$(a^m)^n = a^{m \times n}$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
+      <td id="T_660bf_row3_col0" class="data row3 col0" >$(ab)^n = a^nb^n$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
+      <td id="T_660bf_row4_col0" class="data row4 col0" >$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row5_col0" class="data row5 col0" >$a^0=1$</td>
+      <td id="T_660bf_row5_col0" class="data row5 col0" >$a^0=1$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
+      <td id="T_660bf_row6_col0" class="data row6 col0" >$a^{-n}=\dfrac{1}{a^n}$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
+      <td id="T_660bf_row7_col0" class="data row7 col0" >$\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n$</td>
     </tr>
     <tr>
-      <td id="T_224a6_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
+      <td id="T_660bf_row8_col0" class="data row8 col0" >$a^{\frac{m}{n}} =\sqrt[n]{a^m}$</td>
     </tr>
   </tbody>
 </table>
