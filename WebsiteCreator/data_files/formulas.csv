@@ -44,7 +44,7 @@ NSW,MA-C4,Integration,,,,7,$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$,TR
 NSW,MA-C2,Differentiation,,,,8,"$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br>",TRUE,TRUE,
 NSW,MA-C4,Integration,,,,8,$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$,TRUE,TRUE,
 NSW,MA-C2,Differentiation,,,,9,"$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br>",TRUE,TRUE,
-NSW,MA-C4,Integration,,,,9,$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$,TRUE,TRUE,Why absolute value?
+NSW,MA-C4,Integration,,,,9,$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$,TRUE,TRUE,Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.
 NSW,MA-C2,Differentiation,,,,10,"$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br>",TRUE,TRUE,
 NSW,MA-C4,Integration,,,,10,$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$,TRUE,,ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.
 NSW,MA-C2,Differentiation,,,,11,"$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br>",TRUE,TRUE,
