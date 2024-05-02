@@ -49,8 +49,8 @@ NSW,MA-C2,Differentiation,,,,10,"$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\
 NSW,MA-C4,Integration,,,,10,$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$,TRUE,,ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.
 NSW,MA-C2,Differentiation,,,,11,"$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br>",TRUE,TRUE,
 NSW,MA-C4,Integration,,,,11,$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$,FALSE,,"Is this integral expression correct, in particular the absolute value?"
-NSW,MA-C4,Integration,,,,,"$ {\Large\int}_b^a f(x)dx = F(b)-F(a) \text{, where F(x) is the anti-derivative of f(x)}$",FALSE,,
-NSW,MA-C4,Integration,,,,,$F'(x) = \dfrac{d}{dx} {\Large\int}_a^x f(t)dt = f(x) \text{ (the Fundamental Therom of Calculus)}$,FALSE,,
+NSW,MA-C4,Integration,,,,,"$ {\Large\int}_b^a f(x)dx = F(b)-F(a) \text{, where F(x) is the anti-derivative of f(x)}$",FALSE,TRUE,
+NSW,MA-C4,Integration,,,,,$F'(x) = \dfrac{d}{dx} {\Large\int}_a^x f(t)dt = f(x) \text{ (the Fundamental Therom of Calculus)}$,FALSE,TRUE,
 NSW,ME-C2,Differentiation,,,,12,"$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br>",TRUE,,
 NSW,ME-C2,Integration,,,,12,$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$,FALSE,,
 NSW,ME-C2,Differentiation,,,,13,"$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br>",FALSE,,
