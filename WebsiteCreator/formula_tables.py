@@ -125,7 +125,7 @@ class FormulaTableTypeCalculus(FormulaTableType):
     def to_dataframe(self) -> pd.DataFrame:
         """Returns a summary table in dataframe format"""
 
-        if not self._formulas_contain_both_derivatives_and_integrals():
+        if not self._formulas_contain_grouped_derivatives_and_integrals():
             return pd.DataFrame()
         formulas_df = self._formulas.data
         calculus_df = (formulas_df[formulas_df["Category"].isin(
@@ -157,10 +157,11 @@ class FormulaTableTypeCalculus(FormulaTableType):
                                    'Comment']]
         return calculus_df
 
-    def _formulas_contain_both_derivatives_and_integrals(self) -> bool:
+    def _formulas_contain_grouped_derivatives_and_integrals(self) -> bool:
+        grouped_formulas = self._formulas.data.dropna(subset=['Group'])
         return (
-            ("Differentiation" in self._formulas.data['Category'].values) and
-            ("Integration" in self._formulas.data['Category'].values))
+            ("Differentiation" in grouped_formulas['Category'].values) and
+            ("Integration" in grouped_formulas['Category'].values))
 
     def _get_comment(self, row) -> str:
         """Returns a comment for calculus formula summary based on
