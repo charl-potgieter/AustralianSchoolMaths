@@ -45,11 +45,35 @@ Trig ratios are positive in "**A**ll **S**tations **T**o **C**entral" that is
 
 #### Radians  
 
+Understand the reason why $  \pi \text{ radians}  = 180^{\circ}$ based on
+ - the definition of 1 radian being the angle subtended by an arc with length of 1 in a unit circle (with radius of 1)
+ - fact that circumference of a circle = $2 \pi r$
 
-<BR><BR>
-$\sin (180^\circ - \theta) = \sin \theta $
-$\cos (180 ^\circ - \theta) = - \cos \theta $
-$\tan (180 ^\circ - \theta) = - \tan \theta $
+**NB** Generally most trig questions will be in radians.  The smaller number generally gives a clue that amount is in radians.  Carefully check for abscence / presence of the degree symbol
+
+
+<br>
+
+ <!-- Paramater SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/{{< param SiteRoot >}}/images/MA_T1_StandardTriangle.jpg" />
+
+<br>
+
+
+"Standard triangles" are provided in degrees as above on the formula sheet.  Converting to radians:
+
+ - $30^{\circ} = \dfrac{\pi}{6} $ radians
+
+ -  $45^{\circ} = \dfrac{\pi}{4} $ radians
+
+ -  $60^{\circ} = \dfrac{\pi}{3} $ radians
+
+
+
+
+<span style="color:RGB(255,0,0)">  graphs </span>
+
+
 
 <BR><BR>
 
@@ -60,51 +84,57 @@ $\tan (180 ^\circ - \theta) = - \tan \theta $
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "2b8b7e5e-0fbd-471c-9aea-09d4212bce87" >}}
+{{< tabs "cea67a20-4333-489b-b220-33766ddc83f0" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_4fb68 th.col_heading {
+#T_94fa9 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_4fb68 td {
+#T_94fa9 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_4fb68">
+<table id="T_94fa9">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_4fb68_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_94fa9_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_94fa9_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_94fa9_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_94fa9_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_94fa9_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_94fa9_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_94fa9_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_94fa9_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_4fb68_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_94fa9_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+    </tr>
+    <tr>
+      <td id="T_94fa9_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+    </tr>
+    <tr>
+      <td id="T_94fa9_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -115,52 +145,58 @@ $\tan (180 ^\circ - \theta) = - \tan \theta $
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_accf0 th.col_heading {
+#T_9d9c9 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_accf0 td {
+#T_9d9c9 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_accf0_row0_col0, #T_accf0_row1_col0, #T_accf0_row2_col0, #T_accf0_row3_col0, #T_accf0_row4_col0, #T_accf0_row5_col0 {
+#T_9d9c9_row0_col0, #T_9d9c9_row1_col0, #T_9d9c9_row2_col0, #T_9d9c9_row3_col0, #T_9d9c9_row4_col0, #T_9d9c9_row5_col0, #T_9d9c9_row9_col0, #T_9d9c9_row10_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_accf0_row6_col0, #T_accf0_row7_col0, #T_accf0_row8_col0 {
+#T_9d9c9_row6_col0, #T_9d9c9_row7_col0, #T_9d9c9_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_accf0">
+<table id="T_9d9c9">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_accf0_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_9d9c9_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_accf0_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_9d9c9_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_accf0_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_9d9c9_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_accf0_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_9d9c9_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_accf0_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_9d9c9_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_accf0_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_9d9c9_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_accf0_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_9d9c9_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_accf0_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_9d9c9_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_accf0_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_9d9c9_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+    </tr>
+    <tr>
+      <td id="T_9d9c9_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+    </tr>
+    <tr>
+      <td id="T_9d9c9_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -171,52 +207,58 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_cb63f th.col_heading {
+#T_5cc5f th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_cb63f td {
+#T_5cc5f td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_cb63f_row0_col0, #T_cb63f_row1_col0, #T_cb63f_row2_col0, #T_cb63f_row6_col0, #T_cb63f_row7_col0, #T_cb63f_row8_col0 {
+#T_5cc5f_row0_col0, #T_5cc5f_row1_col0, #T_5cc5f_row2_col0, #T_5cc5f_row6_col0, #T_5cc5f_row7_col0, #T_5cc5f_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_cb63f_row3_col0, #T_cb63f_row4_col0, #T_cb63f_row5_col0 {
+#T_5cc5f_row3_col0, #T_5cc5f_row4_col0, #T_5cc5f_row5_col0, #T_5cc5f_row9_col0, #T_5cc5f_row10_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_cb63f">
+<table id="T_5cc5f">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_cb63f_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_5cc5f_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_5cc5f_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_5cc5f_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_5cc5f_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_5cc5f_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_5cc5f_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_5cc5f_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_5cc5f_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_cb63f_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_5cc5f_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+    </tr>
+    <tr>
+      <td id="T_5cc5f_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+    </tr>
+    <tr>
+      <td id="T_5cc5f_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>

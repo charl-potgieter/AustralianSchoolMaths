@@ -2,51 +2,57 @@
 weight: 9
 ---
 
-{{< tabs "4246c9a3-ec7c-4c06-ab70-c2b5a98cd073" >}}
+{{< tabs "a5663a2d-d638-4a47-81c2-1e24ef7ec6fd" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_476b8 th.col_heading {
+#T_04235 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_476b8 td {
+#T_04235 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_476b8">
+<table id="T_04235">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_476b8_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_04235_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_476b8_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_04235_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_476b8_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_04235_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_476b8_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_04235_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_476b8_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_04235_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_476b8_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_04235_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_476b8_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_04235_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_476b8_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_04235_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_476b8_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_04235_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+    </tr>
+    <tr>
+      <td id="T_04235_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+    </tr>
+    <tr>
+      <td id="T_04235_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -57,52 +63,58 @@ weight: 9
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_7bb19 th.col_heading {
+#T_dcd88 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_7bb19 td {
+#T_dcd88 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_7bb19_row0_col0, #T_7bb19_row1_col0, #T_7bb19_row2_col0, #T_7bb19_row3_col0, #T_7bb19_row4_col0, #T_7bb19_row5_col0 {
+#T_dcd88_row0_col0, #T_dcd88_row1_col0, #T_dcd88_row2_col0, #T_dcd88_row3_col0, #T_dcd88_row4_col0, #T_dcd88_row5_col0, #T_dcd88_row9_col0, #T_dcd88_row10_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_7bb19_row6_col0, #T_7bb19_row7_col0, #T_7bb19_row8_col0 {
+#T_dcd88_row6_col0, #T_dcd88_row7_col0, #T_dcd88_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_7bb19">
+<table id="T_dcd88">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_7bb19_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_dcd88_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_dcd88_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_dcd88_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_dcd88_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_dcd88_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_dcd88_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_dcd88_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_dcd88_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_7bb19_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_dcd88_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+    </tr>
+    <tr>
+      <td id="T_dcd88_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+    </tr>
+    <tr>
+      <td id="T_dcd88_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -113,52 +125,58 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_63483 th.col_heading {
+#T_4c578 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_63483 td {
+#T_4c578 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_63483_row0_col0, #T_63483_row1_col0, #T_63483_row2_col0, #T_63483_row6_col0, #T_63483_row7_col0, #T_63483_row8_col0 {
+#T_4c578_row0_col0, #T_4c578_row1_col0, #T_4c578_row2_col0, #T_4c578_row6_col0, #T_4c578_row7_col0, #T_4c578_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_63483_row3_col0, #T_63483_row4_col0, #T_63483_row5_col0 {
+#T_4c578_row3_col0, #T_4c578_row4_col0, #T_4c578_row5_col0, #T_4c578_row9_col0, #T_4c578_row10_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_63483">
+<table id="T_4c578">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_63483_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_4c578_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_63483_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_4c578_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_63483_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_4c578_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_63483_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_4c578_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_63483_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_4c578_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_63483_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_4c578_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_63483_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_4c578_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_63483_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_4c578_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_63483_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_4c578_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+    </tr>
+    <tr>
+      <td id="T_4c578_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+    </tr>
+    <tr>
+      <td id="T_4c578_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
