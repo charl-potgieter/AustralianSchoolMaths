@@ -146,7 +146,7 @@ class DataSource():
         # TODO Temporarily mark empty boolean fields as false to avoid type errors
         # Remove once all data capture is complete
         formulas_input_converter = {
-            'Proof_required': lambda x: True if x else False}
+            'Proof_required': lambda x: True if x =='TRUE' else False}
         formulas_ex_syllabus = pd.read_csv(
             filepath_or_buffer=self.formulas_file_path,
             converters=formulas_input_converter)
