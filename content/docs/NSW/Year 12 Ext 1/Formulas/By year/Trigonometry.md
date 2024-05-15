@@ -2,30 +2,30 @@
 weight: 5
 ---
 
-{{< tabs "046582c5-d76b-46bd-80a2-8f72e464a5d5" >}}
+{{< tabs "27c64c62-05ec-4856-986e-cb81a88e8469" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_f5a72 th.col_heading {
+#T_d9d60 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_f5a72 td {
+#T_d9d60 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_f5a72">
+<table id="T_d9d60">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_f5a72_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_d9d60_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_f5a72_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_d9d60_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
   </tbody>
 </table>
@@ -36,28 +36,28 @@ weight: 5
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_3fa04 th.col_heading {
+#T_ce0bd th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_3fa04 td {
+#T_ce0bd td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_3fa04_row0_col0, #T_3fa04_row1_col0 {
+#T_ce0bd_row0_col0, #T_ce0bd_row1_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_3fa04">
+<table id="T_ce0bd">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3fa04_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_ce0bd_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_3fa04_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_ce0bd_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
   </tbody>
 </table>
@@ -68,28 +68,28 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_130ac th.col_heading {
+#T_c16f4 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_130ac td {
+#T_c16f4 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_130ac_row0_col0, #T_130ac_row1_col0 {
+#T_c16f4_row0_col0, #T_c16f4_row1_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_130ac">
+<table id="T_c16f4">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_130ac_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_c16f4_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_130ac_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_c16f4_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
   </tbody>
 </table>
