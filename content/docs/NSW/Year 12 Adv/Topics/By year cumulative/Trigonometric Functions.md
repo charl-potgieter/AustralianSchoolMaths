@@ -134,57 +134,57 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "22c2d8f2-3d74-4d64-99ee-cad81b03f567" >}}
+{{< tabs "803179e4-7255-4f11-85eb-817e4b1f41f8" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_ea0ba th.col_heading {
+#T_c583f th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ea0ba td {
+#T_c583f td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_ea0ba">
+<table id="T_c583f">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ea0ba_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_c583f_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_c583f_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_c583f_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_c583f_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_c583f_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_c583f_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_c583f_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_c583f_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_c583f_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+      <td id="T_c583f_row9_col0" class="data row9 col0" >$l=r\theta$</td>
     </tr>
     <tr>
-      <td id="T_ea0ba_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
+      <td id="T_c583f_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -195,58 +195,58 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_c23aa th.col_heading {
+#T_40c64 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_c23aa td {
+#T_40c64 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_c23aa_row0_col0, #T_c23aa_row1_col0, #T_c23aa_row2_col0, #T_c23aa_row3_col0, #T_c23aa_row4_col0, #T_c23aa_row5_col0, #T_c23aa_row9_col0, #T_c23aa_row10_col0 {
+#T_40c64_row0_col0, #T_40c64_row1_col0, #T_40c64_row2_col0, #T_40c64_row3_col0, #T_40c64_row4_col0, #T_40c64_row5_col0, #T_40c64_row9_col0, #T_40c64_row10_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_c23aa_row6_col0, #T_c23aa_row7_col0, #T_c23aa_row8_col0 {
+#T_40c64_row6_col0, #T_40c64_row7_col0, #T_40c64_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_c23aa">
+<table id="T_40c64">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_c23aa_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_40c64_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_40c64_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_40c64_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_40c64_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_40c64_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_40c64_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_40c64_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_40c64_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_40c64_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+      <td id="T_40c64_row9_col0" class="data row9 col0" >$l=r\theta$</td>
     </tr>
     <tr>
-      <td id="T_c23aa_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
+      <td id="T_40c64_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -257,58 +257,58 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_e1077 th.col_heading {
+#T_b1f8a th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_e1077 td {
+#T_b1f8a td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_e1077_row0_col0, #T_e1077_row1_col0, #T_e1077_row2_col0, #T_e1077_row6_col0, #T_e1077_row7_col0, #T_e1077_row8_col0 {
+#T_b1f8a_row0_col0, #T_b1f8a_row1_col0, #T_b1f8a_row2_col0, #T_b1f8a_row6_col0, #T_b1f8a_row7_col0, #T_b1f8a_row8_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_e1077_row3_col0, #T_e1077_row4_col0, #T_e1077_row5_col0, #T_e1077_row9_col0, #T_e1077_row10_col0 {
+#T_b1f8a_row3_col0, #T_b1f8a_row4_col0, #T_b1f8a_row5_col0, #T_b1f8a_row9_col0, #T_b1f8a_row10_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_e1077">
+<table id="T_b1f8a">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_e1077_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
+      <td id="T_b1f8a_row0_col0" class="data row0 col0" >$\sin A=\dfrac{opp}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_e1077_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
+      <td id="T_b1f8a_row1_col0" class="data row1 col0" >$\cos A=\dfrac{adj}{hyp}$</td>
     </tr>
     <tr>
-      <td id="T_e1077_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
+      <td id="T_b1f8a_row2_col0" class="data row2 col0" >$\tan A=\dfrac{opp}{adj}$</td>
     </tr>
     <tr>
-      <td id="T_e1077_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
+      <td id="T_b1f8a_row3_col0" class="data row3 col0" >$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} $</td>
     </tr>
     <tr>
-      <td id="T_e1077_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
+      <td id="T_b1f8a_row4_col0" class="data row4 col0" >$c^2 = a^2 + b^2 - 2ab \cos C$</td>
     </tr>
     <tr>
-      <td id="T_e1077_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
+      <td id="T_b1f8a_row5_col0" class="data row5 col0" >$A = \dfrac{1}{2} ab \sin C$</td>
     </tr>
     <tr>
-      <td id="T_e1077_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
+      <td id="T_b1f8a_row6_col0" class="data row6 col0" >$\sin (180^\circ - \theta) = \sin \theta $</td>
     </tr>
     <tr>
-      <td id="T_e1077_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
+      <td id="T_b1f8a_row7_col0" class="data row7 col0" >$\cos (180 ^\circ - \theta) = - \cos \theta $</td>
     </tr>
     <tr>
-      <td id="T_e1077_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
+      <td id="T_b1f8a_row8_col0" class="data row8 col0" >$\tan (180 ^\circ - \theta) = - \tan \theta $</td>
     </tr>
     <tr>
-      <td id="T_e1077_row9_col0" class="data row9 col0" >$l=r\theta$</td>
+      <td id="T_b1f8a_row9_col0" class="data row9 col0" >$l=r\theta$</td>
     </tr>
     <tr>
-      <td id="T_e1077_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
+      <td id="T_b1f8a_row10_col0" class="data row10 col0" >$A=\dfrac{1}{2}r^2 \theta$</td>
     </tr>
   </tbody>
 </table>
@@ -326,6 +326,36 @@ Items where proofs required are highlighted
 ### <span style="color:RGB(139,69,19)">  Notes </span>
 
 
+Note how $\cot A = \frac{\cos A}{\sin A}, \sin A \ne 0$, which is effectively $\frac{\text{adjacent}}{\text{opposite}}$ **not** $\frac{1}{\tan A}$.  This is important as tan A is undefined at odd multiples of $\frac{\pi}{2}$ while cot A is zero.  This concept must also be understood when graphing cot A given that cot A has different assymptotes to tan A.
+
+
+
+**y=cosec(x)**
+ - domain = $(-\infty , \infty )$, except for multiples of $\pi$
+ - range = $(-\infty , -1] \cup  [1, -\infty) $
+ - It is an odd function, -f(x) = f(-x)
+
+  <!-- Paramater SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/{{< param SiteRoot >}}/images/MA_T2_cosec.jpg" />
+
+
+**y=sec(x)**
+ - domain = $(-\infty , \infty)$, except for odd multiples of $\frac{\pi}{2}$
+ - range = $(-\infty , -1] \cup  [1, -\infty) $
+ - It is an even function, f(x) = f(-x)
+
+  <!-- Paramater SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/{{< param SiteRoot >}}/images/MA_T2_sec.jpg" />
+
+
+**y=cot(x)**
+ - domain = $(-\infty , \infty )$, except for multiples of $\pi$ (asymptotes exist at these x-values)
+ - range = $(-\infty , \infty )$
+ - It is an odd function, f(x) = f(-x)
+
+  <!-- Paramater SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/{{< param SiteRoot >}}/images/MA_T2_cot.jpg" />
+
 <BR><BR>
 
 
@@ -335,45 +365,45 @@ Items where proofs required are highlighted
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "e79c255c-40d0-4594-b995-0df62bf221e8" >}}
+{{< tabs "8f69775e-ce80-4cb7-84ab-e5d6332663a0" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_26cea th.col_heading {
+#T_b6faf th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_26cea td {
+#T_b6faf td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_26cea">
+<table id="T_b6faf">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_26cea_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
+      <td id="T_b6faf_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_26cea_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
+      <td id="T_b6faf_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_26cea_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
+      <td id="T_b6faf_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_26cea_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
+      <td id="T_b6faf_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
     </tr>
     <tr>
-      <td id="T_26cea_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
+      <td id="T_b6faf_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
     </tr>
     <tr>
-      <td id="T_26cea_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
+      <td id="T_b6faf_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
     </tr>
     <tr>
-      <td id="T_26cea_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
+      <td id="T_b6faf_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
     </tr>
   </tbody>
 </table>
@@ -384,46 +414,46 @@ Items where proofs required are highlighted
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_f93c4 th.col_heading {
+#T_5e836 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_f93c4 td {
+#T_5e836 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_f93c4_row0_col0, #T_f93c4_row1_col0, #T_f93c4_row2_col0, #T_f93c4_row3_col0 {
+#T_5e836_row0_col0, #T_5e836_row1_col0, #T_5e836_row2_col0, #T_5e836_row3_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_f93c4_row4_col0, #T_f93c4_row5_col0, #T_f93c4_row6_col0 {
+#T_5e836_row4_col0, #T_5e836_row5_col0, #T_5e836_row6_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_f93c4">
+<table id="T_5e836">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_f93c4_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
+      <td id="T_5e836_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_f93c4_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
+      <td id="T_5e836_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_f93c4_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
+      <td id="T_5e836_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_f93c4_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
+      <td id="T_5e836_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
     </tr>
     <tr>
-      <td id="T_f93c4_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
+      <td id="T_5e836_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
     </tr>
     <tr>
-      <td id="T_f93c4_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
+      <td id="T_5e836_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
     </tr>
     <tr>
-      <td id="T_f93c4_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
+      <td id="T_5e836_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
     </tr>
   </tbody>
 </table>
@@ -434,46 +464,46 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_cba9d th.col_heading {
+#T_5db3d th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_cba9d td {
+#T_5db3d td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_cba9d_row0_col0, #T_cba9d_row1_col0, #T_cba9d_row2_col0, #T_cba9d_row6_col0 {
+#T_5db3d_row0_col0, #T_5db3d_row1_col0, #T_5db3d_row2_col0, #T_5db3d_row6_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_cba9d_row3_col0, #T_cba9d_row4_col0, #T_cba9d_row5_col0 {
+#T_5db3d_row3_col0, #T_5db3d_row4_col0, #T_5db3d_row5_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_cba9d">
+<table id="T_5db3d">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_cba9d_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
+      <td id="T_5db3d_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_cba9d_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
+      <td id="T_5db3d_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_cba9d_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
+      <td id="T_5db3d_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_cba9d_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
+      <td id="T_5db3d_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
     </tr>
     <tr>
-      <td id="T_cba9d_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
+      <td id="T_5db3d_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
     </tr>
     <tr>
-      <td id="T_cba9d_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
+      <td id="T_5db3d_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
     </tr>
     <tr>
-      <td id="T_cba9d_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
+      <td id="T_5db3d_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
     </tr>
   </tbody>
 </table>

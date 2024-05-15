@@ -2,36 +2,36 @@
 weight: 2
 ---
 
-{{< tabs "82038218-4d53-4342-8fa2-ec801cf7b0ce" >}}
+{{< tabs "0928beb5-6917-4086-a1bf-76a7fb0ecc4c" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_a0651 th.col_heading {
+#T_dbb0e th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_a0651 td {
+#T_dbb0e td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_a0651">
+<table id="T_dbb0e">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_a0651_row0_col0" class="data row0 col0" >$v = \dot x = \dfrac{dx}{dt}$</td>
+      <td id="T_dbb0e_row0_col0" class="data row0 col0" >$v = \dot x = \dfrac{dx}{dt}$</td>
     </tr>
     <tr>
-      <td id="T_a0651_row1_col0" class="data row1 col0" >$a = \ddot x = \dfrac{dv}{dt} = \dfrac{d^{2}x}{dt^2}$</td>
+      <td id="T_dbb0e_row1_col0" class="data row1 col0" >$a = \ddot x = \dfrac{dv}{dt} = \dfrac{d^{2}x}{dt^2}$</td>
     </tr>
     <tr>
-      <td id="T_a0651_row2_col0" class="data row2 col0" >$\dfrac{dN}{dt} = kn \text{ is satisfied by } N(t) = Ae^{kt}$</td>
+      <td id="T_dbb0e_row2_col0" class="data row2 col0" >$\dfrac{dN}{dt} = kn \text{ is satisfied by } N(t) = Ae^{kt}$</td>
     </tr>
     <tr>
-      <td id="T_a0651_row3_col0" class="data row3 col0" >$\dfrac{dN}{dt} = k(N-p) \text{ is satisfied by } N(t) = P + Ae^{kt}$</td>
+      <td id="T_dbb0e_row3_col0" class="data row3 col0" >$\dfrac{dN}{dt} = k(N-p) \text{ is satisfied by } N(t) = P + Ae^{kt}$</td>
     </tr>
   </tbody>
 </table>
@@ -42,37 +42,37 @@ weight: 2
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_227b3 th.col_heading {
+#T_96b3f th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_227b3 td {
+#T_96b3f td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_227b3_row0_col0, #T_227b3_row1_col0 {
+#T_96b3f_row0_col0, #T_96b3f_row1_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_227b3_row2_col0, #T_227b3_row3_col0 {
+#T_96b3f_row2_col0, #T_96b3f_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_227b3">
+<table id="T_96b3f">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_227b3_row0_col0" class="data row0 col0" >$v = \dot x = \dfrac{dx}{dt}$</td>
+      <td id="T_96b3f_row0_col0" class="data row0 col0" >$v = \dot x = \dfrac{dx}{dt}$</td>
     </tr>
     <tr>
-      <td id="T_227b3_row1_col0" class="data row1 col0" >$a = \ddot x = \dfrac{dv}{dt} = \dfrac{d^{2}x}{dt^2}$</td>
+      <td id="T_96b3f_row1_col0" class="data row1 col0" >$a = \ddot x = \dfrac{dv}{dt} = \dfrac{d^{2}x}{dt^2}$</td>
     </tr>
     <tr>
-      <td id="T_227b3_row2_col0" class="data row2 col0" >$\dfrac{dN}{dt} = kn \text{ is satisfied by } N(t) = Ae^{kt}$</td>
+      <td id="T_96b3f_row2_col0" class="data row2 col0" >$\dfrac{dN}{dt} = kn \text{ is satisfied by } N(t) = Ae^{kt}$</td>
     </tr>
     <tr>
-      <td id="T_227b3_row3_col0" class="data row3 col0" >$\dfrac{dN}{dt} = k(N-p) \text{ is satisfied by } N(t) = P + Ae^{kt}$</td>
+      <td id="T_96b3f_row3_col0" class="data row3 col0" >$\dfrac{dN}{dt} = k(N-p) \text{ is satisfied by } N(t) = P + Ae^{kt}$</td>
     </tr>
   </tbody>
 </table>
