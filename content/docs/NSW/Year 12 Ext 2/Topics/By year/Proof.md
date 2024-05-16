@@ -59,54 +59,54 @@ weight: 1
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "b2e507a4-03c7-46ad-9500-f9db217319c4" >}}
+{{< tabs "2dbb2a65-6f16-4f9b-b5aa-f832d05a729e" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_e580f th.col_heading {
+#T_dd728 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_e580f td {
+#T_dd728 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_e580f">
+<table id="T_dd728">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_e580f_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_dd728_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_dd728_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_dd728_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_dd728_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_dd728_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
+      <td id="T_dd728_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_dd728_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_dd728_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_dd728_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_e580f_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
+      <td id="T_dd728_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
     </tr>
   </tbody>
 </table>
@@ -117,55 +117,55 @@ weight: 1
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_1abaa th.col_heading {
+#T_b81ef th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_1abaa td {
+#T_b81ef td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_1abaa_row0_col0, #T_1abaa_row1_col0, #T_1abaa_row2_col0, #T_1abaa_row3_col0, #T_1abaa_row4_col0, #T_1abaa_row6_col0, #T_1abaa_row7_col0, #T_1abaa_row8_col0, #T_1abaa_row9_col0 {
+#T_b81ef_row0_col0, #T_b81ef_row1_col0, #T_b81ef_row2_col0, #T_b81ef_row3_col0, #T_b81ef_row4_col0, #T_b81ef_row6_col0, #T_b81ef_row7_col0, #T_b81ef_row8_col0, #T_b81ef_row9_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_1abaa_row5_col0 {
+#T_b81ef_row5_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_1abaa">
+<table id="T_b81ef">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_1abaa_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_b81ef_row0_col0" class="data row0 col0" >$ |a| \ge a,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_b81ef_row1_col0" class="data row1 col0" >$ |a||b| = |ab|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
+      <td id="T_b81ef_row2_col0" class="data row2 col0" >$ |a|^2 = a^2,  \forall \: a \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_b81ef_row3_col0" class="data row3 col0" >$ |ab| \ge ab,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
+      <td id="T_b81ef_row4_col0" class="data row4 col0" >$ a^2 \ge b^2 \iff |a| \ge |b|,  \forall \: a,b \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
+      <td id="T_b81ef_row5_col0" class="data row5 col0" >$ |x| + |y| \ge |x+y|, \forall \; x, y \in \mathbb{R}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_b81ef_row6_col0" class="data row6 col0" >$ \text {even number } 2n, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_b81ef_row7_col0" class="data row7 col0" >$ \text {odd number } 2n-1, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
+      <td id="T_b81ef_row8_col0" class="data row8 col0" >$ \text {square number } n^2, \forall \: n \in \mathbb{N}$</td>
     </tr>
     <tr>
-      <td id="T_1abaa_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
+      <td id="T_b81ef_row9_col0" class="data row9 col0" >$ \text {X is divisible by p when there exists another number, } p, p \in \mathbb{N}, \text{ if } \exists \; Y, Y \in \mathbb{N} \text { such that } X=pY$</td>
     </tr>
   </tbody>
 </table>
