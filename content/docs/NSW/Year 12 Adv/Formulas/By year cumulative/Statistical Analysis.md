@@ -2,103 +2,103 @@
 weight: 4
 ---
 
-{{< tabs "17658c00-b4d1-4a06-81df-d9432f19388e" >}}
+{{< tabs "9e5a6749-4548-4a44-b69a-92d766132621" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_2ca82 th.col_heading {
+#T_f75e2 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_2ca82 td {
+#T_f75e2 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_2ca82">
+<table id="T_f75e2">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_2ca82_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_f75e2_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_f75e2_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
+      <td id="T_f75e2_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_f75e2_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_f75e2_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_f75e2_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_f75e2_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_f75e2_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_f75e2_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_f75e2_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_f75e2_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_f75e2_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_f75e2_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row13_col0" class="data row13 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_f75e2_row13_col0" class="data row13 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row14_col0" class="data row14 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_f75e2_row14_col0" class="data row14 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row15_col0" class="data row15 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_f75e2_row15_col0" class="data row15 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row16_col0" class="data row16 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_f75e2_row16_col0" class="data row16 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row17_col0" class="data row17 col0" >$\text{An outlier is a score with} $
+      <td id="T_f75e2_row17_col0" class="data row17 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row18_col0" class="data row18 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_f75e2_row18_col0" class="data row18 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row19_col0" class="data row19 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_f75e2_row19_col0" class="data row19 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row20_col0" class="data row20 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_f75e2_row20_col0" class="data row20 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row21_col0" class="data row21 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_f75e2_row21_col0" class="data row21 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row22_col0" class="data row22 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_f75e2_row22_col0" class="data row22 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row23_col0" class="data row23 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_f75e2_row23_col0" class="data row23 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_2ca82_row24_col0" class="data row24 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_f75e2_row24_col0" class="data row24 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
@@ -109,104 +109,104 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_acfdd th.col_heading {
+#T_84c57 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_acfdd td {
+#T_84c57 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_acfdd_row0_col0, #T_acfdd_row3_col0, #T_acfdd_row5_col0, #T_acfdd_row6_col0, #T_acfdd_row8_col0, #T_acfdd_row10_col0, #T_acfdd_row12_col0, #T_acfdd_row13_col0, #T_acfdd_row14_col0, #T_acfdd_row15_col0, #T_acfdd_row16_col0, #T_acfdd_row18_col0, #T_acfdd_row19_col0, #T_acfdd_row20_col0, #T_acfdd_row23_col0 {
+#T_84c57_row0_col0, #T_84c57_row3_col0, #T_84c57_row5_col0, #T_84c57_row6_col0, #T_84c57_row8_col0, #T_84c57_row10_col0, #T_84c57_row12_col0, #T_84c57_row13_col0, #T_84c57_row14_col0, #T_84c57_row15_col0, #T_84c57_row16_col0, #T_84c57_row18_col0, #T_84c57_row19_col0, #T_84c57_row20_col0, #T_84c57_row23_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_acfdd_row1_col0, #T_acfdd_row2_col0, #T_acfdd_row4_col0, #T_acfdd_row7_col0, #T_acfdd_row9_col0, #T_acfdd_row11_col0, #T_acfdd_row17_col0, #T_acfdd_row21_col0, #T_acfdd_row22_col0, #T_acfdd_row24_col0 {
+#T_84c57_row1_col0, #T_84c57_row2_col0, #T_84c57_row4_col0, #T_84c57_row7_col0, #T_84c57_row9_col0, #T_84c57_row11_col0, #T_84c57_row17_col0, #T_84c57_row21_col0, #T_84c57_row22_col0, #T_84c57_row24_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_acfdd">
+<table id="T_84c57">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_acfdd_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_84c57_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_84c57_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
+      <td id="T_84c57_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_84c57_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_84c57_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_84c57_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_84c57_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_84c57_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_84c57_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_84c57_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_84c57_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_84c57_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_84c57_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row13_col0" class="data row13 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_84c57_row13_col0" class="data row13 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row14_col0" class="data row14 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_84c57_row14_col0" class="data row14 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row15_col0" class="data row15 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_84c57_row15_col0" class="data row15 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row16_col0" class="data row16 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_84c57_row16_col0" class="data row16 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row17_col0" class="data row17 col0" >$\text{An outlier is a score with} $
+      <td id="T_84c57_row17_col0" class="data row17 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row18_col0" class="data row18 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_84c57_row18_col0" class="data row18 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row19_col0" class="data row19 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_84c57_row19_col0" class="data row19 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row20_col0" class="data row20 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_84c57_row20_col0" class="data row20 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row21_col0" class="data row21 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_84c57_row21_col0" class="data row21 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row22_col0" class="data row22 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_84c57_row22_col0" class="data row22 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row23_col0" class="data row23 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_84c57_row23_col0" class="data row23 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_acfdd_row24_col0" class="data row24 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_84c57_row24_col0" class="data row24 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
@@ -217,104 +217,104 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_e1013 th.col_heading {
+#T_33a76 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_e1013 td {
+#T_33a76 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_e1013_row0_col0, #T_e1013_row2_col0, #T_e1013_row4_col0, #T_e1013_row5_col0, #T_e1013_row6_col0, #T_e1013_row7_col0, #T_e1013_row8_col0, #T_e1013_row9_col0, #T_e1013_row10_col0, #T_e1013_row11_col0, #T_e1013_row12_col0, #T_e1013_row13_col0, #T_e1013_row14_col0, #T_e1013_row15_col0, #T_e1013_row16_col0, #T_e1013_row17_col0, #T_e1013_row18_col0, #T_e1013_row19_col0, #T_e1013_row20_col0, #T_e1013_row21_col0, #T_e1013_row22_col0, #T_e1013_row23_col0, #T_e1013_row24_col0 {
+#T_33a76_row0_col0, #T_33a76_row2_col0, #T_33a76_row4_col0, #T_33a76_row5_col0, #T_33a76_row6_col0, #T_33a76_row7_col0, #T_33a76_row8_col0, #T_33a76_row9_col0, #T_33a76_row10_col0, #T_33a76_row11_col0, #T_33a76_row12_col0, #T_33a76_row13_col0, #T_33a76_row14_col0, #T_33a76_row15_col0, #T_33a76_row16_col0, #T_33a76_row17_col0, #T_33a76_row18_col0, #T_33a76_row19_col0, #T_33a76_row20_col0, #T_33a76_row21_col0, #T_33a76_row22_col0, #T_33a76_row23_col0, #T_33a76_row24_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_e1013_row1_col0, #T_e1013_row3_col0 {
+#T_33a76_row1_col0, #T_33a76_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_e1013">
+<table id="T_33a76">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_e1013_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
+      <td id="T_33a76_row0_col0" class="data row0 col0" >$ P(E) = \dfrac{n(E)}{n(S)} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
+      <td id="T_33a76_row1_col0" class="data row1 col0" >$P(A \cup B) = P(A) + P(B) - P(A \cap B) $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
+      <td id="T_33a76_row2_col0" class="data row2 col0" >$P(A \cap B)  = P(A)P(B)$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
+      <td id="T_33a76_row3_col0" class="data row3 col0" >$P(\overline{E}) = 1 - P(E)$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
+      <td id="T_33a76_row4_col0" class="data row4 col0" >$ P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0 $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
+      <td id="T_33a76_row5_col0" class="data row5 col0" >$ P(X=x) =  \dfrac{1}{n} 
 \text {applies only to uniform proability distributions with n values} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
+      <td id="T_33a76_row6_col0" class="data row6 col0" >$ E(X) =\sum xp(x)$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
+      <td id="T_33a76_row7_col0" class="data row7 col0" >$ E(X) = \mu $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
+      <td id="T_33a76_row8_col0" class="data row8 col0" >$ \sigma^{2} = Var(X) = \sum(x-\mu)^{2}p(x)$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
+      <td id="T_33a76_row9_col0" class="data row9 col0" >$ Var(X) = E[(x-\mu)^2]$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
+      <td id="T_33a76_row10_col0" class="data row10 col0" >$ Var(X) = \sum[x^2p(x)] - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
+      <td id="T_33a76_row11_col0" class="data row11 col0" >$ Var(X) = E(X^2) - \mu^2$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
+      <td id="T_33a76_row12_col0" class="data row12 col0" >$ \sigma = \sqrt{Var(X)}$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row13_col0" class="data row13 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
+      <td id="T_33a76_row13_col0" class="data row13 col0" >$ \text{Mean} = \dfrac{\text{Sum of scores}}{\text{Total number of scores}} = \overline{x} = \dfrac{\sum{x}}{n} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row14_col0" class="data row14 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
+      <td id="T_33a76_row14_col0" class="data row14 col0" >$ \text{The median of n scores is the } \dfrac{n+1}{2} \text{th score} $
 $ \text{if n is even the median is the average of the two middle scores to the left and the right of }  \dfrac{n+1}{2} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row15_col0" class="data row15 col0" >$ \text{Range = highest score - lowest score} $</td>
+      <td id="T_33a76_row15_col0" class="data row15 col0" >$ \text{Range = highest score - lowest score} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row16_col0" class="data row16 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
+      <td id="T_33a76_row16_col0" class="data row16 col0" >$ \text{Interquartile range = Q3 - Q1} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row17_col0" class="data row17 col0" >$\text{An outlier is a score with} $
+      <td id="T_33a76_row17_col0" class="data row17 col0" >$\text{An outlier is a score with} $
 $ \text {   less than } Q1 - 1.5  \times IQR $
 $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row18_col0" class="data row18 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
+      <td id="T_33a76_row18_col0" class="data row18 col0" >$ \overline{x} = \dfrac{\sum fx}{\sum f} $</td>
     </tr>
     <tr>
-      <td id="T_e1013_row19_col0" class="data row19 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
+      <td id="T_33a76_row19_col0" class="data row19 col0" >$P(a < X < b) = P(a \leq X \leq b) \text {(for continuous probability distributions})$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row20_col0" class="data row20 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
+      <td id="T_33a76_row20_col0" class="data row20 col0" >$F(x) = P(X\leq x) = {\Large\int}^x_a f(x)dx \text { (for continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b] and F(x) is the cumulative density function})$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row21_col0" class="data row21 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
+      <td id="T_33a76_row21_col0" class="data row21 col0" >$P(X \leq r) =  {\Large\int}_a^r f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row22_col0" class="data row22 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
+      <td id="T_33a76_row22_col0" class="data row22 col0" >$P(a \leq X \leq b) =  {\Large\int}_a^b f(x)dx$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row23_col0" class="data row23 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
+      <td id="T_33a76_row23_col0" class="data row23 col0" >$f(x) = \dfrac{1}{b-a} \text{ for } a \leq x \leq b \text { (Uniform continuous probability distributions, where f(x) is a probability distribution function defined in the domain [a,b]})$</td>
     </tr>
     <tr>
-      <td id="T_e1013_row24_col0" class="data row24 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
+      <td id="T_33a76_row24_col0" class="data row24 col0" >$z = \dfrac{x-\mu}{\sigma} $</td>
     </tr>
   </tbody>
 </table>
