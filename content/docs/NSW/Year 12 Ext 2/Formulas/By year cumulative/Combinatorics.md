@@ -2,66 +2,66 @@
 weight: 5
 ---
 
-{{< tabs "236f454a-c700-47f4-ac0b-1800e31e6d79" >}}
+{{< tabs "b2b24897-fe92-4ce3-9e9c-cd02441494b1" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_e6560 th.col_heading {
+#T_6a726 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_e6560 td {
+#T_6a726 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_e6560">
+<table id="T_6a726">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_e6560_row0_col0" class="data row0 col0" >$P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$</td>
+      <td id="T_6a726_row0_col0" class="data row0 col0" >$P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row1_col0" class="data row1 col0" >$^n P_r = \dfrac{n!}{(n-r)!}$</td>
+      <td id="T_6a726_row1_col0" class="data row1 col0" >$^n P_r = \dfrac{n!}{(n-r)!}$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row2_col0" class="data row2 col0" >$0! = 1$</td>
+      <td id="T_6a726_row2_col0" class="data row2 col0" >$0! = 1$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row3_col0" class="data row3 col0" >$^n P_n = n!$</td>
+      <td id="T_6a726_row3_col0" class="data row3 col0" >$^n P_n = n!$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row4_col0" class="data row4 col0" >$^n P_0 = 1$</td>
+      <td id="T_6a726_row4_col0" class="data row4 col0" >$^n P_0 = 1$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row5_col0" class="data row5 col0" >Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a+b+c+... \leq n$</td>
+      <td id="T_6a726_row5_col0" class="data row5 col0" >Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a+b+c+... \leq n$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row6_col0" class="data row6 col0" >$^nC_r = \dfrac{^n P_r}{r!}$</td>
+      <td id="T_6a726_row6_col0" class="data row6 col0" >$^nC_r = \dfrac{^n P_r}{r!}$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row7_col0" class="data row7 col0" >$(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$</td>
+      <td id="T_6a726_row7_col0" class="data row7 col0" >$(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$</td>
     </tr>
     <tr>
-      <td id="T_e6560_row8_col0" class="data row8 col0" >$ ^n C _0 = (^n_0) = 1 $</td>
+      <td id="T_6a726_row8_col0" class="data row8 col0" >$ ^n C _0 = (^n_0) = 1 $</td>
     </tr>
     <tr>
-      <td id="T_e6560_row9_col0" class="data row9 col0" >$ ^n C _n = (^n_n) = 1 $</td>
+      <td id="T_6a726_row9_col0" class="data row9 col0" >$ ^n C _n = (^n_n) = 1 $</td>
     </tr>
     <tr>
-      <td id="T_e6560_row10_col0" class="data row10 col0" >$ ^n C _r = ^nC_{n-r} $</td>
+      <td id="T_6a726_row10_col0" class="data row10 col0" >$ ^n C _r = ^nC_{n-r} $</td>
     </tr>
     <tr>
-      <td id="T_e6560_row11_col0" class="data row11 col0" >$ (x+a)^n = x^n + (^n_1)x^{n-1}a+...+(^n_r)x^{n-r}a^r+...a^n    $</td>
+      <td id="T_6a726_row11_col0" class="data row11 col0" >$ (x+a)^n = x^n + (^n_1)x^{n-1}a+...+(^n_r)x^{n-r}a^r+...a^n    $</td>
     </tr>
     <tr>
-      <td id="T_e6560_row12_col0" class="data row12 col0" >$ (x+a)^n = (^n_0)x^n + (^n_1)x^{n-1}a + (^n_2)x^{n-2}a^2 + (^n_3)x^{n-3}a^3+...+(^n_k)x^{n-k}a^k+...+(^n_n)a^n $</td>
+      <td id="T_6a726_row12_col0" class="data row12 col0" >$ (x+a)^n = (^n_0)x^n + (^n_1)x^{n-1}a + (^n_2)x^{n-2}a^2 + (^n_3)x^{n-3}a^3+...+(^n_k)x^{n-k}a^k+...+(^n_n)a^n $</td>
     </tr>
     <tr>
-      <td id="T_e6560_row13_col0" class="data row13 col0" >$ ^n C _k = ^{n-1}C_{k-1} + ^{n-1}C_k $</td>
+      <td id="T_6a726_row13_col0" class="data row13 col0" >$ ^n C _k = ^{n-1}C_{k-1} + ^{n-1}C_k $</td>
     </tr>
   </tbody>
 </table>
@@ -72,67 +72,67 @@ weight: 5
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_ff20b th.col_heading {
+#T_791f2 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ff20b td {
+#T_791f2 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_ff20b_row0_col0, #T_ff20b_row1_col0, #T_ff20b_row3_col0, #T_ff20b_row4_col0, #T_ff20b_row5_col0, #T_ff20b_row6_col0, #T_ff20b_row8_col0, #T_ff20b_row9_col0, #T_ff20b_row10_col0, #T_ff20b_row12_col0, #T_ff20b_row13_col0 {
+#T_791f2_row0_col0, #T_791f2_row1_col0, #T_791f2_row3_col0, #T_791f2_row4_col0, #T_791f2_row5_col0, #T_791f2_row6_col0, #T_791f2_row8_col0, #T_791f2_row9_col0, #T_791f2_row10_col0, #T_791f2_row12_col0, #T_791f2_row13_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_ff20b_row2_col0, #T_ff20b_row7_col0, #T_ff20b_row11_col0 {
+#T_791f2_row2_col0, #T_791f2_row7_col0, #T_791f2_row11_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_ff20b">
+<table id="T_791f2">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ff20b_row0_col0" class="data row0 col0" >$P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$</td>
+      <td id="T_791f2_row0_col0" class="data row0 col0" >$P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row1_col0" class="data row1 col0" >$^n P_r = \dfrac{n!}{(n-r)!}$</td>
+      <td id="T_791f2_row1_col0" class="data row1 col0" >$^n P_r = \dfrac{n!}{(n-r)!}$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row2_col0" class="data row2 col0" >$0! = 1$</td>
+      <td id="T_791f2_row2_col0" class="data row2 col0" >$0! = 1$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row3_col0" class="data row3 col0" >$^n P_n = n!$</td>
+      <td id="T_791f2_row3_col0" class="data row3 col0" >$^n P_n = n!$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row4_col0" class="data row4 col0" >$^n P_0 = 1$</td>
+      <td id="T_791f2_row4_col0" class="data row4 col0" >$^n P_0 = 1$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row5_col0" class="data row5 col0" >Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a+b+c+... \leq n$</td>
+      <td id="T_791f2_row5_col0" class="data row5 col0" >Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a+b+c+... \leq n$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row6_col0" class="data row6 col0" >$^nC_r = \dfrac{^n P_r}{r!}$</td>
+      <td id="T_791f2_row6_col0" class="data row6 col0" >$^nC_r = \dfrac{^n P_r}{r!}$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row7_col0" class="data row7 col0" >$(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$</td>
+      <td id="T_791f2_row7_col0" class="data row7 col0" >$(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row8_col0" class="data row8 col0" >$ ^n C _0 = (^n_0) = 1 $</td>
+      <td id="T_791f2_row8_col0" class="data row8 col0" >$ ^n C _0 = (^n_0) = 1 $</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row9_col0" class="data row9 col0" >$ ^n C _n = (^n_n) = 1 $</td>
+      <td id="T_791f2_row9_col0" class="data row9 col0" >$ ^n C _n = (^n_n) = 1 $</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row10_col0" class="data row10 col0" >$ ^n C _r = ^nC_{n-r} $</td>
+      <td id="T_791f2_row10_col0" class="data row10 col0" >$ ^n C _r = ^nC_{n-r} $</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row11_col0" class="data row11 col0" >$ (x+a)^n = x^n + (^n_1)x^{n-1}a+...+(^n_r)x^{n-r}a^r+...a^n    $</td>
+      <td id="T_791f2_row11_col0" class="data row11 col0" >$ (x+a)^n = x^n + (^n_1)x^{n-1}a+...+(^n_r)x^{n-r}a^r+...a^n    $</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row12_col0" class="data row12 col0" >$ (x+a)^n = (^n_0)x^n + (^n_1)x^{n-1}a + (^n_2)x^{n-2}a^2 + (^n_3)x^{n-3}a^3+...+(^n_k)x^{n-k}a^k+...+(^n_n)a^n $</td>
+      <td id="T_791f2_row12_col0" class="data row12 col0" >$ (x+a)^n = (^n_0)x^n + (^n_1)x^{n-1}a + (^n_2)x^{n-2}a^2 + (^n_3)x^{n-3}a^3+...+(^n_k)x^{n-k}a^k+...+(^n_n)a^n $</td>
     </tr>
     <tr>
-      <td id="T_ff20b_row13_col0" class="data row13 col0" >$ ^n C _k = ^{n-1}C_{k-1} + ^{n-1}C_k $</td>
+      <td id="T_791f2_row13_col0" class="data row13 col0" >$ ^n C _k = ^{n-1}C_{k-1} + ^{n-1}C_k $</td>
     </tr>
   </tbody>
 </table>

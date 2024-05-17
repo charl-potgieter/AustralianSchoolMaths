@@ -268,3 +268,7 @@ NSW,ME-T2,Trigonometry,,,,,$\cos A \cos B = \dfrac{1}{2}[\cos(A-B) + \cos(A+B)]$
 NSW,ME-T2,Trigonometry,,,,,$\sin A \sin B = \dfrac{1}{2}[\cos(A-B) - \cos(A+B)]$,TRUE,TRUE,
 NSW,ME-T2,Trigonometry,,,,,$\sin A \cos B = \dfrac{1}{2}[\sin(A+B) + \sin(A-B)]$,TRUE,TRUE,
 NSW,ME-T2,Trigonometry,,,,,$\cos A \sin B = \dfrac{1}{2}[\sin(A+B) - \sin(A-B)]$,TRUE,TRUE,
+NSW,ME-T3,Trigonometry,,,,,"$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$",FALSE,TRUE,
+NSW,ME-T3,Trigonometry,,,,,"$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$",FALSE,TRUE,
+NSW,ME-T3,Trigonometry,,,,,"$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$",FALSE,TRUE,
+NSW,ME-T3,Trigonometry,,,,,"$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$",FALSE,TRUE,
