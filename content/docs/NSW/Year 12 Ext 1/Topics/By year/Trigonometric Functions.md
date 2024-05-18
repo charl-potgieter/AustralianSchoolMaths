@@ -12,17 +12,27 @@ weight: 3
 
 ### <span style="color:RGB(139,69,19)">  Notes </span>
 
-**Auxiliary angles**
-If required to draw a sketch of say $10 \sin x - 13 \cos x$, first convert to format $r\sin(x-\alpha)$ using the auxiliary angle formulas.
+ **Auxiliary angles**
 
+The auxiliary angle method can be utilsed to reduce an expression in the format $\pm a\cos x \pm b \sin x $ into $r \cos (x \pm \alpha)$ or $r \sin (x \pm \alpha)$.  In these scenarios, $\alpha$ is known as the auxiliary angle.
 
+The above simpliciation can be useful in solving equations or sketching graphs.
+
+Examples of auxiliary angles are incuded in the formulas below for example:<br>
 $a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$
 
-$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$
+None of the auxiliary angles appear on the formula sheet so rather than attemping to memorise the below approach is recommended when say trying to solve a formula such as the above:
+ - Expand the RHS of the equation using the compound angle rules that appear on the formula sheet, for example the $\sin (A+B)$ formula
+ - The expanded right hand side will then equal something like $r\sin x \cos \alpha  + r \cos x \sin \alpha$
+ - Comparing to LHS we can deduce that:
+    - $r\cos \alpha  = a \therefore cos \alpha  =\frac{a}{r}$, and
+    - $r\sin \alpha = b \therefore sin \alpha  =\frac{b}{r}$
+ - sketching a right angled triangle:
+   - r can be solved using the pythagoras theorem
+   - $\alpha$ can be solved using $\tan \alpha = \frac{b}{a}$
 
-$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$
 
-$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$
+
 
 <BR><BR>
 
@@ -33,36 +43,36 @@ $a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "96d35d46-9977-4098-a5fa-2f770106f15b" >}}
+{{< tabs "4ae04bb8-02b0-461e-a1c6-de38043202e9" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_8d3f2 th.col_heading {
+#T_ade84 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_8d3f2 td {
+#T_ade84 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_8d3f2">
+<table id="T_ade84">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_8d3f2_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ade84_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_8d3f2_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ade84_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_8d3f2_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ade84_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_8d3f2_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ade84_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
@@ -73,34 +83,34 @@ $a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_3e40d th.col_heading {
+#T_728d7 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_3e40d td {
+#T_728d7 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_3e40d_row0_col0, #T_3e40d_row1_col0, #T_3e40d_row2_col0, #T_3e40d_row3_col0 {
+#T_728d7_row0_col0, #T_728d7_row1_col0, #T_728d7_row2_col0, #T_728d7_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_3e40d">
+<table id="T_728d7">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3e40d_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_728d7_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_3e40d_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_728d7_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_3e40d_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_728d7_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_3e40d_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_728d7_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
