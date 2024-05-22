@@ -16,13 +16,13 @@ weight: 4
 #### Integration by substitution
 This can be useful when integrals don't follow any of the other standard rules.<br>
 
-With an equation  like $\frac{du}{dx}=3$, while $\frac{du}{dx}$ is not a true fraction, certain fraction-like operations do apply and therefore above can be rewritten as $du=3dx$
+With an equation  like $\frac{du}{dx}=3$, while $\frac{du}{dx}$ is not a true fraction, certain fraction-like operations do apply and therefore above can be rewritten as $dx = \frac{1}{3}du$
 
 General approach:
 - Identify a portion of the equation that needs to be integrated and set equal to u
 - Differentiate above to obtain an equation in the format $\frac{du}{dx}$ = something
-- multiply out to get du = something times dx
-- attempt to substitute the x's and dx in the original equation with u's and du
+- Solve for dx (make dx subject of equation) so that the dx in the original integral can be replaced with an expression in terms of du.
+- substitute the x's and dx in the original equation with u's and du
 - calculate the integral in terms of u
 - for indefinite integrals replace the u's with expression in terms of x in the final step
 - for definite integrals recalculate the lower and upper limits by substituting the original integral lower and upper limits into x in the formula for u as a function of x.  That way when the integral is calculated in terms of u, there is no need to rework back to x.
@@ -70,71 +70,71 @@ It is recommended to view the inverse trigonometric derivatives and correspondin
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "c91a2261-c201-4e5d-955f-bf56a0225271" >}}
+{{< tabs "eb1206f3-f78a-44d0-967a-4571d77ed07d" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_25a37 th.col_heading {
+#T_3ee14 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_25a37 td {
+#T_3ee14 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_25a37">
+<table id="T_3ee14">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_25a37_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_3ee14_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
+      <td id="T_3ee14_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_25a37_row2_col0" class="data row2 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
+      <td id="T_3ee14_row2_col0" class="data row2 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row3_col0" class="data row3 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_3ee14_row3_col0" class="data row3 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_25a37_row4_col0" class="data row4 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_3ee14_row4_col0" class="data row4 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row5_col0" class="data row5 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
+      <td id="T_3ee14_row5_col0" class="data row5 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_25a37_row6_col0" class="data row6 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
+      <td id="T_3ee14_row6_col0" class="data row6 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row7_col0" class="data row7 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_3ee14_row7_col0" class="data row7 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_25a37_row8_col0" class="data row8 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
+      <td id="T_3ee14_row8_col0" class="data row8 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
+      <td id="T_3ee14_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_25a37_row10_col0" class="data row10 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
+      <td id="T_3ee14_row10_col0" class="data row10 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row11_col0" class="data row11 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_3ee14_row11_col0" class="data row11 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_25a37_row12_col0" class="data row12 col0" >$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br></td>
+      <td id="T_3ee14_row12_col0" class="data row12 col0" >$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br></td>
     </tr>
     <tr>
-      <td id="T_25a37_row13_col0" class="data row13 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_3ee14_row13_col0" class="data row13 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_25a37_row14_col0" class="data row14 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_3ee14_row14_col0" class="data row14 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
   </tbody>
 </table>
@@ -145,72 +145,72 @@ $ \text{Note the constant c will have different values with these two options} $
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_ba4d5 th.col_heading {
+#T_9fb9d th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ba4d5 td {
+#T_9fb9d td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_ba4d5_row0_col0, #T_ba4d5_row3_col0, #T_ba4d5_row4_col0, #T_ba4d5_row8_col0, #T_ba4d5_row11_col0, #T_ba4d5_row13_col0, #T_ba4d5_row14_col0 {
+#T_9fb9d_row0_col0, #T_9fb9d_row3_col0, #T_9fb9d_row4_col0, #T_9fb9d_row8_col0, #T_9fb9d_row11_col0, #T_9fb9d_row13_col0, #T_9fb9d_row14_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_ba4d5_row1_col0, #T_ba4d5_row2_col0, #T_ba4d5_row5_col0, #T_ba4d5_row6_col0, #T_ba4d5_row7_col0, #T_ba4d5_row9_col0, #T_ba4d5_row10_col0, #T_ba4d5_row12_col0 {
+#T_9fb9d_row1_col0, #T_9fb9d_row2_col0, #T_9fb9d_row5_col0, #T_9fb9d_row6_col0, #T_9fb9d_row7_col0, #T_9fb9d_row9_col0, #T_9fb9d_row10_col0, #T_9fb9d_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_ba4d5">
+<table id="T_9fb9d">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ba4d5_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_9fb9d_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
+      <td id="T_9fb9d_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row2_col0" class="data row2 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
+      <td id="T_9fb9d_row2_col0" class="data row2 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row3_col0" class="data row3 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_9fb9d_row3_col0" class="data row3 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row4_col0" class="data row4 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_9fb9d_row4_col0" class="data row4 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row5_col0" class="data row5 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
+      <td id="T_9fb9d_row5_col0" class="data row5 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row6_col0" class="data row6 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
+      <td id="T_9fb9d_row6_col0" class="data row6 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row7_col0" class="data row7 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_9fb9d_row7_col0" class="data row7 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row8_col0" class="data row8 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
+      <td id="T_9fb9d_row8_col0" class="data row8 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
+      <td id="T_9fb9d_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row10_col0" class="data row10 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
+      <td id="T_9fb9d_row10_col0" class="data row10 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row11_col0" class="data row11 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_9fb9d_row11_col0" class="data row11 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row12_col0" class="data row12 col0" >$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br></td>
+      <td id="T_9fb9d_row12_col0" class="data row12 col0" >$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br></td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row13_col0" class="data row13 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_9fb9d_row13_col0" class="data row13 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_ba4d5_row14_col0" class="data row14 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_9fb9d_row14_col0" class="data row14 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
   </tbody>
 </table>
@@ -221,72 +221,72 @@ $ \text{Note the constant c will have different values with these two options} $
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_5bef2 th.col_heading {
+#T_eeec0 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_5bef2 td {
+#T_eeec0 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_5bef2_row0_col0, #T_5bef2_row1_col0, #T_5bef2_row2_col0, #T_5bef2_row3_col0, #T_5bef2_row4_col0, #T_5bef2_row5_col0, #T_5bef2_row6_col0, #T_5bef2_row7_col0, #T_5bef2_row8_col0, #T_5bef2_row9_col0, #T_5bef2_row10_col0, #T_5bef2_row11_col0, #T_5bef2_row13_col0, #T_5bef2_row14_col0 {
+#T_eeec0_row0_col0, #T_eeec0_row1_col0, #T_eeec0_row2_col0, #T_eeec0_row3_col0, #T_eeec0_row4_col0, #T_eeec0_row5_col0, #T_eeec0_row6_col0, #T_eeec0_row7_col0, #T_eeec0_row8_col0, #T_eeec0_row9_col0, #T_eeec0_row10_col0, #T_eeec0_row11_col0, #T_eeec0_row13_col0, #T_eeec0_row14_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
-#T_5bef2_row12_col0 {
+#T_eeec0_row12_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_5bef2">
+<table id="T_eeec0">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_5bef2_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_eeec0_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
+      <td id="T_eeec0_row1_col0" class="data row1 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row2_col0" class="data row2 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
+      <td id="T_eeec0_row2_col0" class="data row2 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row3_col0" class="data row3 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_eeec0_row3_col0" class="data row3 col0" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row4_col0" class="data row4 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_eeec0_row4_col0" class="data row4 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row5_col0" class="data row5 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
+      <td id="T_eeec0_row5_col0" class="data row5 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row6_col0" class="data row6 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
+      <td id="T_eeec0_row6_col0" class="data row6 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row7_col0" class="data row7 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_eeec0_row7_col0" class="data row7 col0" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row8_col0" class="data row8 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
+      <td id="T_eeec0_row8_col0" class="data row8 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
+      <td id="T_eeec0_row9_col0" class="data row9 col0" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row10_col0" class="data row10 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
+      <td id="T_eeec0_row10_col0" class="data row10 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row11_col0" class="data row11 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_eeec0_row11_col0" class="data row11 col0" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row12_col0" class="data row12 col0" >$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br></td>
+      <td id="T_eeec0_row12_col0" class="data row12 col0" >$ \text{Function and its inverse}  \,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} \times \dfrac{dx}{dy} = 1, \text{  or  } \dfrac{dy}{dx} = \dfrac{1}{\dfrac{dx}{dy}} $ <br></td>
     </tr>
     <tr>
-      <td id="T_5bef2_row13_col0" class="data row13 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_eeec0_row13_col0" class="data row13 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_5bef2_row14_col0" class="data row14 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_eeec0_row14_col0" class="data row14 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
   </tbody>
 </table>
@@ -299,61 +299,61 @@ $ \text{Note the constant c will have different values with these two options} $
 
 ###  <span style="color:RGB(139,69,19)"> Derivatives vs integrals  </span>
 <br>
-{{< tabs "10b77c19-b64e-4adc-8097-bbe38c5a5ce2" >}}
+{{< tabs "34cff95b-b021-4ff6-9c5f-94a0f7b994ac" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_fa1b0 th.col_heading {
+#T_83d8b th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_fa1b0 td {
+#T_83d8b td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_fa1b0">
+<table id="T_83d8b">
   <thead>
     <tr>
-      <th id="T_fa1b0_level0_col0" class="col_heading level0 col0" >Derivative</th>
-      <th id="T_fa1b0_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
-      <th id="T_fa1b0_level0_col2" class="col_heading level0 col2" >Comment</th>
+      <th id="T_83d8b_level0_col0" class="col_heading level0 col0" >Derivative</th>
+      <th id="T_83d8b_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
+      <th id="T_83d8b_level0_col2" class="col_heading level0 col2" >Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_fa1b0_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
-      <td id="T_fa1b0_row0_col1" class="data row0 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
-      <td id="T_fa1b0_row0_col2" class="data row0 col2" ></td>
+      <td id="T_83d8b_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_83d8b_row0_col1" class="data row0 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
+      <td id="T_83d8b_row0_col2" class="data row0 col2" ></td>
     </tr>
     <tr>
-      <td id="T_fa1b0_row1_col0" class="data row1 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
-      <td id="T_fa1b0_row1_col1" class="data row1 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
-      <td id="T_fa1b0_row1_col2" class="data row1 col2" ></td>
+      <td id="T_83d8b_row1_col0" class="data row1 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
+      <td id="T_83d8b_row1_col1" class="data row1 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_83d8b_row1_col2" class="data row1 col2" ></td>
     </tr>
     <tr>
-      <td id="T_fa1b0_row2_col0" class="data row2 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
-      <td id="T_fa1b0_row2_col1" class="data row2 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
+      <td id="T_83d8b_row2_col0" class="data row2 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_83d8b_row2_col1" class="data row2 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
-      <td id="T_fa1b0_row2_col2" class="data row2 col2" ></td>
+      <td id="T_83d8b_row2_col2" class="data row2 col2" ></td>
     </tr>
     <tr>
-      <td id="T_fa1b0_row3_col0" class="data row3 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
-      <td id="T_fa1b0_row3_col1" class="data row3 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_83d8b_row3_col0" class="data row3 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
+      <td id="T_83d8b_row3_col1" class="data row3 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
-      <td id="T_fa1b0_row3_col2" class="data row3 col2" ></td>
+      <td id="T_83d8b_row3_col2" class="data row3 col2" ></td>
     </tr>
     <tr>
-      <td id="T_fa1b0_row4_col0" class="data row4 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
-      <td id="T_fa1b0_row4_col1" class="data row4 col1" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
-      <td id="T_fa1b0_row4_col2" class="data row4 col2" ></td>
+      <td id="T_83d8b_row4_col0" class="data row4 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
+      <td id="T_83d8b_row4_col1" class="data row4 col1" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
+      <td id="T_83d8b_row4_col2" class="data row4 col2" ></td>
     </tr>
     <tr>
-      <td id="T_fa1b0_row5_col0" class="data row5 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
-      <td id="T_fa1b0_row5_col1" class="data row5 col1" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
-      <td id="T_fa1b0_row5_col2" class="data row5 col2" ></td>
+      <td id="T_83d8b_row5_col0" class="data row5 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
+      <td id="T_83d8b_row5_col1" class="data row5 col1" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_83d8b_row5_col2" class="data row5 col2" ></td>
     </tr>
   </tbody>
 </table>
@@ -364,62 +364,62 @@ $ \text{Note the constant c will have different values with these two options} $
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_e6179 th.col_heading {
+#T_d22c7 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_e6179 td {
+#T_d22c7 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_e6179_row0_col0, #T_e6179_row1_col1, #T_e6179_row2_col0, #T_e6179_row4_col0, #T_e6179_row5_col1 {
+#T_d22c7_row0_col0, #T_d22c7_row1_col1, #T_d22c7_row2_col0, #T_d22c7_row4_col0, #T_d22c7_row5_col1 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_e6179_row0_col1, #T_e6179_row1_col0, #T_e6179_row2_col1, #T_e6179_row3_col0, #T_e6179_row3_col1, #T_e6179_row4_col1, #T_e6179_row5_col0 {
+#T_d22c7_row0_col1, #T_d22c7_row1_col0, #T_d22c7_row2_col1, #T_d22c7_row3_col0, #T_d22c7_row3_col1, #T_d22c7_row4_col1, #T_d22c7_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_e6179">
+<table id="T_d22c7">
   <thead>
     <tr>
-      <th id="T_e6179_level0_col0" class="col_heading level0 col0" >Derivative</th>
-      <th id="T_e6179_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
-      <th id="T_e6179_level0_col2" class="col_heading level0 col2" >Comment</th>
+      <th id="T_d22c7_level0_col0" class="col_heading level0 col0" >Derivative</th>
+      <th id="T_d22c7_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
+      <th id="T_d22c7_level0_col2" class="col_heading level0 col2" >Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_e6179_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
-      <td id="T_e6179_row0_col1" class="data row0 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
-      <td id="T_e6179_row0_col2" class="data row0 col2" ></td>
+      <td id="T_d22c7_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_d22c7_row0_col1" class="data row0 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
+      <td id="T_d22c7_row0_col2" class="data row0 col2" ></td>
     </tr>
     <tr>
-      <td id="T_e6179_row1_col0" class="data row1 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
-      <td id="T_e6179_row1_col1" class="data row1 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
-      <td id="T_e6179_row1_col2" class="data row1 col2" ></td>
+      <td id="T_d22c7_row1_col0" class="data row1 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
+      <td id="T_d22c7_row1_col1" class="data row1 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_d22c7_row1_col2" class="data row1 col2" ></td>
     </tr>
     <tr>
-      <td id="T_e6179_row2_col0" class="data row2 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
-      <td id="T_e6179_row2_col1" class="data row2 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
+      <td id="T_d22c7_row2_col0" class="data row2 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_d22c7_row2_col1" class="data row2 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
-      <td id="T_e6179_row2_col2" class="data row2 col2" ></td>
+      <td id="T_d22c7_row2_col2" class="data row2 col2" ></td>
     </tr>
     <tr>
-      <td id="T_e6179_row3_col0" class="data row3 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
-      <td id="T_e6179_row3_col1" class="data row3 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_d22c7_row3_col0" class="data row3 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
+      <td id="T_d22c7_row3_col1" class="data row3 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
-      <td id="T_e6179_row3_col2" class="data row3 col2" ></td>
+      <td id="T_d22c7_row3_col2" class="data row3 col2" ></td>
     </tr>
     <tr>
-      <td id="T_e6179_row4_col0" class="data row4 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
-      <td id="T_e6179_row4_col1" class="data row4 col1" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
-      <td id="T_e6179_row4_col2" class="data row4 col2" ></td>
+      <td id="T_d22c7_row4_col0" class="data row4 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
+      <td id="T_d22c7_row4_col1" class="data row4 col1" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
+      <td id="T_d22c7_row4_col2" class="data row4 col2" ></td>
     </tr>
     <tr>
-      <td id="T_e6179_row5_col0" class="data row5 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
-      <td id="T_e6179_row5_col1" class="data row5 col1" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
-      <td id="T_e6179_row5_col2" class="data row5 col2" ></td>
+      <td id="T_d22c7_row5_col0" class="data row5 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
+      <td id="T_d22c7_row5_col1" class="data row5 col1" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_d22c7_row5_col2" class="data row5 col2" ></td>
     </tr>
   </tbody>
 </table>
@@ -430,59 +430,59 @@ $ \text{Note the constant c will have different values with these two options} $
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_878f6 th.col_heading {
+#T_d5e6c th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_878f6 td {
+#T_d5e6c td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_878f6_row0_col0, #T_878f6_row0_col1, #T_878f6_row1_col0, #T_878f6_row1_col1, #T_878f6_row2_col0, #T_878f6_row2_col1, #T_878f6_row3_col0, #T_878f6_row3_col1, #T_878f6_row4_col0, #T_878f6_row4_col1, #T_878f6_row5_col0, #T_878f6_row5_col1 {
+#T_d5e6c_row0_col0, #T_d5e6c_row0_col1, #T_d5e6c_row1_col0, #T_d5e6c_row1_col1, #T_d5e6c_row2_col0, #T_d5e6c_row2_col1, #T_d5e6c_row3_col0, #T_d5e6c_row3_col1, #T_d5e6c_row4_col0, #T_d5e6c_row4_col1, #T_d5e6c_row5_col0, #T_d5e6c_row5_col1 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_878f6">
+<table id="T_d5e6c">
   <thead>
     <tr>
-      <th id="T_878f6_level0_col0" class="col_heading level0 col0" >Derivative</th>
-      <th id="T_878f6_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
-      <th id="T_878f6_level0_col2" class="col_heading level0 col2" >Comment</th>
+      <th id="T_d5e6c_level0_col0" class="col_heading level0 col0" >Derivative</th>
+      <th id="T_d5e6c_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
+      <th id="T_d5e6c_level0_col2" class="col_heading level0 col2" >Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_878f6_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
-      <td id="T_878f6_row0_col1" class="data row0 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
-      <td id="T_878f6_row0_col2" class="data row0 col2" ></td>
+      <td id="T_d5e6c_row0_col0" class="data row0 col0" >$y=\sin^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_d5e6c_row0_col1" class="data row0 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} } dx = \sin^{-1} f(x) + c$</td>
+      <td id="T_d5e6c_row0_col2" class="data row0 col2" ></td>
     </tr>
     <tr>
-      <td id="T_878f6_row1_col0" class="data row1 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
-      <td id="T_878f6_row1_col1" class="data row1 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
-      <td id="T_878f6_row1_col2" class="data row1 col2" ></td>
+      <td id="T_d5e6c_row1_col0" class="data row1 col0" >$ y = \sin^{-1} \dfrac{f(x)}{a}  \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{\sqrt{a^2 - (f(x))^2}} $ <br></td>
+      <td id="T_d5e6c_row1_col1" class="data row1 col1" >$ {\Large\int} \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} } dx = \sin^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_d5e6c_row1_col2" class="data row1 col2" ></td>
     </tr>
     <tr>
-      <td id="T_878f6_row2_col0" class="data row2 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
-      <td id="T_878f6_row2_col1" class="data row2 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
+      <td id="T_d5e6c_row2_col0" class="data row2 col0" >$y=\cos^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }$ <br></td>
+      <td id="T_d5e6c_row2_col1" class="data row2 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {1 - (f(x))^2} }  = \cos^{-1}f(x) + c \text{ or } -\sin^{-1}f(x) +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
-      <td id="T_878f6_row2_col2" class="data row2 col2" ></td>
+      <td id="T_d5e6c_row2_col2" class="data row2 col2" ></td>
     </tr>
     <tr>
-      <td id="T_878f6_row3_col0" class="data row3 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
-      <td id="T_878f6_row3_col1" class="data row3 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
+      <td id="T_d5e6c_row3_col0" class="data row3 col0" >$y=\cos^{-1} \dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }$ <br></td>
+      <td id="T_d5e6c_row3_col1" class="data row3 col1" >$ {\Large\int} - \dfrac{f'(x)} {\sqrt {a^2 - (f(x))^2} }  = \cos^{-1}\dfrac{f(x)}{a} + c \text{ or } -\sin^{-1}\dfrac{f(x)}{a} +c$
 $ \text{Note the constant c will have different values with these two options} $</td>
-      <td id="T_878f6_row3_col2" class="data row3 col2" ></td>
+      <td id="T_d5e6c_row3_col2" class="data row3 col2" ></td>
     </tr>
     <tr>
-      <td id="T_878f6_row4_col0" class="data row4 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
-      <td id="T_878f6_row4_col1" class="data row4 col1" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
-      <td id="T_878f6_row4_col2" class="data row4 col2" ></td>
+      <td id="T_d5e6c_row4_col0" class="data row4 col0" >$y=\tan^{-1}f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)} {1 + (f(x))^2}$ <br></td>
+      <td id="T_d5e6c_row4_col1" class="data row4 col1" >$ {\Large\int} \dfrac{f'(x)} {1 + (f(x))^2} dx = \ \tan^{-1} f(x) + c$</td>
+      <td id="T_d5e6c_row4_col2" class="data row4 col2" ></td>
     </tr>
     <tr>
-      <td id="T_878f6_row5_col0" class="data row5 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
-      <td id="T_878f6_row5_col1" class="data row5 col1" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
-      <td id="T_878f6_row5_col2" class="data row5 col2" ></td>
+      <td id="T_d5e6c_row5_col0" class="data row5 col0" >$y=\tan^{-1}\dfrac{f(x)}{a} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =  \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} $ <br></td>
+      <td id="T_d5e6c_row5_col1" class="data row5 col1" >$ {\Large\int} \dfrac{f'(x)} {a^2 + (f(x))^2} dx = \dfrac{1}{a} \tan^{-1} \dfrac{f(x)}{a} + c$</td>
+      <td id="T_d5e6c_row5_col2" class="data row5 col2" ></td>
     </tr>
   </tbody>
 </table>
@@ -589,36 +589,36 @@ Note that the first part of above equations, $\frac{dP}{dt} = kP$, is the simple
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "c25f18c7-ed4f-4fc7-a804-47aa88332517" >}}
+{{< tabs "670c27d4-e1fc-4425-bb7d-b4abbb9714e1" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_bde87 th.col_heading {
+#T_ecfd7 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_bde87 td {
+#T_ecfd7 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_bde87">
+<table id="T_ecfd7">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_bde87_row0_col0" class="data row0 col0" >Volumes formed by rotation about the x-axis = $V=\pi \int_a^b y^2 dx$</td>
+      <td id="T_ecfd7_row0_col0" class="data row0 col0" >Volumes formed by rotation about the x-axis = $V=\pi \int_a^b y^2 dx$</td>
     </tr>
     <tr>
-      <td id="T_bde87_row1_col0" class="data row1 col0" >Volumes formed by rotation about the y-axis = $V=\pi \int_a^b x^2 dy$</td>
+      <td id="T_ecfd7_row1_col0" class="data row1 col0" >Volumes formed by rotation about the y-axis = $V=\pi \int_a^b x^2 dy$</td>
     </tr>
     <tr>
-      <td id="T_bde87_row2_col0" class="data row2 col0" >Logistic equation option 1: $\frac{dP}{dt} = kP(N-P)$ <br><br></td>
+      <td id="T_ecfd7_row2_col0" class="data row2 col0" >Logistic equation option 1: $\frac{dP}{dt} = kP(N-P)$ <br><br></td>
     </tr>
     <tr>
-      <td id="T_bde87_row3_col0" class="data row3 col0" >Logistic equation option 2:$\frac{dP}{dt} = kP(1-\frac{P}{N})$</td>
+      <td id="T_ecfd7_row3_col0" class="data row3 col0" >Logistic equation option 2:$\frac{dP}{dt} = kP(1-\frac{P}{N})$</td>
     </tr>
   </tbody>
 </table>
@@ -629,37 +629,37 @@ Note that the first part of above equations, $\frac{dP}{dt} = kP$, is the simple
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_aa3e4 th.col_heading {
+#T_43b98 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_aa3e4 td {
+#T_43b98 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_aa3e4_row0_col0, #T_aa3e4_row1_col0 {
+#T_43b98_row0_col0, #T_43b98_row1_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
-#T_aa3e4_row2_col0, #T_aa3e4_row3_col0 {
+#T_43b98_row2_col0, #T_43b98_row3_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_aa3e4">
+<table id="T_43b98">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_aa3e4_row0_col0" class="data row0 col0" >Volumes formed by rotation about the x-axis = $V=\pi \int_a^b y^2 dx$</td>
+      <td id="T_43b98_row0_col0" class="data row0 col0" >Volumes formed by rotation about the x-axis = $V=\pi \int_a^b y^2 dx$</td>
     </tr>
     <tr>
-      <td id="T_aa3e4_row1_col0" class="data row1 col0" >Volumes formed by rotation about the y-axis = $V=\pi \int_a^b x^2 dy$</td>
+      <td id="T_43b98_row1_col0" class="data row1 col0" >Volumes formed by rotation about the y-axis = $V=\pi \int_a^b x^2 dy$</td>
     </tr>
     <tr>
-      <td id="T_aa3e4_row2_col0" class="data row2 col0" >Logistic equation option 1: $\frac{dP}{dt} = kP(N-P)$ <br><br></td>
+      <td id="T_43b98_row2_col0" class="data row2 col0" >Logistic equation option 1: $\frac{dP}{dt} = kP(N-P)$ <br><br></td>
     </tr>
     <tr>
-      <td id="T_aa3e4_row3_col0" class="data row3 col0" >Logistic equation option 2:$\frac{dP}{dt} = kP(1-\frac{P}{N})$</td>
+      <td id="T_43b98_row3_col0" class="data row3 col0" >Logistic equation option 2:$\frac{dP}{dt} = kP(1-\frac{P}{N})$</td>
     </tr>
   </tbody>
 </table>
