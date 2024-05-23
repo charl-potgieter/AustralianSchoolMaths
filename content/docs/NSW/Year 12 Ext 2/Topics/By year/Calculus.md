@@ -37,7 +37,7 @@ weight: 4
      - substitute $x=a \tan \theta$
 
 <BR><BR>
-| Integral                                      | Substitution              | Comment |
+|Integral                                       | Substitution              | <div style="width:300px">Comment</div> |
 | --------                                      | -------                   |---------|
 | $\int \dfrac{1}{a \cos x + b \sin x} dx$      | $t = \tan \frac{x}{2}$    |
 | $\int \dfrac{1}{a \cos x + b} dx$             | $t = \tan \frac{x}{2}$    |
