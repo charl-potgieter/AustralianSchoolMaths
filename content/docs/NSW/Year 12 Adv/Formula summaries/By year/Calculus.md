@@ -2,75 +2,75 @@
 weight: 1
 ---
 
-{{< tabs "dd2e2366-0f20-43a3-b4a1-de14aa163263" >}}
+{{< tabs "d054925e-ad9b-40a4-b641-ed4b8157d3b2" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_4d3a0 th.col_heading {
+#T_558c5 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_4d3a0 td {
+#T_558c5 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_4d3a0">
+<table id="T_558c5">
   <thead>
     <tr>
-      <th id="T_4d3a0_level0_col0" class="col_heading level0 col0" >Derivative</th>
-      <th id="T_4d3a0_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
-      <th id="T_4d3a0_level0_col2" class="col_heading level0 col2" >Comment</th>
+      <th id="T_558c5_level0_col0" class="col_heading level0 col0" >Derivative</th>
+      <th id="T_558c5_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
+      <th id="T_558c5_level0_col2" class="col_heading level0 col2" >Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_4d3a0_row0_col0" class="data row0 col0" ></td>
-      <td id="T_4d3a0_row0_col1" class="data row0 col1" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+      <td id="T_558c5_row0_col0" class="data row0 col0" ></td>
+      <td id="T_558c5_row0_col1" class="data row0 col1" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
 $ \text{ where } n \neq -1 $</td>
-      <td id="T_4d3a0_row0_col2" class="data row0 col2" >When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$</td>
+      <td id="T_558c5_row0_col2" class="data row0 col2" >When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$</td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row1_col0" class="data row1 col0" ></td>
-      <td id="T_4d3a0_row1_col1" class="data row1 col1" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
-      <td id="T_4d3a0_row1_col2" class="data row1 col2" ></td>
+      <td id="T_558c5_row1_col0" class="data row1 col0" ></td>
+      <td id="T_558c5_row1_col1" class="data row1 col1" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_558c5_row1_col2" class="data row1 col2" ></td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row2_col0" class="data row2 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
-      <td id="T_4d3a0_row2_col1" class="data row2 col1" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
-      <td id="T_4d3a0_row2_col2" class="data row2 col2" ></td>
+      <td id="T_558c5_row2_col0" class="data row2 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
+      <td id="T_558c5_row2_col1" class="data row2 col1" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
+      <td id="T_558c5_row2_col2" class="data row2 col2" ></td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row3_col0" class="data row3 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
-      <td id="T_4d3a0_row3_col1" class="data row3 col1" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
-      <td id="T_4d3a0_row3_col2" class="data row3 col2" ></td>
+      <td id="T_558c5_row3_col0" class="data row3 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
+      <td id="T_558c5_row3_col1" class="data row3 col1" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
+      <td id="T_558c5_row3_col2" class="data row3 col2" ></td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row4_col0" class="data row4 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
-      <td id="T_4d3a0_row4_col1" class="data row4 col1" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
-      <td id="T_4d3a0_row4_col2" class="data row4 col2" ></td>
+      <td id="T_558c5_row4_col0" class="data row4 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
+      <td id="T_558c5_row4_col1" class="data row4 col1" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
+      <td id="T_558c5_row4_col2" class="data row4 col2" ></td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row5_col0" class="data row5 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
-      <td id="T_4d3a0_row5_col1" class="data row5 col1" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
-      <td id="T_4d3a0_row5_col2" class="data row5 col2" ></td>
+      <td id="T_558c5_row5_col0" class="data row5 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
+      <td id="T_558c5_row5_col1" class="data row5 col1" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+      <td id="T_558c5_row5_col2" class="data row5 col2" ></td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row6_col0" class="data row6 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
-      <td id="T_4d3a0_row6_col1" class="data row6 col1" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
-      <td id="T_4d3a0_row6_col2" class="data row6 col2" >Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.</td>
+      <td id="T_558c5_row6_col0" class="data row6 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
+      <td id="T_558c5_row6_col1" class="data row6 col1" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+      <td id="T_558c5_row6_col2" class="data row6 col2" >Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.</td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row7_col0" class="data row7 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
-      <td id="T_4d3a0_row7_col1" class="data row7 col1" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
-      <td id="T_4d3a0_row7_col2" class="data row7 col2" >ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.</td>
+      <td id="T_558c5_row7_col0" class="data row7 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
+      <td id="T_558c5_row7_col1" class="data row7 col1" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+      <td id="T_558c5_row7_col2" class="data row7 col2" >ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.</td>
     </tr>
     <tr>
-      <td id="T_4d3a0_row8_col0" class="data row8 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
-      <td id="T_4d3a0_row8_col1" class="data row8 col1" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
-      <td id="T_4d3a0_row8_col2" class="data row8 col2" >Is this integral expression correct, in particular the absolute value?</td>
+      <td id="T_558c5_row8_col0" class="data row8 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
+      <td id="T_558c5_row8_col1" class="data row8 col1" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+      <td id="T_558c5_row8_col2" class="data row8 col2" >Is this integral expression correct, in particular the absolute value?</td>
     </tr>
   </tbody>
 </table>
@@ -81,76 +81,76 @@ $ \text{ where } n \neq -1 $</td>
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_22896 th.col_heading {
+#T_c96e9 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_22896 td {
+#T_c96e9 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_22896_row0_col0, #T_22896_row1_col0, #T_22896_row8_col1 {
+#T_c96e9_row0_col0, #T_c96e9_row1_col0, #T_c96e9_row8_col1 {
   background-color: rgba(0,0,0,0);
 }
-#T_22896_row0_col1, #T_22896_row1_col1, #T_22896_row2_col0, #T_22896_row2_col1, #T_22896_row3_col0, #T_22896_row3_col1, #T_22896_row4_col0, #T_22896_row4_col1, #T_22896_row5_col0, #T_22896_row5_col1, #T_22896_row6_col0, #T_22896_row6_col1, #T_22896_row7_col0, #T_22896_row7_col1, #T_22896_row8_col0 {
+#T_c96e9_row0_col1, #T_c96e9_row1_col1, #T_c96e9_row2_col0, #T_c96e9_row2_col1, #T_c96e9_row3_col0, #T_c96e9_row3_col1, #T_c96e9_row4_col0, #T_c96e9_row4_col1, #T_c96e9_row5_col0, #T_c96e9_row5_col1, #T_c96e9_row6_col0, #T_c96e9_row6_col1, #T_c96e9_row7_col0, #T_c96e9_row7_col1, #T_c96e9_row8_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_22896">
+<table id="T_c96e9">
   <thead>
     <tr>
-      <th id="T_22896_level0_col0" class="col_heading level0 col0" >Derivative</th>
-      <th id="T_22896_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
-      <th id="T_22896_level0_col2" class="col_heading level0 col2" >Comment</th>
+      <th id="T_c96e9_level0_col0" class="col_heading level0 col0" >Derivative</th>
+      <th id="T_c96e9_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
+      <th id="T_c96e9_level0_col2" class="col_heading level0 col2" >Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_22896_row0_col0" class="data row0 col0" ></td>
-      <td id="T_22896_row0_col1" class="data row0 col1" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+      <td id="T_c96e9_row0_col0" class="data row0 col0" ></td>
+      <td id="T_c96e9_row0_col1" class="data row0 col1" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
 $ \text{ where } n \neq -1 $</td>
-      <td id="T_22896_row0_col2" class="data row0 col2" >When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$</td>
+      <td id="T_c96e9_row0_col2" class="data row0 col2" >When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$</td>
     </tr>
     <tr>
-      <td id="T_22896_row1_col0" class="data row1 col0" ></td>
-      <td id="T_22896_row1_col1" class="data row1 col1" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
-      <td id="T_22896_row1_col2" class="data row1 col2" ></td>
+      <td id="T_c96e9_row1_col0" class="data row1 col0" ></td>
+      <td id="T_c96e9_row1_col1" class="data row1 col1" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_c96e9_row1_col2" class="data row1 col2" ></td>
     </tr>
     <tr>
-      <td id="T_22896_row2_col0" class="data row2 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
-      <td id="T_22896_row2_col1" class="data row2 col1" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
-      <td id="T_22896_row2_col2" class="data row2 col2" ></td>
+      <td id="T_c96e9_row2_col0" class="data row2 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
+      <td id="T_c96e9_row2_col1" class="data row2 col1" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
+      <td id="T_c96e9_row2_col2" class="data row2 col2" ></td>
     </tr>
     <tr>
-      <td id="T_22896_row3_col0" class="data row3 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
-      <td id="T_22896_row3_col1" class="data row3 col1" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
-      <td id="T_22896_row3_col2" class="data row3 col2" ></td>
+      <td id="T_c96e9_row3_col0" class="data row3 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
+      <td id="T_c96e9_row3_col1" class="data row3 col1" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
+      <td id="T_c96e9_row3_col2" class="data row3 col2" ></td>
     </tr>
     <tr>
-      <td id="T_22896_row4_col0" class="data row4 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
-      <td id="T_22896_row4_col1" class="data row4 col1" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
-      <td id="T_22896_row4_col2" class="data row4 col2" ></td>
+      <td id="T_c96e9_row4_col0" class="data row4 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
+      <td id="T_c96e9_row4_col1" class="data row4 col1" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
+      <td id="T_c96e9_row4_col2" class="data row4 col2" ></td>
     </tr>
     <tr>
-      <td id="T_22896_row5_col0" class="data row5 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
-      <td id="T_22896_row5_col1" class="data row5 col1" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
-      <td id="T_22896_row5_col2" class="data row5 col2" ></td>
+      <td id="T_c96e9_row5_col0" class="data row5 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
+      <td id="T_c96e9_row5_col1" class="data row5 col1" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+      <td id="T_c96e9_row5_col2" class="data row5 col2" ></td>
     </tr>
     <tr>
-      <td id="T_22896_row6_col0" class="data row6 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
-      <td id="T_22896_row6_col1" class="data row6 col1" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
-      <td id="T_22896_row6_col2" class="data row6 col2" >Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.</td>
+      <td id="T_c96e9_row6_col0" class="data row6 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
+      <td id="T_c96e9_row6_col1" class="data row6 col1" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+      <td id="T_c96e9_row6_col2" class="data row6 col2" >Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.</td>
     </tr>
     <tr>
-      <td id="T_22896_row7_col0" class="data row7 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
-      <td id="T_22896_row7_col1" class="data row7 col1" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
-      <td id="T_22896_row7_col2" class="data row7 col2" >ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.</td>
+      <td id="T_c96e9_row7_col0" class="data row7 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
+      <td id="T_c96e9_row7_col1" class="data row7 col1" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+      <td id="T_c96e9_row7_col2" class="data row7 col2" >ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.</td>
     </tr>
     <tr>
-      <td id="T_22896_row8_col0" class="data row8 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
-      <td id="T_22896_row8_col1" class="data row8 col1" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
-      <td id="T_22896_row8_col2" class="data row8 col2" >Is this integral expression correct, in particular the absolute value?</td>
+      <td id="T_c96e9_row8_col0" class="data row8 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
+      <td id="T_c96e9_row8_col1" class="data row8 col1" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+      <td id="T_c96e9_row8_col2" class="data row8 col2" >Is this integral expression correct, in particular the absolute value?</td>
     </tr>
   </tbody>
 </table>
@@ -161,76 +161,76 @@ $ \text{ where } n \neq -1 $</td>
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_747c1 th.col_heading {
+#T_40519 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_747c1 td {
+#T_40519 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_747c1_row0_col0, #T_747c1_row1_col0, #T_747c1_row1_col1, #T_747c1_row4_col1, #T_747c1_row7_col1, #T_747c1_row8_col1 {
+#T_40519_row0_col0, #T_40519_row1_col0, #T_40519_row1_col1, #T_40519_row4_col1, #T_40519_row7_col1, #T_40519_row8_col1 {
   background-color: rgba(0,0,0,0);
 }
-#T_747c1_row0_col1, #T_747c1_row2_col0, #T_747c1_row2_col1, #T_747c1_row3_col0, #T_747c1_row3_col1, #T_747c1_row4_col0, #T_747c1_row5_col0, #T_747c1_row5_col1, #T_747c1_row6_col0, #T_747c1_row6_col1, #T_747c1_row7_col0, #T_747c1_row8_col0 {
+#T_40519_row0_col1, #T_40519_row2_col0, #T_40519_row2_col1, #T_40519_row3_col0, #T_40519_row3_col1, #T_40519_row4_col0, #T_40519_row5_col0, #T_40519_row5_col1, #T_40519_row6_col0, #T_40519_row6_col1, #T_40519_row7_col0, #T_40519_row8_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_747c1">
+<table id="T_40519">
   <thead>
     <tr>
-      <th id="T_747c1_level0_col0" class="col_heading level0 col0" >Derivative</th>
-      <th id="T_747c1_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
-      <th id="T_747c1_level0_col2" class="col_heading level0 col2" >Comment</th>
+      <th id="T_40519_level0_col0" class="col_heading level0 col0" >Derivative</th>
+      <th id="T_40519_level0_col1" class="col_heading level0 col1" >Equivalent integral</th>
+      <th id="T_40519_level0_col2" class="col_heading level0 col2" >Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_747c1_row0_col0" class="data row0 col0" ></td>
-      <td id="T_747c1_row0_col1" class="data row0 col1" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+      <td id="T_40519_row0_col0" class="data row0 col0" ></td>
+      <td id="T_40519_row0_col1" class="data row0 col1" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
 $ \text{ where } n \neq -1 $</td>
-      <td id="T_747c1_row0_col2" class="data row0 col2" >When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$</td>
+      <td id="T_40519_row0_col2" class="data row0 col2" >When n = -1 follow the integration rules for  $ {\Large\int} \dfrac{f'(x)}{f(x)}dx$</td>
     </tr>
     <tr>
-      <td id="T_747c1_row1_col0" class="data row1 col0" ></td>
-      <td id="T_747c1_row1_col1" class="data row1 col1" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
-      <td id="T_747c1_row1_col2" class="data row1 col2" ></td>
+      <td id="T_40519_row1_col0" class="data row1 col0" ></td>
+      <td id="T_40519_row1_col1" class="data row1 col1" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_40519_row1_col2" class="data row1 col2" ></td>
     </tr>
     <tr>
-      <td id="T_747c1_row2_col0" class="data row2 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
-      <td id="T_747c1_row2_col1" class="data row2 col1" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
-      <td id="T_747c1_row2_col2" class="data row2 col2" ></td>
+      <td id="T_40519_row2_col0" class="data row2 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
+      <td id="T_40519_row2_col1" class="data row2 col1" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
+      <td id="T_40519_row2_col2" class="data row2 col2" ></td>
     </tr>
     <tr>
-      <td id="T_747c1_row3_col0" class="data row3 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
-      <td id="T_747c1_row3_col1" class="data row3 col1" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
-      <td id="T_747c1_row3_col2" class="data row3 col2" ></td>
+      <td id="T_40519_row3_col0" class="data row3 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
+      <td id="T_40519_row3_col1" class="data row3 col1" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
+      <td id="T_40519_row3_col2" class="data row3 col2" ></td>
     </tr>
     <tr>
-      <td id="T_747c1_row4_col0" class="data row4 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
-      <td id="T_747c1_row4_col1" class="data row4 col1" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
-      <td id="T_747c1_row4_col2" class="data row4 col2" ></td>
+      <td id="T_40519_row4_col0" class="data row4 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
+      <td id="T_40519_row4_col1" class="data row4 col1" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
+      <td id="T_40519_row4_col2" class="data row4 col2" ></td>
     </tr>
     <tr>
-      <td id="T_747c1_row5_col0" class="data row5 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
-      <td id="T_747c1_row5_col1" class="data row5 col1" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
-      <td id="T_747c1_row5_col2" class="data row5 col2" ></td>
+      <td id="T_40519_row5_col0" class="data row5 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
+      <td id="T_40519_row5_col1" class="data row5 col1" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+      <td id="T_40519_row5_col2" class="data row5 col2" ></td>
     </tr>
     <tr>
-      <td id="T_747c1_row6_col0" class="data row6 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
-      <td id="T_747c1_row6_col1" class="data row6 col1" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
-      <td id="T_747c1_row6_col2" class="data row6 col2" >Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.</td>
+      <td id="T_40519_row6_col0" class="data row6 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
+      <td id="T_40519_row6_col1" class="data row6 col1" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+      <td id="T_40519_row6_col2" class="data row6 col2" >Stictly speaking these integral and derivative formulas are not exact mirrors but are recorded here as preseneted in the syllabus.  The scope of the derivative equation is limited to positive values of f(x) while the integral equation covers both positive and negative values of f(x).  The derivative equation could also be rewritten with an absolute value.</td>
     </tr>
     <tr>
-      <td id="T_747c1_row7_col0" class="data row7 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
-      <td id="T_747c1_row7_col1" class="data row7 col1" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
-      <td id="T_747c1_row7_col2" class="data row7 col2" >ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.</td>
+      <td id="T_40519_row7_col0" class="data row7 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
+      <td id="T_40519_row7_col1" class="data row7 col1" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+      <td id="T_40519_row7_col2" class="data row7 col2" >ln a is a constant therefore can be removed from the integral it can go on the other side of the intergral equation when compared to the derivative equation.</td>
     </tr>
     <tr>
-      <td id="T_747c1_row8_col0" class="data row8 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
-      <td id="T_747c1_row8_col1" class="data row8 col1" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
-      <td id="T_747c1_row8_col2" class="data row8 col2" >Is this integral expression correct, in particular the absolute value?</td>
+      <td id="T_40519_row8_col0" class="data row8 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
+      <td id="T_40519_row8_col1" class="data row8 col1" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+      <td id="T_40519_row8_col2" class="data row8 col2" >Is this integral expression correct, in particular the absolute value?</td>
     </tr>
   </tbody>
 </table>
