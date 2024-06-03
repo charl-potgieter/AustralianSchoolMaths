@@ -57,111 +57,111 @@ weight: 9
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "97bd9e91-10f4-4265-9bad-c0292775d6ce" >}}
+{{< tabs "8da33528-b0a3-4d03-8b2d-f6e0c30d5144" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_1e574 th.col_heading {
+#T_63c65 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_1e574 td {
+#T_63c65 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_1e574">
+<table id="T_63c65">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_1e574_row0_col0" class="data row0 col0" >$ i = \sqrt{-1}$</td>
+      <td id="T_63c65_row0_col0" class="data row0 col0" >$ i = \sqrt{-1}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row1_col0" class="data row1 col0" >$ z = a + ib$</td>
+      <td id="T_63c65_row1_col0" class="data row1 col0" >$ z = a + ib$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row2_col0" class="data row2 col0" >$\text{ mod z} =|z| = \sqrt{a^2+b^2} $</td>
+      <td id="T_63c65_row2_col0" class="data row2 col0" >$\text{ mod z} =|z| = \sqrt{a^2+b^2} $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row3_col0" class="data row3 col0" >$\tan \theta = \dfrac{b}{a} \text{ where } \theta \text{ equals arg z in interval } (-\pi, \pi]  \text{Don’t confuse with angle of a position vector which ranges from 0 to 360 degrees}$</td>
+      <td id="T_63c65_row3_col0" class="data row3 col0" >$\tan \theta = \dfrac{b}{a} \text{ where } \theta \text{ equals arg z in interval } (-\pi, \pi]  \text{Don’t confuse with angle of a position vector which ranges from 0 to 360 degrees}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row4_col0" class="data row4 col0" >$z = r (\cos \theta + i \sin \theta)$</td>
+      <td id="T_63c65_row4_col0" class="data row4 col0" >$z = r (\cos \theta + i \sin \theta)$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row5_col0" class="data row5 col0" >$ z_1z_2  = r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$</td>
+      <td id="T_63c65_row5_col0" class="data row5 col0" >$ z_1z_2  = r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row6_col0" class="data row6 col0" >$ \dfrac{z_1}{z_2}  = \dfrac{r_1}{ r_2}[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)], z_2 \ne 0$</td>
+      <td id="T_63c65_row6_col0" class="data row6 col0" >$ \dfrac{z_1}{z_2}  = \dfrac{r_1}{ r_2}[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)], z_2 \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row7_col0" class="data row7 col0" > $ z^n = r^n(\cos n \theta + i \sin n \theta)$</td>
+      <td id="T_63c65_row7_col0" class="data row7 col0" > $ z^n = r^n(\cos n \theta + i \sin n \theta)$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row8_col0" class="data row8 col0" >$ z^{-1} = r^{-1}(\cos \theta - i \sin \theta), z \ne 0$</td>
+      <td id="T_63c65_row8_col0" class="data row8 col0" >$ z^{-1} = r^{-1}(\cos \theta - i \sin \theta), z \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row9_col0" class="data row9 col0" > $ z^{-n} = r^{-n}(\cos -n \theta + i \sin -n \theta), z \ne 0, n \in \mathbb{Z}$</td>
+      <td id="T_63c65_row9_col0" class="data row9 col0" > $ z^{-n} = r^{-n}(\cos -n \theta + i \sin -n \theta), z \ne 0, n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row10_col0" class="data row10 col0" >$ z_1z_2...z_n = r_1r_2...r_n[\cos(\theta_1+\theta_2+...\theta_n) + i\sin(\theta_1+\theta_2+...\theta_n)]$</td>
+      <td id="T_63c65_row10_col0" class="data row10 col0" >$ z_1z_2...z_n = r_1r_2...r_n[\cos(\theta_1+\theta_2+...\theta_n) + i\sin(\theta_1+\theta_2+...\theta_n)]$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row11_col0" class="data row11 col0" >$ |z_1||z_2| = |z_1z_2| \text{ and arg } z_1z_2 = { arg } z_1 + { arg } z_2$</td>
+      <td id="T_63c65_row11_col0" class="data row11 col0" >$ |z_1||z_2| = |z_1z_2| \text{ and arg } z_1z_2 = { arg } z_1 + { arg } z_2$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row12_col0" class="data row12 col0" >$ \dfrac{|z_1|}{|z_2|} = \bigg| \dfrac{z_1}{z_2} \bigg| \text{ and arg } \dfrac{z_1}{z_2} = { arg } z_1 - { arg } z_2$</td>
+      <td id="T_63c65_row12_col0" class="data row12 col0" >$ \dfrac{|z_1|}{|z_2|} = \bigg| \dfrac{z_1}{z_2} \bigg| \text{ and arg } \dfrac{z_1}{z_2} = { arg } z_1 - { arg } z_2$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row13_col0" class="data row13 col0" >$ |z|^n = |z^n| \text{ and arg } z^n = n \times \text{arg z for } n \in \mathbb{Z}$</td>
+      <td id="T_63c65_row13_col0" class="data row13 col0" >$ |z|^n = |z^n| \text{ and arg } z^n = n \times \text{arg z for } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row14_col0" class="data row14 col0" >$ |z^{-1}| = \dfrac{1}{|z|} \text { and arg } z^{-1} = -\text {arg z}, z\ne 0$</td>
+      <td id="T_63c65_row14_col0" class="data row14 col0" >$ |z^{-1}| = \dfrac{1}{|z|} \text { and arg } z^{-1} = -\text {arg z}, z\ne 0$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row15_col0" class="data row15 col0" >$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } z^{-n} = \text {-n arg z}, z\ne 0 \text { for } n \in \mathbb{Z}$</td>
+      <td id="T_63c65_row15_col0" class="data row15 col0" >$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } z^{-n} = \text {-n arg z}, z\ne 0 \text { for } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row16_col0" class="data row16 col0" >$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$</td>
+      <td id="T_63c65_row16_col0" class="data row16 col0" >$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row17_col0" class="data row17 col0" >$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $</td>
+      <td id="T_63c65_row17_col0" class="data row17 col0" >$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row18_col0" class="data row18 col0" >$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $</td>
+      <td id="T_63c65_row18_col0" class="data row18 col0" >$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row19_col0" class="data row19 col0" >$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $</td>
+      <td id="T_63c65_row19_col0" class="data row19 col0" >$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row20_col0" class="data row20 col0" >$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $</td>
+      <td id="T_63c65_row20_col0" class="data row20 col0" >$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row21_col0" class="data row21 col0" >$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $</td>
+      <td id="T_63c65_row21_col0" class="data row21 col0" >$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row22_col0" class="data row22 col0" >$ z + \overline{z} = 2Re(z)  $</td>
+      <td id="T_63c65_row22_col0" class="data row22 col0" >$ z + \overline{z} = 2Re(z)  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row23_col0" class="data row23 col0" >$ z - \overline{z} = 2Im(z)  $</td>
+      <td id="T_63c65_row23_col0" class="data row23 col0" >$ z - \overline{z} = 2Im(z)  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row24_col0" class="data row24 col0" >$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $</td>
+      <td id="T_63c65_row24_col0" class="data row24 col0" >$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row25_col0" class="data row25 col0" >$ e^{i\theta} = \cos \theta + i \sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$</td>
+      <td id="T_63c65_row25_col0" class="data row25 col0" >$ e^{i\theta} = \cos \theta + i \sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row26_col0" class="data row26 col0" >$ e^{i\pi} = -1  $</td>
+      <td id="T_63c65_row26_col0" class="data row26 col0" >$ e^{i\pi} = -1  $</td>
     </tr>
     <tr>
-      <td id="T_1e574_row27_col0" class="data row27 col0" >$ z = a+ib = r(\cos \theta + i \sin \theta) = re^{i \theta}$</td>
+      <td id="T_63c65_row27_col0" class="data row27 col0" >$ z = a+ib = r(\cos \theta + i \sin \theta) = re^{i \theta}$</td>
     </tr>
     <tr>
-      <td id="T_1e574_row28_col0" class="data row28 col0" >$ [r(\cos \theta + i \sin \theta)]^n = r^n(\cos n\theta + i\sin n\theta) =  r^ne^{in \theta}$</td>
+      <td id="T_63c65_row28_col0" class="data row28 col0" >$ [r(\cos \theta + i \sin \theta)]^n = r^n(\cos n\theta + i\sin n\theta) =  r^ne^{in \theta}$</td>
     </tr>
   </tbody>
 </table>
@@ -172,112 +172,112 @@ weight: 9
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_71679 th.col_heading {
+#T_9b8e4 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_71679 td {
+#T_9b8e4 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_71679_row0_col0, #T_71679_row1_col0, #T_71679_row2_col0, #T_71679_row3_col0, #T_71679_row4_col0, #T_71679_row5_col0, #T_71679_row6_col0, #T_71679_row7_col0, #T_71679_row8_col0, #T_71679_row9_col0, #T_71679_row10_col0, #T_71679_row11_col0, #T_71679_row12_col0, #T_71679_row13_col0, #T_71679_row14_col0, #T_71679_row15_col0, #T_71679_row16_col0, #T_71679_row17_col0, #T_71679_row18_col0, #T_71679_row19_col0, #T_71679_row20_col0, #T_71679_row21_col0, #T_71679_row22_col0, #T_71679_row23_col0, #T_71679_row24_col0, #T_71679_row25_col0, #T_71679_row26_col0 {
+#T_9b8e4_row0_col0, #T_9b8e4_row1_col0, #T_9b8e4_row2_col0, #T_9b8e4_row3_col0, #T_9b8e4_row4_col0, #T_9b8e4_row5_col0, #T_9b8e4_row6_col0, #T_9b8e4_row7_col0, #T_9b8e4_row8_col0, #T_9b8e4_row9_col0, #T_9b8e4_row10_col0, #T_9b8e4_row11_col0, #T_9b8e4_row12_col0, #T_9b8e4_row13_col0, #T_9b8e4_row14_col0, #T_9b8e4_row15_col0, #T_9b8e4_row16_col0, #T_9b8e4_row17_col0, #T_9b8e4_row18_col0, #T_9b8e4_row19_col0, #T_9b8e4_row20_col0, #T_9b8e4_row21_col0, #T_9b8e4_row22_col0, #T_9b8e4_row23_col0, #T_9b8e4_row24_col0, #T_9b8e4_row25_col0, #T_9b8e4_row26_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_71679_row27_col0, #T_71679_row28_col0 {
+#T_9b8e4_row27_col0, #T_9b8e4_row28_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_71679">
+<table id="T_9b8e4">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_71679_row0_col0" class="data row0 col0" >$ i = \sqrt{-1}$</td>
+      <td id="T_9b8e4_row0_col0" class="data row0 col0" >$ i = \sqrt{-1}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row1_col0" class="data row1 col0" >$ z = a + ib$</td>
+      <td id="T_9b8e4_row1_col0" class="data row1 col0" >$ z = a + ib$</td>
     </tr>
     <tr>
-      <td id="T_71679_row2_col0" class="data row2 col0" >$\text{ mod z} =|z| = \sqrt{a^2+b^2} $</td>
+      <td id="T_9b8e4_row2_col0" class="data row2 col0" >$\text{ mod z} =|z| = \sqrt{a^2+b^2} $</td>
     </tr>
     <tr>
-      <td id="T_71679_row3_col0" class="data row3 col0" >$\tan \theta = \dfrac{b}{a} \text{ where } \theta \text{ equals arg z in interval } (-\pi, \pi]  \text{Don’t confuse with angle of a position vector which ranges from 0 to 360 degrees}$</td>
+      <td id="T_9b8e4_row3_col0" class="data row3 col0" >$\tan \theta = \dfrac{b}{a} \text{ where } \theta \text{ equals arg z in interval } (-\pi, \pi]  \text{Don’t confuse with angle of a position vector which ranges from 0 to 360 degrees}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row4_col0" class="data row4 col0" >$z = r (\cos \theta + i \sin \theta)$</td>
+      <td id="T_9b8e4_row4_col0" class="data row4 col0" >$z = r (\cos \theta + i \sin \theta)$</td>
     </tr>
     <tr>
-      <td id="T_71679_row5_col0" class="data row5 col0" >$ z_1z_2  = r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$</td>
+      <td id="T_9b8e4_row5_col0" class="data row5 col0" >$ z_1z_2  = r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$</td>
     </tr>
     <tr>
-      <td id="T_71679_row6_col0" class="data row6 col0" >$ \dfrac{z_1}{z_2}  = \dfrac{r_1}{ r_2}[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)], z_2 \ne 0$</td>
+      <td id="T_9b8e4_row6_col0" class="data row6 col0" >$ \dfrac{z_1}{z_2}  = \dfrac{r_1}{ r_2}[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)], z_2 \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_71679_row7_col0" class="data row7 col0" > $ z^n = r^n(\cos n \theta + i \sin n \theta)$</td>
+      <td id="T_9b8e4_row7_col0" class="data row7 col0" > $ z^n = r^n(\cos n \theta + i \sin n \theta)$</td>
     </tr>
     <tr>
-      <td id="T_71679_row8_col0" class="data row8 col0" >$ z^{-1} = r^{-1}(\cos \theta - i \sin \theta), z \ne 0$</td>
+      <td id="T_9b8e4_row8_col0" class="data row8 col0" >$ z^{-1} = r^{-1}(\cos \theta - i \sin \theta), z \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_71679_row9_col0" class="data row9 col0" > $ z^{-n} = r^{-n}(\cos -n \theta + i \sin -n \theta), z \ne 0, n \in \mathbb{Z}$</td>
+      <td id="T_9b8e4_row9_col0" class="data row9 col0" > $ z^{-n} = r^{-n}(\cos -n \theta + i \sin -n \theta), z \ne 0, n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row10_col0" class="data row10 col0" >$ z_1z_2...z_n = r_1r_2...r_n[\cos(\theta_1+\theta_2+...\theta_n) + i\sin(\theta_1+\theta_2+...\theta_n)]$</td>
+      <td id="T_9b8e4_row10_col0" class="data row10 col0" >$ z_1z_2...z_n = r_1r_2...r_n[\cos(\theta_1+\theta_2+...\theta_n) + i\sin(\theta_1+\theta_2+...\theta_n)]$</td>
     </tr>
     <tr>
-      <td id="T_71679_row11_col0" class="data row11 col0" >$ |z_1||z_2| = |z_1z_2| \text{ and arg } z_1z_2 = { arg } z_1 + { arg } z_2$</td>
+      <td id="T_9b8e4_row11_col0" class="data row11 col0" >$ |z_1||z_2| = |z_1z_2| \text{ and arg } z_1z_2 = { arg } z_1 + { arg } z_2$</td>
     </tr>
     <tr>
-      <td id="T_71679_row12_col0" class="data row12 col0" >$ \dfrac{|z_1|}{|z_2|} = \bigg| \dfrac{z_1}{z_2} \bigg| \text{ and arg } \dfrac{z_1}{z_2} = { arg } z_1 - { arg } z_2$</td>
+      <td id="T_9b8e4_row12_col0" class="data row12 col0" >$ \dfrac{|z_1|}{|z_2|} = \bigg| \dfrac{z_1}{z_2} \bigg| \text{ and arg } \dfrac{z_1}{z_2} = { arg } z_1 - { arg } z_2$</td>
     </tr>
     <tr>
-      <td id="T_71679_row13_col0" class="data row13 col0" >$ |z|^n = |z^n| \text{ and arg } z^n = n \times \text{arg z for } n \in \mathbb{Z}$</td>
+      <td id="T_9b8e4_row13_col0" class="data row13 col0" >$ |z|^n = |z^n| \text{ and arg } z^n = n \times \text{arg z for } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row14_col0" class="data row14 col0" >$ |z^{-1}| = \dfrac{1}{|z|} \text { and arg } z^{-1} = -\text {arg z}, z\ne 0$</td>
+      <td id="T_9b8e4_row14_col0" class="data row14 col0" >$ |z^{-1}| = \dfrac{1}{|z|} \text { and arg } z^{-1} = -\text {arg z}, z\ne 0$</td>
     </tr>
     <tr>
-      <td id="T_71679_row15_col0" class="data row15 col0" >$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } z^{-n} = \text {-n arg z}, z\ne 0 \text { for } n \in \mathbb{Z}$</td>
+      <td id="T_9b8e4_row15_col0" class="data row15 col0" >$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } z^{-n} = \text {-n arg z}, z\ne 0 \text { for } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row16_col0" class="data row16 col0" >$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$</td>
+      <td id="T_9b8e4_row16_col0" class="data row16 col0" >$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row17_col0" class="data row17 col0" >$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $</td>
+      <td id="T_9b8e4_row17_col0" class="data row17 col0" >$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $</td>
     </tr>
     <tr>
-      <td id="T_71679_row18_col0" class="data row18 col0" >$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $</td>
+      <td id="T_9b8e4_row18_col0" class="data row18 col0" >$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row19_col0" class="data row19 col0" >$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $</td>
+      <td id="T_9b8e4_row19_col0" class="data row19 col0" >$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $</td>
     </tr>
     <tr>
-      <td id="T_71679_row20_col0" class="data row20 col0" >$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $</td>
+      <td id="T_9b8e4_row20_col0" class="data row20 col0" >$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row21_col0" class="data row21 col0" >$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $</td>
+      <td id="T_9b8e4_row21_col0" class="data row21 col0" >$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row22_col0" class="data row22 col0" >$ z + \overline{z} = 2Re(z)  $</td>
+      <td id="T_9b8e4_row22_col0" class="data row22 col0" >$ z + \overline{z} = 2Re(z)  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row23_col0" class="data row23 col0" >$ z - \overline{z} = 2Im(z)  $</td>
+      <td id="T_9b8e4_row23_col0" class="data row23 col0" >$ z - \overline{z} = 2Im(z)  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row24_col0" class="data row24 col0" >$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $</td>
+      <td id="T_9b8e4_row24_col0" class="data row24 col0" >$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row25_col0" class="data row25 col0" >$ e^{i\theta} = \cos \theta + i \sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$</td>
+      <td id="T_9b8e4_row25_col0" class="data row25 col0" >$ e^{i\theta} = \cos \theta + i \sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row26_col0" class="data row26 col0" >$ e^{i\pi} = -1  $</td>
+      <td id="T_9b8e4_row26_col0" class="data row26 col0" >$ e^{i\pi} = -1  $</td>
     </tr>
     <tr>
-      <td id="T_71679_row27_col0" class="data row27 col0" >$ z = a+ib = r(\cos \theta + i \sin \theta) = re^{i \theta}$</td>
+      <td id="T_9b8e4_row27_col0" class="data row27 col0" >$ z = a+ib = r(\cos \theta + i \sin \theta) = re^{i \theta}$</td>
     </tr>
     <tr>
-      <td id="T_71679_row28_col0" class="data row28 col0" >$ [r(\cos \theta + i \sin \theta)]^n = r^n(\cos n\theta + i\sin n\theta) =  r^ne^{in \theta}$</td>
+      <td id="T_9b8e4_row28_col0" class="data row28 col0" >$ [r(\cos \theta + i \sin \theta)]^n = r^n(\cos n\theta + i\sin n\theta) =  r^ne^{in \theta}$</td>
     </tr>
   </tbody>
 </table>
@@ -288,112 +288,112 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_ad4b7 th.col_heading {
+#T_333c6 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_ad4b7 td {
+#T_333c6 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_ad4b7_row0_col0, #T_ad4b7_row1_col0, #T_ad4b7_row2_col0, #T_ad4b7_row3_col0, #T_ad4b7_row25_col0, #T_ad4b7_row26_col0, #T_ad4b7_row27_col0, #T_ad4b7_row28_col0 {
+#T_333c6_row0_col0, #T_333c6_row1_col0, #T_333c6_row2_col0, #T_333c6_row3_col0, #T_333c6_row25_col0, #T_333c6_row26_col0, #T_333c6_row27_col0, #T_333c6_row28_col0 {
   background-color: rgba(0,0,0,0);
 }
-#T_ad4b7_row4_col0, #T_ad4b7_row5_col0, #T_ad4b7_row6_col0, #T_ad4b7_row7_col0, #T_ad4b7_row8_col0, #T_ad4b7_row9_col0, #T_ad4b7_row10_col0, #T_ad4b7_row11_col0, #T_ad4b7_row12_col0, #T_ad4b7_row13_col0, #T_ad4b7_row14_col0, #T_ad4b7_row15_col0, #T_ad4b7_row16_col0, #T_ad4b7_row17_col0, #T_ad4b7_row18_col0, #T_ad4b7_row19_col0, #T_ad4b7_row20_col0, #T_ad4b7_row21_col0, #T_ad4b7_row22_col0, #T_ad4b7_row23_col0, #T_ad4b7_row24_col0 {
+#T_333c6_row4_col0, #T_333c6_row5_col0, #T_333c6_row6_col0, #T_333c6_row7_col0, #T_333c6_row8_col0, #T_333c6_row9_col0, #T_333c6_row10_col0, #T_333c6_row11_col0, #T_333c6_row12_col0, #T_333c6_row13_col0, #T_333c6_row14_col0, #T_333c6_row15_col0, #T_333c6_row16_col0, #T_333c6_row17_col0, #T_333c6_row18_col0, #T_333c6_row19_col0, #T_333c6_row20_col0, #T_333c6_row21_col0, #T_333c6_row22_col0, #T_333c6_row23_col0, #T_333c6_row24_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_ad4b7">
+<table id="T_333c6">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_ad4b7_row0_col0" class="data row0 col0" >$ i = \sqrt{-1}$</td>
+      <td id="T_333c6_row0_col0" class="data row0 col0" >$ i = \sqrt{-1}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row1_col0" class="data row1 col0" >$ z = a + ib$</td>
+      <td id="T_333c6_row1_col0" class="data row1 col0" >$ z = a + ib$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row2_col0" class="data row2 col0" >$\text{ mod z} =|z| = \sqrt{a^2+b^2} $</td>
+      <td id="T_333c6_row2_col0" class="data row2 col0" >$\text{ mod z} =|z| = \sqrt{a^2+b^2} $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row3_col0" class="data row3 col0" >$\tan \theta = \dfrac{b}{a} \text{ where } \theta \text{ equals arg z in interval } (-\pi, \pi]  \text{Don’t confuse with angle of a position vector which ranges from 0 to 360 degrees}$</td>
+      <td id="T_333c6_row3_col0" class="data row3 col0" >$\tan \theta = \dfrac{b}{a} \text{ where } \theta \text{ equals arg z in interval } (-\pi, \pi]  \text{Don’t confuse with angle of a position vector which ranges from 0 to 360 degrees}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row4_col0" class="data row4 col0" >$z = r (\cos \theta + i \sin \theta)$</td>
+      <td id="T_333c6_row4_col0" class="data row4 col0" >$z = r (\cos \theta + i \sin \theta)$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row5_col0" class="data row5 col0" >$ z_1z_2  = r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$</td>
+      <td id="T_333c6_row5_col0" class="data row5 col0" >$ z_1z_2  = r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row6_col0" class="data row6 col0" >$ \dfrac{z_1}{z_2}  = \dfrac{r_1}{ r_2}[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)], z_2 \ne 0$</td>
+      <td id="T_333c6_row6_col0" class="data row6 col0" >$ \dfrac{z_1}{z_2}  = \dfrac{r_1}{ r_2}[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)], z_2 \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row7_col0" class="data row7 col0" > $ z^n = r^n(\cos n \theta + i \sin n \theta)$</td>
+      <td id="T_333c6_row7_col0" class="data row7 col0" > $ z^n = r^n(\cos n \theta + i \sin n \theta)$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row8_col0" class="data row8 col0" >$ z^{-1} = r^{-1}(\cos \theta - i \sin \theta), z \ne 0$</td>
+      <td id="T_333c6_row8_col0" class="data row8 col0" >$ z^{-1} = r^{-1}(\cos \theta - i \sin \theta), z \ne 0$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row9_col0" class="data row9 col0" > $ z^{-n} = r^{-n}(\cos -n \theta + i \sin -n \theta), z \ne 0, n \in \mathbb{Z}$</td>
+      <td id="T_333c6_row9_col0" class="data row9 col0" > $ z^{-n} = r^{-n}(\cos -n \theta + i \sin -n \theta), z \ne 0, n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row10_col0" class="data row10 col0" >$ z_1z_2...z_n = r_1r_2...r_n[\cos(\theta_1+\theta_2+...\theta_n) + i\sin(\theta_1+\theta_2+...\theta_n)]$</td>
+      <td id="T_333c6_row10_col0" class="data row10 col0" >$ z_1z_2...z_n = r_1r_2...r_n[\cos(\theta_1+\theta_2+...\theta_n) + i\sin(\theta_1+\theta_2+...\theta_n)]$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row11_col0" class="data row11 col0" >$ |z_1||z_2| = |z_1z_2| \text{ and arg } z_1z_2 = { arg } z_1 + { arg } z_2$</td>
+      <td id="T_333c6_row11_col0" class="data row11 col0" >$ |z_1||z_2| = |z_1z_2| \text{ and arg } z_1z_2 = { arg } z_1 + { arg } z_2$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row12_col0" class="data row12 col0" >$ \dfrac{|z_1|}{|z_2|} = \bigg| \dfrac{z_1}{z_2} \bigg| \text{ and arg } \dfrac{z_1}{z_2} = { arg } z_1 - { arg } z_2$</td>
+      <td id="T_333c6_row12_col0" class="data row12 col0" >$ \dfrac{|z_1|}{|z_2|} = \bigg| \dfrac{z_1}{z_2} \bigg| \text{ and arg } \dfrac{z_1}{z_2} = { arg } z_1 - { arg } z_2$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row13_col0" class="data row13 col0" >$ |z|^n = |z^n| \text{ and arg } z^n = n \times \text{arg z for } n \in \mathbb{Z}$</td>
+      <td id="T_333c6_row13_col0" class="data row13 col0" >$ |z|^n = |z^n| \text{ and arg } z^n = n \times \text{arg z for } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row14_col0" class="data row14 col0" >$ |z^{-1}| = \dfrac{1}{|z|} \text { and arg } z^{-1} = -\text {arg z}, z\ne 0$</td>
+      <td id="T_333c6_row14_col0" class="data row14 col0" >$ |z^{-1}| = \dfrac{1}{|z|} \text { and arg } z^{-1} = -\text {arg z}, z\ne 0$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row15_col0" class="data row15 col0" >$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } z^{-n} = \text {-n arg z}, z\ne 0 \text { for } n \in \mathbb{Z}$</td>
+      <td id="T_333c6_row15_col0" class="data row15 col0" >$ |z^{-n}| = \dfrac{1}{|z|^n} \text { and arg } z^{-n} = \text {-n arg z}, z\ne 0 \text { for } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row16_col0" class="data row16 col0" >$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$</td>
+      <td id="T_333c6_row16_col0" class="data row16 col0" >$ |z_1||z_2||z_3|...|z_n| = |z_1z_2z_3...z_n| \text { and arg } z_1z_2z_3...z_n = { arg } z_1 + { arg } z_2 + ...+ { arg } z_n \text { where } n \in \mathbb{Z}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row17_col0" class="data row17 col0" >$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $</td>
+      <td id="T_333c6_row17_col0" class="data row17 col0" >$ \text{ If } z = \cos \theta + i\sin \theta \text{, then } z^{-1} = \overline{z} \text{ (only applies when modulus = 1)} $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row18_col0" class="data row18 col0" >$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $</td>
+      <td id="T_333c6_row18_col0" class="data row18 col0" >$ z\overline{z} = |z|^2 \text{ and arg } z\overline{z} = 0  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row19_col0" class="data row19 col0" >$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $</td>
+      <td id="T_333c6_row19_col0" class="data row19 col0" >$ |\overline{z}| = |z| \text{ and arg } \overline{z} = -{arg } z $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row20_col0" class="data row20 col0" >$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $</td>
+      <td id="T_333c6_row20_col0" class="data row20 col0" >$ \overline{z_1} + \overline{z_2} = \overline{z_1 + z_2}  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row21_col0" class="data row21 col0" >$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $</td>
+      <td id="T_333c6_row21_col0" class="data row21 col0" >$ \overline{z_1} \,\, \overline{z_2} = \overline{z_1 z_2}  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row22_col0" class="data row22 col0" >$ z + \overline{z} = 2Re(z)  $</td>
+      <td id="T_333c6_row22_col0" class="data row22 col0" >$ z + \overline{z} = 2Re(z)  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row23_col0" class="data row23 col0" >$ z - \overline{z} = 2Im(z)  $</td>
+      <td id="T_333c6_row23_col0" class="data row23 col0" >$ z - \overline{z} = 2Im(z)  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row24_col0" class="data row24 col0" >$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $</td>
+      <td id="T_333c6_row24_col0" class="data row24 col0" >$ {|z+w| \le |z| + |w|} \text{ (the triangle inequality where z and w are complex numbers)}  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row25_col0" class="data row25 col0" >$ e^{i\theta} = \cos \theta + i \sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$</td>
+      <td id="T_333c6_row25_col0" class="data row25 col0" >$ e^{i\theta} = \cos \theta + i \sin \theta, \text{ where  }\theta \in \mathbb{R}  \text{ (This is Euler's formula and represents the exponential form of a complex number)}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row26_col0" class="data row26 col0" >$ e^{i\pi} = -1  $</td>
+      <td id="T_333c6_row26_col0" class="data row26 col0" >$ e^{i\pi} = -1  $</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row27_col0" class="data row27 col0" >$ z = a+ib = r(\cos \theta + i \sin \theta) = re^{i \theta}$</td>
+      <td id="T_333c6_row27_col0" class="data row27 col0" >$ z = a+ib = r(\cos \theta + i \sin \theta) = re^{i \theta}$</td>
     </tr>
     <tr>
-      <td id="T_ad4b7_row28_col0" class="data row28 col0" >$ [r(\cos \theta + i \sin \theta)]^n = r^n(\cos n\theta + i\sin n\theta) =  r^ne^{in \theta}$</td>
+      <td id="T_333c6_row28_col0" class="data row28 col0" >$ [r(\cos \theta + i \sin \theta)]^n = r^n(\cos n\theta + i\sin n\theta) =  r^ne^{in \theta}$</td>
     </tr>
   </tbody>
 </table>
@@ -535,31 +535,31 @@ A locus can be graphed:
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
 <style type="text/css">
-#T_4440e th.col_heading {
+#T_fc767 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_4440e td {
+#T_fc767 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_4440e">
+<table id="T_fc767">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_4440e_row0_col0" class="data row0 col0" >$(e ^ {i \theta})^n = e ^ {in \theta} $</td>
+      <td id="T_fc767_row0_col0" class="data row0 col0" >$(e ^ {i \theta})^n = e ^ {in \theta} $</td>
     </tr>
     <tr>
-      <td id="T_4440e_row1_col0" class="data row1 col0" >$z^n + \dfrac{1}{z^n} = 2 \cos n \theta $</td>
+      <td id="T_fc767_row1_col0" class="data row1 col0" >$z^n + \dfrac{1}{z^n} = 2 \cos n \theta $</td>
     </tr>
     <tr>
-      <td id="T_4440e_row2_col0" class="data row2 col0" >$z^n - \dfrac{1}{z^n} = 2i \sin n \theta $</td>
+      <td id="T_fc767_row2_col0" class="data row2 col0" >$z^n - \dfrac{1}{z^n} = 2i \sin n \theta $</td>
     </tr>
     <tr>
-      <td id="T_4440e_row3_col0" class="data row3 col0" >$ i = 1(\cos \dfrac{\pi}{2} + i \sin \dfrac{\pi}{2})$</td>
+      <td id="T_fc767_row3_col0" class="data row3 col0" >$ i = 1(\cos \dfrac{\pi}{2} + i \sin \dfrac{\pi}{2})$</td>
     </tr>
   </tbody>
 </table>

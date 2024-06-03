@@ -43,36 +43,36 @@ None of the auxiliary angles appear on the formula sheet so rather than attempin
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "f10dac49-05d4-451f-b5bc-79b39dbb977a" >}}
+{{< tabs "f1a4d5da-dd1c-489d-b24c-92b1e5bd2c5a" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_2d70a th.col_heading {
+#T_ce1bd th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_2d70a td {
+#T_ce1bd td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_2d70a">
+<table id="T_ce1bd">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_2d70a_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ce1bd_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_2d70a_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ce1bd_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_2d70a_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ce1bd_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_2d70a_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_ce1bd_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
@@ -83,34 +83,34 @@ None of the auxiliary angles appear on the formula sheet so rather than attempin
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_2ce6e th.col_heading {
+#T_f9bab th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_2ce6e td {
+#T_f9bab td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_2ce6e_row0_col0, #T_2ce6e_row1_col0, #T_2ce6e_row2_col0, #T_2ce6e_row3_col0 {
+#T_f9bab_row0_col0, #T_f9bab_row1_col0, #T_f9bab_row2_col0, #T_f9bab_row3_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_2ce6e">
+<table id="T_f9bab">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_2ce6e_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_f9bab_row0_col0" class="data row0 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_2ce6e_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_f9bab_row1_col0" class="data row1 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_2ce6e_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_f9bab_row2_col0" class="data row2 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_2ce6e_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_f9bab_row3_col0" class="data row3 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
