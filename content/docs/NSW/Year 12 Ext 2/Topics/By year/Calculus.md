@@ -25,7 +25,7 @@ Hints:
     - factorising and simplifing fractions, e.g. via difference of squares
     - trig identities e.g. $\sin^2 nx = \frac{1}{2}(1-\cos 2nx)$ and $\cos^2 nx = \frac{1}{2}(1+\cos 2nx)$
 
- - When using the t-formula subsitutions $t = \tan \frac{x}{2}$ as per patterns below it is worthwhile remembering that when calculating dx it needs to equal $\frac{2dt}{1+t^2}$
+ - When using the t-formula subsitutions $t = \tan \frac{x}{2}$ as per patterns below it is worthwhile remembering that when calculating dx it needs to equal $\dfrac{2dt}{1+t^2}$
 
 
 
@@ -39,28 +39,44 @@ Examples of substition "patterns" are included in the table below:
 | $\int \dfrac{1}{a \cos x + b \sin x} dx$      | $t = \tan \frac{x}{2}$                            | $\frac{dt}{dx}$ is a function of sec but can be restated in terms of tan and then t using the trig Pythagorean identities yielding $dx=\frac{2dt}{1+t^2}$|
 | $\int \dfrac{1}{a \cos x + b} dx$             | $t = \tan \frac{x}{2}$                            |                                           |
 | $\int \dfrac{1}{a + b \sin x} dx$             | $t = \tan \frac{x}{2}$                            |                                           |
-| $ \int \dfrac{1}{\sqrt{a^2+x^2}} dx $         | $x=a \tan \theta$                                 |                                           |
+| $ \int \dfrac{1}{\sqrt{a^2+x^2}} dx $         | $x=a \tan \theta$                                 | Note how x is the subject of the substition here, as well as in the below few cases.  Be careful when calculating bounds of definite integrals.                                          |
 | $ \int \dfrac{1}{\sqrt{a^2-x^2}} dx $         | $x=a \sin \theta \text{ or } x=a \cos \theta$     |                                           |
-| $ \int \dfrac{1}{\sqrt{x^2-a^2}} dx $         | $x=a \sec \theta$                                 |                                           |
 | $ \int \dfrac{x}{\sqrt{x+a}} dx $             | $x= u^2 -a$                                       | This enables removing the square root     |
 
 
-
+<br>
 
 #### Integration of rational functions
 
- - Rational functions are functions where both the numerator and denominator are fractions.
- - completing the square
+ Rational functions are functions where both the numerator and denominator are polynomials.
+ 
+ Possible approches:
+  - Dont overlook simple options such as factorising and simplifying fractions that may remove the quadratic denominator.
+
+  - If the integrand can be restated as $\dfrac{1}{(x+a)^2}$ the result of the integral calculation is simply $- \dfrac{1}{x+a}$
+  
+ - If the integrand can be transformed into one of the below forms, for examply by completing the square, the inverse sin and inverse tan integration rules can be applied respectively:
+   - $\dfrac{f'(x)}{\sqrt{a^2-[f(x)]^2}}$
+   
+   
+   - $\dfrac{f'(x)}{a^2+[f(x)]^2}$
+
+
+
  - **Other methods?**
+
+<br>
 
 #### Integration using partial fractions
 
+<br>
 
 #### Integration by parts
 
 Uses below formula which appears on the formula sheet: <br>
 $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 
+<br>
 
 #### Recurrence relations
 
@@ -75,27 +91,27 @@ $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "c12e59e2-6176-48a5-b2e2-43ddf6ee8ee2" >}}
+{{< tabs "a1607d07-bc66-4bc2-9dc3-5757c5bf61e1" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_376fe th.col_heading {
+#T_102e9 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_376fe td {
+#T_102e9 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_376fe">
+<table id="T_102e9">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_376fe_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_102e9_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
@@ -106,25 +122,25 @@ $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_2ded5 th.col_heading {
+#T_25804 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_2ded5 td {
+#T_25804 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_2ded5_row0_col0 {
+#T_25804_row0_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_2ded5">
+<table id="T_25804">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_2ded5_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_25804_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>

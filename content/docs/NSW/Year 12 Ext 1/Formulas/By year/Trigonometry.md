@@ -2,42 +2,42 @@
 weight: 5
 ---
 
-{{< tabs "4fed3fa7-c161-4a0a-8a54-c256ecec89a1" >}}
+{{< tabs "9d3498f3-dcae-4621-ba17-6070c52a7e9a" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_08a7b th.col_heading {
+#T_b41a2 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_08a7b td {
+#T_b41a2 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_08a7b">
+<table id="T_b41a2">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_08a7b_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_b41a2_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_08a7b_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_b41a2_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_08a7b_row2_col0" class="data row2 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_b41a2_row2_col0" class="data row2 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_08a7b_row3_col0" class="data row3 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_b41a2_row3_col0" class="data row3 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_08a7b_row4_col0" class="data row4 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_b41a2_row4_col0" class="data row4 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_08a7b_row5_col0" class="data row5 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_b41a2_row5_col0" class="data row5 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
@@ -48,43 +48,43 @@ weight: 5
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_a4a72 th.col_heading {
+#T_e1285 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_a4a72 td {
+#T_e1285 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_a4a72_row0_col0, #T_a4a72_row1_col0 {
+#T_e1285_row0_col0, #T_e1285_row1_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
-#T_a4a72_row2_col0, #T_a4a72_row3_col0, #T_a4a72_row4_col0, #T_a4a72_row5_col0 {
+#T_e1285_row2_col0, #T_e1285_row3_col0, #T_e1285_row4_col0, #T_e1285_row5_col0 {
   background-color: rgba(0,0,0,0);
 }
 </style>
-<table id="T_a4a72">
+<table id="T_e1285">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_a4a72_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_e1285_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_a4a72_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_e1285_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_a4a72_row2_col0" class="data row2 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_e1285_row2_col0" class="data row2 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_a4a72_row3_col0" class="data row3 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_e1285_row3_col0" class="data row3 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_a4a72_row4_col0" class="data row4 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_e1285_row4_col0" class="data row4 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_a4a72_row5_col0" class="data row5 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_e1285_row5_col0" class="data row5 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
@@ -95,40 +95,40 @@ Items on formula sheet are highlighted
 Items where proofs required are highlighted 
 <br>
 <style type="text/css">
-#T_44ce7 th.col_heading {
+#T_2dae1 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_44ce7 td {
+#T_2dae1 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_44ce7_row0_col0, #T_44ce7_row1_col0, #T_44ce7_row2_col0, #T_44ce7_row3_col0, #T_44ce7_row4_col0, #T_44ce7_row5_col0 {
+#T_2dae1_row0_col0, #T_2dae1_row1_col0, #T_2dae1_row2_col0, #T_2dae1_row3_col0, #T_2dae1_row4_col0, #T_2dae1_row5_col0 {
   background-color: rgba(0,150,200, 0.2);
 }
 </style>
-<table id="T_44ce7">
+<table id="T_2dae1">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_44ce7_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
+      <td id="T_2dae1_row0_col0" class="data row0 col0" >$\sin^2nx = \dfrac{1}{2}(1-\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_44ce7_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
+      <td id="T_2dae1_row1_col0" class="data row1 col0" >$\cos^2nx = \dfrac{1}{2}(1+\cos 2nx)$</td>
     </tr>
     <tr>
-      <td id="T_44ce7_row2_col0" class="data row2 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_2dae1_row2_col0" class="data row2 col0" >$a \sin x + b \cos x = r \sin(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_44ce7_row3_col0" class="data row3 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_2dae1_row3_col0" class="data row3 col0" >$a \sin x - b \cos x = r \sin(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_44ce7_row4_col0" class="data row4 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_2dae1_row4_col0" class="data row4 col0" >$a \cos x + b \sin x = r \cos(x - \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
     <tr>
-      <td id="T_44ce7_row5_col0" class="data row5 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
+      <td id="T_2dae1_row5_col0" class="data row5 col0" >$a \cos x - b \sin x = r \cos(x + \alpha) \text{, where } r=\sqrt{a^2+b^2} \text { and } \tan \alpha = \dfrac{b}{a}$</td>
     </tr>
   </tbody>
 </table>
