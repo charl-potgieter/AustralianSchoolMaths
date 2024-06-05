@@ -46,11 +46,11 @@ Examples of substition "patterns" are included in the table below:
 
 <br>
 
-#### Integration of rational functions
+#### Integration of rational functions involving a quadratic denominator
 
  Rational functions are functions where both the numerator and denominator are polynomials.
  
- Possible approches:
+ Possible approaches:
   - Dont overlook simple options such as factorising and simplifying fractions that may remove the quadratic denominator.
 
   - If the integrand can be restated as $\dfrac{1}{(x+a)^2}$ the result of the integral calculation is simply $- \dfrac{1}{x+a}$
@@ -61,15 +61,66 @@ Examples of substition "patterns" are included in the table below:
    
    - $\dfrac{f'(x)}{a^2+[f(x)]^2}$
 
+ - Look for integrands in the form of $\dfrac{f'(x)}{f{x}}$ that when integrated yield $ln|f(x)| + c$
+
+ - if the numerator consists of 2 terms, the fraction may be able to be split into 2 fractions which may match one of the patterns above.
+
+ - As an extension of above step, sometimes additional values can be added to and then subtracted from the numerator to enable the single fraction to be split into two that intergtate more easily, for exmple $\dfrac {x^2}{x^2+1} = \dfrac{x^2+1-1}{x^2+1} = 1 - \dfrac{1}{x^2+1}$
 
 
- - **Other methods?**
+ 
+
 
 <br>
 
 #### Integration using partial fractions
 
+The degree of a polynomial expression in x is the highest power of x appearing in the expression. An algebraic fraction where the degree of the numerator is less than the degree of the denominator is called a proper fraction (and vice versa for improper fractions)
+
+A proper fraction can be decomposed into simpler partial fractions.
+
+Ensure that denominator is factorised as far as possible before applying the below:
+
+**Linear factors in the denominator with no repetition** <br>
+$\dfrac{k}{(a_1x+b_1)(a_2x+b_2)...(a_nx+b_n)} = \dfrac{A_1}{a_1x+b_1} + \dfrac{A_2}{a_2 x+b_2}+...\dfrac{A_n}{a_n x+b_n} $
+
 <br>
+
+**Linear factors in the denominator with repetition** <br>
+$\dfrac{k}{(ax+b)^n} = \dfrac{A_1}{ax+b} + \dfrac{A_2}{(ax+b)^2} +...+\dfrac{A_n}{(ax+b)^n}  $
+
+<br>
+
+**Irreducible quadratic factors in the denominator with no repetition** <br>
+$\dfrac{kx +l}{(a_1x^2+b_1x+c_1)(a_2x^2+b_2 x + c_2)...(a_n x^2+b_n x +c_n)} = \dfrac{A_1x + B_1}{a_1x^2+b_1x+c_1} + \dfrac{A_2x+B_2}{a_2x^2+b_2 x + c_2}+...\dfrac{A_n x + B_n}{a_n x^2+b_n x +c_n} $
+
+<br>
+
+**Repeated irreducible quadratic factors in the denominator with repetition** <br>
+$\dfrac{kx + l}{(ax^2+bx + c)^n} = \dfrac{A_1x + B_1}{ax^2+bx+c} + \dfrac{A_2x+B_2}{(ax^2+bx+c)^2} +...+\dfrac{A_nx+B_n}{(ax^2+bx+c)^n}  $
+
+<br>
+
+**Combination of above** <br>
+
+For example the denominator may contain a combination or linear, quadratic, unique and repeating factors.
+
+<br>
+
+**Solving for the numerators:**
+
+ - Multiply the equation by the denominator of the LHS to get rid of all fractions.
+
+ - Option 1 Quicker method but not always possible
+    - After first step above, assume equation is as follows 6=A(x+1)(x+2)+B(X-1)(x+2)
+    - Equation needs to hold for all values of x
+    - By setting x=-1 we can solve for B (as A gets zero'd out)
+    - By setting x=1 we can solve for A (as B gets zero'd out)
+
+ - Option 2 Simultaneous equations:
+    - multiply out the RHS
+    - group by powers of X
+    - Arrive at a set of simultaneous equations by setting each coeficient of x or constsnt on LHS with corresponding expression on the RHS
 
 #### Integration by parts
 
@@ -91,27 +142,27 @@ $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "a1607d07-bc66-4bc2-9dc3-5757c5bf61e1" >}}
+{{< tabs "2d5a1f62-cb58-498a-b5b1-d225231ec8a8" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_102e9 th.col_heading {
+#T_0181f th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_102e9 td {
+#T_0181f td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_102e9">
+<table id="T_0181f">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_102e9_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_0181f_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
@@ -122,25 +173,25 @@ $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_25804 th.col_heading {
+#T_23d4c th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_25804 td {
+#T_23d4c td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_25804_row0_col0 {
+#T_23d4c_row0_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_25804">
+<table id="T_23d4c">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_25804_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_23d4c_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
