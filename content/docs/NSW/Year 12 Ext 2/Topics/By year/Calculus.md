@@ -77,7 +77,7 @@ Examples of substition "patterns" are included in the table below:
 
 The degree of a polynomial expression in x is the highest power of x appearing in the expression. An algebraic fraction where the degree of the numerator is less than the degree of the denominator is called a proper fraction (and vice versa for improper fractions)
 
-A proper fraction can be decomposed into simpler partial fractions.
+A proper fraction can be decomposed into simpler partial fractions which are easier to integrate.
 
 Ensure that denominator is factorised as far as possible before applying the below:
 
@@ -124,14 +124,56 @@ For example the denominator may contain a combination or linear, quadratic, uniq
 
 #### Integration by parts
 
+This technique is useful for integrating expressions such as:
+ - $\ln x$
+ - $ \tan^{-1} x$
+ - $ xe^x$
+
 Uses below formula which appears on the formula sheet: <br>
 $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 
 <br>
+When calculating a definite integral the "bounds" need to be applied to both the uv and the integral portion for example:
+<br>
+
+$ {\Large\int}_a^b u \dfrac{dv}{dx} dx= {\Large[} uv {\Large]}_a^b-{\Large\int}_a^bv \dfrac {du}{dx}dx$
+
+
+
+
+Integration by parts can also be applied when it looks as if there is only one expression, for example $ {\Large\int} \ln  x dx$ can be written as $ {\Large\int} (1) (\ln  x) dx$ and then we can assign u=ln x and v'=1.
+
+<br>
+
+When integrating by parts use the LIATE rule in order to decide which expression to allocate to u to differentiate.  Assign in the below order:
+
+ - Logarithmic functions e.g $\ln x$, $\log x$
+ - Inverse trig functions
+ - Algabraic functions e.g. $1$, $x$, $3x^2$
+ - Trigonometric functions (excluding inverse included above)
+ - Exponential functions e.g. $3^x$, $e^x$
+
+It is possible that multiple applications of integration by parts need to be performed in oder to arrive at a solution. 
+
+It is possible for integration by parts to form a "loop" for example: <br>
+$ {\Large\int} \text{<expression 1>} = \text{expression 2 } - {\Large\int} \text{<expression 1>} $, <br>
+then <br>
+$ {\Large\int} \text{<expression 1>} = \dfrac{1}{2} (\text{expression 2 })$
+
+Above 2 cases tie into recurrence relations as below.
+<br>
 
 #### Recurrence relations
 
+A recurrence relation is a recursive formula that expresses an integral in terms of a similiar integral with a smaller power.
 
+For example <br>
+
+$ {\Large\int} x^ne^{ax}dx = \dfrac{1}{a}(x^ne^{ax}-n {\Large\int} x^{n-1}e^{ax}dx) $
+
+Hints
+ - An integral such as $ {\Large\int} \cos^nx $ can be restated as $ {\Large\int} \cos^{n-1} x \cos x dx$ and integration by parts can then be applied
+  - Not all recurrence relation questions rely on integration by parts
 
 <BR><BR>
 
@@ -142,27 +184,27 @@ $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "2d5a1f62-cb58-498a-b5b1-d225231ec8a8" >}}
+{{< tabs "5c1c7e0f-6491-42eb-a65d-e5d72264291a" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_0181f th.col_heading {
+#T_69c4b th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_0181f td {
+#T_69c4b td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_0181f">
+<table id="T_69c4b">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_0181f_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_69c4b_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
@@ -173,25 +215,25 @@ $ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_23d4c th.col_heading {
+#T_f8a04 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_23d4c td {
+#T_f8a04 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_23d4c_row0_col0 {
+#T_f8a04_row0_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_23d4c">
+<table id="T_f8a04">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_23d4c_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_f8a04_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
