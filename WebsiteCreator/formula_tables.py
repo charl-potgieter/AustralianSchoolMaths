@@ -350,7 +350,7 @@ class FormulaTable():
                     + self._table_formula_sheet_higlights())
             if self.contains_proof_required_items:
                 tabs.add_tab(
-                    'Poofs required',
+                    'Proofs required',
                     'Items where proofs required are highlighted \n<br>\n'
                     + self._table_proofs_required_higlights())
             return_value = tabs.to_markdown()

@@ -172,7 +172,7 @@ For example <br>
 $ {\Large\int} x^ne^{ax}dx = \dfrac{1}{a}(x^ne^{ax}-n {\Large\int} x^{n-1}e^{ax}dx) $
 
 Hints
- - An integral such as $ {\Large\int} \cos^nx $ can be restated as $ {\Large\int} \cos^{n-1} x \cos x dx$ and integration by parts can then be applied
+ - An integral such as $ {\Large\int} \cos^nx $ can be restated as $ {\Large\int} \cos^{n-1} x \cos x dx$ and integration by parts can then be applied.  In these cases set u equal to the expression with the power.
   - Not all recurrence relation questions rely on integration by parts
 
 <BR><BR>
@@ -184,27 +184,27 @@ Hints
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "5c1c7e0f-6491-42eb-a65d-e5d72264291a" >}}
+{{< tabs "abb419b9-d357-43c1-a631-9dc09713c969" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_69c4b th.col_heading {
+#T_a6a47 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_69c4b td {
+#T_a6a47 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_69c4b">
+<table id="T_a6a47">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_69c4b_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_a6a47_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
@@ -215,25 +215,25 @@ Hints
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_f8a04 th.col_heading {
+#T_70de0 th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_f8a04 td {
+#T_70de0 td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_f8a04_row0_col0 {
+#T_70de0_row0_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_f8a04">
+<table id="T_70de0">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_f8a04_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_70de0_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
