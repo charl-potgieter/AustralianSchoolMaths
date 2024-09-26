@@ -134,7 +134,7 @@ $ \Rightarrow P(X=x) $
 $ = \bigl({n \atop x} \bigr)p^x(1-p)^{n-x}, x=0,1,...,n$",TRUE,,
 NSW,ME-S1,Statistical Analysis,,,,,$ \text{binomial distribution: } E(X) = np $,TRUE,,
 NSW,ME-S1,Statistical Analysis,,,,,$ \text{binmomial distribution: } VAR(X) = np(1-p)  $,TRUE,,
-NSW,ME-S1,Statistical Analysis,,,,,$ \hat{p} = \dfrac{x}{n} $,TRUE,,
+NSW,ME-S1,Statistical Analysis,,,,,$ \hat{p} = \dfrac{x}{n} $,FALSE,,
 NSW,ME-S1,Statistical Analysis,,,,,$ \text{sample proportions: } E(\hat{p}) = p $,FALSE,,
 NSW,ME-S1,Statistical Analysis,,,,,$ \text{sample proportions: } \text{VAR} (\hat{p}) = \dfrac{p(1-p)}{n} $,FALSE,,
 NSW,MEX-N1,Complex Numbers,,,,,$ i = \sqrt{-1}$,FALSE,,
