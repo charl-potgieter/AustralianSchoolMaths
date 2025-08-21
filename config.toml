@@ -3,6 +3,11 @@ languageCode = 'en-us'
 title = 'Australian school maths'
 theme = 'hugo-book'
 
+# https://gohugo.io/host-and-deploy/host-on-github-pages/
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [markup.goldmark.renderer]
 unsafe = true
 
