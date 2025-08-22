@@ -1,19 +1,14 @@
-# pylint: disable=missing-module-docstring
-# pylint: disable=missing-class-docstring
-# pylint: disable=missing-function-docstring
-
 from typing import cast, Any, Generator
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.spines import Spines
 from matplotlib.axes import Axes
 import numpy as np
 import sympy as sp
-plt.style.use('classic')
+
+plt.style.use("classic")
 
 
-class _Domain():
-
+class _Domain:
     def __init__(self):
         self._domain_min = -10
         self._domain_max = 10
@@ -39,8 +34,7 @@ class _Domain():
         return sp.Interval(self._domain_min, self._domain_max)
 
 
-class _Range():
-
+class _Range:
     def __init__(self, y_values: list[float]):
         self._y_values = y_values
 
@@ -57,10 +51,9 @@ class _Range():
         return sp.Interval(self.min, self.max)
 
 
-class _SeriesStyle():
-
+class _SeriesStyle:
     def __init__(self):
-        self._colour = 'blue'
+        self._colour = "blue"
         self._has_left_arrow = False
         self._has_right_arrow = False
 
@@ -89,15 +82,14 @@ class _SeriesStyle():
         self._has_right_arrow = value
 
 
-class DataSeries():
-
+class DataSeries:
     def __init__(self):
         self._domain = _Domain()
         self._range = None
         self._expression = None
         self._number_of_points = 1000
         self._series_style = _SeriesStyle()
-        self._x = sp.symbols('x')
+        self._x = sp.symbols("x")
 
     @property
     def domain(self):
@@ -133,7 +125,8 @@ class DataSeries():
         return np.linspace(
             cast(Any, self._domain.min),
             cast(Any, self._domain.max),
-            self._number_of_points)
+            self._number_of_points,
+        )
 
     @property
     def y_values(self) -> list[float]:
@@ -142,8 +135,8 @@ class DataSeries():
 
     @property
     def label(self):
-        return_value = '$ f(x) = ' + sp.latex(self._expression) + '$'
-        return_value = return_value.replace(r'\frac', r'\dfrac')
+        return_value = "$ f(x) = " + sp.latex(self._expression) + "$"
+        return_value = return_value.replace(r"\frac", r"\dfrac")
         return return_value
 
     @property
@@ -159,18 +152,21 @@ class DataSeries():
     @property
     def second_right_most_co_ordinate(self) -> tuple[float, float]:
         """utilised for optionaly displaying arrow at end of curve"""
-        return (self.x_values[self.number_of_points-2],
-                self.y_values[self.number_of_points - 2])
+        return (
+            self.x_values[self.number_of_points - 2],
+            self.y_values[self.number_of_points - 2],
+        )
 
     @property
     def right_most_co_ordinate(self) -> tuple[float, float]:
         """utilised for optionaly displaying arrow at end of curve"""
-        return (self.x_values[self.number_of_points-1],
-                self.y_values[self.number_of_points - 1])
+        return (
+            self.x_values[self.number_of_points - 1],
+            self.y_values[self.number_of_points - 1],
+        )
 
 
-class _DataSet():
-
+class _DataSet:
     def __init__(self):
         self._data = []
 
@@ -224,8 +220,7 @@ class _DataSet():
         return min_found
 
 
-class _Spines():
-
+class _Spines:
     def __init__(self, spines: Spines):
         self._spines = spines
 
@@ -235,8 +230,9 @@ class _Spines():
         self._spines[["top", "right"]].set_visible(False)
 
 
-class _SymbolicNumberConverter():
+class _SymbolicNumberConverter:
     """Manages list of sympy numbers and equivalent floats"""
+
     # TODO attempt to add hinting couldn't easily get this working
 
     def __init__(self, symbols):
@@ -248,24 +244,27 @@ class _SymbolicNumberConverter():
 
     @property
     def to_latex(self):
-        return ['$' + sp.latex(x).replace(r'\frac', r'\dfrac') + '$'
-                for x in self._symbols]
+        return [
+            "$" + sp.latex(x).replace(r"\frac", r"\dfrac") + "$" for x in self._symbols
+        ]
 
     @property
     def to_latex_in_degrees(self):
-        return ['$' + sp.latex(sp.deg(x))
-                .replace(r'\frac', r'\dfrac') + r'\degree $'
-                for x in self._symbols]
+        return [
+            "$" + sp.latex(sp.deg(x)).replace(r"\frac", r"\dfrac") + r"\degree $"
+            for x in self._symbols
+        ]
 
     @property
     def to_floats(self):
         return [float(x) for x in self._symbols]
 
 
-class _SymbolicNumberIntervals():
+class _SymbolicNumberIntervals:
     """manages a list of sympy symbolic values with given start,
     end and interval.  If zero lies in the range the intervals
     are calculated from zero, otherwise from start"""
+
     # TODO attempt to add hinting couldn't easily get this working
 
     def __init__(self, start, end, interval):
@@ -275,12 +274,12 @@ class _SymbolicNumberIntervals():
 
     @property
     def as_list(self):
-
         if self._range_spans_zero():
-            return (self._intervals_from_start_to_zero()
-                    + [sp.Rational(0)]
-                    + self._intervals_from_zero_to_end()
-                    )
+            return (
+                self._intervals_from_start_to_zero()
+                + [sp.Rational(0)]
+                + self._intervals_from_zero_to_end()
+            )
         else:
             return self._intervals_from_start_to_end()
 
@@ -312,8 +311,7 @@ class _SymbolicNumberIntervals():
         return return_list
 
 
-class _Dimensions():
-
+class _Dimensions:
     def __init__(self):
         self._width = 20
         self._height = 20
@@ -335,7 +333,7 @@ class _Dimensions():
         self._height = value
 
 
-class _DisplayBuffer():
+class _DisplayBuffer:
     """Records percentage buffer to display over graph domain and range"""
 
     def __init__(self):
@@ -377,7 +375,7 @@ class _DisplayBuffer():
         self._bottom = value
 
 
-class _SingleAxes():
+class _SingleAxes:
     """A simpler purpose specfic wrapper for Matplotlib axes"""
 
     def __init__(self, axes: Axes):
@@ -386,7 +384,7 @@ class _SingleAxes():
         self._display_buffer = _DisplayBuffer()
         self._spines = _Spines(axes.spines)
         self._spines.move_to_centre()
-        self._legend_location = 'upper right'
+        self._legend_location = "upper right"
         self._x_ticks_symbolic = []
         self._y_ticks_symbolic = []
         self._x_axis_tick_symbolic_interval = None
@@ -476,64 +474,64 @@ class _SingleAxes():
         self._setlegend()
 
     def _add_spine_arrows(self):
-        self._axes.plot(1, 0, ">k",
-                        transform=self._axes.get_yaxis_transform(),
-                        clip_on=False)
-        self._axes.plot(0, 0, "<k",
-                        transform=self._axes.get_yaxis_transform(),
-                        clip_on=False)
-        self._axes.plot(0, 1, "^k", transform=self._axes.get_xaxis_transform(),
-                        clip_on=False)
-        self._axes.plot(0, 0, "vk", transform=self._axes.get_xaxis_transform(),
-                        clip_on=False)
+        self._axes.plot(
+            1, 0, ">k", transform=self._axes.get_yaxis_transform(), clip_on=False
+        )
+        self._axes.plot(
+            0, 0, "<k", transform=self._axes.get_yaxis_transform(), clip_on=False
+        )
+        self._axes.plot(
+            0, 1, "^k", transform=self._axes.get_xaxis_transform(), clip_on=False
+        )
+        self._axes.plot(
+            0, 0, "vk", transform=self._axes.get_xaxis_transform(), clip_on=False
+        )
 
     def _set_tick_position(self) -> None:
-        self._axes.xaxis.set_ticks_position('bottom')
-        self._axes.yaxis.set_ticks_position('left')
+        self._axes.xaxis.set_ticks_position("bottom")
+        self._axes.yaxis.set_ticks_position("left")
 
     def _set_axes_limits(self):
-        self._axes.set(xlim=self._x_display_limits,
-                       ylim=self._y_display_limits)
+        self._axes.set(xlim=self._x_display_limits, ylim=self._y_display_limits)
 
     def _add_intervals_to_x_ticks(self):
         intervals = _SymbolicNumberIntervals(
             self._x_display_limits[0],
             self._x_display_limits[1],
-            self._x_axis_tick_symbolic_interval).as_list
-        self._x_ticks_symbolic = list(
-            set(self._x_ticks_symbolic + intervals))
+            self._x_axis_tick_symbolic_interval,
+        ).as_list
+        self._x_ticks_symbolic = list(set(self._x_ticks_symbolic + intervals))
 
     def _add_intervals_to_y_ticks(self):
         intervals = _SymbolicNumberIntervals(
             self._y_display_limits[0],
             self._y_display_limits[1],
-            self._y_axis_tick_symbolic_interval).as_list
-        self._y_ticks_symbolic = list(
-            set(self._y_ticks_symbolic + intervals))
+            self._y_axis_tick_symbolic_interval,
+        ).as_list
+        self._y_ticks_symbolic = list(set(self._y_ticks_symbolic + intervals))
 
     def _set_x_ticks(self):
         ticks = _SymbolicNumberConverter(self._x_ticks_symbolic)
         if self._display_x_ticks_in_degrees:
-            self._axes.set_xticks(ticks.to_floats,
-                                  ticks.to_latex_in_degrees)
+            self._axes.set_xticks(ticks.to_floats, ticks.to_latex_in_degrees)
         else:
-            self._axes.set_xticks(ticks.to_floats,
-                                  ticks.to_latex)
+            self._axes.set_xticks(ticks.to_floats, ticks.to_latex)
 
     def _set_y_ticks(self):
         ticks = _SymbolicNumberConverter(self._y_ticks_symbolic)
         if self._display_y_ticks_in_degrees:
-            self._axes.set_yticks(ticks.to_floats,
-                                  ticks.to_latex_in_degrees)
+            self._axes.set_yticks(ticks.to_floats, ticks.to_latex_in_degrees)
         else:
-            self._axes.set_yticks(ticks.to_floats,
-                                  ticks.to_latex)
+            self._axes.set_yticks(ticks.to_floats, ticks.to_latex)
 
     def _generate_plot(self):
         for data_series in self._data_set.data_series_items:
-            self._axes.plot(data_series.x_values, data_series.y_values,
-                            color=data_series.style.colour,
-                            label=data_series.label)
+            self._axes.plot(
+                data_series.x_values,
+                data_series.y_values,
+                color=data_series.style.colour,
+                label=data_series.label,
+            )
             if data_series.style.has_left_arrow:
                 self._render_arrow_on_left_of_curve(data_series)
             if data_series.style.has_right_arrow:
@@ -541,50 +539,43 @@ class _SingleAxes():
 
     def _render_arrow_on_left_of_curve(self, data_series: DataSeries):
         self._axes.annotate(
-            "", xy=data_series.second_left_most_co_ordinate,
+            "",
+            xy=data_series.second_left_most_co_ordinate,
             xytext=data_series.left_most_co_ordinate,
-            arrowprops=dict(
-                arrowstyle="<-",
-                color=data_series.style.colour))
+            arrowprops=dict(arrowstyle="<-", color=data_series.style.colour),
+        )
 
     def _render_arrow_on_right_of_curve(self, data_series: DataSeries):
         self._axes.annotate(
-            "", xy=data_series.second_right_most_co_ordinate,
+            "",
+            xy=data_series.second_right_most_co_ordinate,
             xytext=data_series.right_most_co_ordinate,
-            arrowprops=dict(
-                arrowstyle="<-",
-                color=data_series.style.colour))
+            arrowprops=dict(arrowstyle="<-", color=data_series.style.colour),
+        )
 
     def _setlegend(self):
-        self._axes.legend(framealpha=1, frameon=True,
-                          loc=self._legend_location)
+        self._axes.legend(framealpha=1, frameon=True, loc=self._legend_location)
 
     @property
     def _x_display_limits(self) -> tuple[float, float]:
-        if (self._data_set.max_domain is None
-                or self._data_set.min_domain is None):
+        if self._data_set.max_domain is None or self._data_set.min_domain is None:
             return (0, 0)
         x_interval = self._data_set.max_domain - self._data_set.min_domain
-        x_min = (self._data_set.min_domain
-                 - x_interval * self.display_buffer.left)
-        x_max = (self._data_set.max_domain +
-                 x_interval * self.display_buffer.right)
+        x_min = self._data_set.min_domain - x_interval * self.display_buffer.left
+        x_max = self._data_set.max_domain + x_interval * self.display_buffer.right
         return (x_min, x_max)
 
     @property
     def _y_display_limits(self) -> tuple[float, float]:
-        if (self._data_set.max_range is None
-                or self._data_set.min_range is None):
+        if self._data_set.max_range is None or self._data_set.min_range is None:
             return (0, 0)
         y_interval = self._data_set.max_range - self._data_set.min_range
-        y_min = (self._data_set.min_range
-                 - y_interval * self.display_buffer.bottom)
-        y_max = (self._data_set.max_range +
-                 y_interval * self.display_buffer.top)
+        y_min = self._data_set.min_range - y_interval * self.display_buffer.bottom
+        y_max = self._data_set.max_range + y_interval * self.display_buffer.top
         return (y_min, y_max)
 
 
-class Figure():
+class Figure:
     """A simpler purpose specfic wrapper for Matplotlib figure"""
 
     def __init__(self):
