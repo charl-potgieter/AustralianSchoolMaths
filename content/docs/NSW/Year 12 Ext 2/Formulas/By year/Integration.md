@@ -2,27 +2,27 @@
 weight: 5
 ---
 
-{{< tabs "2f54cc48-0eba-494f-b40d-bbbc6ea2d164" >}}
+{{< tabs "63a0a2fb-f32a-4ad8-97ef-5ef706882a35" >}}
 
 {{< tab "Standard view" >}}
 
 <style type="text/css">
-#T_145a3 th.col_heading {
+#T_17319a9a th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_145a3 td {
+#T_17319a9a td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
 </style>
-<table id="T_145a3">
+<table id="T_17319a9a">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_145a3_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_17319a9a_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
@@ -33,25 +33,25 @@ weight: 5
 Items on formula sheet are highlighted 
 <br>
 <style type="text/css">
-#T_20313 th.col_heading {
+#T_17319a9a th.col_heading {
   text-align: left;
   font-size: 1em;
 }
-#T_20313 td {
+#T_17319a9a td {
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
 }
-#T_20313_row0_col0 {
+#T_17319a9a_row0_col0 {
   background-color: rgba(255,194,10, 0.2);
 }
 </style>
-<table id="T_20313">
+<table id="T_17319a9a">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <td id="T_20313_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
+      <td id="T_17319a9a_row0_col0" class="data row0 col0" >$ {\Large\int} u \dfrac{dv}{dx} dx=uv-{\Large\int}v \dfrac {du}{dx}dx$</td>
     </tr>
   </tbody>
 </table>
