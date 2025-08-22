@@ -1,6 +1,7 @@
 import typing
 from enum import Enum
 from abc import ABC, abstractmethod
+import hashlib
 import pandas as pd
 from pandas.io.formats.style import Styler
 from site_content import Formulas
@@ -127,7 +128,9 @@ class FormulaTableTypeCalculus(FormulaTableType):
         ]
         calculus_df = calculus_df.dropna(subset=["Group"])
         calculus_df = calculus_df[["Category", "Group", "Formula", "Comment"]]
-        calculus_df = calculus_df.pivot(columns="Category", index="Group").fillna("")
+        calculus_df = calculus_df.pivot(
+            columns="Category", index="Group"
+        ).fillna("")
 
         # Flatten the multi-index headings after pivot
         calculus_df.columns = (
@@ -137,7 +140,9 @@ class FormulaTableTypeCalculus(FormulaTableType):
         )
         calculus_df = calculus_df.reset_index()
 
-        calculus_df["Comment"] = calculus_df.apply(self._get_comment, axis="columns")
+        calculus_df["Comment"] = calculus_df.apply(
+            self._get_comment, axis="columns"
+        )
 
         calculus_df = calculus_df.sort_values(by="Group")
         calculus_df = calculus_df.drop(
@@ -152,7 +157,9 @@ class FormulaTableTypeCalculus(FormulaTableType):
         )
 
         # Reorder columns
-        calculus_df = calculus_df[["Derivative", "Equivalent integral", "Comment"]]
+        calculus_df = calculus_df[
+            ["Derivative", "Equivalent integral", "Comment"]
+        ]
         return calculus_df
 
     def _formulas_contain_grouped_derivatives_and_integrals(self) -> bool:
@@ -173,7 +180,9 @@ class FormulaTableTypeCalculus(FormulaTableType):
             return_value = row["Comment Differentiation"]
         else:
             return_value = (
-                row["Comment Differentiation"] + "\n" + row["Comment Integration"]
+                row["Comment Differentiation"]
+                + "\n"
+                + row["Comment Integration"]
             )
         return return_value
 
@@ -216,7 +225,9 @@ class FormulaTableTypeFinancial(FormulaTableType):
         if len(financial_df.index) == 0:
             return pd.DataFrame()
 
-        financial_df = financial_df[["Subcategory_1", "Subcategory_2", "Formula"]]
+        financial_df = financial_df[
+            ["Subcategory_1", "Subcategory_2", "Formula"]
+        ]
         financial_df = pd.pivot_table(
             data=financial_df,
             values="Formula",
@@ -268,24 +279,37 @@ class FormulaTable:
     @property
     def has_tabs(self) -> bool:
         """Returns true if table has / requires tabs"""
-        return self.contains_formula_sheet_items or self.contains_proof_required_items
+        return (
+            self.contains_formula_sheet_items
+            or self.contains_proof_required_items
+        )
 
     @property
     def contains_formula_sheet_items(self) -> bool:
         """Returns True if the table contains formulas that appear on the
         formula sheet"""
         formula_columns = self.table_type.formula_columns
-        formulas_in_table = self.table_type.to_dataframe()[formula_columns].stack()
+        formulas_in_table = self.table_type.to_dataframe()[
+            formula_columns
+        ].stack()
         formula_sheet_items = self._formulas.formula_sheet_items
-        return len(set(formulas_in_table).intersection(set(formula_sheet_items))) > 0
+        return (
+            len(set(formulas_in_table).intersection(set(formula_sheet_items)))
+            > 0
+        )
 
     @property
     def contains_proof_required_items(self) -> bool:
         """Returns True if the table contains formulas that require proofs"""
         formula_columns = self.table_type.formula_columns
-        formulas_in_table = self.table_type.to_dataframe()[formula_columns].stack()
+        formulas_in_table = self.table_type.to_dataframe()[
+            formula_columns
+        ].stack()
         proof_required_items = self._formulas.proofs_required_items
-        return len(set(formulas_in_table).intersection(set(proof_required_items))) > 0
+        return (
+            len(set(formulas_in_table).intersection(set(proof_required_items)))
+            > 0
+        )
 
     def _table_no_higlights(self) -> str:
         """Returns table with no highlights"""
@@ -378,8 +402,17 @@ class _StyledTable:
     """Implements a dataframe styler customised for maths formula display"""
 
     def __init__(self, input_df: pd.DataFrame):
-        self._table = input_df.fillna("").style
-        self._table = self._table.set_table_styles(
+        self._df = input_df.fillna("")
+        self._table = self._create_styler()
+        # Calculate and assign unique table hash to prevent pandas from auto
+        # generating different values each time which are identified as changes
+        # by git
+        self._table_hash = self._compute_table_hash()
+        self._table.set_uuid(self._table_hash)
+
+    def _create_styler(self):
+        styler = self._df.style
+        styler = styler.set_table_styles(
             [
                 {
                     "selector": "th.col_heading",
@@ -391,6 +424,12 @@ class _StyledTable:
                 },
             ]
         )
+        return styler
+
+    def _compute_table_hash(self):
+        """Compute a stable hash of the DataFrame content."""
+        df_bytes = self._df.to_csv(index=False).encode("utf-8")
+        return hashlib.md5(df_bytes).hexdigest()[:8]
 
     def _raw(self) -> Styler:
         return self._table
