@@ -1,16 +1,11 @@
-# pylint: disable=missing-module-docstring
-# pylint: disable=missing-class-docstring
-# pylint: disable=missing-function-docstring
-
-
 import copy
-from typing import Callable, Self, Dict
+from typing import Self, Dict
 from collections.abc import Generator
 import pandas as pd
 from data_validator import DataColumnValidator
 
 
-class _SiteContent():
+class _SiteContent:
     """Defines a base class for site content used to derive other classes
     such as formulas, notes etc"""
 
@@ -19,7 +14,8 @@ class _SiteContent():
 
     def __init__(self, input_data: pd.DataFrame):
         column_validator = DataColumnValidator(
-            list(input_data.columns), list(self._data_structure.keys()))
+            list(input_data.columns), list(self._data_structure.keys())
+        )
         column_validator.validate_column_names()
         self._data = input_data.astype(self._data_structure)
         self._is_cumulative = False
@@ -46,26 +42,15 @@ class _SiteContent():
 
     def field_value(self, field_name: str) -> str | float:
         """Returns the value in field_name.  If multiple non-unique values
-          exist return 'Multiple Values'
-          """
-        unique_values_in_field = (
-            self._data[field_name].drop_duplicates())
+        exist return 'Multiple Values'
+        """
+        unique_values_in_field = self._data[field_name].drop_duplicates()
         if len(unique_values_in_field) == 1:
             return list(unique_values_in_field)[0]
-        return 'Multiple values'
+        return "Multiple values"
 
     def copy(self) -> Self:
         return copy.deepcopy(self)
-
-    def filter_by_function(self, filter_function: Callable) -> Self:
-        """Returns a new filtered object where
-        filter_function returns True when passed each data item in the
-        object as a pandas series.
-        """
-        new_object = self.copy()
-        return_mask = new_object.data.apply(filter_function, axis=1)
-        new_object.data = pd.DataFrame(new_object.data[return_mask])
-        return new_object
 
     def filter_by_dict(self, filter_dict: Dict[str, str]) -> Self:
         """Returns a new filtered object filtered by field per dictionary
@@ -75,10 +60,10 @@ class _SiteContent():
             new_object.data = new_object.data[new_object.data[key] == value]
         return new_object
 
-    def group_by_columns(self, columns: list[str]) -> Generator[Self,
-                                                                None, None]:
-        """Returns a generator of this object grouped by columns (iterable)
-        """
+    def group_by_columns(
+        self, columns: list[str]
+    ) -> Generator[Self, None, None]:
+        """Returns a generator of this object grouped by columns (iterable)"""
 
         grouper = self._data.groupby(columns)
         for _, grouped_data in grouper:
@@ -88,45 +73,57 @@ class _SiteContent():
 
 
 class Syllabus(_SiteContent):
-
-    _data_structure = {'State': 'object',
-                       'Subject': 'object',
-                       'Syllabus_topic': 'object',
-                       'Syllabus_subtopic_code': 'object',
-                       'Syllabus_subtopic': 'object'}
+    _data_structure = {
+        "State": "object",
+        "Subject": "object",
+        "Syllabus_topic": "object",
+        "Syllabus_subtopic_code": "object",
+        "Syllabus_subtopic": "object",
+    }
 
     def topics(self):
         """generator of topics in syllabus (excludes subtopic levels)"""
-        topic_data = self.data[['State', 'Subject', 'Syllabus_topic']
-                               ].drop_duplicates()
+        topic_data = self.data[
+            ["State", "Subject", "Syllabus_topic"]
+        ].drop_duplicates()
         for topic_item in topic_data.itertuples():
-            subtopics = self._get_subtopics(topic_item.State,
-                                            topic_item.Subject,
-                                            topic_item.Syllabus_topic)
-            topic_item = SyllabusTopic(topic_item.Syllabus_topic,
-                                       topic_item.State,
-                                       topic_item.Subject,
-                                       self._is_cumulative,
-                                       subtopics
-                                       )
+            subtopics = self._get_subtopics(
+                topic_item.State, topic_item.Subject, topic_item.Syllabus_topic
+            )
+            topic_item = SyllabusTopic(
+                topic_item.Syllabus_topic,
+                topic_item.State,
+                topic_item.Subject,
+                self._is_cumulative,
+                subtopics,
+            )
             yield topic_item
 
     def _get_subtopics(
-            self, state: str, subject: str, topic: str) -> list[str]:
-        return list(self.data[
-            (self.data['State'] == state) &
-            (self.data['Subject'] == subject) &
-            (self.data['Syllabus_topic'] == topic)]['Syllabus_subtopic']
+        self, state: str, subject: str, topic: str
+    ) -> list[str]:
+        return list(
+            self.data[
+                (self.data["State"] == state)
+                & (self.data["Subject"] == subject)
+                & (self.data["Syllabus_topic"] == topic)
+            ]["Syllabus_subtopic"]
         )
 
 
-class SyllabusTopic():
+class SyllabusTopic:
     """Single syllabus topic item of Syllabus class excluding subtopic level
     details
     """
 
-    def __init__(self, name: str, state: str, subject: str,
-                 is_cumulative: bool, subtopics: list[str]):
+    def __init__(
+        self,
+        name: str,
+        state: str,
+        subject: str,
+        is_cumulative: bool,
+        subtopics: list[str],
+    ):
         self._name = name
         self._state = state
         self._subject = subject
@@ -155,46 +152,51 @@ class SyllabusTopic():
 
 
 class Formulas(_SiteContent):
-
-    _data_structure = {'State': 'object',
-                       'Subject': 'object',
-                       'Syllabus_topic': 'object',
-                       'Syllabus_subtopic_code': 'object',
-                       'Syllabus_subtopic': 'object',
-                       'Category': 'object',
-                       'Subcategory_1': 'object',
-                       'Subcategory_2': 'object',
-                       'Description': 'object',
-                       'Group': 'object',
-                       'Formula': 'object',
-                       'On_formula_sheet': 'bool',
-                       'Proof_required': 'bool',
-                       'Comment': 'object'}
+    _data_structure = {
+        "State": "object",
+        "Subject": "object",
+        "Syllabus_topic": "object",
+        "Syllabus_subtopic_code": "object",
+        "Syllabus_subtopic": "object",
+        "Category": "object",
+        "Subcategory_1": "object",
+        "Subcategory_2": "object",
+        "Description": "object",
+        "Group": "object",
+        "Formula": "object",
+        "On_formula_sheet": "bool",
+        "Proof_required": "bool",
+        "Comment": "object",
+    }
 
     @property
     def formula_sheet_items(self) -> list[str]:
         """Returns a list of formulas where field 'On_formula_sheet'
         is True
         """
-        formulas_on_sheet = list(self._data[
-            (self._data['On_formula_sheet']) &
-            (self._data['Formula'].notnull())
-        ]['Formula'].drop_duplicates())
+        formulas_on_sheet = list(
+            self._data[
+                (self._data["On_formula_sheet"])
+                & (self._data["Formula"].notnull())
+            ]["Formula"].drop_duplicates()
+        )
         return formulas_on_sheet
 
     @property
     def proofs_required_items(self) -> list[str]:
         """Returns a list of formulas where field 'Proof_required'
-         is True
+        is True
         """
-        proofs_required = list(self._data[
-            (self._data['Proof_required']) &
-            (self._data['Formula'].notnull())
-        ]['Formula'].drop_duplicates())
+        proofs_required = list(
+            self._data[
+                (self._data["Proof_required"])
+                & (self._data["Formula"].notnull())
+            ]["Formula"].drop_duplicates()
+        )
         return proofs_required
 
 
-class Note():
+class Note:
     """Single note object consisting of term name and note only"""
 
     def __init__(self, note: str):
@@ -206,13 +208,14 @@ class Note():
 
 
 class Notes(_SiteContent):
-
-    _data_structure = {'State': 'object',
-                       'Subject': 'object',
-                       'Syllabus_topic': 'object',
-                       'Syllabus_subtopic_code': 'object',
-                       'Syllabus_subtopic': 'object',
-                       'Note': 'object'}
+    _data_structure = {
+        "State": "object",
+        "Subject": "object",
+        "Syllabus_topic": "object",
+        "Syllabus_subtopic_code": "object",
+        "Syllabus_subtopic": "object",
+        "Note": "object",
+    }
 
     @property
     def notes(self) -> Generator[Note, None, None]:

@@ -7,48 +7,35 @@ import json
 import pandas as pd
 
 
-class DataSource():
-
-    def _file_is_empty(self, filepath:str)->bool:
+class DataSource:
+    def _file_is_empty(self, filepath: str) -> bool:
         return os.stat(filepath).st_size == 0
 
-    def _state_from_filename(self, filename:str)->str:
+    def _state_from_filename(self, filename: str) -> str:
         """
         Returns state where filename is in format
         State_SubtopicCode_Description
         """
-        return filename.split('_')[0]
+        return filename.split("_")[0]
 
-    def _subtopic_code_from_filename(self, filename:str)->str:
+    def _subtopic_code_from_filename(self, filename: str) -> str:
         """
         Returns subtopic code where filename is in format
         State_SubtopicCode_Description
         """
-        return filename.split('_')[1]
+        return filename.split("_")[1]
 
-    def _read_json_from_notebook(self, file_path:str):
-        with open(file_path, 'r', encoding='utf-8') as file:
+    def _read_json_from_notebook(self, file_path: str):
+        with open(file_path, "r", encoding="utf-8") as file:
             notebook_content = json.load(file)
         return notebook_content
 
-    def _notebook_cell_tags(self, file_path:str)->list[str]:
-        notebook_content = self._read_json_from_notebook(file_path)
-        cell_tags=[]
-        for cell in notebook_content['cells']:
-            cell_tags+=cell['metadata']['tags']
-        cell_tags=list(set(cell_tags))
-        return cell_tags
-
-    def _notebook_cell_tags_ex_heading(self, filepath):
-        cell_tags = self._notebook_cell_tags(filepath)
-        if 'Heading' in cell_tags:
-            cell_tags.remove('Heading')
-        return cell_tags
-
-    def _convert_notebook_markdown_content_to_string(self, cell_content)->str:
+    def _convert_notebook_markdown_content_to_string(
+        self, cell_content
+    ) -> str:
         # Jupyter markdown cell is saved to json as a list of strings.
         # This function returns content as a single string.
-        return ''.join(cell_content)
+        return "".join(cell_content)
 
     @property
     def website_creator_directory(self) -> str:
@@ -61,51 +48,61 @@ class DataSource():
     def docs_directory(self) -> str:
         """Returns the docs directory containinng content of Hugo website"""
         this_file_path = os.path.dirname(__file__)
-        return (os.path.join(
-            os.path.dirname(this_file_path),
-            'content', 'docs'))
+        return os.path.join(os.path.dirname(this_file_path), "content", "docs")
 
     @property
     def static_images_directory(self) -> str:
         """Returns the docs directory containinng content of Hugo website"""
         this_file_path = os.path.dirname(__file__)
-        return (os.path.join(
-            os.path.dirname(this_file_path),
-            'static', 'images'))
+        return os.path.join(
+            os.path.dirname(this_file_path), "static", "images"
+        )
 
     @property
     def hierarchies_file_path(self) -> str:
-        return (self.website_creator_directory
-                + os.path.sep
-                + 'data_files'
-                + os.path.sep
-                + 'site_hierarchy.csv')
+        return (
+            self.website_creator_directory
+            + os.path.sep
+            + "data_files"
+            + os.path.sep
+            + "site_hierarchy.csv"
+        )
 
     @property
     def formulas_file_path(self) -> str:
-        return (self.website_creator_directory + os.path.sep
-                + 'data_files'
-                + os.path.sep
-                + 'formulas.csv')
+        return (
+            self.website_creator_directory
+            + os.path.sep
+            + "data_files"
+            + os.path.sep
+            + "formulas.csv"
+        )
 
     @property
     def notes_directory(self) -> str:
-        return (self.website_creator_directory + os.path.sep
-                + 'data_files_notes')
+        return (
+            self.website_creator_directory + os.path.sep + "data_files_notes"
+        )
 
     @property
     def syllabus_file_path(self) -> str:
-        return (self.website_creator_directory + os.path.sep
-                + 'data_files'
-                + os.path.sep
-                + 'syllabus_topics.csv')
+        return (
+            self.website_creator_directory
+            + os.path.sep
+            + "data_files"
+            + os.path.sep
+            + "syllabus_topics.csv"
+        )
 
     @property
     def subject_dependencies_file_path(self) -> str:
-        return (self.website_creator_directory + os.path.sep
-                + 'data_files'
-                + os.path.sep
-                + 'subject_dependencies.csv')
+        return (
+            self.website_creator_directory
+            + os.path.sep
+            + "data_files"
+            + os.path.sep
+            + "subject_dependencies.csv"
+        )
 
     @property
     def syllabus_by_year(self) -> pd.DataFrame:
@@ -118,16 +115,23 @@ class DataSource():
         as well as the syllabus from a subjects dependencies)
         """
         return_value = self.syllabus_by_year.copy()
-        return_value = return_value.rename(columns={'Subject': 'Dependency'})
+        return_value = return_value.rename(columns={"Subject": "Dependency"})
         return_value = return_value.merge(
             right=self.subject_dependencies,
-            left_on=['State', 'Dependency'],
-            right_on=['State', 'Dependency'])
-        return_value = return_value.drop('Dependency', axis='columns')
+            left_on=["State", "Dependency"],
+            right_on=["State", "Dependency"],
+        )
+        return_value = return_value.drop("Dependency", axis="columns")
         # Re-order cols
-        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
-                                     'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic']]
+        return_value = return_value[
+            [
+                "State",
+                "Subject",
+                "Syllabus_topic",
+                "Syllabus_subtopic_code",
+                "Syllabus_subtopic",
+            ]
+        ]
         return return_value
 
     @property
@@ -146,15 +150,19 @@ class DataSource():
         # TODO Temporarily mark empty boolean fields as false to avoid type errors
         # Remove once all data capture is complete
         formulas_input_converter = {
-            'Proof_required': lambda x: True if x =='TRUE' else False}
+            "Proof_required": lambda x: True if x == "TRUE" else False
+        }
         formulas_ex_syllabus = pd.read_csv(
             filepath_or_buffer=self.formulas_file_path,
-            converters=formulas_input_converter)
+            converters=formulas_input_converter,
+        )
         formulas = pd.merge(
-            left=self.syllabus_by_year, right=formulas_ex_syllabus,
-            left_on=['State', 'Syllabus_subtopic_code'],
-            right_on=['State', 'Syllabus_subtopic_code'],
-            how='right')
+            left=self.syllabus_by_year,
+            right=formulas_ex_syllabus,
+            left_on=["State", "Syllabus_subtopic_code"],
+            right_on=["State", "Syllabus_subtopic_code"],
+            how="right",
+        )
         return formulas
 
     @property
@@ -164,25 +172,37 @@ class DataSource():
         as well as the formulas from a subjects dependencies)
         """
         return_value = self.formulas_by_year.copy()
-        return_value = return_value.rename(columns={'Subject': 'Dependency'})
+        return_value = return_value.rename(columns={"Subject": "Dependency"})
         return_value = return_value.merge(
             right=self.subject_dependencies,
-            left_on=['State', 'Dependency'],
-            right_on=['State', 'Dependency'])
-        return_value = return_value.drop('Dependency', axis='columns')
+            left_on=["State", "Dependency"],
+            right_on=["State", "Dependency"],
+        )
+        return_value = return_value.drop("Dependency", axis="columns")
         # Re-order cols
-        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
-                                     'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic', 'Category',
-                                     'Subcategory_1', 'Subcategory_2',
-                                     'Description', 'Group', 'Formula',
-                                     'On_formula_sheet', 'Proof_required',
-                                     'Comment', ]]
+        return_value = return_value[
+            [
+                "State",
+                "Subject",
+                "Syllabus_topic",
+                "Syllabus_subtopic_code",
+                "Syllabus_subtopic",
+                "Category",
+                "Subcategory_1",
+                "Subcategory_2",
+                "Description",
+                "Group",
+                "Formula",
+                "On_formula_sheet",
+                "Proof_required",
+                "Comment",
+            ]
+        ]
         return return_value
 
     @property
-    def  notes_by_year(self) -> pd.DataFrame:
-        note_list=[]
+    def notes_by_year(self) -> pd.DataFrame:
+        note_list = []
 
         for subdir, _, files in os.walk(self.notes_directory):
             for file in files:
@@ -190,26 +210,29 @@ class DataSource():
                 subtopic_code = self._subtopic_code_from_filename(file)
                 filepath = os.path.join(subdir, file)
                 if not self._file_is_empty(filepath):
-                    notebook_content = (
-                        self._read_json_from_notebook(filepath))
-                    for cell in notebook_content['cells']:
+                    notebook_content = self._read_json_from_notebook(filepath)
+                    for cell in notebook_content["cells"]:
                         note = (
-                            self.
-                            _convert_notebook_markdown_content_to_string(
-                                cell['source']
-                            ))
-                        note_list = note_list + [{
-                            'State':state,
-                            'Syllabus_subtopic_code':subtopic_code,
-                            'Note':note
-                        }]
-        notes_data  = pd.DataFrame(note_list)
+                            self._convert_notebook_markdown_content_to_string(
+                                cell["source"]
+                            )
+                        )
+                        note_list = note_list + [
+                            {
+                                "State": state,
+                                "Syllabus_subtopic_code": subtopic_code,
+                                "Note": note,
+                            }
+                        ]
+        notes_data = pd.DataFrame(note_list)
 
         notes_data = pd.merge(
-            left=self.syllabus_by_year, right=notes_data,
-            left_on=['State', 'Syllabus_subtopic_code'],
-            right_on=['State', 'Syllabus_subtopic_code'],
-            how='right')
+            left=self.syllabus_by_year,
+            right=notes_data,
+            left_on=["State", "Syllabus_subtopic_code"],
+            right_on=["State", "Syllabus_subtopic_code"],
+            how="right",
+        )
         return notes_data
 
     @property
@@ -219,14 +242,22 @@ class DataSource():
         as well as the notes from a subjects dependencies)
         """
         return_value = self.notes_by_year.copy()
-        return_value = return_value.rename(columns={'Subject': 'Dependency'})
+        return_value = return_value.rename(columns={"Subject": "Dependency"})
         return_value = return_value.merge(
             right=self.subject_dependencies,
-            left_on=['State', 'Dependency'],
-            right_on=['State', 'Dependency'])
-        return_value = return_value.drop('Dependency', axis='columns')
+            left_on=["State", "Dependency"],
+            right_on=["State", "Dependency"],
+        )
+        return_value = return_value.drop("Dependency", axis="columns")
         # Re-order cols
-        return_value = return_value[['State', 'Subject', 'Syllabus_topic',
-                                     'Syllabus_subtopic_code',
-                                     'Syllabus_subtopic', 'Note']]
+        return_value = return_value[
+            [
+                "State",
+                "Subject",
+                "Syllabus_topic",
+                "Syllabus_subtopic_code",
+                "Syllabus_subtopic",
+                "Note",
+            ]
+        ]
         return return_value

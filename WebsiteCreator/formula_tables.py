@@ -3,7 +3,6 @@ from enum import Enum
 from abc import ABC, abstractmethod
 import hashlib
 import pandas as pd
-from pandas.io.formats.style import Styler
 from site_content import Formulas
 from page_structure import PageTabs
 
@@ -393,7 +392,6 @@ class FormulaTable:
 class ContentTypes(Enum):
     """Implements enumeration containing website content types"""
 
-    TOPICS = "Topics"
     FORMULAS = "Formulas"
     FORMULA_SUMMARIES = "Formula summaries"
 
@@ -420,9 +418,6 @@ class _StyledTable:
             ]
         )
         return styler
-
-    def _raw(self) -> Styler:
-        return self._table
 
     def to_html(self, prefix: str | None = None) -> str:
         table_id = self._stable_uuid(prefix)

@@ -910,7 +910,19 @@ files = [
     {file = "tzdata-2025.2.tar.gz", hash = "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9"},
 ]
 
+[[package]]
+name = "vulture"
+version = "2.14"
+description = "Find dead code"
+optional = false
+python-versions = ">=3.8"
+groups = ["dev"]
+files = [
+    {file = "vulture-2.14-py2.py3-none-any.whl", hash = "sha256:d9a90dba89607489548a49d557f8bac8112bd25d3cbc8aeef23e860811bd5ed9"},
+    {file = "vulture-2.14.tar.gz", hash = "sha256:cb8277902a1138deeab796ec5bef7076a6e0248ca3607a3f3dee0b6d9e9b8415"},
+]
+
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "c92c3cdc1477247041edad11ae794e32c7ca5f9faaa1a98213598a95a324de51"
+content-hash = "2cc70d532d689e6a0c3fbeea321f8c3070edc24a55b53664afb5db954c775c7c"
