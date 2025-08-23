@@ -1,0 +1,4187 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/AustralianSchoolMaths/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=AustralianSchoolMaths/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+   Introduction to Differentiation 
+  
+  #
+  
+
+
+
+    Concepts 
+  
+  #
+  
+
+
+acceleration
+average rate of change
+chain rule
+derivative function
+differentiability
+differentiation
+differentiation from first principles
+displacement
+gradient of a secant
+gradient of a tangent
+instantaneous rate of change
+limit
+normal
+product rule
+quotient rule
+secant
+stationary point
+tangent
+turning point
+velocity
+
+
+    Notes 
+  
+  #
+  
+
+
+  Gradients and tangents
+  
+  #
+  
+
+A function y=f(x) is differentiable at a point x= a if its graph is">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/calculus/">
+  <meta property="og:site_name" content="Australian school maths">
+  <meta property="og:title" content="Australian school maths">
+  <meta property="og:description" content="Introduction to Differentiation # Concepts # acceleration average rate of change chain rule derivative function differentiability differentiation differentiation from first principles displacement gradient of a secant gradient of a tangent instantaneous rate of change limit normal product rule quotient rule secant stationary point tangent turning point velocity Notes # Gradients and tangents # A function y=f(x) is differentiable at a point x= a if its graph is">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Calculus | Australian school maths</title>
+<link rel="icon" href="/AustralianSchoolMaths/favicon.png" >
+<link rel="manifest" href="/AustralianSchoolMaths/manifest.json">
+<link rel="canonical" href="http://localhost:1313/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/calculus/">
+<link rel="stylesheet" href="/AustralianSchoolMaths/book.min.d719e1ee3f47519e2ab914f538dd31dc5cb50d00b72e76603499255785ce6ea5.css" integrity="sha256-1xnh7j9HUZ4quRT1ON0x3Fy1DQC3LnZgNJklV4XObqU=" crossorigin="anonymous">
+  <script defer src="/AustralianSchoolMaths/fuse.min.js"></script>
+  <script defer src="/AustralianSchoolMaths/en.search.min.03119d126f8ba4e385b47ad665d926e7839e208e41fdef58a86183e7311d38a6.js" integrity="sha256-AxGdEm&#43;LpOOFtHrWZdkm54OeII5B/e9YqGGD5zEdOKY=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/AustralianSchoolMaths/"><span>Australian school maths</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-41da7385daf71552d51ef07de30b9776" class="toggle" checked />
+    <label for="section-41da7385daf71552d51ef07de30b9776" class="flex">
+      <a role="button" class="flex-auto ">Nsw</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-635917950b7a3b445edddf14902dee07" class="toggle"  />
+    <label for="section-635917950b7a3b445edddf14902dee07" class="flex">
+      <a role="button" class="flex-auto ">Year 11 Adv</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e2361a05ec7410f09500e08524e39284" class="toggle"  />
+    <label for="section-e2361a05ec7410f09500e08524e39284" class="flex">
+      <a role="button" class="flex-auto ">Topics</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b9e7cad8b7fe367d4da7302e7287edc4" class="toggle"  />
+    <label for="section-b9e7cad8b7fe367d4da7302e7287edc4" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year/exponential-and-logarithmic-functions/" class="">Exponential and Logarithmic Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be0954ddb4ee475990e40b11ce4c5ea7" class="toggle"  />
+    <label for="section-be0954ddb4ee475990e40b11ce4c5ea7" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year-cumulative/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year-cumulative/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year-cumulative/exponential-and-logarithmic-functions/" class="">Exponential and Logarithmic Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/topics/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c6d8848a9ab4bd2fd80a5c6edc65026" class="toggle"  />
+    <label for="section-7c6d8848a9ab4bd2fd80a5c6edc65026" class="flex">
+      <a role="button" class="flex-auto ">Formulas</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c6e03117994eba521f82c1d493c5e192" class="toggle"  />
+    <label for="section-c6e03117994eba521f82c1d493c5e192" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year/surds/" class="">Surds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year/indices/" class="">Indices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year/logarithms/" class="">Logarithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-566b1236a0efcd0c9f0a4ccb7cdcae46" class="toggle"  />
+    <label for="section-566b1236a0efcd0c9f0a4ccb7cdcae46" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year-cumulative/surds/" class="">Surds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year-cumulative/indices/" class="">Indices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year-cumulative/logarithms/" class="">Logarithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year-cumulative/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-adv/formulas/by-year-cumulative/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8f5f044ba4c878a88012338f79d796d7" class="toggle"  />
+    <label for="section-8f5f044ba4c878a88012338f79d796d7" class="flex">
+      <a role="button" class="flex-auto ">Year 11 Ext 1</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-98f99090e6fc05b2fe1c920d92c46432" class="toggle"  />
+    <label for="section-98f99090e6fc05b2fe1c920d92c46432" class="flex">
+      <a role="button" class="flex-auto ">Topics</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ebb3f0ad9eebac9edf1059cfe5cce64" class="toggle"  />
+    <label for="section-0ebb3f0ad9eebac9edf1059cfe5cce64" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5900c279c98e87500a04c8dd0727f8b1" class="toggle"  />
+    <label for="section-5900c279c98e87500a04c8dd0727f8b1" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year-cumulative/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year-cumulative/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year-cumulative/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year-cumulative/exponential-and-logarithmic-functions/" class="">Exponential and Logarithmic Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/topics/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c3fb18153098a0d9363bcfa53dc44498" class="toggle"  />
+    <label for="section-c3fb18153098a0d9363bcfa53dc44498" class="flex">
+      <a role="button" class="flex-auto ">Formulas</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2be155b57964b184caf8d69cb157bc6e" class="toggle"  />
+    <label for="section-2be155b57964b184caf8d69cb157bc6e" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c5664b371eb10273627cddbe2dc6a455" class="toggle"  />
+    <label for="section-c5664b371eb10273627cddbe2dc6a455" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/surds/" class="">Surds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/indices/" class="">Indices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/logarithms/" class="">Logarithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-11-ext-1/formulas/by-year-cumulative/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-174c00c1a2cd9463a6eac413be0ff740" class="toggle" checked />
+    <label for="section-174c00c1a2cd9463a6eac413be0ff740" class="flex">
+      <a role="button" class="flex-auto ">Year 12 Adv</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-36070b51f23ee4b049bc02ce0f441087" class="toggle" checked />
+    <label for="section-36070b51f23ee4b049bc02ce0f441087" class="flex">
+      <a role="button" class="flex-auto ">Topics</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-66e9dc5a6fcb68e639e3d04b65f60693" class="toggle"  />
+    <label for="section-66e9dc5a6fcb68e639e3d04b65f60693" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7f5d0a216779c4d107ef735e495c2475" class="toggle" checked />
+    <label for="section-7f5d0a216779c4d107ef735e495c2475" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/exponential-and-logarithmic-functions/" class="">Exponential and Logarithmic Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/calculus/" class="active">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/topics/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ffbd409be5ae343e8ca221672f5f0344" class="toggle"  />
+    <label for="section-ffbd409be5ae343e8ca221672f5f0344" class="flex">
+      <a role="button" class="flex-auto ">Formulas</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0d7d74b1b1295786a6f5a97003dd178" class="toggle"  />
+    <label for="section-e0d7d74b1b1295786a6f5a97003dd178" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year/integration/" class="">Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7082b1b997c778535874bcc3a62c1e19" class="toggle"  />
+    <label for="section-7082b1b997c778535874bcc3a62c1e19" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/surds/" class="">Surds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/indices/" class="">Indices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/logarithms/" class="">Logarithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/integration/" class="">Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formulas/by-year-cumulative/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-051f981c570799ab0faf6e82fcbf765b" class="toggle"  />
+    <label for="section-051f981c570799ab0faf6e82fcbf765b" class="flex">
+      <a role="button" class="flex-auto ">Formula Summaries</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6a7b11ecbed7249401f85b78bd685a4e" class="toggle"  />
+    <label for="section-6a7b11ecbed7249401f85b78bd685a4e" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formula-summaries/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formula-summaries/by-year/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-23983be8a035799588a30097889a17b6" class="toggle"  />
+    <label for="section-23983be8a035799588a30097889a17b6" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formula-summaries/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-adv/formula-summaries/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ff0142b0be85f778235af33c368fcedc" class="toggle"  />
+    <label for="section-ff0142b0be85f778235af33c368fcedc" class="flex">
+      <a role="button" class="flex-auto ">Year 12 Ext 1</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f17db9641af98b160dcdc44d489db357" class="toggle"  />
+    <label for="section-f17db9641af98b160dcdc44d489db357" class="flex">
+      <a role="button" class="flex-auto ">Topics</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-61d83ab0a94e08e2a7c5dbbc55e5d748" class="toggle"  />
+    <label for="section-61d83ab0a94e08e2a7c5dbbc55e5d748" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year/proof/" class="">Proof</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3f3cf1b32c15aeb7737e51663d06e6b9" class="toggle"  />
+    <label for="section-3f3cf1b32c15aeb7737e51663d06e6b9" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/exponential-and-logarithmic-functions/" class="">Exponential and Logarithmic Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/proof/" class="">Proof</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/topics/by-year-cumulative/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ae24e4aade2284d96abd82fc8ec626ee" class="toggle"  />
+    <label for="section-ae24e4aade2284d96abd82fc8ec626ee" class="flex">
+      <a role="button" class="flex-auto ">Formulas</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-557f2bbd006de6c002f5d68359b38037" class="toggle"  />
+    <label for="section-557f2bbd006de6c002f5d68359b38037" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year/integration/" class="">Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8d80993c5aeaa7d09f6743cc9c739d26" class="toggle"  />
+    <label for="section-8d80993c5aeaa7d09f6743cc9c739d26" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/surds/" class="">Surds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/indices/" class="">Indices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/logarithms/" class="">Logarithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/integration/" class="">Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formulas/by-year-cumulative/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6ea7c9c24b17c8b93672ebaaa8bc6c4b" class="toggle"  />
+    <label for="section-6ea7c9c24b17c8b93672ebaaa8bc6c4b" class="flex">
+      <a role="button" class="flex-auto ">Formula Summaries</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4182e05004fc52509a35cca530a5fbc4" class="toggle"  />
+    <label for="section-4182e05004fc52509a35cca530a5fbc4" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formula-summaries/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-101c0ba805b54fdae8d284cf30e65808" class="toggle"  />
+    <label for="section-101c0ba805b54fdae8d284cf30e65808" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formula-summaries/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-1/formula-summaries/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-844cae6e2052b9e071ced2123bed55c4" class="toggle"  />
+    <label for="section-844cae6e2052b9e071ced2123bed55c4" class="flex">
+      <a role="button" class="flex-auto ">Year 12 Ext 2</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cc7de387a28a1805d9d4bd97b8630b15" class="toggle"  />
+    <label for="section-cc7de387a28a1805d9d4bd97b8630b15" class="flex">
+      <a role="button" class="flex-auto ">Topics</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-52dd9e90b3f993e9f7ddeefdbad709d2" class="toggle"  />
+    <label for="section-52dd9e90b3f993e9f7ddeefdbad709d2" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year/proof/" class="">Proof</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year/complex-numbers/" class="">Complex Numbers</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year/mechanics/" class="">Mechanics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf4e7c9dfe11b5b6b8187c31a91693ef" class="toggle"  />
+    <label for="section-bf4e7c9dfe11b5b6b8187c31a91693ef" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/exponential-and-logarithmic-functions/" class="">Exponential and Logarithmic Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/trigonometric-functions/" class="">Trigonometric Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/proof/" class="">Proof</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/complex-numbers/" class="">Complex Numbers</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/mechanics/" class="">Mechanics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cbb9b219e35c4004f8bdc09fe70e0099" class="toggle"  />
+    <label for="section-cbb9b219e35c4004f8bdc09fe70e0099" class="flex">
+      <a role="button" class="flex-auto ">Formulas</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1324ca3a5e1e2c7b78f1afae715f8fbc" class="toggle"  />
+    <label for="section-1324ca3a5e1e2c7b78f1afae715f8fbc" class="flex">
+      <a role="button" class="flex-auto ">By Year</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year/proof/" class="">Proof</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year/complex-numbers/" class="">Complex Numbers</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year/integration/" class="">Integration</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f668e078b23a26ed0644f43ed9999c85" class="toggle"  />
+    <label for="section-f668e078b23a26ed0644f43ed9999c85" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/surds/" class="">Surds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/indices/" class="">Indices</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/logarithms/" class="">Logarithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/statistical-analysis/" class="">Statistical Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/combinatorics/" class="">Combinatorics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/vectors/" class="">Vectors</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/differentiation/" class="">Differentiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/integration/" class="">Integration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/proof/" class="">Proof</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/complex-numbers/" class="">Complex Numbers</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formulas/by-year-cumulative/trigonometry/" class="">Trigonometry</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-46dabc36183c4860af1090d30463b824" class="toggle"  />
+    <label for="section-46dabc36183c4860af1090d30463b824" class="flex">
+      <a role="button" class="flex-auto ">Formula Summaries</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bbf89f9615a7ad3782e4e4b7118e3fd9" class="toggle"  />
+    <label for="section-bbf89f9615a7ad3782e4e4b7118e3fd9" class="flex">
+      <a role="button" class="flex-auto ">By Year Cumulative</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formula-summaries/by-year-cumulative/calculus/" class="">Calculus</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/AustralianSchoolMaths/docs/nsw/year-12-ext-2/formula-summaries/by-year-cumulative/financial-mathematics/" class="">Financial Mathematics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']]
+  }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/AustralianSchoolMaths/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Calculus</strong>
+
+  <label for="toc-control">
+    
+    <img src="/AustralianSchoolMaths/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-differentiation"><span style="color:RGB(0,32,96"> Introduction to Differentiation </span></a>
+      <ul>
+        <li><a href="#concepts"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#concepts-1"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-1"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#formulas"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
+      </ul>
+    </li>
+    <li><a href="#differential-calculus"><span style="color:RGB(0,32,96"> Differential Calculus </span></a>
+      <ul>
+        <li><a href="#notes-2"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#notes-3"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#formulas-1"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
+      </ul>
+    </li>
+    <li><a href="#applications-of-differentiation"><span style="color:RGB(0,32,96"> Applications of Differentiation </span></a>
+      <ul>
+        <li><a href="#concepts-2"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-4"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#concepts-3"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-5"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+      </ul>
+    </li>
+    <li><a href="#integral-calculus"><span style="color:RGB(0,32,96"> Integral Calculus </span></a>
+      <ul>
+        <li><a href="#concepts-4"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-6"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#formulas-2"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h2 id="introduction-to-differentiation">
+  <span style="color:RGB(0,32,96"> Introduction to Differentiation </span>
+  
+  <a class="anchor" href="#introduction-to-differentiation">#</a>
+  
+</h2>
+<br>
+<h3 id="concepts">
+  <span style="color:RGB(139,69,19)">  Concepts </span>
+  
+  <a class="anchor" href="#concepts">#</a>
+  
+</h3>
+<ul>
+<li>acceleration</li>
+<li>average rate of change</li>
+<li>chain rule</li>
+<li>derivative function</li>
+<li>differentiability</li>
+<li>differentiation</li>
+<li>differentiation from first principles</li>
+<li>displacement</li>
+<li>gradient of a secant</li>
+<li>gradient of a tangent</li>
+<li>instantaneous rate of change</li>
+<li>limit</li>
+<li>normal</li>
+<li>product rule</li>
+<li>quotient rule</li>
+<li>secant</li>
+<li>stationary point</li>
+<li>tangent</li>
+<li>turning point</li>
+<li>velocity</li>
+</ul>
+<h3 id="notes">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes">#</a>
+  
+</h3>
+<h4 id="gradients-and-tangents">
+  Gradients and tangents
+  
+  <a class="anchor" href="#gradients-and-tangents">#</a>
+  
+</h4>
+<p>A function y=f(x) is differentiable at a point x= a if its graph is</p>
+<ul>
+<li>continuous, and</li>
+<li>smooth
+at x=a</li>
+</ul>
+<p>The gradient of a secant drawn through 2 points on a curve approximates the gradient of a tangent where accuaracy improves as the distance between the point decreases</p>
+<p>$\tan \theta = \text{ the gradient m}$</p>
+<h4 id="difference-quotients">
+  Difference quotients
+  
+  <a class="anchor" href="#difference-quotients">#</a>
+  
+</h4>
+<p>Average rate of change of f(x) = gradient of chord of a secant $= \dfrac{f(x+h) - f(x)}{h}  $</p>
+<h4 id="the-derivative-function-and-its-graph">
+  The derivative function and its graph
+  
+  <a class="anchor" href="#the-derivative-function-and-its-graph">#</a>
+  
+</h4>
+<p>$\dfrac{dy}{dx} = y&rsquo; = f&rsquo;(x) =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</p>
+<p>Graphing a derivative funcion f&rsquo;(x):</p>
+<ul>
+<li>f&rsquo;(x) is zero at a stationary point of f(x)</li>
+<li>f&rsquo;(x) is positive when f(x) has a positive gradient</li>
+<li>f&rsquo;(x) is negative when f(x) has a negative gradient</li>
+</ul>
+<p>The derivative at a point represents the instantaneous rate of change</p>
+<h4 id="calculating-with-derivatives">
+  Calculating with derivatives
+  
+  <a class="anchor" href="#calculating-with-derivatives">#</a>
+  
+</h4>
+<p>See formulas below<br></p>
+<p><em>Average rate of change</em> of quantity Q with respect to time t = $\dfrac{Q_2-Q_1}{t_2-t_1}$
+<br><br>
+<em>Instantaneous rate of change</em> of quantity Q with respect to time t = $\dfrac{dQ}{dt}$
+<br><br>
+<em>Displacement</em> measures the distance of an object from a fixed point or origin. Usually positive to the right of the point and negative to the left.
+<br><br>
+<em>Velocity</em> is the instantaneous rate of change of displacement x over time t = $v = \dfrac{dx}{dt}$, for example measured in km/h or $km^{-1}$
+<br><br>
+<em>Acceleration</em> is the instantaneous rate of change of velocity v over time t = $ a = \dfrac{dv}{dt}$, for example measured in km/h/h or $km h^{-2}$</p>
+<h4 id="other-notes">
+  Other notes
+  
+  <a class="anchor" href="#other-notes">#</a>
+  
+</h4>
+<p>If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m_2 = -1$</p>
+<p><BR><BR></p>
+<h3 id="concepts-1">
+  <span style="color:RGB(139,69,19)">  Concepts </span>
+  
+  <a class="anchor" href="#concepts-1">#</a>
+  
+</h3>
+<ul>
+<li>acceleration</li>
+<li>average rate of change</li>
+<li>chain rule</li>
+<li>derivative function</li>
+<li>differentiability</li>
+<li>differentiation</li>
+<li>differentiation from first principles</li>
+<li>displacement</li>
+<li>gradient of a secant</li>
+<li>gradient of a tangent</li>
+<li>instantaneous rate of change</li>
+<li>limit</li>
+<li>normal</li>
+<li>product rule</li>
+<li>quotient rule</li>
+<li>secant</li>
+<li>stationary point</li>
+<li>tangent</li>
+<li>turning point</li>
+<li>velocity</li>
+</ul>
+<h3 id="notes-1">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes-1">#</a>
+  
+</h3>
+<h4 id="gradients-and-tangents-1">
+  Gradients and tangents
+  
+  <a class="anchor" href="#gradients-and-tangents-1">#</a>
+  
+</h4>
+<p>A function y=f(x) is differentiable at a point x= a if its graph is</p>
+<ul>
+<li>continuous, and</li>
+<li>smooth
+at x=a</li>
+</ul>
+<p>The gradient of a secant drawn through 2 points on a curve approximates the gradient of a tangent where accuaracy improves as the distance between the point decreases</p>
+<p>$\tan \theta = \text{ the gradient m}$</p>
+<h4 id="difference-quotients-1">
+  Difference quotients
+  
+  <a class="anchor" href="#difference-quotients-1">#</a>
+  
+</h4>
+<p>Average rate of change of f(x) = gradient of chord of a secant $= \dfrac{f(x+h) - f(x)}{h}  $</p>
+<h4 id="the-derivative-function-and-its-graph-1">
+  The derivative function and its graph
+  
+  <a class="anchor" href="#the-derivative-function-and-its-graph-1">#</a>
+  
+</h4>
+<p>$\dfrac{dy}{dx} = y&rsquo; = f&rsquo;(x) =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $</p>
+<p>Graphing a derivative funcion f&rsquo;(x):</p>
+<ul>
+<li>f&rsquo;(x) is zero at a stationary point of f(x)</li>
+<li>f&rsquo;(x) is positive when f(x) has a positive gradient</li>
+<li>f&rsquo;(x) is negative when f(x) has a negative gradient</li>
+</ul>
+<p>The derivative at a point represents the instantaneous rate of change</p>
+<h4 id="calculating-with-derivatives-1">
+  Calculating with derivatives
+  
+  <a class="anchor" href="#calculating-with-derivatives-1">#</a>
+  
+</h4>
+<p>See formulas below<br></p>
+<p><em>Average rate of change</em> of quantity Q with respect to time t = $\dfrac{Q_2-Q_1}{t_2-t_1}$
+<br><br>
+<em>Instantaneous rate of change</em> of quantity Q with respect to time t = $\dfrac{dQ}{dt}$
+<br><br>
+<em>Displacement</em> measures the distance of an object from a fixed point or origin. Usually positive to the right of the point and negative to the left.
+<br><br>
+<em>Velocity</em> is the instantaneous rate of change of displacement x over time t = $v = \dfrac{dx}{dt}$, for example measured in km/h or $km^{-1}$
+<br><br>
+<em>Acceleration</em> is the instantaneous rate of change of velocity v over time t = $ a = \dfrac{dv}{dt}$, for example measured in km/h/h or $km h^{-2}$</p>
+<h4 id="other-notes-1">
+  Other notes
+  
+  <a class="anchor" href="#other-notes-1">#</a>
+  
+</h4>
+<p>If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m_2 = -1$</p>
+<p><BR><BR></p>
+<br>
+<h3 id="formulas">
+  <span style="color:RGB(139,69,19)"> Formulas </span>
+  
+  <a class="anchor" href="#formulas">#</a>
+  
+</h3>
+<br>
+<div class="book-tabs">
+
+
+
+<input type="radio" class="toggle" name="tabs-f821fcbf" id="tabs-f821fcbf-0" checked="checked" />
+<label for="tabs-f821fcbf-0">Standard view</label>
+<div class="book-tabs-content markdown-inner">
+
+<style type="text/css">
+#T_standard_cc6ebb3fe6e5f1c6 th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_standard_cc6ebb3fe6e5f1c6 td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+</style>
+<table id="T_standard_cc6ebb3fe6e5f1c6">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row0_col0" class="data row0 col0" >$\text{gradient} = m = \dfrac{rise}{run} = \dfrac{y_2-y_1}{x_2-x_1}$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row1_col0" class="data row1 col0" >$ y=f(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row2_col0" class="data row2 col0" >$ y=kx   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =k  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row3_col0" class="data row3 col0" >$ y=k   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =0  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row4_col0" class="data row4 col0" >$ y=x^n   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =nx^{n-1}  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row5_col0" class="data row5 col0" >$ y=kx^n   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =knx^{n-1}  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row6_col0" class="data row6 col0" >$ y=kf(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =kf'(x)  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row7_col0" class="data row7 col0" >$ y=f(x) + g(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =f'(x) + g'(x)  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row8_col0" class="data row8 col0" >$y=f(x)^n \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row9_col0" class="data row9 col0" >$y=uv \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row10_col0" class="data row10 col0" >$y=\dfrac{u}{v} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc6ebb3fe6e5f1c6_row11_col0" class="data row11 col0" >$y=g(u) \text { where } u = f(x) \,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx} \text { (the chain rule)}$ </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<input type="radio" class="toggle" name="tabs-f821fcbf" id="tabs-f821fcbf-1"  />
+<label for="tabs-f821fcbf-1">Formula sheet</label>
+<div class="book-tabs-content markdown-inner">
+
+Items on formula sheet are highlighted 
+<br>
+<style type="text/css">
+#T_formula_sheet_caaed927b5c64ec0 th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_formula_sheet_caaed927b5c64ec0 td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+#T_formula_sheet_caaed927b5c64ec0_row0_col0, #T_formula_sheet_caaed927b5c64ec0_row1_col0, #T_formula_sheet_caaed927b5c64ec0_row2_col0, #T_formula_sheet_caaed927b5c64ec0_row3_col0, #T_formula_sheet_caaed927b5c64ec0_row4_col0, #T_formula_sheet_caaed927b5c64ec0_row5_col0, #T_formula_sheet_caaed927b5c64ec0_row6_col0, #T_formula_sheet_caaed927b5c64ec0_row7_col0 {
+  background-color: rgba(0,0,0,0);
+}
+#T_formula_sheet_caaed927b5c64ec0_row8_col0, #T_formula_sheet_caaed927b5c64ec0_row9_col0, #T_formula_sheet_caaed927b5c64ec0_row10_col0, #T_formula_sheet_caaed927b5c64ec0_row11_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
+</style>
+<table id="T_formula_sheet_caaed927b5c64ec0">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row0_col0" class="data row0 col0" >$\text{gradient} = m = \dfrac{rise}{run} = \dfrac{y_2-y_1}{x_2-x_1}$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row1_col0" class="data row1 col0" >$ y=f(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =\lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row2_col0" class="data row2 col0" >$ y=kx   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =k  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row3_col0" class="data row3 col0" >$ y=k   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =0  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row4_col0" class="data row4 col0" >$ y=x^n   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =nx^{n-1}  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row5_col0" class="data row5 col0" >$ y=kx^n   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =knx^{n-1}  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row6_col0" class="data row6 col0" >$ y=kf(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =kf'(x)  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row7_col0" class="data row7 col0" >$ y=f(x) + g(x)   \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} =f'(x) + g'(x)  $ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row8_col0" class="data row8 col0" >$y=f(x)^n \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx}=nf'(x)[f(x)]^{n-1}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row9_col0" class="data row9 col0" >$y=uv \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row10_col0" class="data row10 col0" >$y=\dfrac{u}{v} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_caaed927b5c64ec0_row11_col0" class="data row11 col0" >$y=g(u) \text { where } u = f(x) \,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{dy}{du} \times \dfrac{du}{dx} \text { (the chain rule)}$ </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</div>
+
+<h2 id="differential-calculus">
+  <span style="color:RGB(0,32,96"> Differential Calculus </span>
+  
+  <a class="anchor" href="#differential-calculus">#</a>
+  
+</h2>
+<br>
+<h3 id="notes-2">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes-2">#</a>
+  
+</h3>
+<h4 id="differentiation-of-trigonometric-exponential-and-logarithmic-functions">
+  Differentiation of trigonometric, exponential and logarithmic functions
+  
+  <a class="anchor" href="#differentiation-of-trigonometric-exponential-and-logarithmic-functions">#</a>
+  
+</h4>
+<p>Refer formulas below (the non-chain rule versions).  Note cases requiring proof.</p>
+<p><strong>NB</strong> The trig derivative rules work on radians, not degrees.  If a question is in degrees it first needs to be converted into radians.  Convert back to degrees in final step if required.</p>
+<h4 id="rules-of-differentiation">
+  Rules of differentiation
+  
+  <a class="anchor" href="#rules-of-differentiation">#</a>
+  
+</h4>
+<p>Apply product, quotient and chain rules to differentiate the &ldquo;simpler&rdquo; versions of the function.</p>
+<p>In particular note that $\tan x$ can be converted to $\dfrac{sin x}{cos x}$ and the quotient rule can then be applied.  Similiarly the quotient rule can be used to calculate $\sec x$ and $\cosec x$ by converting these into $\frac{1}{cos x}$ and $\frac{1}{sin x}$ respectively.</p>
+<p>Use log laws to simplify expressions before differentiating.</p>
+<p><BR><BR></p>
+<h3 id="notes-3">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes-3">#</a>
+  
+</h3>
+<h4 id="differentiation-of-trigonometric-exponential-and-logarithmic-functions-1">
+  Differentiation of trigonometric, exponential and logarithmic functions
+  
+  <a class="anchor" href="#differentiation-of-trigonometric-exponential-and-logarithmic-functions-1">#</a>
+  
+</h4>
+<p>Refer formulas below (the non-chain rule versions).  Note cases requiring proof.</p>
+<p><strong>NB</strong> The trig derivative rules work on radians, not degrees.  If a question is in degrees it first needs to be converted into radians.  Convert back to degrees in final step if required.</p>
+<h4 id="rules-of-differentiation-1">
+  Rules of differentiation
+  
+  <a class="anchor" href="#rules-of-differentiation-1">#</a>
+  
+</h4>
+<p>Apply product, quotient and chain rules to differentiate the &ldquo;simpler&rdquo; versions of the function.</p>
+<p>In particular note that $\tan x$ can be converted to $\dfrac{sin x}{cos x}$ and the quotient rule can then be applied.  Similiarly the quotient rule can be used to calculate $\sec x$ and $\cosec x$ by converting these into $\frac{1}{cos x}$ and $\frac{1}{sin x}$ respectively.</p>
+<p>Use log laws to simplify expressions before differentiating.</p>
+<p><BR><BR></p>
+<br>
+<h3 id="formulas-1">
+  <span style="color:RGB(139,69,19)"> Formulas </span>
+  
+  <a class="anchor" href="#formulas-1">#</a>
+  
+</h3>
+<br>
+<div class="book-tabs">
+
+
+
+<input type="radio" class="toggle" name="tabs-f79bba25" id="tabs-f79bba25-0" checked="checked" />
+<label for="tabs-f79bba25-0">Standard view</label>
+<div class="book-tabs-content markdown-inner">
+
+<style type="text/css">
+#T_standard_3dfed7c47c9e840c th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_standard_3dfed7c47c9e840c td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+</style>
+<table id="T_standard_3dfed7c47c9e840c">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row0_col0" class="data row0 col0" >$y=\sin (x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \cos (x)$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row1_col0" class="data row1 col0" >$y=\cos (x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = -\sin (x)$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row2_col0" class="data row2 col0" >$y=a^x \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = (\ln a)a^x$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row3_col0" class="data row3 col0" >$y=\ln x \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \dfrac{1}{x}$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row4_col0" class="data row4 col0" >$y=log_a {x} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \dfrac{1}{x \ln a}$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row5_col0" class="data row5 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row6_col0" class="data row6 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row7_col0" class="data row7 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row8_col0" class="data row8 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row9_col0" class="data row9 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row10_col0" class="data row10 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_standard_3dfed7c47c9e840c_row11_col0" class="data row11 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<input type="radio" class="toggle" name="tabs-f79bba25" id="tabs-f79bba25-1"  />
+<label for="tabs-f79bba25-1">Formula sheet</label>
+<div class="book-tabs-content markdown-inner">
+
+Items on formula sheet are highlighted 
+<br>
+<style type="text/css">
+#T_formula_sheet_9bec78a1adc08e0b th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_formula_sheet_9bec78a1adc08e0b td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+#T_formula_sheet_9bec78a1adc08e0b_row0_col0, #T_formula_sheet_9bec78a1adc08e0b_row1_col0, #T_formula_sheet_9bec78a1adc08e0b_row2_col0, #T_formula_sheet_9bec78a1adc08e0b_row3_col0, #T_formula_sheet_9bec78a1adc08e0b_row4_col0 {
+  background-color: rgba(0,0,0,0);
+}
+#T_formula_sheet_9bec78a1adc08e0b_row5_col0, #T_formula_sheet_9bec78a1adc08e0b_row6_col0, #T_formula_sheet_9bec78a1adc08e0b_row7_col0, #T_formula_sheet_9bec78a1adc08e0b_row8_col0, #T_formula_sheet_9bec78a1adc08e0b_row9_col0, #T_formula_sheet_9bec78a1adc08e0b_row10_col0, #T_formula_sheet_9bec78a1adc08e0b_row11_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
+</style>
+<table id="T_formula_sheet_9bec78a1adc08e0b">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row0_col0" class="data row0 col0" >$y=\sin (x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \cos (x)$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row1_col0" class="data row1 col0" >$y=\cos (x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = -\sin (x)$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row2_col0" class="data row2 col0" >$y=a^x \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = (\ln a)a^x$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row3_col0" class="data row3 col0" >$y=\ln x \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \dfrac{1}{x}$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row4_col0" class="data row4 col0" >$y=log_a {x} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \dfrac{1}{x \ln a}$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row5_col0" class="data row5 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row6_col0" class="data row6 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row7_col0" class="data row7 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row8_col0" class="data row8 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row9_col0" class="data row9 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row10_col0" class="data row10 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_9bec78a1adc08e0b_row11_col0" class="data row11 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<input type="radio" class="toggle" name="tabs-f79bba25" id="tabs-f79bba25-2"  />
+<label for="tabs-f79bba25-2">Proofs required</label>
+<div class="book-tabs-content markdown-inner">
+
+Items where proofs required are highlighted 
+<br>
+<style type="text/css">
+#T_proof_required_d3f45bc0b79c988e th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_proof_required_d3f45bc0b79c988e td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+#T_proof_required_d3f45bc0b79c988e_row0_col0, #T_proof_required_d3f45bc0b79c988e_row1_col0, #T_proof_required_d3f45bc0b79c988e_row2_col0, #T_proof_required_d3f45bc0b79c988e_row3_col0, #T_proof_required_d3f45bc0b79c988e_row4_col0, #T_proof_required_d3f45bc0b79c988e_row5_col0, #T_proof_required_d3f45bc0b79c988e_row6_col0, #T_proof_required_d3f45bc0b79c988e_row7_col0, #T_proof_required_d3f45bc0b79c988e_row8_col0, #T_proof_required_d3f45bc0b79c988e_row9_col0, #T_proof_required_d3f45bc0b79c988e_row10_col0, #T_proof_required_d3f45bc0b79c988e_row11_col0 {
+  background-color: rgba(0,150,200, 0.2);
+}
+</style>
+<table id="T_proof_required_d3f45bc0b79c988e">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row0_col0" class="data row0 col0" >$y=\sin (x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \cos (x)$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row1_col0" class="data row1 col0" >$y=\cos (x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = -\sin (x)$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row2_col0" class="data row2 col0" >$y=a^x \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = (\ln a)a^x$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row3_col0" class="data row3 col0" >$y=\ln x \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \dfrac{1}{x}$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row4_col0" class="data row4 col0" >$y=log_a {x} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = \dfrac{1}{x \ln a}$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row5_col0" class="data row5 col0" >$y=\sin f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,  \dfrac{dy}{dx} = f'(x)\cos f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row6_col0" class="data row6 col0" >$y=\cos f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = -f'(x)\sin f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row7_col0" class="data row7 col0" >$y=\tan f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x)\sec^2 f(x)$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row8_col0" class="data row8 col0" >$y=e^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = f'(x) e^{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row9_col0" class="data row9 col0" >$y=\ln f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row10_col0" class="data row10 col0" >$y=a^{f(x)} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = (\ln a)f'(x)a^{f(x)}$ <br></td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_d3f45bc0b79c988e_row11_col0" class="data row11 col0" >$y=log _{a} f(x) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \dfrac{dy}{dx} = \dfrac{f'(x)}{(\ln a) f(x)}$ <br></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</div>
+
+<h2 id="applications-of-differentiation">
+  <span style="color:RGB(0,32,96"> Applications of Differentiation </span>
+  
+  <a class="anchor" href="#applications-of-differentiation">#</a>
+  
+</h2>
+<br>
+<h3 id="concepts-2">
+  <span style="color:RGB(139,69,19)">  Concepts </span>
+  
+  <a class="anchor" href="#concepts-2">#</a>
+  
+</h3>
+<ul>
+<li>concatvity</li>
+<li>local min or max</li>
+<li>global min or max</li>
+<li>point of inflection</li>
+<li>horizontal point of inflection</li>
+<li>monotonic increasing or decreasing</li>
+</ul>
+<h3 id="notes-4">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes-4">#</a>
+  
+</h3>
+<h4 id="the-first-and-second-derivatives">
+  The first and second derivatives
+  
+  <a class="anchor" href="#the-first-and-second-derivatives">#</a>
+  
+</h4>
+<p><strong>The second derivative</strong> = $f&rsquo;&rsquo;(x)$ or $\dfrac{d^{2}y}{dx^2}$</p>
+<p><strong>Sign of the first derivative</strong></p>
+<ul>
+<li>if f&rsquo;(x)&gt;0 then the graph y=f(x) is increasing</li>
+<li>if f&rsquo;(x)&lt;0 then the graph y=f(x) is decreasing</li>
+<li>if f&rsquo;(x)=0 then the graph y=f(x) has a stationary point</li>
+<li>if f&rsquo;(x)&gt;0 for all values of x then the curve is monotonic increasing</li>
+<li>if f&rsquo;(x)&lt;0 for all values of x then the curve is monotonic decreasing</li>
+</ul>
+<p><strong>Sign of the second derivative</strong></p>
+<ul>
+<li>if f&rsquo;&rsquo;(x)&gt;0
+<ul>
+<li>then f&rsquo;(x) is increasing</li>
+<li>the gradient of the tangent of f(x) is increasing (a greater upward slope or lesser downward slope)</li>
+<li>f(x) is concave upwards</li>
+<li>if f&rsquo;(x)=0 this is a mimimum turning point</li>
+</ul>
+</li>
+<li>if f&rsquo;&rsquo;(x)&lt;0
+<ul>
+<li>then f&rsquo;(x) is decreasing</li>
+<li>the gradient of the tangent of f(x) is decreasing (a lesser upward slope or greater downnward slope)</li>
+<li>f(x) is concave downwards</li>
+<li>if f&rsquo;(x)=0 this is a maximum turning point</li>
+</ul>
+</li>
+<li>if f&rsquo;&rsquo;(x) = 0
+<ul>
+<li>f&rsquo;(x) is a constant</li>
+<li>the tangent is neither increasing nor decreasing</li>
+<li>if concavity changes it is a point of inflection</li>
+<li>if concavity changes and f&rsquo;(x)=0 it is a horizontal point of inflection</li>
+</ul>
+</li>
+</ul>
+<p>To test whether concavity changes test f&rsquo;&rsquo;(x) just to the left and the right of the point being investigated.</p>
+<p><strong>Stationary points</strong></p>
+<ul>
+<li>Local minimum point
+<ul>
+<li>f&rsquo;(x) = 0 at point</li>
+<li>f&rsquo;(x)&lt;0 LHS of the point</li>
+<li>f&rsquo;(x)&gt;0 RHS of the point</li>
+<li>Or f&rsquo;(x)=0 and f&rsquo;&rsquo;(x)&gt;0</li>
+</ul>
+</li>
+<li>Local maximum point
+<ul>
+<li>f&rsquo;(x) = 0 at point</li>
+<li>f&rsquo;(x)&gt;0 LHS of the point</li>
+<li>f&rsquo;(x)&lt;0 RHS of the point</li>
+<li>Or f&rsquo;(x)=0 and f&rsquo;&rsquo;(x)&lt;0</li>
+</ul>
+</li>
+</ul>
+<p><strong>Inflection</strong></p>
+<ul>
+<li>Point of inflection
+<ul>
+<li>f&rsquo;&rsquo;(x) = 0,</li>
+<li>and concavity changes at that point</li>
+</ul>
+</li>
+<li>Horizontal point of inflection
+<ul>
+<li>f&rsquo;&rsquo;(x) = 0,</li>
+<li>and concavity changes at that point,</li>
+<li>and f&rsquo;(x)=0</li>
+</ul>
+</li>
+</ul>
+ <!-- Paramater SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/AustralianSchoolMaths/images/MA_C3_CurveGraphSummary.jpg" />
+<h4 id="applications-of-the-derivative">
+  Applications of the derivative
+  
+  <a class="anchor" href="#applications-of-the-derivative">#</a>
+  
+</h4>
+<p><strong>Curve sketching techniques</strong></p>
+<ul>
+<li>find stationary points where f&rsquo;(x)=0</li>
+<li>find points of inflection where f&rsquo;&rsquo;(x)=0 and concavity changes</li>
+<li>find x and y intercepts</li>
+<li>find domain and range</li>
+<li>identify any asymptotes or disontinuities</li>
+<li>identify limiting behaviour of the function</li>
+<li>Use symmetry where possible
+<ul>
+<li>even function f(-x) = f(x)  (graph is symmetrical in y-axis)</li>
+<li>odd function f(-x) = -f(x)  (graph has rotational symmetry with respect to the origin,that is it remains unchanged after rotation of 180 degrees about the origin)</li>
+</ul>
+</li>
+<li>If the 2nd derivative is hard to calculate, the first derivative can be calculated to the left and right of the point being investigated to determine whether the curve is increasing or decreasing</li>
+<li>Rembember to restrict domains when there is a square root involved.  The expression inside the square root must be greater than zero.</li>
+</ul>
+<p><strong>Global maxima and minima</strong></p>
+<p>Need to check turning points as well as endpoints in the domain for potential candidates.</p>
+<p><strong>Optimisation problems</strong></p>
+<ul>
+<li>Find formula for quantity that is being maximised or minimised</li>
+<li>Find min/max values using derivatives</li>
+<li>Always check if an answer for f&rsquo;(x)=0 is yielding a min or max with either
+<ul>
+<li>a second derivative calculation</li>
+<li>calculating the first derivative at points just before and after the point being investigated.
+<BR><BR></li>
+</ul>
+</li>
+</ul>
+<h3 id="concepts-3">
+  <span style="color:RGB(139,69,19)">  Concepts </span>
+  
+  <a class="anchor" href="#concepts-3">#</a>
+  
+</h3>
+<ul>
+<li>concatvity</li>
+<li>local min or max</li>
+<li>global min or max</li>
+<li>point of inflection</li>
+<li>horizontal point of inflection</li>
+<li>monotonic increasing or decreasing</li>
+</ul>
+<h3 id="notes-5">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes-5">#</a>
+  
+</h3>
+<h4 id="the-first-and-second-derivatives-1">
+  The first and second derivatives
+  
+  <a class="anchor" href="#the-first-and-second-derivatives-1">#</a>
+  
+</h4>
+<p><strong>The second derivative</strong> = $f&rsquo;&rsquo;(x)$ or $\dfrac{d^{2}y}{dx^2}$</p>
+<p><strong>Sign of the first derivative</strong></p>
+<ul>
+<li>if f&rsquo;(x)&gt;0 then the graph y=f(x) is increasing</li>
+<li>if f&rsquo;(x)&lt;0 then the graph y=f(x) is decreasing</li>
+<li>if f&rsquo;(x)=0 then the graph y=f(x) has a stationary point</li>
+<li>if f&rsquo;(x)&gt;0 for all values of x then the curve is monotonic increasing</li>
+<li>if f&rsquo;(x)&lt;0 for all values of x then the curve is monotonic decreasing</li>
+</ul>
+<p><strong>Sign of the second derivative</strong></p>
+<ul>
+<li>if f&rsquo;&rsquo;(x)&gt;0
+<ul>
+<li>then f&rsquo;(x) is increasing</li>
+<li>the gradient of the tangent of f(x) is increasing (a greater upward slope or lesser downward slope)</li>
+<li>f(x) is concave upwards</li>
+<li>if f&rsquo;(x)=0 this is a mimimum turning point</li>
+</ul>
+</li>
+<li>if f&rsquo;&rsquo;(x)&lt;0
+<ul>
+<li>then f&rsquo;(x) is decreasing</li>
+<li>the gradient of the tangent of f(x) is decreasing (a lesser upward slope or greater downnward slope)</li>
+<li>f(x) is concave downwards</li>
+<li>if f&rsquo;(x)=0 this is a maximum turning point</li>
+</ul>
+</li>
+<li>if f&rsquo;&rsquo;(x) = 0
+<ul>
+<li>f&rsquo;(x) is a constant</li>
+<li>the tangent is neither increasing nor decreasing</li>
+<li>if concavity changes it is a point of inflection</li>
+<li>if concavity changes and f&rsquo;(x)=0 it is a horizontal point of inflection</li>
+</ul>
+</li>
+</ul>
+<p>To test whether concavity changes test f&rsquo;&rsquo;(x) just to the left and the right of the point being investigated.</p>
+<p><strong>Stationary points</strong></p>
+<ul>
+<li>Local minimum point
+<ul>
+<li>f&rsquo;(x) = 0 at point</li>
+<li>f&rsquo;(x)&lt;0 LHS of the point</li>
+<li>f&rsquo;(x)&gt;0 RHS of the point</li>
+<li>Or f&rsquo;(x)=0 and f&rsquo;&rsquo;(x)&gt;0</li>
+</ul>
+</li>
+<li>Local maximum point
+<ul>
+<li>f&rsquo;(x) = 0 at point</li>
+<li>f&rsquo;(x)&gt;0 LHS of the point</li>
+<li>f&rsquo;(x)&lt;0 RHS of the point</li>
+<li>Or f&rsquo;(x)=0 and f&rsquo;&rsquo;(x)&lt;0</li>
+</ul>
+</li>
+</ul>
+<p><strong>Inflection</strong></p>
+<ul>
+<li>Point of inflection
+<ul>
+<li>f&rsquo;&rsquo;(x) = 0,</li>
+<li>and concavity changes at that point</li>
+</ul>
+</li>
+<li>Horizontal point of inflection
+<ul>
+<li>f&rsquo;&rsquo;(x) = 0,</li>
+<li>and concavity changes at that point,</li>
+<li>and f&rsquo;(x)=0</li>
+</ul>
+</li>
+</ul>
+ <!-- Paramater SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/AustralianSchoolMaths/images/MA_C3_CurveGraphSummary.jpg" />
+<h4 id="applications-of-the-derivative-1">
+  Applications of the derivative
+  
+  <a class="anchor" href="#applications-of-the-derivative-1">#</a>
+  
+</h4>
+<p><strong>Curve sketching techniques</strong></p>
+<ul>
+<li>find stationary points where f&rsquo;(x)=0</li>
+<li>find points of inflection where f&rsquo;&rsquo;(x)=0 and concavity changes</li>
+<li>find x and y intercepts</li>
+<li>find domain and range</li>
+<li>identify any asymptotes or disontinuities</li>
+<li>identify limiting behaviour of the function</li>
+<li>Use symmetry where possible
+<ul>
+<li>even function f(-x) = f(x)  (graph is symmetrical in y-axis)</li>
+<li>odd function f(-x) = -f(x)  (graph has rotational symmetry with respect to the origin,that is it remains unchanged after rotation of 180 degrees about the origin)</li>
+</ul>
+</li>
+<li>If the 2nd derivative is hard to calculate, the first derivative can be calculated to the left and right of the point being investigated to determine whether the curve is increasing or decreasing</li>
+<li>Rembember to restrict domains when there is a square root involved.  The expression inside the square root must be greater than zero.</li>
+</ul>
+<p><strong>Global maxima and minima</strong></p>
+<p>Need to check turning points as well as endpoints in the domain for potential candidates.</p>
+<p><strong>Optimisation problems</strong></p>
+<ul>
+<li>Find formula for quantity that is being maximised or minimised</li>
+<li>Find min/max values using derivatives</li>
+<li>Always check if an answer for f&rsquo;(x)=0 is yielding a min or max with either
+<ul>
+<li>a second derivative calculation</li>
+<li>calculating the first derivative at points just before and after the point being investigated.
+<BR><BR></li>
+</ul>
+</li>
+</ul>
+<h2 id="integral-calculus">
+  <span style="color:RGB(0,32,96"> Integral Calculus </span>
+  
+  <a class="anchor" href="#integral-calculus">#</a>
+  
+</h2>
+<br>
+<h3 id="concepts-4">
+  <span style="color:RGB(139,69,19)">  Concepts </span>
+  
+  <a class="anchor" href="#concepts-4">#</a>
+  
+</h3>
+<ul>
+<li>anti-derivative / indefinate integral / pimitive</li>
+<li>definite integral</li>
+<li>area under a curve</li>
+</ul>
+<h3 id="notes-6">
+  <span style="color:RGB(139,69,19)">  Notes </span>
+  
+  <a class="anchor" href="#notes-6">#</a>
+  
+</h3>
+<p>When sketching a derivative graph:</p>
+<ul>
+<li>the x-intercepts are where the original function has a stationary point</li>
+<li>Where the derivative graph is above the x-axis, the original graph has a positive gradient and vice versa.</li>
+<li>The anti-derivative represents a family of curves unless a point on the curve is specified.</li>
+</ul>
+<p>When solving integration questions be on the lookout for equations in the below formats or or equations that can be factored into these patterns:</p>
+<ul>
+<li>
+<p>$f&rsquo;(x)[f(x)]^n$</p>
+</li>
+<li>
+<p>$\dfrac{f&rsquo;(x)}{f((x))}$</p>
+</li>
+</ul>
+<p><strong>NB</strong> The trig integral rules work on radians, not degrees. If a question is in degrees it first needs to be converted into radians.  Convert back to degrees in final step if required.</p>
+<p>Capital letters are often used as convention for the integral / anti-derivatve function, for example if f(x) is the function F(x) is the anti-derivative.</p>
+<p>The area enclosed by a curve y=f(x), the x-axis and lines x=a and x=b is given by $\int_a^b f(x)dx = F(b)-F(a)$</p>
+<p>When calculating the area between a curve and the x-axis:</p>
+<ul>
+<li>best to first sketch the curve and deterimine the x-intercepts</li>
+<li>areas above and below the x-axis need to be calculated seperately, and there absolute values summed.</li>
+</ul>
+<p>When a question asks to calculate the area bounded by a curve and either x or y axis, it is the area between the curve and the axis intercepts.  For example it could be something like the shaded sections below.</p>
+<!-- Parameter SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/AustralianSchoolMaths/images/MA_C4_BoundedByCurve.jpg" />
+<p><strong>Even functions</strong></p>
+<ul>
+<li>
+<p>f(-x) = f(x)</p>
+</li>
+<li>
+<p>$ \int_{-a}^a dx = 2 \int_0^a dx $</p>
+</li>
+<li>
+<p>area under curve between -a and a  =  $ 2 \int_{0}^a dx$</p>
+</li>
+</ul>
+<!-- Parameter SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/AustralianSchoolMaths/images/MA_C4_EvenFunction.jpg" />
+<p><strong>Odd functions</strong></p>
+<ul>
+<li>
+<p>$f(-x) = -f(x)$</p>
+</li>
+<li>
+<p>$ \int_{-a}^a dx=0$</p>
+</li>
+<li>
+<p>area under curve between -a and a  =  $ 2 \int_{0}^a dx$</p>
+</li>
+</ul>
+<!-- Parameter SiteRoot is defined in config.toml -->
+<img class="special-img-class" src="/AustralianSchoolMaths/images/MA_C4_OddFunction.jpg" />
+<p><strong>Areas enclosed by the y-axis</strong></p>
+<ul>
+<li>Can be calculated by rewriting the equation in the form x=f(y) and then calculting the absolute value of each portion of the integral to left or right of y=axis, that is $\int_a^b f(y) dy$</li>
+</ul>
+<p><BR><BR></p>
+<br>
+<h3 id="formulas-2">
+  <span style="color:RGB(139,69,19)"> Formulas </span>
+  
+  <a class="anchor" href="#formulas-2">#</a>
+  
+</h3>
+<br>
+<div class="book-tabs">
+
+
+
+<input type="radio" class="toggle" name="tabs-7c4484a8" id="tabs-7c4484a8-0" checked="checked" />
+<label for="tabs-7c4484a8-0">Standard view</label>
+<div class="book-tabs-content markdown-inner">
+
+<style type="text/css">
+#T_standard_cc8db3ce8ac82cad th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_standard_cc8db3ce8ac82cad td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+</style>
+<table id="T_standard_cc8db3ce8ac82cad">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+$ \text{ where } n \neq -1 $</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row1_col0" class="data row1 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
+$ \text { where } a=x_0 \text{ and } b=x_n $</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row2_col0" class="data row2 col0" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row6_col0" class="data row6 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row7_col0" class="data row7 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row8_col0" class="data row8 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row9_col0" class="data row9 col0" >$ {\Large\int}_b^a f(x)dx = F(b)-F(a) \text{, where F(x) is the anti-derivative of f(x)}$</td>
+    </tr>
+    <tr>
+      <td id="T_standard_cc8db3ce8ac82cad_row10_col0" class="data row10 col0" >$F'(x) = \dfrac{d}{dx} {\Large\int}_a^x f(t)dt = f(x) \text{ (the Fundamental Therom of Calculus)}$</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<input type="radio" class="toggle" name="tabs-7c4484a8" id="tabs-7c4484a8-1"  />
+<label for="tabs-7c4484a8-1">Formula sheet</label>
+<div class="book-tabs-content markdown-inner">
+
+Items on formula sheet are highlighted 
+<br>
+<style type="text/css">
+#T_formula_sheet_6807687fb75ef24f th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_formula_sheet_6807687fb75ef24f td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+#T_formula_sheet_6807687fb75ef24f_row0_col0, #T_formula_sheet_6807687fb75ef24f_row1_col0, #T_formula_sheet_6807687fb75ef24f_row2_col0, #T_formula_sheet_6807687fb75ef24f_row3_col0, #T_formula_sheet_6807687fb75ef24f_row4_col0, #T_formula_sheet_6807687fb75ef24f_row5_col0, #T_formula_sheet_6807687fb75ef24f_row6_col0, #T_formula_sheet_6807687fb75ef24f_row7_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
+#T_formula_sheet_6807687fb75ef24f_row8_col0, #T_formula_sheet_6807687fb75ef24f_row9_col0, #T_formula_sheet_6807687fb75ef24f_row10_col0 {
+  background-color: rgba(0,0,0,0);
+}
+</style>
+<table id="T_formula_sheet_6807687fb75ef24f">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+$ \text{ where } n \neq -1 $</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row1_col0" class="data row1 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
+$ \text { where } a=x_0 \text{ and } b=x_n $</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row2_col0" class="data row2 col0" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row6_col0" class="data row6 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row7_col0" class="data row7 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row8_col0" class="data row8 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row9_col0" class="data row9 col0" >$ {\Large\int}_b^a f(x)dx = F(b)-F(a) \text{, where F(x) is the anti-derivative of f(x)}$</td>
+    </tr>
+    <tr>
+      <td id="T_formula_sheet_6807687fb75ef24f_row10_col0" class="data row10 col0" >$F'(x) = \dfrac{d}{dx} {\Large\int}_a^x f(t)dt = f(x) \text{ (the Fundamental Therom of Calculus)}$</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<input type="radio" class="toggle" name="tabs-7c4484a8" id="tabs-7c4484a8-2"  />
+<label for="tabs-7c4484a8-2">Proofs required</label>
+<div class="book-tabs-content markdown-inner">
+
+Items where proofs required are highlighted 
+<br>
+<style type="text/css">
+#T_proof_required_39c303e694577fc4 th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_proof_required_39c303e694577fc4 td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+#T_proof_required_39c303e694577fc4_row0_col0, #T_proof_required_39c303e694577fc4_row2_col0, #T_proof_required_39c303e694577fc4_row3_col0, #T_proof_required_39c303e694577fc4_row5_col0, #T_proof_required_39c303e694577fc4_row6_col0, #T_proof_required_39c303e694577fc4_row9_col0, #T_proof_required_39c303e694577fc4_row10_col0 {
+  background-color: rgba(0,150,200, 0.2);
+}
+#T_proof_required_39c303e694577fc4_row1_col0, #T_proof_required_39c303e694577fc4_row4_col0, #T_proof_required_39c303e694577fc4_row7_col0, #T_proof_required_39c303e694577fc4_row8_col0 {
+  background-color: rgba(0,0,0,0);
+}
+</style>
+<table id="T_proof_required_39c303e694577fc4">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row0_col0" class="data row0 col0" >$ {\Large\int} f'(x)[f(x)]^n dx = \dfrac{1}{n+1}[f(x)]^{n+1} + c $
+$ \text{ where } n \neq -1 $</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row1_col0" class="data row1 col0" >$ {\Large\int_{a}^{b}} f(x) dx \approx \dfrac{b-a} {2n} {\Large\{} f(a) + f(b) + 2 {\Large[} f(x_1)+...+f(x_{n-1}){\Large ]} {\Large\}}$
+$ \text { where } a=x_0 \text{ and } b=x_n $</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row2_col0" class="data row2 col0" >$ {\Large\int} f'(x)\cos f(x)dx = \sin f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row3_col0" class="data row3 col0" >$ {\Large\int} f'(x)\sin f(x)dx = -\cos f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row4_col0" class="data row4 col0" >$ {\Large\int} f'(x)\sec^2 f(x)dx = \tan f(x) + c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row5_col0" class="data row5 col0" >$ {\Large\int} f'(x)e^{f(x)}dx = e^{f(x)} + c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row6_col0" class="data row6 col0" >$ {\Large\int} \dfrac{f'(x)}{f(x)}dx = \ln|f(x)| + c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row7_col0" class="data row7 col0" >$ {\Large\int} f'(x)a^{f(x)}dx = \dfrac{a^f(x)}{\ln  a} +c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row8_col0" class="data row8 col0" >$ {\Large\int} \dfrac{f'(x)}{(\ln a) f(x)} = \log_{a} |f(x)|  + c$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row9_col0" class="data row9 col0" >$ {\Large\int}_b^a f(x)dx = F(b)-F(a) \text{, where F(x) is the anti-derivative of f(x)}$</td>
+    </tr>
+    <tr>
+      <td id="T_proof_required_39c303e694577fc4_row10_col0" class="data row10 col0" >$F'(x) = \dfrac{d}{dx} {\Large\int}_a^x f(t)dt = f(x) \text{ (the Fundamental Therom of Calculus)}$</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</div>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <script>
+MathJax = {
+tex: {
+    inlineMath: [['$', '$']]
+}
+};
+</script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+<div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+
+<aside class="book-toc">
+  <div class="book-toc-content">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-differentiation"><span style="color:RGB(0,32,96"> Introduction to Differentiation </span></a>
+      <ul>
+        <li><a href="#concepts"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#concepts-1"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-1"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#formulas"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
+      </ul>
+    </li>
+    <li><a href="#differential-calculus"><span style="color:RGB(0,32,96"> Differential Calculus </span></a>
+      <ul>
+        <li><a href="#notes-2"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#notes-3"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#formulas-1"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
+      </ul>
+    </li>
+    <li><a href="#applications-of-differentiation"><span style="color:RGB(0,32,96"> Applications of Differentiation </span></a>
+      <ul>
+        <li><a href="#concepts-2"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-4"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#concepts-3"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-5"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+      </ul>
+    </li>
+    <li><a href="#integral-calculus"><span style="color:RGB(0,32,96"> Integral Calculus </span></a>
+      <ul>
+        <li><a href="#concepts-4"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
+        <li><a href="#notes-6"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
+        <li><a href="#formulas-2"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </div>
+</aside>
+
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
