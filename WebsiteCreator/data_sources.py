@@ -3,7 +3,6 @@
 # pylint: disable=missing-function-docstring
 
 import os
-import json
 import pandas as pd
 
 
@@ -24,18 +23,6 @@ class DataSource:
         State_SubtopicCode_Description
         """
         return filename.split("_")[1]
-
-    def _read_json_from_notebook(self, file_path: str):
-        with open(file_path, "r", encoding="utf-8") as file:
-            notebook_content = json.load(file)
-        return notebook_content
-
-    def _convert_notebook_markdown_content_to_string(
-        self, cell_content
-    ) -> str:
-        # Jupyter markdown cell is saved to json as a list of strings.
-        # This function returns content as a single string.
-        return "".join(cell_content)
 
     @property
     def website_creator_directory(self) -> str:
@@ -81,7 +68,10 @@ class DataSource:
     @property
     def notes_directory(self) -> str:
         return (
-            self.website_creator_directory + os.path.sep + "data_files_notes"
+            # self.website_creator_directory + os.path.sep + "data_files_notes"
+            self.website_creator_directory
+            + os.path.sep
+            + "data_files_notes_md"
         )
 
     @property
@@ -209,21 +199,15 @@ class DataSource:
                 state = self._state_from_filename(file)
                 subtopic_code = self._subtopic_code_from_filename(file)
                 filepath = os.path.join(subdir, file)
+                note = self._read_markdown(filepath)
                 if not self._file_is_empty(filepath):
-                    notebook_content = self._read_json_from_notebook(filepath)
-                    for cell in notebook_content["cells"]:
-                        note = (
-                            self._convert_notebook_markdown_content_to_string(
-                                cell["source"]
-                            )
-                        )
-                        note_list = note_list + [
-                            {
-                                "State": state,
-                                "Syllabus_subtopic_code": subtopic_code,
-                                "Note": note,
-                            }
-                        ]
+                    note_list = note_list + [
+                        {
+                            "State": state,
+                            "Syllabus_subtopic_code": subtopic_code,
+                            "Note": note,
+                        }
+                    ]
         notes_data = pd.DataFrame(note_list)
 
         notes_data = pd.merge(
@@ -234,6 +218,10 @@ class DataSource:
             how="right",
         )
         return notes_data
+
+    def _read_markdown(self, filepath: str) -> str:
+        with open(filepath, "r", encoding="utf-8") as f:
+            return f.read()
 
     @property
     def notes_by_year_cumulative(self) -> pd.DataFrame:

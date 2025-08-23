@@ -11,48 +11,139 @@
 
 
 
-    Concepts 
-  
-  #
-  
 
-
-arrangements
-fundamental counting principle, also known as the multiplication principle
-pigeonhole principle
-generalised pigeonhole principle
-ordered selections
-unordered selections
-factorial
-permutations
-combinations
-binomial expansion
-Pascal&rsquo;s triangle and binomial coefficients
-Pascal&rsquo;s triangle identity
-
-
-    Notes 
+   Formulas 
   
   #
   
 
 
 
-$ n!$ is the number of ways of selecting n objects with no replacement or repetition.  Order is important.
 
 
-Permutations = ordered
 
 
-$^nP_r$ is the number of ways of making an ordered selection or r objects from a total of n objects.">
+Standard view
+
+
+
+
+  
+  
+  
+    
+      $P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$
+    
+    
+      $^n P_r = \dfrac{n!}{(n-r)!}$
+    
+    
+      $0! = 1$
+    
+    
+      $^n P_n = n!$
+    
+    
+      $^n P_0 = 1$
+    
+    
+      Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a&#43;b&#43;c&#43;... \leq n$
+    
+    
+      $^nC_r = \dfrac{^n P_r}{r!}$
+    
+    
+      $(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$
+    
+    
+      $ ^n C _0 = (^n_0) = 1 $
+    
+    
+      $ ^n C _n = (^n_n) = 1 $
+    
+    
+      $ ^n C _r = ^nC_{n-r} $
+    
+    
+      $ (x&#43;a)^n = x^n &#43; (^n_1)x^{n-1}a&#43;...&#43;(^n_r)x^{n-r}a^r&#43;...a^n    $
+    
+    
+      $ (x&#43;a)^n = (^n_0)x^n &#43; (^n_1)x^{n-1}a &#43; (^n_2)x^{n-2}a^2 &#43; (^n_3)x^{n-3}a^3&#43;...&#43;(^n_k)x^{n-k}a^k&#43;...&#43;(^n_n)a^n $
+    
+    
+      $ ^n C _k = ^{n-1}C_{k-1} &#43; ^{n-1}C_k $
+    
+  
+
+
+
+
+
+
+Formula sheet
+
+
+Items on formula sheet are highlighted 
+
+
+
+  
+  
+  
+    
+      $P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$
+    
+    
+      $^n P_r = \dfrac{n!}{(n-r)!}$
+    
+    
+      $0! = 1$
+    
+    
+      $^n P_n = n!$
+    
+    
+      $^n P_0 = 1$
+    
+    
+      Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a&#43;b&#43;c&#43;... \leq n$
+    
+    
+      $^nC_r = \dfrac{^n P_r}{r!}$
+    
+    
+      $(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$
+    
+    
+      $ ^n C _0 = (^n_0) = 1 $
+    
+    
+      $ ^n C _n = (^n_n) = 1 $
+    
+    
+      $ ^n C _r = ^nC_{n-r} $
+    
+    
+      $ (x&#43;a)^n = x^n &#43; (^n_1)x^{n-1}a&#43;...&#43;(^n_r)x^{n-r}a^r&#43;...a^n    $
+    
+    
+      $ (x&#43;a)^n = (^n_0)x^n &#43; (^n_1)x^{n-1}a &#43; (^n_2)x^{n-2}a^2 &#43; (^n_3)x^{n-3}a^3&#43;...&#43;(^n_k)x^{n-k}a^k&#43;...&#43;(^n_n)a^n $
+    
+    
+      $ ^n C _k = ^{n-1}C_{k-1} &#43; ^{n-1}C_k $
+    
+  
+
+
+
+
+">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/combinatorics/">
   <meta property="og:site_name" content="Australian school maths">
   <meta property="og:title" content="Australian school maths">
-  <meta property="og:description" content="Working with Combinatorics # Concepts # arrangements fundamental counting principle, also known as the multiplication principle pigeonhole principle generalised pigeonhole principle ordered selections unordered selections factorial permutations combinations binomial expansion Pascal’s triangle and binomial coefficients Pascal’s triangle identity Notes # $ n!$ is the number of ways of selecting n objects with no replacement or repetition. Order is important.
-Permutations = ordered
-$^nP_r$ is the number of ways of making an ordered selection or r objects from a total of n objects.">
+  <meta property="og:description" content="Working with Combinatorics # Formulas # Standard view $P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$ $^n P_r = \dfrac{n!}{(n-r)!}$ $0! = 1$ $^n P_n = n!$ $^n P_0 = 1$ Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a&#43;b&#43;c&#43;... \leq n$ $^nC_r = \dfrac{^n P_r}{r!}$ $(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$ $ ^n C _0 = (^n_0) = 1 $ $ ^n C _n = (^n_n) = 1 $ $ ^n C _r = ^nC_{n-r} $ $ (x&#43;a)^n = x^n &#43; (^n_1)x^{n-1}a&#43;...&#43;(^n_r)x^{n-r}a^r&#43;...a^n $ $ (x&#43;a)^n = (^n_0)x^n &#43; (^n_1)x^{n-1}a &#43; (^n_2)x^{n-2}a^2 &#43; (^n_3)x^{n-3}a^3&#43;...&#43;(^n_k)x^{n-k}a^k&#43;...&#43;(^n_n)a^n $ $ ^n C _k = ^{n-1}C_{k-1} &#43; ^{n-1}C_k $ Formula sheet Items on formula sheet are highlighted $P(E) = \dfrac{\text{Number of ways an event can occur}}{\text{Total number of possible outcomes}}$ $^n P_r = \dfrac{n!}{(n-r)!}$ $0! = 1$ $^n P_n = n!$ $^n P_0 = 1$ Permutations with repeated objects: $\dfrac{n!}{a!b!c!}$ where $a&#43;b&#43;c&#43;... \leq n$ $^nC_r = \dfrac{^n P_r}{r!}$ $(^n_r) = ^n C _r = \dfrac{n!}{r!(n-r)!}$ $ ^n C _0 = (^n_0) = 1 $ $ ^n C _n = (^n_n) = 1 $ $ ^n C _r = ^nC_{n-r} $ $ (x&#43;a)^n = x^n &#43; (^n_1)x^{n-1}a&#43;...&#43;(^n_r)x^{n-r}a^r&#43;...a^n $ $ (x&#43;a)^n = (^n_0)x^n &#43; (^n_1)x^{n-1}a &#43; (^n_2)x^{n-2}a^2 &#43; (^n_3)x^{n-3}a^3&#43;...&#43;(^n_k)x^{n-k}a^k&#43;...&#43;(^n_n)a^n $ $ ^n C _k = ^{n-1}C_{k-1} &#43; ^{n-1}C_k $">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -62,7 +153,7 @@ $^nP_r$ is the number of ways of making an ordered selection or r objects from a
 <link rel="canonical" href="http://localhost:1313/AustralianSchoolMaths/docs/nsw/year-12-ext-2/topics/by-year-cumulative/combinatorics/">
 <link rel="stylesheet" href="/AustralianSchoolMaths/book.min.d719e1ee3f47519e2ab914f538dd31dc5cb50d00b72e76603499255785ce6ea5.css" integrity="sha256-1xnh7j9HUZ4quRT1ON0x3Fy1DQC3LnZgNJklV4XObqU=" crossorigin="anonymous">
   <script defer src="/AustralianSchoolMaths/fuse.min.js"></script>
-  <script defer src="/AustralianSchoolMaths/en.search.min.03119d126f8ba4e385b47ad665d926e7839e208e41fdef58a86183e7311d38a6.js" integrity="sha256-AxGdEm&#43;LpOOFtHrWZdkm54OeII5B/e9YqGGD5zEdOKY=" crossorigin="anonymous"></script>
+  <script defer src="/AustralianSchoolMaths/en.search.min.eae06a8ecbe4c327962443f6c4cff7f43322ff9e241c1ccfcfb35aeed88734b3.js" integrity="sha256-6uBqjsvkwyeWJEP2xM/39DMi/54kHBzPz7Na7tiHNLM=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -2854,8 +2945,6 @@ MathJax = {
   <ul>
     <li><a href="#working-with-combinatorics"><span style="color:RGB(0,32,96"> Working with Combinatorics </span></a>
       <ul>
-        <li><a href="#concepts"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
-        <li><a href="#notes"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
         <li><a href="#formulas"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
       </ul>
     </li>
@@ -2878,81 +2967,6 @@ MathJax = {
   
 </h2>
 <br>
-<h3 id="concepts">
-  <span style="color:RGB(139,69,19)">  Concepts </span>
-  
-  <a class="anchor" href="#concepts">#</a>
-  
-</h3>
-<ul>
-<li>arrangements</li>
-<li>fundamental counting principle, also known as the multiplication principle</li>
-<li>pigeonhole principle</li>
-<li>generalised pigeonhole principle</li>
-<li>ordered selections</li>
-<li>unordered selections</li>
-<li>factorial</li>
-<li>permutations</li>
-<li>combinations</li>
-<li>binomial expansion</li>
-<li>Pascal&rsquo;s triangle and binomial coefficients</li>
-<li>Pascal&rsquo;s triangle identity</li>
-</ul>
-<h3 id="notes">
-  <span style="color:RGB(139,69,19)">  Notes </span>
-  
-  <a class="anchor" href="#notes">#</a>
-  
-</h3>
-<ul>
-<li>
-<p>$ n!$ is the number of ways of selecting n objects with no replacement or repetition.  Order is important.</p>
-</li>
-<li>
-<p>Permutations = ordered</p>
-</li>
-<li>
-<p>$^nP_r$ is the number of ways of making an ordered selection or r objects from a total of n objects.</p>
-</li>
-<li>
-<p>Combinations = unordered.  Given the order is not important, therefore will be a smaller number than the equivalent permutation.</p>
-</li>
-<li>
-<p>$^nC_r = (^n_r)$ is the number of ways of making an unordered selection or r objects from a total of n objects.</p>
-</li>
-<li>
-<p>When calculating how many ways items can be arranged in a circle e.g. table, necklace:</p>
-<ul>
-<li>questions assume position of items in a circle is irrelevant</li>
-<li>item appearing at the top of the circle vs the bottom of the circle is the same thing for example</li>
-<li>Therefore n items can be arranged around a circle in (n-1)! ways, as the positioning of the first item is irrelevant</li>
-</ul>
-</li>
-<li>
-<p>When x items in an arrangement need to be together / consecutive, treat these as one item, and make the corresponding reduction to n.</p>
-<ul>
-<li>For example when 5 different colour balls need to be arranged but red and yellow need to be next to each other than the number of arrangements is 4! treating the red and yellow as one.</li>
-<li>But these x objects can be arranged in x! ways, in above case 2!</li>
-<li>Therefore total arrangements  = 4! x 2!</li>
-</ul>
-</li>
-<li>
-<p>Be on the lookout for the options in the &ldquo;other&rdquo; part of the arrangement.</p>
-<ul>
-<li>For example if questions asks how many ways can 3 people sit next to each other at a round table of 7 people:</li>
-<li>The 3 people can sit next to each other in 3! ways  - where they sit on round table is irrelevant</li>
-<li>Don’t forget that the other 4 people can sit next to each other in 4! different ways</li>
-<li>Therefore 3! x 4!</li>
-</ul>
-</li>
-<li>
-<p>Each item in Pascals triangle can be written as $^{\text{row index}}C_{\text{column index}}$ where both the indices start from zero.</p>
-</li>
-<li>
-<p>To satisfy oneself as to workings of binomial expansion it can be quickly tested with something simple like $(a+b)^2$</p>
-</li>
-</ul>
-<p><BR><BR></p>
 <br>
 <h3 id="formulas">
   <span style="color:RGB(139,69,19)"> Formulas </span>
@@ -3162,8 +3176,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   <ul>
     <li><a href="#working-with-combinatorics"><span style="color:RGB(0,32,96"> Working with Combinatorics </span></a>
       <ul>
-        <li><a href="#concepts"><span style="color:RGB(139,69,19)">  Concepts </span></a></li>
-        <li><a href="#notes"><span style="color:RGB(139,69,19)">  Notes </span></a></li>
         <li><a href="#formulas"><span style="color:RGB(139,69,19)"> Formulas </span></a></li>
       </ul>
     </li>
