@@ -136,7 +136,7 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "941bc3b1-f177-4a67-945f-dd181bfca83b" >}}
+{{< tabs "4a94f66d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -389,7 +389,7 @@ As an alternative to memorising the complementary angle identities can be derive
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "30aa7142-4bb9-40bf-bd4e-e4a4087fefaa" >}}
+{{< tabs "cc638640" >}}
 
 {{< tab "Standard view" >}}
 

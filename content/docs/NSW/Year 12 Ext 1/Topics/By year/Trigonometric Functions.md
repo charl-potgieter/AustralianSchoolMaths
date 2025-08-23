@@ -43,7 +43,7 @@ None of the auxiliary angles appear on the formula sheet so rather than attempin
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "f17d7629-eed7-451a-825f-9dc1297892b6" >}}
+{{< tabs "d7fed871" >}}
 
 {{< tab "Standard view" >}}
 

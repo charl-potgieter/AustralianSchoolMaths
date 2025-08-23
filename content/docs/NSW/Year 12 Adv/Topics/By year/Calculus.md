@@ -51,7 +51,7 @@ Use log laws to simplify expressions before differentiating.
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "4a0189bf-4f99-4a36-a7a8-0ae30530ed2b" >}}
+{{< tabs "2b27ac7d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -504,7 +504,7 @@ When a question asks to calculate the area bounded by a curve and either x or y 
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "b9c31a3a-e4d5-477f-801f-dc00d0d2a7fa" >}}
+{{< tabs "fe719d78" >}}
 
 {{< tab "Standard view" >}}
 

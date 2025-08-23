@@ -135,7 +135,7 @@ It is recommended to view the inverse trigonometric derivatives and correspondin
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "c634758c-ef3c-4ebb-99e7-142dab534365" >}}
+{{< tabs "7ece4cef" >}}
 
 {{< tab "Standard view" >}}
 
@@ -364,7 +364,7 @@ $ \text{Note the constant c will have different values with these two options} $
 
 ###  <span style="color:RGB(139,69,19)"> Derivatives vs integrals  </span>
 <br>
-{{< tabs "3dce9afb-5f66-47dd-96b3-cb333f638300" >}}
+{{< tabs "42cbd4d1" >}}
 
 {{< tab "Standard view" >}}
 
@@ -654,7 +654,7 @@ Note that the first part of above equations, $\frac{dP}{dt} = kP$, is the simple
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "d28dfa1f-5a64-4d89-bfd7-553e45c502f5" >}}
+{{< tabs "66405033" >}}
 
 {{< tab "Standard view" >}}
 

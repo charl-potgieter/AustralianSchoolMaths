@@ -2,7 +2,7 @@
 weight: 5
 ---
 
-{{< tabs "57578eb8-3ee5-4189-a87a-0d7cc772fa91" >}}
+{{< tabs "b63d6db7" >}}
 
 {{< tab "Standard view" >}}
 

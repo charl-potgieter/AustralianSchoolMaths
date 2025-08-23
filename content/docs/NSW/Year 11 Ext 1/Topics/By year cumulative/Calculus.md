@@ -163,7 +163,7 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "3c8b47f0-1d26-4d1b-b644-17ee9803cf7e" >}}
+{{< tabs "aaf7807d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -380,7 +380,7 @@ $\dfrac{dy}{dt} = \dfrac{dy}{dx} \times \dfrac{dx}{dt}$
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "692453cb-a341-4f5d-aead-15e60ef014f9" >}}
+{{< tabs "e54a35ed" >}}
 
 {{< tab "Standard view" >}}
 

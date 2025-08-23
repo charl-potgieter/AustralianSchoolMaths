@@ -128,7 +128,7 @@ weight: 5
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "bf88b653-99de-4e59-a418-d9e340b32aab" >}}
+{{< tabs "8e86899c" >}}
 
 {{< tab "Standard view" >}}
 
@@ -276,7 +276,7 @@ Click on below to open spreadsheet examples
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "19e23b74-4771-4aba-9c6e-90d4451f5ef4" >}}
+{{< tabs "aa28bf14" >}}
 
 {{< tab "Standard view" >}}
 

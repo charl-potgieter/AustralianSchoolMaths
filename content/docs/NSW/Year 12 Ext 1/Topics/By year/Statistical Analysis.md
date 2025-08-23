@@ -53,7 +53,7 @@ Click on below to open spreadsheet examples
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "35c5752a-ecfe-482a-94e9-d0dc412d37e4" >}}
+{{< tabs "5ad33b36" >}}
 
 {{< tab "Standard view" >}}
 

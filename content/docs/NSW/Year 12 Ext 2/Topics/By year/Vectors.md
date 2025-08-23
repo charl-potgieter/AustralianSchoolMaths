@@ -89,7 +89,7 @@ $ \lambda = \dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3} $
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "b035707b-e07b-40ab-927b-73fcfba07c91" >}}
+{{< tabs "e50fb497" >}}
 
 {{< tab "Standard view" >}}
 

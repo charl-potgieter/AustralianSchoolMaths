@@ -69,7 +69,7 @@ Included in the formulas below requiring proof are the below 2 formulas.  Note t
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "5f314031-ac4c-4470-a572-90e0e0b2f2dd" >}}
+{{< tabs "1d6607ce" >}}
 
 {{< tab "Standard view" >}}
 
@@ -215,7 +215,7 @@ Uses
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "fec0e322-3a29-4baf-8f67-b0586fe15027" >}}
+{{< tabs "4956dfc3" >}}
 
 {{< tab "Standard view" >}}
 

@@ -27,7 +27,7 @@ weight: 3
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "1ad20f6c-06c3-4901-bfc4-c2c8c6c464db" >}}
+{{< tabs "eb4f7fe5" >}}
 
 {{< tab "Standard view" >}}
 
@@ -187,7 +187,7 @@ Items where proofs required are highlighted
 
 ###  <span style="color:RGB(139,69,19)"> Arithmetic vs geometric sequences </span>
 <br>
-{{< tabs "401cbf07-2c62-4909-9572-1babcf34ae98" >}}
+{{< tabs "d719b46d" >}}
 
 {{< tab "Standard view" >}}
 

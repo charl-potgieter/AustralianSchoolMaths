@@ -163,7 +163,7 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "5f01ff66-e0ab-413e-b353-71e7a471a800" >}}
+{{< tabs "aaf7807d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -380,7 +380,7 @@ $\dfrac{dy}{dt} = \dfrac{dy}{dx} \times \dfrac{dx}{dt}$
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "61165c1e-2270-4224-897b-40cc602750a9" >}}
+{{< tabs "e54a35ed" >}}
 
 {{< tab "Standard view" >}}
 
@@ -506,7 +506,7 @@ Use log laws to simplify expressions before differentiating.
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "3de701e2-bcdc-42bf-bc6b-b5b7922c8799" >}}
+{{< tabs "2b27ac7d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -959,7 +959,7 @@ When a question asks to calculate the area bounded by a curve and either x or y 
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "ed010b22-6035-4fec-8c89-08ebc98d1ef1" >}}
+{{< tabs "fe719d78" >}}
 
 {{< tab "Standard view" >}}
 
@@ -1279,7 +1279,7 @@ It is recommended to view the inverse trigonometric derivatives and correspondin
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "fc2f359f-f1da-4c55-acd2-e8de5936cc7c" >}}
+{{< tabs "7ece4cef" >}}
 
 {{< tab "Standard view" >}}
 
@@ -1508,7 +1508,7 @@ $ \text{Note the constant c will have different values with these two options} $
 
 ###  <span style="color:RGB(139,69,19)"> Derivatives vs integrals  </span>
 <br>
-{{< tabs "770a6491-2612-4258-bfb0-a2a3d5d8ce87" >}}
+{{< tabs "42cbd4d1" >}}
 
 {{< tab "Standard view" >}}
 
@@ -1798,7 +1798,7 @@ Note that the first part of above equations, $\frac{dP}{dt} = kP$, is the simple
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "1123e163-f87c-4be5-8e02-16a09cb594bb" >}}
+{{< tabs "66405033" >}}
 
 {{< tab "Standard view" >}}
 
@@ -2228,7 +2228,7 @@ Hints
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "bf0e9c97-f191-4b4d-99f5-72fcc33ade5f" >}}
+{{< tabs "e5f129f4" >}}
 
 {{< tab "Standard view" >}}
 

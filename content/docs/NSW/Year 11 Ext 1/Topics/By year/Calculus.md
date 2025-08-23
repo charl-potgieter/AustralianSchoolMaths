@@ -94,7 +94,7 @@ $\dfrac{dy}{dt} = \dfrac{dy}{dx} \times \dfrac{dx}{dt}$
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "36836e7e-f61f-48c8-bc01-5a50d0b0dbfa" >}}
+{{< tabs "e54a35ed" >}}
 
 {{< tab "Standard view" >}}
 

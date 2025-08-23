@@ -355,7 +355,7 @@ Hints
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "c09a616f-a932-455b-9bcc-2343417a3758" >}}
+{{< tabs "e5f129f4" >}}
 
 {{< tab "Standard view" >}}
 

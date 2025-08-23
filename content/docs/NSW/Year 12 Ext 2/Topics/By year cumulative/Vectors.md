@@ -113,7 +113,7 @@ weight: 8
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "37410fdd-f53e-4ed8-a585-8de702946a7a" >}}
+{{< tabs "27ceab91" >}}
 
 {{< tab "Standard view" >}}
 
@@ -391,7 +391,7 @@ $ \lambda = \dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3} $
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "d2e8eaac-73dd-4f68-b927-0f00ee8aea8c" >}}
+{{< tabs "e50fb497" >}}
 
 {{< tab "Standard view" >}}
 

@@ -163,7 +163,7 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "22788db7-8e06-49ad-91e5-bfd09bf7c163" >}}
+{{< tabs "aaf7807d" >}}
 
 {{< tab "Standard view" >}}
 

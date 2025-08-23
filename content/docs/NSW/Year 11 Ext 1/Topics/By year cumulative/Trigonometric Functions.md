@@ -136,7 +136,7 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "1fd64a86-716a-468b-a905-973bb8b3b64c" >}}
+{{< tabs "4a94f66d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -389,7 +389,7 @@ As an alternative to memorising the complementary angle identities can be derive
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "2c26555c-1c54-4fd8-b555-c788f03ba987" >}}
+{{< tabs "cc638640" >}}
 
 {{< tab "Standard view" >}}
 
@@ -655,7 +655,7 @@ Included in the formulas below requiring proof are the below 2 formulas.  Note t
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "83226602-d136-48eb-8587-2adac5207a1a" >}}
+{{< tabs "1d6607ce" >}}
 
 {{< tab "Standard view" >}}
 
@@ -801,7 +801,7 @@ Uses
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "5a3bc1e7-4899-4648-b16b-af9735f20e9d" >}}
+{{< tabs "4956dfc3" >}}
 
 {{< tab "Standard view" >}}
 

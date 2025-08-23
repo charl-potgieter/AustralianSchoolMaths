@@ -98,7 +98,7 @@ weight: 6
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "447cc52c-952c-4b78-bc97-86bc53f3e8c0" >}}
+{{< tabs "969d8d9f" >}}
 
 {{< tab "Standard view" >}}
 

@@ -98,7 +98,7 @@ weight: 5
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "8868c9f8-411f-453c-afd3-d2461373784f" >}}
+{{< tabs "969d8d9f" >}}
 
 {{< tab "Standard view" >}}
 
@@ -426,7 +426,7 @@ Items where proofs required are highlighted
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "a6819c3d-5f8d-40e3-9e35-e872faf98f25" >}}
+{{< tabs "8e86899c" >}}
 
 {{< tab "Standard view" >}}
 
@@ -574,7 +574,7 @@ Click on below to open spreadsheet examples
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "e991fd0f-38d9-42c4-803f-25a833357677" >}}
+{{< tabs "aa28bf14" >}}
 
 {{< tab "Standard view" >}}
 
@@ -714,7 +714,7 @@ Click on below to open spreadsheet examples
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "fce9ca12-fd44-4154-b2fb-92f32f40138b" >}}
+{{< tabs "5ad33b36" >}}
 
 {{< tab "Standard view" >}}
 

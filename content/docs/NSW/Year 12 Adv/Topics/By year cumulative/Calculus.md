@@ -163,7 +163,7 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "d527c63e-c2e7-44e9-836d-1c99886b519c" >}}
+{{< tabs "aaf7807d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -337,7 +337,7 @@ Use log laws to simplify expressions before differentiating.
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "07468336-a76c-4d65-a94f-59065bdbe8c4" >}}
+{{< tabs "2b27ac7d" >}}
 
 {{< tab "Standard view" >}}
 
@@ -790,7 +790,7 @@ When a question asks to calculate the area bounded by a curve and either x or y 
 
 ###  <span style="color:RGB(139,69,19)"> Formulas </span>
 <br>
-{{< tabs "badd4183-a550-48a3-b116-e2d3b569f011" >}}
+{{< tabs "fe719d78" >}}
 
 {{< tab "Standard view" >}}
 
