@@ -69,9 +69,7 @@ class DataSource:
     def notes_directory(self) -> str:
         return (
             # self.website_creator_directory + os.path.sep + "data_files_notes"
-            self.website_creator_directory
-            + os.path.sep
-            + "data_files_notes_md"
+            self.website_creator_directory + os.path.sep + "data_files_notes"
         )
 
     @property
