@@ -14,3 +14,8 @@ WebsiteCreator/.ipynb_checkpoints/*
 */temp/*
 */Backups/*
 */backups/*
+
+# publc not required in repo as this is created for local builds when running hugo server
+# when deploying to github via a push the the repo trigggers the build so no need to push the 
+# public folder as well.
+public
