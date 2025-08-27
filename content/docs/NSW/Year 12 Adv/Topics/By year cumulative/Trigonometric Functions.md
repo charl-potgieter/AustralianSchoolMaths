@@ -9,12 +9,15 @@ weight: 3
 
  - angle of elevation
  - angle of depression
- - true bearing
+ - true bearing (sometimes written as $x\degree T$, representing $x$ degrees true
+ bearing)
  - compass bearing
  - amplitude
  - period
  - phase
-
+ - supplementary angles
+ - complementary angles
+ - similiar triangles
 
 ### <span style="color:RGB(139,69,19)">  Notes </span>
 
@@ -33,7 +36,14 @@ Use sine rule
 Use the cosine rule
  - Find a side given 2 sides and an included angle (SAS)
  - Find and angle given 3 sides (SSS)
- 
+
+No need to use sine or cosine rule in right angled triangles - problems can
+generally be solved by simply using the definitions of the trig ratios.
+
+When using the sine formula for calculating the area of a triangle note that the
+angle utilised in the formula is the angle between the 2 sides whose lengths are
+utilsed in the formula
+
 Degrees, minutes and seconds 
 - 60 minutes = 1 degree
 - 60 seconds = 1 minute
