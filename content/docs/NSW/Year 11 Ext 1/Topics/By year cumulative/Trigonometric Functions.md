@@ -9,7 +9,7 @@ weight: 2
 
  - angle of elevation
  - angle of depression
- - true bearing (sometimes written as $x\degree T$, representing $x$ degrees true
+ - true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
  bearing)
  - compass bearing
  - amplitude
@@ -58,7 +58,7 @@ Trig ratios are positive in "**A**ll **S**tations **T**o **C**entral" that is
 
 #### Radians  
 
-Understand the reason why $  \pi \text{ radians}  = 180^{\circ}$ based on
+Understand the reason why $\pi \text{ radians}  = 180^{\circ}$ based on
  - the definition of 1 radian being the angle subtended by an arc with length of 1 in a unit circle (with radius of 1)
  - fact that circumference of a circle = $2 \pi r$
 
@@ -77,11 +77,11 @@ Understand the reason why $  \pi \text{ radians}  = 180^{\circ}$ based on
 
 "Standard triangles" are provided in degrees as above on the formula sheet.  Converting to radians:
 
- - $30^{\circ} = \dfrac{\pi}{6} $ radians
+ - $30^{\circ} = \dfrac{\pi}{6}$ radians
 
- -  $45^{\circ} = \dfrac{\pi}{4} $ radians
+ -  $45^{\circ} = \dfrac{\pi}{4}$ radians
 
- -  $60^{\circ} = \dfrac{\pi}{3} $ radians
+ -  $60^{\circ} = \dfrac{\pi}{3}$ radians
 
 
 <br>
@@ -388,6 +388,11 @@ As an alternative to memorising the complementary angle identities can be derive
 
   <!-- Paramater SiteRoot is defined in config.toml -->
 <img class="special-img-class" src="/{{< param SiteRoot >}}/images/MA_T2_cot.jpg" />
+
+When solving trigonometric expressions within a domain remember that domain
+refers to the domain of the x values, therefore if solving something like
+$\sin 2x = \frac{1}{2}$ for a range of $[0^\circ, 360^\circ]$ solutions first need to
+be found for $2x$ within the range of $[0^\circ, 720^\circ]$
 
 <BR><BR>
 

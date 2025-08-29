@@ -57,3 +57,8 @@ As an alternative to memorising the complementary angle identities can be derive
 
   <!-- Paramater SiteRoot is defined in config.toml -->
 <img class="special-img-class" src="/{{< param SiteRoot >}}/images/MA_T2_cot.jpg" />
+
+When solving trigonometric expressions within a domain remember that domain
+refers to the domain of the x values, therefore if solving something like
+$\sin 2x = \frac{1}{2}$ for a range of $[0^\circ, 360^\circ]$ solutions first need to
+be found for $2x$ within the range of $[0^\circ, 720^\circ]$
