@@ -2,10 +2,10 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,32,96"> The Binomial Distribution </span> 
+## The Binomial Distribution
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Bernoulli random variable
  - Binomial random variable
@@ -19,7 +19,7 @@ weight: 5
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Properties of binomial distribution:
     * fixed number of trials
@@ -38,7 +38,7 @@ weight: 5
     * bar chart
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples
@@ -51,7 +51,7 @@ Click on below to open spreadsheet examples
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "bb6062ce" >}}
 

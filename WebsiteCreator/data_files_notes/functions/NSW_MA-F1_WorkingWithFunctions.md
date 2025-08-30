@@ -1,12 +1,12 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples

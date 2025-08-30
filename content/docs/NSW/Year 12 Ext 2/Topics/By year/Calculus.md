@@ -2,16 +2,16 @@
 weight: 4
 ---
 
-## <span style="color:RGB(0,32,96"> Further Integration </span> 
+## Further Integration
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Integration by substitution
 
@@ -182,7 +182,7 @@ Hints
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "fe3d4ca6" >}}
 

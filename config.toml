@@ -14,3 +14,4 @@ unsafe = true
 
 [params]
 SiteRoot = "AustralianSchoolMaths"
+custom_css = ["assets/_custom.css"]

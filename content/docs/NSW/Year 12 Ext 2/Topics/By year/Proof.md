@@ -2,10 +2,10 @@
 weight: 1
 ---
 
-## <span style="color:RGB(0,32,96"> The Nature of Proof </span> 
+## The Nature of Proof
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - contrapositive
  - converse
@@ -20,7 +20,7 @@ weight: 1
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - $ P \implies Q \text { : P implies Q}$
 
@@ -57,7 +57,7 @@ weight: 1
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "af149b09" >}}
 
@@ -172,11 +172,11 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Proof by Mathematical Induction </span> 
+## Further Proof by Mathematical Induction
 <br>
 
  
- ### <span style="color:RGB(139,69,19)">  Concepts </span>
+ ###   Concepts 
 
  - divisibility
  - induction
@@ -188,7 +188,7 @@ Items where proofs required are highlighted
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Proof of divisibility

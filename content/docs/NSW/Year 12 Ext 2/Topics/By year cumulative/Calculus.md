@@ -2,10 +2,10 @@
 weight: 10
 ---
 
-## <span style="color:RGB(0,32,96"> Introduction to Differentiation </span> 
+## Introduction to Differentiation
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 - acceleration
 - average rate of change
@@ -29,7 +29,7 @@ weight: 10
 - velocity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Gradients and tangents
@@ -86,7 +86,7 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "f821fcbf" >}}
 
@@ -213,15 +213,15 @@ Items on formula sheet are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Rates of Change </span> 
+## Rates of Change
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Rates of change with respect to time
 
@@ -302,7 +302,7 @@ $\dfrac{dy}{dt} = \dfrac{dy}{dx} \times \dfrac{dx}{dt}$
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "0844cfa5" >}}
 
@@ -381,10 +381,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Differential Calculus </span> 
+## Differential Calculus
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 
@@ -409,7 +409,7 @@ Use log laws to simplify expressions before differentiating.
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "f79bba25" >}}
 
@@ -598,10 +598,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Applications of Differentiation </span> 
+## Applications of Differentiation
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
  - concatvity
  - local min or max
  - global min or max
@@ -610,7 +610,7 @@ Items where proofs required are highlighted
  - monotonic increasing or decreasing
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### The first and second derivatives
 
@@ -696,10 +696,10 @@ To test whether concavity changes test f''(x) just to the left and the right of 
 <BR><BR>
 
 
-## <span style="color:RGB(0,32,96"> Integral Calculus </span> 
+## Integral Calculus
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - anti-derivative / indefinate integral / pimitive
   - definite integral
@@ -707,7 +707,7 @@ To test whether concavity changes test f''(x) just to the left and the right of 
  
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 When sketching a derivative graph:
  - the x-intercepts are where the original function has a stationary point
@@ -769,7 +769,7 @@ When a question asks to calculate the area bounded by a curve and either x or y 
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "7c4484a8" >}}
 
@@ -958,16 +958,16 @@ $ \text { where } a=x_0 \text{ and } b=x_n $</td>
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Calculus Skills </span> 
+## Further Calculus Skills
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Integration by substitution
 This can be useful when integrals don't follow any of the other standard rules.<br>
@@ -1028,7 +1028,7 @@ It is recommended to view the inverse trigonometric derivatives and correspondin
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "3de1edd2" >}}
 
@@ -1257,7 +1257,7 @@ $ \text{Note the constant c will have different values with these two options} $
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Derivatives vs integrals  </span>
+Derivatives vs integrals 
 <br>
 {{< tabs "ac81eb18" >}}
 
@@ -1449,10 +1449,10 @@ $ \text{Note the constant c will have different values with these two options} $
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Applications of Calculus </span> 
+## Applications of Calculus
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Intergrand
  - solid of revolution
@@ -1462,7 +1462,7 @@ $ \text{Note the constant c will have different values with these two options} $
  - logistic equation
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Further area and volumes of solids of revolution
  
@@ -1547,7 +1547,7 @@ Note that the first part of above equations, $\frac{dP}{dt} = kP$, is the simple
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "b37b33b1" >}}
 
@@ -1626,16 +1626,16 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Integration </span> 
+## Further Integration
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Integration by substitution
 
@@ -1806,7 +1806,7 @@ Hints
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "fe3d4ca6" >}}
 

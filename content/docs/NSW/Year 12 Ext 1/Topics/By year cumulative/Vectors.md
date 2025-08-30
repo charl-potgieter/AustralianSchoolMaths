@@ -2,10 +2,10 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,32,96"> Introduction to Vectors </span> 
+## Introduction to Vectors
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - column vector notation
  - component form
@@ -25,7 +25,7 @@ weight: 5
  - projection of a vector
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Vectors vs scalars
 
@@ -111,7 +111,7 @@ weight: 5
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "dee7e343" >}}
 

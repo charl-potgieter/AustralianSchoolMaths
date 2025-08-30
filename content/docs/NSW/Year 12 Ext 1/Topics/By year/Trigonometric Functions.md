@@ -2,15 +2,15 @@
 weight: 3
 ---
 
-## <span style="color:RGB(0,32,96"> Trigonometric Equations </span> 
+## Trigonometric Equations
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  **Auxiliary angles**
 
@@ -41,7 +41,7 @@ None of the auxiliary angles appear on the formula sheet so rather than attempin
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "4b655417" >}}
 

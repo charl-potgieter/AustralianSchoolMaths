@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
  - concatvity
  - local min or max
  - global min or max
@@ -7,7 +7,7 @@
  - monotonic increasing or decreasing
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### The first and second derivatives
 

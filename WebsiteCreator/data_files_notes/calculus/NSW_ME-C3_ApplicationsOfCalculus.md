@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Intergrand
  - solid of revolution
@@ -8,7 +8,7 @@
  - logistic equation
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Further area and volumes of solids of revolution
  

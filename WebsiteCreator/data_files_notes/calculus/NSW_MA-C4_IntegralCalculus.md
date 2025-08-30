@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - anti-derivative / indefinate integral / pimitive
   - definite integral
@@ -6,7 +6,7 @@
  
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 When sketching a derivative graph:
  - the x-intercepts are where the original function has a stationary point

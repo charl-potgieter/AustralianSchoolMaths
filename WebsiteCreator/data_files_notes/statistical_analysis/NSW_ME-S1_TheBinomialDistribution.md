@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Bernoulli random variable
  - Binomial random variable
@@ -12,7 +12,7 @@
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Properties of binomial distribution:
     * fixed number of trials
@@ -31,7 +31,7 @@
     * bar chart
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples

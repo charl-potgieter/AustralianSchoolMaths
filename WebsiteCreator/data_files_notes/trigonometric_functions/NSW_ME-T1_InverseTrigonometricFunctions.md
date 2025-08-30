@@ -1,9 +1,9 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 The graph of an inverse function is a reflection of the original function in the line y=x.  (the y-value and x-values of the original graph are switched to obtain the inverse graph)
 

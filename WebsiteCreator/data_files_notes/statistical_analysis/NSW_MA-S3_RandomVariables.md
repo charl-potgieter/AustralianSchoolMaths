@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - random variable
  - continuous random variable
@@ -12,7 +12,7 @@
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - The cumulative distribution function is the integral of the probability density function
 
@@ -33,7 +33,7 @@
  - Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples

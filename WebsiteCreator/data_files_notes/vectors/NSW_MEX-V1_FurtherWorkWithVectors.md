@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - cartesian equations
  - parametric equations
@@ -10,7 +10,7 @@
  
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 **General**
  - Unit vectors *i, j,* and  *k* represent directions x, y, and z respectively

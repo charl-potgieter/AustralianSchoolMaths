@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 - acceleration
 - average rate of change
@@ -22,7 +22,7 @@
 - velocity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Gradients and tangents

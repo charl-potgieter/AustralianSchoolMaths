@@ -2,24 +2,24 @@
 weight: 4
 ---
 
-## <span style="color:RGB(0,32,96"> Trigonometry and Measure of Angles </span> 
+## Trigonometry and Measure of Angles
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+### Concepts
 
- - angle of elevation
- - angle of depression
- - true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
- bearing)
- - compass bearing
- - amplitude
- - period
- - phase
- - supplementary angles
- - complementary angles
- - similiar triangles
+- angle of elevation
+- angle of depression
+- true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
+bearing)
+- compass bearing
+- amplitude
+- period
+- phase
+- supplementary angles
+- complementary angles
+- similiar triangles
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Trigonometry
@@ -143,7 +143,7 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "d655911b" >}}
 
@@ -326,15 +326,15 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Trigonometric Functions and Identities </span> 
+## Trigonometric Functions and Identities
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - identity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 **Reciprocal trigonometric functions**
@@ -401,7 +401,7 @@ be found for $2x$ within the range of $[0^\circ, 720^\circ]$
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "2755f25a" >}}
 
@@ -602,15 +602,15 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Inverse Trigonometric Functions </span> 
+## Inverse Trigonometric Functions
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 The graph of an inverse function is a reflection of the original function in the line y=x.  (the y-value and x-values of the original graph are switched to obtain the inverse graph)
 
@@ -667,7 +667,7 @@ Included in the formulas below requiring proof are the below 2 formulas.  Note t
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "2c47d067" >}}
 
@@ -782,10 +782,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Trigonometric Identities </span> 
+## Further Trigonometric Identities
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 **Sum and difference expansions and double angles** <br>
 The proofs of the sum and difference of angles such as $\sin(A+B)$ and $\tan(A-B)$ and following on that the double angles such as $\sin 2A$  etc all flow from the proof of $cos(A-B)$ which is proved via the unit circle and the cosine rule.
@@ -813,7 +813,7 @@ Uses
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "a1c3a337" >}}
 
@@ -1056,10 +1056,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Trigonometric Functions and Graphs </span> 
+## Trigonometric Functions and Graphs
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Understand the transformation of functions in the form y=kf(a(x+b))+c, where f(x) is a trigonometric function such as sin x, cos x etc.
  - Be able to determine the domain and range of the transformed function
@@ -1069,15 +1069,15 @@ Items where proofs required are highlighted
 <BR><BR>
 
 
-## <span style="color:RGB(0,32,96"> Trigonometric Equations </span> 
+## Trigonometric Equations
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  **Auxiliary angles**
 
@@ -1108,7 +1108,7 @@ None of the auxiliary angles appear on the formula sheet so rather than attempin
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "4b655417" >}}
 

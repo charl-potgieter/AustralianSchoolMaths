@@ -31,7 +31,9 @@ class _MarkdownContent:
 
     def _add_front_matter_to_content(self) -> None:
         if self._content:
-            self._content = self._front_matter.to_string() + "\n\n" + self._content
+            self._content = (
+                self._front_matter.to_string() + "\n\n" + self._content
+            )
         else:
             self._content = self._front_matter.to_string()
 
@@ -40,7 +42,10 @@ class _MarkdownContent:
         self._add_front_matter_to_content()
         if os.path.isfile(self._file_path):
             raise OSError(
-                "Cannot create " + self._file_path + " as it already " + "exists"
+                "Cannot create "
+                + self._file_path
+                + " as it already "
+                + "exists"
             )
         else:
             with open(self._file_path, "w", encoding="utf-8") as text_file:
@@ -52,7 +57,9 @@ class IndexFile:
 
     def __init__(self, file_path: str, weight: int):
         self._markdown_content = _MarkdownContent(file_path, weight)
-        self._markdown_content.add_front_matter_property("bookCollapseSection", "true")
+        self._markdown_content.add_front_matter_property(
+            "bookCollapseSection", "true"
+        )
 
     def save(self) -> None:
         """Returns the markdown_content object"""
@@ -77,13 +84,21 @@ class IndexFiles:
 
     def _get_file_path(self, base_dir, path_in_hierarchy):
         """returns file path"""
-        return base_dir + os.path.sep + path_in_hierarchy + os.path.sep + "_index.md"
+        return (
+            base_dir
+            + os.path.sep
+            + path_in_hierarchy
+            + os.path.sep
+            + "_index.md"
+        )
 
 
 class FormulaFile:
     """..md file containing formula tables for Hugo site generation"""
 
-    def __init__(self, file_path: str, weight: int, formula_table: FormulaTable):
+    def __init__(
+        self, file_path: str, weight: int, formula_table: FormulaTable
+    ):
         self._markdown_content = _MarkdownContent(file_path, weight)
         self._markdown_content.add_content(formula_table.to_markdown())
 
@@ -102,15 +117,23 @@ class FormulaFiles:
     def iterate(self):
         for current_table_type in formula_table_types:
             group_by_cols = self._column_groups(current_table_type)
-            for formula_group in self._formulas.group_by_columns(group_by_cols):
+            for formula_group in self._formulas.group_by_columns(
+                group_by_cols
+            ):
                 formula_table = FormulaTable(formula_group, current_table_type)
                 if formula_table.contains_content:
                     path_in_hierarchy = self._get_path_in_hierarchy(
                         formula_table, formula_group.is_cumulative
                     )
-                    file_path = self._get_file_path(self._base_path, path_in_hierarchy)
-                    weight = self._get_weight_based_on_hierarchies(path_in_hierarchy)
-                    formula_file = FormulaFile(file_path, weight, formula_table)
+                    file_path = self._get_file_path(
+                        self._base_path, path_in_hierarchy
+                    )
+                    weight = self._get_weight_based_on_hierarchies(
+                        path_in_hierarchy
+                    )
+                    formula_file = FormulaFile(
+                        file_path, weight, formula_table
+                    )
                     yield formula_file
 
     def _column_groups(self, table_type: type[FormulaTableType]) -> list[str]:
@@ -179,9 +202,7 @@ class TopicFile:
         return self._notes.filter_by_dict({"Syllabus_subtopic": subtopic})
 
     def _add_subtopic_heading(self, subtopic: str) -> None:
-        self._markdown_content.add_content(
-            '## <span style="color:RGB(0,32,96"> ' + subtopic + " </span> \n<br>"
-        )
+        self._markdown_content.add_content("## " + subtopic + "\n<br>")
 
     def _add_notes(self, notes_by_subtopic: Notes) -> None:
         note_to_display = ""
@@ -240,19 +261,33 @@ class TopicFiles:
             file_path = self._get_file_path(self._base_path, path_in_hierarchy)
             weight = self._get_weight_based_on_hierarchies(path_in_hierarchy)
             topic_file = TopicFile(
-                syllabus_topic, file_path, weight, notes_by_topic, formulas_by_topic
+                syllabus_topic,
+                file_path,
+                weight,
+                notes_by_topic,
+                formulas_by_topic,
             )
             yield topic_file
 
     def _get_path_in_hierarchy(
-        self, is_cumulative_by_year: bool, state: str, subject: str, syllabus_topic: str
+        self,
+        is_cumulative_by_year: bool,
+        state: str,
+        subject: str,
+        syllabus_topic: str,
     ) -> str:
         if is_cumulative_by_year:
             time_frame_portion_of_path = "By year cumulative"
         else:
             time_frame_portion_of_path = "By year"
         return os.path.sep.join(
-            [state, subject, "Topics", time_frame_portion_of_path, syllabus_topic]
+            [
+                state,
+                subject,
+                "Topics",
+                time_frame_portion_of_path,
+                syllabus_topic,
+            ]
         )
 
     def _get_file_path(self, base_dir: str, path_in_hierarchy: str) -> str:

@@ -2,27 +2,27 @@
 weight: 1
 ---
 
-## <span style="color:RGB(0,32,96"> Further Work with Functions </span> 
+## Further Work with Functions
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 <BR><BR>
 
 
-## <span style="color:RGB(0,32,96"> Polynomials </span> 
+## Polynomials
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Still need to complete the bulk of this section
 The below is the section that is muddled in with Ch 8 Calculus

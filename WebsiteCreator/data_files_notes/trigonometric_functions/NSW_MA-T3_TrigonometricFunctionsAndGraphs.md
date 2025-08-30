@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Understand the transformation of functions in the form y=kf(a(x+b))+c, where f(x) is a trigonometric function such as sin x, cos x etc.
  - Be able to determine the domain and range of the transformed function

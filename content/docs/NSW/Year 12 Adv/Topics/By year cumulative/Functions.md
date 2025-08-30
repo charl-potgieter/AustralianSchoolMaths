@@ -2,18 +2,18 @@
 weight: 2
 ---
 
-## <span style="color:RGB(0,32,96"> Working with Functions </span> 
+## Working with Functions
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples
@@ -26,7 +26,7 @@ Click on below to open spreadsheet examples
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 <style type="text/css">
 #T_standard_a9b7830f6fdf0b9e th.col_heading {
@@ -83,13 +83,13 @@ Click on below to open spreadsheet examples
 </table>
 
 
-## <span style="color:RGB(0,32,96"> Graphing Techniques </span> 
+## Graphing Techniques
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 <BR><BR>

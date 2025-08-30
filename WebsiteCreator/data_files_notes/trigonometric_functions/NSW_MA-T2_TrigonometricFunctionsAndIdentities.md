@@ -1,9 +1,9 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - identity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 **Reciprocal trigonometric functions**

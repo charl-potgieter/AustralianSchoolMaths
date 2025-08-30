@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 **Sum and difference expansions and double angles** <br>
 The proofs of the sum and difference of angles such as $\sin(A+B)$ and $\tan(A-B)$ and following on that the double angles such as $\sin 2A$  etc all flow from the proof of $cos(A-B)$ which is proved via the unit circle and the cosine rule.

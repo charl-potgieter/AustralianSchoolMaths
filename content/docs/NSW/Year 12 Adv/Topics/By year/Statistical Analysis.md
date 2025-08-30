@@ -2,10 +2,10 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,32,96"> Descriptive Statistics and Bivariate Data Analysis </span> 
+## Descriptive Statistics and Bivariate Data Analysis
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - categorical data
  - numerical data
@@ -53,7 +53,7 @@ weight: 5
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Categorical data can be nominal or ordinal
 
@@ -126,7 +126,7 @@ weight: 5
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "bfb62ac0" >}}
 
@@ -223,10 +223,10 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Random Variables </span> 
+## Random Variables
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - random variable
  - continuous random variable
@@ -240,7 +240,7 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - The cumulative distribution function is the integral of the probability density function
 
@@ -261,7 +261,7 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
  - Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples
@@ -274,7 +274,7 @@ Click on below to open spreadsheet examples
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "fe5f5fc4" >}}
 

@@ -2,13 +2,13 @@
 weight: 11
 ---
 
-## <span style="color:RGB(0,32,96"> Applications of Calculus to Mechanics </span> 
+## Applications of Calculus to Mechanics
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 <BR><BR>

@@ -2,10 +2,10 @@
 weight: 2
 ---
 
-## <span style="color:RGB(0,32,96"> Further Work with Vectors </span> 
+## Further Work with Vectors
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - cartesian equations
  - parametric equations
@@ -17,7 +17,7 @@ weight: 2
  
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 **General**
  - Unit vectors *i, j,* and  *k* represent directions x, y, and z respectively
@@ -87,7 +87,7 @@ $ \lambda = \dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3} $
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "a92fa4ad" >}}
 

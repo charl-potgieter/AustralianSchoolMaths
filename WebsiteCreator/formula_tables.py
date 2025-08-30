@@ -76,7 +76,7 @@ class FormulaTableTypeSimple(FormulaTableType):
 
     @property
     def topic_page_heading(self) -> str:
-        return "Formulas"
+        return "### Formulas"
 
     @property
     def formula_columns(self) -> list[str]:
@@ -381,9 +381,7 @@ class FormulaTable:
 
     def to_markdown_with_heading(self) -> str:
         return (
-            '###  <span style="color:RGB(139,69,19)"> '
-            + self.table_type.topic_page_heading
-            + " </span>"
+            self.table_type.topic_page_heading
             + "\n<br>\n"
             + self.to_markdown()
         )

@@ -2,24 +2,24 @@
 weight: 2
 ---
 
-## <span style="color:RGB(0,32,96"> Trigonometry and Measure of Angles </span> 
+## Trigonometry and Measure of Angles
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+### Concepts
 
- - angle of elevation
- - angle of depression
- - true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
- bearing)
- - compass bearing
- - amplitude
- - period
- - phase
- - supplementary angles
- - complementary angles
- - similiar triangles
+- angle of elevation
+- angle of depression
+- true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
+bearing)
+- compass bearing
+- amplitude
+- period
+- phase
+- supplementary angles
+- complementary angles
+- similiar triangles
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Trigonometry
@@ -143,7 +143,7 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "d655911b" >}}
 
@@ -326,15 +326,15 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Trigonometric Functions and Identities </span> 
+## Trigonometric Functions and Identities
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - identity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 **Reciprocal trigonometric functions**
@@ -401,7 +401,7 @@ be found for $2x$ within the range of $[0^\circ, 720^\circ]$
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "2755f25a" >}}
 

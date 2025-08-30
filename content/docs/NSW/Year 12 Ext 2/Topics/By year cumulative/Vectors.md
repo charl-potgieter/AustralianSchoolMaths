@@ -2,10 +2,10 @@
 weight: 8
 ---
 
-## <span style="color:RGB(0,32,96"> Introduction to Vectors </span> 
+## Introduction to Vectors
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - column vector notation
  - component form
@@ -25,7 +25,7 @@ weight: 8
  - projection of a vector
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Vectors vs scalars
 
@@ -111,7 +111,7 @@ weight: 8
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "dee7e343" >}}
 
@@ -304,10 +304,10 @@ Items on formula sheet are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Work with Vectors </span> 
+## Further Work with Vectors
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - cartesian equations
  - parametric equations
@@ -319,7 +319,7 @@ Items on formula sheet are highlighted
  
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 **General**
  - Unit vectors *i, j,* and  *k* represent directions x, y, and z respectively
@@ -389,7 +389,7 @@ $ \lambda = \dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3} $
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "a92fa4ad" >}}
 

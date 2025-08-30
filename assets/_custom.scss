@@ -3,3 +3,13 @@
     background: rgba(230,230,230,1);
   }
 }
+
+/* custom shade of blue for heading 2, that is ## heading */
+h2, .markdown h2 {
+  color: rgb(0, 32, 96);
+}
+
+/* custom shade of brown for heading 3, that is ### heading */
+h3, .markdown h3 {
+  color: rgb(139, 69, 19);
+}

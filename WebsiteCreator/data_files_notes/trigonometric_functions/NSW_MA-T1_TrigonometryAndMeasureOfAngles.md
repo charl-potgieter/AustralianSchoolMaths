@@ -1,18 +1,18 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+### Concepts
 
- - angle of elevation
- - angle of depression
- - true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
- bearing)
- - compass bearing
- - amplitude
- - period
- - phase
- - supplementary angles
- - complementary angles
- - similiar triangles
+- angle of elevation
+- angle of depression
+- true bearing (sometimes written as $x^\circ T$, representing $x$ degrees true
+bearing)
+- compass bearing
+- amplitude
+- period
+- phase
+- supplementary angles
+- complementary angles
+- similiar triangles
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Trigonometry

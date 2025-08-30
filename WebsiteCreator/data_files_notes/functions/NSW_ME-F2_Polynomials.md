@@ -1,9 +1,9 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Still need to complete the bulk of this section
 The below is the section that is muddled in with Ch 8 Calculus

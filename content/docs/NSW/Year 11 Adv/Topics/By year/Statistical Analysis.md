@@ -2,10 +2,10 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,32,96"> Probability and Discrete Probability Distributions </span> 
+## Probability and Discrete Probability Distributions
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - event
  - complement
@@ -39,7 +39,7 @@ weight: 5
  - standard deviation
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
 
@@ -96,7 +96,7 @@ weight: 5
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "b9b9833c" >}}
 

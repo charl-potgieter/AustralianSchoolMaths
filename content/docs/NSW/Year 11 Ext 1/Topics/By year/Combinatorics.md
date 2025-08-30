@@ -2,10 +2,10 @@
 weight: 4
 ---
 
-## <span style="color:RGB(0,32,96"> Working with Combinatorics </span> 
+## Working with Combinatorics
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - arrangements
  - fundamental counting principle, also known as the multiplication principle
@@ -21,7 +21,7 @@ weight: 4
  - Pascal's triangle identity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - $ n!$ is the number of ways of selecting n objects with no replacement or repetition.  Order is important.
 
@@ -62,7 +62,7 @@ weight: 4
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "54e76ad9" >}}
 

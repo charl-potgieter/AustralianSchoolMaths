@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - arrangements
  - fundamental counting principle, also known as the multiplication principle
@@ -14,7 +14,7 @@
  - Pascal's triangle identity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - $ n!$ is the number of ways of selecting n objects with no replacement or repetition.  Order is important.
 

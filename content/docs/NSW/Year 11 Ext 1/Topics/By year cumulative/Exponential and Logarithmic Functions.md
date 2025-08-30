@@ -2,15 +2,15 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,32,96"> Logarithms and Exponentials </span> 
+## Logarithms and Exponentials
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 <BR><BR>
 
 
@@ -18,7 +18,7 @@ weight: 5
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 <style type="text/css">
 #T_standard_00ae04a2ee6bea7b th.col_heading {

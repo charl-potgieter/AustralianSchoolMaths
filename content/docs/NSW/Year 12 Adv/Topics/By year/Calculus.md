@@ -2,10 +2,10 @@
 weight: 3
 ---
 
-## <span style="color:RGB(0,32,96"> Differential Calculus </span> 
+## Differential Calculus
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 
@@ -30,7 +30,7 @@ Use log laws to simplify expressions before differentiating.
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "f79bba25" >}}
 
@@ -219,10 +219,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Applications of Differentiation </span> 
+## Applications of Differentiation
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
  - concatvity
  - local min or max
  - global min or max
@@ -231,7 +231,7 @@ Items where proofs required are highlighted
  - monotonic increasing or decreasing
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### The first and second derivatives
 
@@ -317,10 +317,10 @@ To test whether concavity changes test f''(x) just to the left and the right of 
 <BR><BR>
 
 
-## <span style="color:RGB(0,32,96"> Integral Calculus </span> 
+## Integral Calculus
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - anti-derivative / indefinate integral / pimitive
   - definite integral
@@ -328,7 +328,7 @@ To test whether concavity changes test f''(x) just to the left and the right of 
  
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 When sketching a derivative graph:
  - the x-intercepts are where the original function has a stationary point
@@ -390,7 +390,7 @@ When a question asks to calculate the area bounded by a curve and either x or y 
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "7c4484a8" >}}
 

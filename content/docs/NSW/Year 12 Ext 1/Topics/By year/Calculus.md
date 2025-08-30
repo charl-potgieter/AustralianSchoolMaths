@@ -2,16 +2,16 @@
 weight: 4
 ---
 
-## <span style="color:RGB(0,32,96"> Further Calculus Skills </span> 
+## Further Calculus Skills
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Integration by substitution
 This can be useful when integrals don't follow any of the other standard rules.<br>
@@ -72,7 +72,7 @@ It is recommended to view the inverse trigonometric derivatives and correspondin
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "3de1edd2" >}}
 
@@ -301,7 +301,7 @@ $ \text{Note the constant c will have different values with these two options} $
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Derivatives vs integrals  </span>
+Derivatives vs integrals 
 <br>
 {{< tabs "ac81eb18" >}}
 
@@ -493,10 +493,10 @@ $ \text{Note the constant c will have different values with these two options} $
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Applications of Calculus </span> 
+## Applications of Calculus
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Intergrand
  - solid of revolution
@@ -506,7 +506,7 @@ $ \text{Note the constant c will have different values with these two options} $
  - logistic equation
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Further area and volumes of solids of revolution
  
@@ -591,7 +591,7 @@ Note that the first part of above equations, $\frac{dP}{dt} = kP$, is the simple
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "b37b33b1" >}}
 

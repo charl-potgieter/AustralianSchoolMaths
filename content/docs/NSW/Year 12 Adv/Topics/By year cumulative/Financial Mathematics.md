@@ -2,10 +2,10 @@
 weight: 5
 ---
 
-## <span style="color:RGB(0,32,96"> Modelling Financial Situations </span> 
+## Modelling Financial Situations
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
  - annuities
  - sequence
  - series
@@ -17,7 +17,7 @@ weight: 5
  - future value
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 <BR><BR>
 
 
@@ -25,7 +25,7 @@ weight: 5
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "cfe1a21d" >}}
 
@@ -185,7 +185,7 @@ Items where proofs required are highlighted
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Arithmetic vs geometric sequences </span>
+Arithmetic vs geometric sequences
 <br>
 {{< tabs "c08199cf" >}}
 

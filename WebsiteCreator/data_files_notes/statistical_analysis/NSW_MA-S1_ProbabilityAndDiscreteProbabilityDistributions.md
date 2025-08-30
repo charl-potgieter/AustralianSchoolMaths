@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - event
  - complement
@@ -32,7 +32,7 @@
  - standard deviation
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
 

@@ -2,10 +2,10 @@
 weight: 4
 ---
 
-## <span style="color:RGB(0,32,96"> Proof by Mathematical Induction </span> 
+## Proof by Mathematical Induction
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Can be utilised to prove a statement true for all positive integers, n
 

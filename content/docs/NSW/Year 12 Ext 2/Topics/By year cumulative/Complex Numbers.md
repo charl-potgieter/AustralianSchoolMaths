@@ -2,10 +2,10 @@
 weight: 9
 ---
 
-## <span style="color:RGB(0,32,96"> Introduction to Complex Numbers </span> 
+## Introduction to Complex Numbers
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Argand diagram
  - argument
@@ -24,7 +24,7 @@ weight: 9
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Equivalence of complex numbers
 
@@ -55,7 +55,7 @@ weight: 9
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "d14e6b6a" >}}
 
@@ -400,10 +400,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Using Complex Numbers </span> 
+## Using Complex Numbers
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - De Moivre's therom
  - locus
@@ -411,7 +411,7 @@ Items where proofs required are highlighted
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### De Moivre's therom
  - For any non-zero complex number $z = \cos \theta + i \sin \theta = e^{i\theta}$
@@ -526,7 +526,7 @@ A locus can be graphed:
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 <style type="text/css">
 #T_standard_b8873ab20d4a1717 th.col_heading {

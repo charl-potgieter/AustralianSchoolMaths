@@ -2,15 +2,15 @@
 weight: 2
 ---
 
-## <span style="color:RGB(0,32,96"> Inverse Trigonometric Functions </span> 
+## Inverse Trigonometric Functions
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 The graph of an inverse function is a reflection of the original function in the line y=x.  (the y-value and x-values of the original graph are switched to obtain the inverse graph)
 
@@ -67,7 +67,7 @@ Included in the formulas below requiring proof are the below 2 formulas.  Note t
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "2c47d067" >}}
 
@@ -182,10 +182,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Trigonometric Identities </span> 
+## Further Trigonometric Identities
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 **Sum and difference expansions and double angles** <br>
 The proofs of the sum and difference of angles such as $\sin(A+B)$ and $\tan(A-B)$ and following on that the double angles such as $\sin 2A$  etc all flow from the proof of $cos(A-B)$ which is proved via the unit circle and the cosine rule.
@@ -213,7 +213,7 @@ Uses
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "a1c3a337" >}}
 

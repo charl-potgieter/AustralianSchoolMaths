@@ -2,10 +2,10 @@
 weight: 7
 ---
 
-## <span style="color:RGB(0,32,96"> Proof by Mathematical Induction </span> 
+## Proof by Mathematical Induction
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Can be utilised to prove a statement true for all positive integers, n
 
@@ -25,10 +25,10 @@ weight: 7
 <BR><BR>
 
 
-## <span style="color:RGB(0,32,96"> The Nature of Proof </span> 
+## The Nature of Proof
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - contrapositive
  - converse
@@ -43,7 +43,7 @@ weight: 7
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - $ P \implies Q \text { : P implies Q}$
 
@@ -80,7 +80,7 @@ weight: 7
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "af149b09" >}}
 
@@ -195,11 +195,11 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Further Proof by Mathematical Induction </span> 
+## Further Proof by Mathematical Induction
 <br>
 
  
- ### <span style="color:RGB(139,69,19)">  Concepts </span>
+ ###   Concepts 
 
  - divisibility
  - induction
@@ -211,7 +211,7 @@ Items where proofs required are highlighted
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Proof of divisibility

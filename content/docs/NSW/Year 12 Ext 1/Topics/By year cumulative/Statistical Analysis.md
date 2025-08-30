@@ -2,10 +2,10 @@
 weight: 8
 ---
 
-## <span style="color:RGB(0,32,96"> Probability and Discrete Probability Distributions </span> 
+## Probability and Discrete Probability Distributions
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - event
  - complement
@@ -39,7 +39,7 @@ weight: 8
  - standard deviation
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Probability trees: Use the product rule along branches to find $P( A \cap B )$   representing A and B
 
@@ -96,7 +96,7 @@ weight: 8
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "b9b9833c" >}}
 
@@ -300,10 +300,10 @@ Items where proofs required are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Descriptive Statistics and Bivariate Data Analysis </span> 
+## Descriptive Statistics and Bivariate Data Analysis
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - categorical data
  - numerical data
@@ -351,7 +351,7 @@ Items where proofs required are highlighted
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Categorical data can be nominal or ordinal
 
@@ -424,7 +424,7 @@ Items where proofs required are highlighted
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "bfb62ac0" >}}
 
@@ -521,10 +521,10 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Random Variables </span> 
+## Random Variables
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - random variable
  - continuous random variable
@@ -538,7 +538,7 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - The cumulative distribution function is the integral of the probability density function
 
@@ -559,7 +559,7 @@ $ \text {   or more than than } Q3 + 1.5  \times IQR $</td>
  - Finding probability by integration in a normal distribution is complex, therefore use tables where $\mu = 0$ and $\sigma = 1$
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples
@@ -572,7 +572,7 @@ Click on below to open spreadsheet examples
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "fe5f5fc4" >}}
 
@@ -663,10 +663,10 @@ Items on formula sheet are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> The Binomial Distribution </span> 
+## The Binomial Distribution
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - Bernoulli random variable
  - Binomial random variable
@@ -680,7 +680,7 @@ Items on formula sheet are highlighted
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Properties of binomial distribution:
     * fixed number of trials
@@ -699,7 +699,7 @@ Items on formula sheet are highlighted
     * bar chart
 
 
-### <span style="color:RGB(139,69,19)"> Spreadsheets  </span>
+###  Spreadsheets  
 
 
 Click on below to open spreadsheet examples
@@ -712,7 +712,7 @@ Click on below to open spreadsheet examples
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "bb6062ce" >}}
 

@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - column vector notation
  - component form
@@ -18,7 +18,7 @@
  - projection of a vector
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Vectors vs scalars
 

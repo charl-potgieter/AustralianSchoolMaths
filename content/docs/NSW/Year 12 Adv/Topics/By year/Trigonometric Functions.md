@@ -2,10 +2,10 @@
 weight: 2
 ---
 
-## <span style="color:RGB(0,32,96"> Trigonometric Functions and Graphs </span> 
+## Trigonometric Functions and Graphs
 <br>
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - Understand the transformation of functions in the form y=kf(a(x+b))+c, where f(x) is a trigonometric function such as sin x, cos x etc.
  - Be able to determine the domain and range of the transformed function

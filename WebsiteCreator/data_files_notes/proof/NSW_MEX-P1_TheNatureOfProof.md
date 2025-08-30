@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - contrapositive
  - converse
@@ -13,7 +13,7 @@
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
  - $ P \implies Q \text { : P implies Q}$
 

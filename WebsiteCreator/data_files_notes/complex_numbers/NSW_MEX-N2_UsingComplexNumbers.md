@@ -1,4 +1,4 @@
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
  - De Moivre's therom
  - locus
@@ -6,7 +6,7 @@
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### De Moivre's therom
  - For any non-zero complex number $z = \cos \theta + i \sin \theta = e^{i\theta}$

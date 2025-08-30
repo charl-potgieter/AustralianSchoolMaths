@@ -2,10 +2,10 @@
 weight: 3
 ---
 
-## <span style="color:RGB(0,32,96"> Introduction to Differentiation </span> 
+## Introduction to Differentiation
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 - acceleration
 - average rate of change
@@ -29,7 +29,7 @@ weight: 3
 - velocity
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 
 #### Gradients and tangents
@@ -86,7 +86,7 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "f821fcbf" >}}
 
@@ -213,15 +213,15 @@ Items on formula sheet are highlighted
 {{< /tab >}}
 {{< /tabs >}}
 
-## <span style="color:RGB(0,32,96"> Rates of Change </span> 
+## Rates of Change
 <br>
 
-### <span style="color:RGB(139,69,19)">  Concepts </span>
+###   Concepts 
 
 
 
 
-### <span style="color:RGB(139,69,19)">  Notes </span>
+###   Notes 
 
 #### Rates of change with respect to time
 
@@ -302,7 +302,7 @@ $\dfrac{dy}{dt} = \dfrac{dy}{dx} \times \dfrac{dx}{dt}$
 <br>
 
 
-###  <span style="color:RGB(139,69,19)"> Formulas </span>
+### Formulas
 <br>
 {{< tabs "0844cfa5" >}}
 
