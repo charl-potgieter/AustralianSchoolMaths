@@ -1,3 +1,10 @@
+---
+weight: 2
+title: 'Trigonometry and Measure of Angles'
+---
+
+## Trigonometry and Measure of Angles
+
 ### Concepts
 
 - angle of elevation

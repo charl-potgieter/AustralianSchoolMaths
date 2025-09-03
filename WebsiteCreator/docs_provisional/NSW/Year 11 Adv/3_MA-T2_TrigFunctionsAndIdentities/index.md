@@ -1,3 +1,10 @@
+---
+weight: 3
+title: 'Trigonometric Functions and Identities'
+---
+
+## Trigonometric Functions and Identities
+
 ###   Concepts 
 
  - identity

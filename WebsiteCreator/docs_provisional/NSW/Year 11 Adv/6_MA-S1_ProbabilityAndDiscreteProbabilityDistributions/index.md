@@ -1,3 +1,10 @@
+---
+weight: 6
+title: 'Probability and Discrete Probability Distributions'
+---
+
+## Probability and Discrete Probability Distributions
+
 ###   Concepts 
 
  - event
