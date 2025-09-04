@@ -1,9 +1,19 @@
 from website import WebSite
-
+from site_content import Formulas
+from data_sources import DataSource
+from formulas import Formulas
 
 if __name__ == "__main__":
+    data_source = DataSource()
+    formulas_by_year = Formulas(data_source.formulas_by_year)
+
+    for code in formulas_by_year.syllabus_codes:
+        formulas_by_code = formulas_by_year.per_syllabus_code(code)
+        print(formulas_by_code.data)
+
     maths_website = WebSite()
     maths_website.delete_content()
+    maths_website.add_notes()
 
 
 # import os
