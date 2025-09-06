@@ -249,11 +249,3 @@ class DataSource:
     #         ]
     #     ]
     #     return return_value
-
-
-# TODO: Delete this once dev complete
-
-if __name__ == "__main__":
-    ds = DataSource()
-    a = ds.formulas_by_year
-    print(a)

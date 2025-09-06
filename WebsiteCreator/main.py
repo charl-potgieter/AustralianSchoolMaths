@@ -1,24 +1,43 @@
 from website import WebSite
-from site_content import Formulas
 from data_sources import DataSource
 from formulas import Formulas
+
+
+def append_simple_formula_tables_to_notes(
+    formulas: Formulas, maths_website: WebSite
+):
+    for topic_code in formulas.topic_codes:
+        formulas_in_topic = formulas.per_topic_code(topic_code)
+        web_page_for_topic_code = maths_website.get_web_page_by_topic_code(
+            topic_code
+        )
+        if web_page_for_topic_code:
+            web_page_for_topic_code.append_content(
+                formulas_in_topic.simple_table
+            )
+            print("Added formulas to " + topic_code)
+        else:
+            # TODO: Change below to error handling once all web pages are
+            # created
+            print(
+                "note: no web page exists for "
+                + topic_code
+                + ".There are formulas recorded against this syllabus code"
+            )
+
 
 if __name__ == "__main__":
     data_source = DataSource()
     formulas_by_year = Formulas(data_source.formulas_by_year)
-
-    for code in formulas_by_year.syllabus_codes:
-        formulas_by_code = formulas_by_year.per_syllabus_code(code)
-        print(formulas_by_code.data)
-
     maths_website = WebSite()
     maths_website.delete_content()
-    maths_website.add_notes()
+    maths_website.copy_provisional_notes_to_web_pages()
+    append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
 
 
 # import os
 # import shutil
-# import typing
+# import typin
 # from data_sources import DataSource
 # from file_management import (
 #     SiteHierarchies,
@@ -49,7 +68,7 @@ if __name__ == "__main__":
 #
 #     return {
 #         "docs_dir": docs_dir,
-#         "hierarchies": hierarchies,
+#         "hierarchies": hierarchie,
 #         "notes_by_year": notes_by_year,
 #         "notes_cumulative": notes_cumulative,
 #         "formulas_by_year": formulas_by_year,
