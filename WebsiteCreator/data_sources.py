@@ -112,7 +112,7 @@ class DataSource:
     #             "State",
     #             "Subject",
     #             "Syllabus_topic",
-    #             "Syllabus_subtopic_code",
+    #             "Code",
     #             "Syllabus_subtopic",
     #         ]
     #     ]
@@ -149,8 +149,8 @@ class DataSource:
         formulas = pd.merge(
             left=self.syllabus_by_year,
             right=formulas_ex_syllabus,
-            left_on=["State", "Syllabus_subtopic_code"],
-            right_on=["State", "Syllabus_subtopic_code"],
+            left_on=["State", "Code"],
+            right_on=["State", "Code"],
             how="right",
         )
         return formulas
@@ -175,7 +175,7 @@ class DataSource:
                 "State",
                 "Subject",
                 "Syllabus_topic",
-                "Syllabus_subtopic_code",
+                "Code",
                 "Syllabus_subtopic",
                 "Category",
                 "Subcategory_1",

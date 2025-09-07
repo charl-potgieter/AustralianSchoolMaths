@@ -14,82 +14,72 @@ class Formulas:
         return self._data
 
     @property
-    def states(self) -> list[str]:
+    def contains_data(self):
+        return not self._data.empty
+
+    @property
+    def unique_states(self) -> list[str]:
+        """Returns unique states in formula data"""
         return_value = self.data["State"]
         return_value = return_value.unique().tolist()
         return return_value
 
     @property
-    def topic_codes(self) -> list[str]:
-        return_value = self.data["Syllabus_subtopic_code"]
+    def unique_topic_codes(self) -> list[str]:
+        return_value = self.data["Code"]
         return_value = return_value.unique().tolist()
         return return_value
 
     @property
-    def state_and_topic_codes(self) -> list[tuple[str, str]]:
-        return_value = (
-            self.data[["State", "Syllabus_subtopic_code"]]
-            .drop_duplicates()
-            .values
-        )
+    def unique_state_and_topic_codes(self) -> list[tuple[str, str]]:
+        return_value = self.data[["State", "Code"]].drop_duplicates().values
         return_value = return_value.tolist()
         return return_value
 
     def per_state_and_topic_code(self, state: str, topic: str) -> Formulas:
         new_data = pd.DataFrame(
             self.data[
-                (self.data["State"] == state)
-                & (self.data["Syllabus_subtopic_code"] == topic)
+                (self.data["State"] == state) & (self.data["Code"] == topic)
             ].copy()
         )
         new_formulas = Formulas(new_data)
         return new_formulas
 
     @property
-    def simple_table(self):
-        # TODO: return styled pandas table
-        return "TBA"
+    def contains_formula_sheet_items(self) -> bool:
+        return_value = bool(self.data["On_formula_sheet"].astype(bool).any())
+        return return_value
+
+    @property
+    def contains_proof_required_items(self) -> bool:
+        return_value = bool(self.data["Proof_required"].astype(bool).any())
+        return return_value
+
+    @property
+    def to_simple_table_html(self):
+        # TODO: return styled pandas table in html
+        simple_table = FormulaTableSimple(self)
+        return simple_table.to_markdown()
 
 
-class FormulaTable:
-    """Summary table of formulas"""
-
+class _FormulaTable:
     def __init__(self, formulas: Formulas):
         self._formulas = formulas
+
+    @property
+    def has_hidden_column_headers(self) -> bool:
+        return False
+
+    @property
+    def has_hidden_row_headers(self) -> bool:
+        return False
 
     @property
     def has_tabs(self) -> bool:
         """Returns true if table has / requires tabs"""
         return (
-            self.contains_formula_sheet_items
-            or self.contains_proof_required_items
-        )
-
-    @property
-    def contains_formula_sheet_items(self) -> bool:
-        """Returns True if the table contains formulas that appear on the
-        formula sheet"""
-        formula_columns = self.table_type.formula_columns
-        formulas_in_table = self.table_type.to_dataframe()[
-            formula_columns
-        ].stack()
-        formula_sheet_items = self._formulas.formula_sheet_items
-        return (
-            len(set(formulas_in_table).intersection(set(formula_sheet_items)))
-            > 0
-        )
-
-    @property
-    def contains_proof_required_items(self) -> bool:
-        """Returns True if the table contains formulas that require proofs"""
-        formula_columns = self.table_type.formula_columns
-        formulas_in_table = self.table_type.to_dataframe()[
-            formula_columns
-        ].stack()
-        proof_required_items = self._formulas.proofs_required_items
-        return (
-            len(set(formulas_in_table).intersection(set(proof_required_items)))
-            > 0
+            self._formulas.contains_formula_sheet_items
+            or self._formulas.contains_proof_required_items
         )
 
     def _table_no_higlights(self) -> str:
@@ -128,18 +118,8 @@ class FormulaTable:
         )
         return return_table.to_html(prefix="proof_required")
 
-    @property
-    def contains_content(self) -> bool:
-        """Returns true if the Formula table contains content"""
-        if self._table_type is None:
-            return False
-        if self._table_type.to_dataframe() is None:
-            return False
-        return len(self._table_type.to_dataframe()) > 0
-
     def to_markdown(self) -> str:
-        """Returns formula table in markdown format"""
-        if not self.contains_content:
+        if not self._formulas.contains_data:
             return ""
         if not self.has_tabs:
             return_value = self._table_no_higlights()
@@ -161,9 +141,10 @@ class FormulaTable:
             return_value = tabs.to_markdown()
         return return_value
 
-    def to_markdown_with_heading(self) -> str:
-        return (
-            self.table_type.topic_page_heading
-            + "\n<br>\n"
-            + self.to_markdown()
-        )
+
+class FormulaTableSimple(_FormulaTable):
+    """Simple formula table implementation of abstract class FormulaTableType"""
+
+    def to_dataframe(self) -> pd.DataFrame:
+        """Returns the table as a dataframe"""
+        return pd.DataFrame(self._formulas.data[["Formula"]])

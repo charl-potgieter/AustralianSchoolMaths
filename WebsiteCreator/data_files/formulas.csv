@@ -1,4 +1,4 @@
-﻿State,Syllabus_subtopic_code,Category,Subcategory_1,Subcategory_2,Description,Group,Formula,On_formula_sheet,Proof_required,Comment
+﻿State,Code,Category,Subcategory_1,Subcategory_2,Description,Group,Formula,On_formula_sheet,Proof_required,Comment
 NSW,MA-F1,Indices,Index Laws,,Multiplying terms with same base,,$a^m \times a^n = a^{m+n}$,FALSE,,
 NSW,MA-F1,Indices,Index Laws,,Dividing terms with same base,,$a^m \div a^n = \dfrac{a^m}{a^n} = a^{m-n}$,FALSE,,
 NSW,MA-F1,Indices,Index Laws,,Power of a power,,$(a^m)^n = a^{m \times n}$,FALSE,,

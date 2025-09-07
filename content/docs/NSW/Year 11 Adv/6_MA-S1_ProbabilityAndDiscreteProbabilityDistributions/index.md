@@ -88,4 +88,3 @@ title: 'Probability and Discrete Probability Distributions'
  - The formula sheet defines variance as follows:  $ Var(X) = E(X^2) - \mu^2$.  The following may be an easier format to understand though: $ Var(X) = \sum[x^2p(x)] - \mu^2$
  
  - Know how to capture frequencies and calculate statistics on calculator
-TBA

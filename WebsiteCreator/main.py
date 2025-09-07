@@ -6,13 +6,13 @@ from formulas import Formulas
 def append_simple_formula_tables_to_notes(
     formulas: Formulas, maths_website: WebSite
 ):
-    for state, topic in formulas.state_and_topic_codes:
+    for state, topic in formulas.unique_state_and_topic_codes:
         formulas = formulas.per_state_and_topic_code(state, topic)
         web_page = maths_website.get_web_page_by_state_and_topic_code(
             state, topic
         )
         if web_page:
-            web_page.append_content(formulas.simple_table)
+            web_page.append_content(formulas.to_simple_table_html)
             print("Added formulas to " + topic)
         else:
             # TODO: Change below to error handling once all web pages are
@@ -32,14 +32,17 @@ if __name__ == "__main__":
     maths_website = WebSite()
     maths_website.delete_content()
     maths_website.copy_provisional_notes_to_web_pages()
-    append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
+    # append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
+
+    formulas_temp = formulas_by_year.per_state_and_topic_code("NSW", "MA-C4")
+    print(formulas_temp.contains_data)
 
     # for state, topic in formulas_by_year.state_and_topic_codes:
     #     print(state + " " + topic)
 
-    for web_page in maths_website.web_pages:
-        if web_page.state and web_page.topic_code:
-            print(web_page.state + " " + web_page.topic_code)
+    # for web_page in maths_website.web_pages:
+    #     if web_page.state and web_page.topic_code:
+    #         print(web_page.state + " " + web_page.topic_code)
 
 # import os
 # import shutil
