@@ -6,22 +6,22 @@ from formulas import Formulas
 def append_simple_formula_tables_to_notes(
     formulas: Formulas, maths_website: WebSite
 ):
-    for topic_code in formulas.topic_codes:
-        formulas_in_topic = formulas.per_topic_code(topic_code)
-        web_page_for_topic_code = maths_website.get_web_page_by_topic_code(
-            topic_code
+    for state, topic in formulas.state_and_topic_codes:
+        formulas = formulas.per_state_and_topic_code(state, topic)
+        web_page = maths_website.get_web_page_by_state_and_topic_code(
+            state, topic
         )
-        if web_page_for_topic_code:
-            web_page_for_topic_code.append_content(
-                formulas_in_topic.simple_table
-            )
-            print("Added formulas to " + topic_code)
+        if web_page:
+            web_page.append_content(formulas.simple_table)
+            print("Added formulas to " + topic)
         else:
             # TODO: Change below to error handling once all web pages are
             # created
             print(
                 "note: no web page exists for "
-                + topic_code
+                + state
+                + " "
+                + topic
                 + ".There are formulas recorded against this syllabus code"
             )
 
@@ -34,6 +34,12 @@ if __name__ == "__main__":
     maths_website.copy_provisional_notes_to_web_pages()
     append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
 
+    # for state, topic in formulas_by_year.state_and_topic_codes:
+    #     print(state + " " + topic)
+
+    for web_page in maths_website.web_pages:
+        if web_page.state and web_page.topic_code:
+            print(web_page.state + " " + web_page.topic_code)
 
 # import os
 # import shutil

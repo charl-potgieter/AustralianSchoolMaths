@@ -83,11 +83,11 @@ class WebSite:
                 dir_path = os.path.join(root, dir)
                 self._webpages.append(WebPage(dir_path))
 
-    def get_web_page_by_topic_code(self, code: str) -> WebPage | None:
-        """Web page file is named index.md and is stored inside a directory
-        with name from which topic code can be extracted"""
+    def get_web_page_by_state_and_topic_code(
+        self, state: str, topic: str
+    ) -> WebPage | None:
         for web_page in self.web_pages:
-            if web_page.topic_code == code:
+            if web_page.topic_code == topic and web_page.state == state:
                 return web_page
         return None
 
@@ -134,3 +134,17 @@ class WebPage:
         if match:
             return match.group(1)
         return None
+
+    @property
+    def state(self) -> str:
+        """Returns state on the assumption that state is the name of the
+        ancestor of self.local_dir in directory this_project/content/docs
+        """
+        current_dir = self.local_dir
+        while self._parent_dir_base_name(current_dir) != "docs":
+            current_dir = os.path.dirname(current_dir)
+        return os.path.basename(os.path.normpath(current_dir))
+
+    def _parent_dir_base_name(self, dir):
+        return_value = os.path.basename(os.path.normpath(os.path.dirname(dir)))
+        return return_value

@@ -135,3 +135,4 @@ Understand the reason why $\pi \text{ radians}  = 180^{\circ}$ based on
 
 
 Note that in the above formulas the "a" needs to multiply not just the x but the (x+b), assuming b iz not zero.
+TBA
