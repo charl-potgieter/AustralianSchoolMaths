@@ -69,3 +69,60 @@ When solving trigonometric expressions within a domain remember that domain
 refers to the domain of the x values, therefore if solving something like
 $\sin 2x = \frac{1}{2}$ for a range of $[0^\circ, 360^\circ]$ solutions first need to
 be found for $2x$ within the range of $[0^\circ, 720^\circ]$
+<style type="text/css">
+#T_95af3fe7a570da7c th.col_heading {
+  text-align: left;
+  font-size: 1em;
+}
+#T_95af3fe7a570da7c td {
+  text-align: left;
+  font-size: 1em;
+  padding: 1.5em;
+}
+</style>
+<table id="T_95af3fe7a570da7c">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row0_col0" class="data row0 col0" >$\sec A = \dfrac{1}{\cos A}, \cos A \ne 0$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row1_col0" class="data row1 col0" >$\text{cosec } A = \dfrac{1}{\sin A}, \sin A \ne 0$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row2_col0" class="data row2 col0" >$\cot A = \dfrac{\cos A}{\sin A}, \sin A \ne 0$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row3_col0" class="data row3 col0" >$\cos^2 x+\sin^2 x = 1$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row4_col0" class="data row4 col0" >$1+\tan^2 x = \sec^2 x$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row5_col0" class="data row5 col0" >$\cot^2 x+1 = \text{cosec }^2 x$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row6_col0" class="data row6 col0" >$\tan x = \dfrac{\sin x}{\cos x}, cos x \ne 0$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row7_col0" class="data row7 col0" >$\sin \theta = \cos (90^{\circ} - \theta)$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row8_col0" class="data row8 col0" >$\cos \theta = \sin (90^{\circ} - \theta)$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row9_col0" class="data row9 col0" >$\tan \theta = \cot (90^{\circ} - \theta)$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row10_col0" class="data row10 col0" >$\cot \theta = \tan (90^{\circ} - \theta)$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row11_col0" class="data row11 col0" >$\sec \theta = \text{cosec } (90^{\circ} - \theta)$</td>
+    </tr>
+    <tr>
+      <td id="T_95af3fe7a570da7c_row12_col0" class="data row12 col0" >$\text{cosec } \theta = \sec (90^{\circ} - \theta)$</td>
+    </tr>
+  </tbody>
+</table>
+

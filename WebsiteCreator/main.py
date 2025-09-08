@@ -1,19 +1,22 @@
 from website import WebSite
 from data_sources import DataSource
-from formulas import Formulas
+from formulas import Formulas, FormulaTableSimple
 
 
 def append_simple_formula_tables_to_notes(
     formulas: Formulas, maths_website: WebSite
 ):
     for state, topic in formulas.unique_state_and_topic_codes:
-        formulas = formulas.per_state_and_topic_code(state, topic)
+        formulas_by_state_topic = formulas.per_state_and_topic_code(
+            state, topic
+        )
         web_page = maths_website.get_web_page_by_state_and_topic_code(
             state, topic
         )
         if web_page:
-            web_page.append_content(formulas.to_simple_table_html)
-            print("Added formulas to " + topic)
+            print("Adding formulas to " + topic + "\n")
+            table = FormulaTableSimple(formulas_by_state_topic)
+            web_page.append_content(table.to_html())
         else:
             # TODO: Change below to error handling once all web pages are
             # created
@@ -32,7 +35,7 @@ if __name__ == "__main__":
     maths_website = WebSite()
     maths_website.delete_content()
     maths_website.copy_provisional_notes_to_web_pages()
-    # append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
+    append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
 
     formulas_temp = formulas_by_year.per_state_and_topic_code("NSW", "MA-C4")
     print(formulas_temp.contains_data)
