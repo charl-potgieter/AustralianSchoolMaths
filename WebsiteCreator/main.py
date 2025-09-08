@@ -1,22 +1,22 @@
 from website import WebSite
 from data_sources import DataSource
-from formulas import Formulas, FormulaTableSimple
+from formulas import Formulas
 
 
 def append_simple_formula_tables_to_notes(
     formulas: Formulas, maths_website: WebSite
 ):
     for state, topic in formulas.unique_state_and_topic_codes:
-        formulas_by_state_topic = formulas.per_state_and_topic_code(
+        selected_formulas = formulas.per_state_and_topic_code(state, topic)
+        selected_web_page = maths_website.get_web_page_by_state_and_topic_code(
             state, topic
         )
-        web_page = maths_website.get_web_page_by_state_and_topic_code(
-            state, topic
-        )
-        if web_page:
+        if selected_web_page:
             print("Adding formulas to " + topic + "\n")
-            table = FormulaTableSimple(formulas_by_state_topic)
-            web_page.append_content(table.to_html())
+            table = selected_formulas.to_formula_table_simple()
+            selected_web_page.append_content(
+                "\n" + "### Formulas\n" + table.to_string()
+            )
         else:
             # TODO: Change below to error handling once all web pages are
             # created
@@ -37,15 +37,9 @@ if __name__ == "__main__":
     maths_website.copy_provisional_notes_to_web_pages()
     append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
 
-    formulas_temp = formulas_by_year.per_state_and_topic_code("NSW", "MA-C4")
-    print(formulas_temp.contains_data)
-
-    # for state, topic in formulas_by_year.state_and_topic_codes:
-    #     print(state + " " + topic)
-
-    # for web_page in maths_website.web_pages:
-    #     if web_page.state and web_page.topic_code:
-    #         print(web_page.state + " " + web_page.topic_code)
+    # mf_1_formulas = formulas_by_year.per_state_and_topic_code("NSW", "MA-F1")
+    # print(mf_1_formulas.data["Proof_required"])
+    # print(mf_1_formulas.data["On_formula_sheet"])
 
 # import os
 # import shutil

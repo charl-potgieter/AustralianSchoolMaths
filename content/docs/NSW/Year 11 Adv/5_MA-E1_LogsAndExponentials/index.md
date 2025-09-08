@@ -11,6 +11,8 @@ title: 'Logarithms and Exponentials'
 
 
 ###   Notes 
+
+### Formulas
 <style type="text/css">
 #T_35e5ec7eb55acd1a th.col_heading {
   text-align: left;

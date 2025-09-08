@@ -19,6 +19,8 @@ title: "Working with Functions"
 Click on below to open spreadsheet examples
 
 [WorkingWithFunctions](https://github.com/charl-potgieter/AustralianSchoolMaths/raw/main/WebsiteCreator/spreadsheets/WorkingWithFunctions.xlsx)
+
+### Formulas
 <style type="text/css">
 #T_f8d4e7644dde8911 th.col_heading {
   text-align: left;

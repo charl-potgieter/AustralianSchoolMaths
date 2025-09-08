@@ -48,13 +48,16 @@ class Formulas:
 
     @property
     def contains_formula_sheet_items(self) -> bool:
-        return_value = bool(self.data["On_formula_sheet"].astype(bool).any())
+        return_value = bool(self.data["On_formula_sheet"].any())
         return return_value
 
     @property
     def contains_proof_required_items(self) -> bool:
-        return_value = bool(self.data["Proof_required"].astype(bool).any())
+        return_value = bool(self.data["Proof_required"].any())
         return return_value
+
+    def to_formula_table_simple(self) -> FormulaTableSimple:
+        return FormulaTableSimple(self)
 
 
 class _FormulaTable:
@@ -69,6 +72,7 @@ class _FormulaTable:
         self._dataframe = formulas.data
         self._has_hidden_column_headers = False
         self._has_hidden_row_headers = False
+        self._table_tabs = {}
 
     def _apply_table_properties(self):
         self._styled_table = self._create_styled_table()
@@ -95,18 +99,39 @@ class _FormulaTable:
         if self._has_hidden_row_headers:
             self._styled_table = self._styled_table.hide(axis="index")
 
-    # @property
-    # def has_hidden_column_headers(self) -> bool:
-    #     return False
-    #
-    # @property
-    # def has_hidden_row_headers(self) -> bool:
-    #     return False
+    def to_string(self) -> str:
+        """Returns string format for inclusion in hugo markdown files"""
+        if not self._formulas.contains_data:
+            return self._empty_table_string()
+        elif not self.requires_tabs:
+            return self._single_table_string()
+        else:
+            return self._multi_tab_string()
 
-    def to_html(self, prefix: str | None = None) -> str:
+    def _empty_table_string(self) -> str:
+        return ""
+
+    def _single_table_string(self, prefix: str | None = None) -> str:
         self._set_table_header_visibility()
         table_id = self._stable_uuid(prefix)
         return self._styled_table.to_html(table_uuid=table_id)
+
+    def _multi_tab_string(self) -> str:
+        self._add_table_tab("Standard view", self._single_table_string())
+        if self._formulas.contains_formula_sheet_items:
+            self._add_table_tab("Formulas sheet", self._single_table_string())
+        if self._formulas.contains_proof_required_items:
+            self._add_table_tab("Proof required", self._single_table_string())
+        return_value = '{{< tabs "' + self._stable_uuid("tab") + '" >}}'
+        for tab_name, tab_content in self._table_tabs.items():
+            return_value += '\n\n{{< tab "' + tab_name + '" >}}\n\n'
+            return_value += tab_content
+            return_value += "{{< /tab >}}"
+        return_value += "\n{{< /tabs >}}"
+        return return_value
+
+    def _add_table_tab(self, tab_name: str, tab_content: str) -> None:
+        self._table_tabs[tab_name] = tab_content
 
     def _stable_uuid(self, prefix: str | None = None) -> str:
         """Returns a stable identifier with optional prefix.  If not id
@@ -121,7 +146,7 @@ class _FormulaTable:
             return h
 
     @property
-    def has_tabs(self) -> bool:
+    def requires_tabs(self) -> bool:
         """Returns true if table has / requires tabs"""
         return (
             self._formulas.contains_formula_sheet_items

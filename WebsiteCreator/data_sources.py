@@ -130,22 +130,15 @@ class DataSource:
     #     return pd.read_csv(self.hierarchies_file_path)
     #
 
-    def _empty_to_false_converter(self, field_value):
-        if len(field_value) == 0:
-            return False
-        else:
-            return field_value
-
     @property
     def formulas_by_year(self) -> pd.DataFrame:
         formulas_ex_syllabus = pd.read_csv(
             filepath_or_buffer=self.formulas_file_path,
             converters={
-                "On_formula_sheet": self._empty_to_false_converter,
-                "Proof_required": self._empty_to_false_converter,
+                "On_formula_sheet": self._boolean_converter,
+                "Proof_required": self._boolean_converter,
             },
         )
-
         formulas = pd.merge(
             left=self.syllabus_by_year,
             right=formulas_ex_syllabus,
@@ -154,6 +147,15 @@ class DataSource:
             how="right",
         )
         return formulas
+
+    def _boolean_converter(self, field_value: str):
+        """Converts textual representations of boolean values to type bool"""
+        if len(field_value) == 0:
+            return False
+        elif field_value.upper() == "FALSE":
+            return False
+        else:
+            return True
 
     @property
     def formulas_by_year_cumulative(self) -> pd.DataFrame:
