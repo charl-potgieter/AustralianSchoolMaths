@@ -134,19 +134,25 @@ class _FormulaTable:
         return self._styled_table.to_html(table_uuid=table_id)
 
     def _create_table_tabs(self) -> None:
-        self._add_table_tab("Standard view", self._single_table_string())
+        self._add_table_tab(
+            "Standard view", self._single_table_string("standard")
+        )
         if self._formulas.contains_formula_sheet_items:
             self._highlight_values_in_list(
                 items_to_highlight=self._formulas.formula_sheet_items,
                 rgba="255,194,10, 0.2",
             )
-            self._add_table_tab("Formulas sheet", self._single_table_string())
+            self._add_table_tab(
+                "Formulas sheet", self._single_table_string("formula_sheet")
+            )
         if self._formulas.contains_proof_required_items:
             self._highlight_values_in_list(
                 items_to_highlight=self._formulas.proof_required_items,
                 rgba="0,150,200, 0.2",
             )
-            self._add_table_tab("Proof required", self._single_table_string())
+            self._add_table_tab(
+                "Proof required", self._single_table_string("proof")
+            )
 
     def _multi_tab_string(self) -> str:
         return_value = '{{< tabs "' + self._stable_uuid("tab") + '" >}}'
