@@ -56,6 +56,14 @@ class Formulas:
         return_value = bool(self.data["Proof_required"].any())
         return return_value
 
+    @property
+    def formula_sheet_items(self) -> list:
+        return list(self.data.loc[self.data["On_formula_sheet"], "Formula"])
+
+    @property
+    def proof_required_items(self) -> list:
+        return list(self.data.loc[self.data["Proof_required"], "Formula"])
+
     def to_formula_table_simple(self) -> FormulaTableSimple:
         return FormulaTableSimple(self)
 
@@ -63,7 +71,7 @@ class Formulas:
 class _FormulaTable:
     def __init__(self, formulas: Formulas):
         # This is performed in 2 steps to allow child classes to override
-        # parent properties set before they are applied to the table
+        # parent properties before they are applied to the table
         self._set_table_properties(formulas)
         self._apply_table_properties()
 
@@ -106,22 +114,41 @@ class _FormulaTable:
         elif not self.requires_tabs:
             return self._single_table_string()
         else:
+            self._create_table_tabs()
             return self._multi_tab_string()
 
     def _empty_table_string(self) -> str:
         return ""
+
+    @property
+    def requires_tabs(self) -> bool:
+        """Returns true if table has / requires tabs"""
+        return (
+            self._formulas.contains_formula_sheet_items
+            or self._formulas.contains_proof_required_items
+        )
 
     def _single_table_string(self, prefix: str | None = None) -> str:
         self._set_table_header_visibility()
         table_id = self._stable_uuid(prefix)
         return self._styled_table.to_html(table_uuid=table_id)
 
-    def _multi_tab_string(self) -> str:
+    def _create_table_tabs(self) -> None:
         self._add_table_tab("Standard view", self._single_table_string())
         if self._formulas.contains_formula_sheet_items:
+            self._highlight_values_in_list(
+                items_to_highlight=self._formulas.formula_sheet_items,
+                rgba="255,194,10, 0.2",
+            )
             self._add_table_tab("Formulas sheet", self._single_table_string())
         if self._formulas.contains_proof_required_items:
+            self._highlight_values_in_list(
+                items_to_highlight=self._formulas.proof_required_items,
+                rgba="0,150,200, 0.2",
+            )
             self._add_table_tab("Proof required", self._single_table_string())
+
+    def _multi_tab_string(self) -> str:
         return_value = '{{< tabs "' + self._stable_uuid("tab") + '" >}}'
         for tab_name, tab_content in self._table_tabs.items():
             return_value += '\n\n{{< tab "' + tab_name + '" >}}\n\n'
@@ -145,12 +172,13 @@ class _FormulaTable:
         else:
             return h
 
-    @property
-    def requires_tabs(self) -> bool:
-        """Returns true if table has / requires tabs"""
-        return (
-            self._formulas.contains_formula_sheet_items
-            or self._formulas.contains_proof_required_items
+    def _highlight_values_in_list(self, items_to_highlight, rgba) -> None:
+        format_value = "background-color:rgba(" + rgba + ");"
+        default_value = "background-color:rgba(0,0,0,0);"
+        self._table = self._styled_table.map(
+            func=lambda x: format_value
+            if x in items_to_highlight
+            else default_value
         )
 
     # def _table_no_higlights(self) -> str:
@@ -213,20 +241,6 @@ class _FormulaTable:
     #     return return_value
 
 
-class _StyledTable:
-    """Implements a dataframe styler customised for maths formula display"""
-
-    def highlight_values_in_list(
-        self, value_list, columns_to_highlight=None, rgba="255,194,10, 0.2"
-    ) -> None:
-        format_value = "background-color:rgba(" + rgba + ");"
-        default_value = "background-color:rgba(0,0,0,0);"
-        self._table = self._table.map(
-            func=lambda x: format_value if x in value_list else default_value,
-            subset=columns_to_highlight,
-        )
-
-
 class FormulaTableSimple(_FormulaTable):
     """Simple formula table implementation of abstract class FormulaTableType"""
 
@@ -242,33 +256,3 @@ class FormulaTableSimple(_FormulaTable):
         self._dataframe = formulas.data[["Formula"]]
         self._has_hidden_column_headers = True
         self._has_hidden_row_headers = True
-
-
-class TableTabs:
-    def __init__(self):
-        self._tabs = {}
-
-    def add_tab(self, tab_name: str, tab_content: str) -> None:
-        self._tabs[tab_name] = tab_content
-
-    def to_markdown(self) -> str:
-        return_value = '{{< tabs "' + self._stable_id + '" >}}'
-        for tab_name, tab_content in self._tabs.items():
-            return_value += '\n\n{{< tab "' + tab_name + '" >}}\n\n'
-            return_value += tab_content
-            return_value += "{{< /tab >}}"
-        return_value += "\n{{< /tabs >}}"
-        return return_value
-
-    @property
-    def _stable_id(self) -> str:
-        """Creates a stable unique id to use for the tab.  Utilising something
-        like uuid.uuid4 triggers unecessary git differences and is best
-        avoided
-        """
-        hasher = hashlib.md5()
-        for tab_name, tab_content in self._tabs.items():
-            hasher.update(tab_name.encode())
-            hasher.update(tab_content.encode())
-        stable_id = hasher.hexdigest()[:8]
-        return stable_id

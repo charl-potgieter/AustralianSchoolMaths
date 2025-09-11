@@ -151,6 +151,12 @@ If two lines with gradients $m_1 \text{ and } m_2$ are perpendicular then $m_1 m
   font-size: 1em;
   padding: 1.5em;
 }
+#T_a24c661342b37307_row0_col0, #T_a24c661342b37307_row1_col0, #T_a24c661342b37307_row2_col0, #T_a24c661342b37307_row3_col0, #T_a24c661342b37307_row4_col0, #T_a24c661342b37307_row5_col0, #T_a24c661342b37307_row6_col0, #T_a24c661342b37307_row7_col0 {
+  background-color: rgba(0,0,0,0);
+}
+#T_a24c661342b37307_row8_col0, #T_a24c661342b37307_row9_col0, #T_a24c661342b37307_row10_col0, #T_a24c661342b37307_row11_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
 </style>
 <table id="T_a24c661342b37307">
   <thead>

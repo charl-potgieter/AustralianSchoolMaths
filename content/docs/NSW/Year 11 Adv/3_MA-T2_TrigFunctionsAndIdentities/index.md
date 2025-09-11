@@ -145,6 +145,12 @@ be found for $2x$ within the range of $[0^\circ, 720^\circ]$
   font-size: 1em;
   padding: 1.5em;
 }
+#T_95af3fe7a570da7c_row0_col0, #T_95af3fe7a570da7c_row1_col0, #T_95af3fe7a570da7c_row2_col0, #T_95af3fe7a570da7c_row3_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
+#T_95af3fe7a570da7c_row4_col0, #T_95af3fe7a570da7c_row5_col0, #T_95af3fe7a570da7c_row6_col0, #T_95af3fe7a570da7c_row7_col0, #T_95af3fe7a570da7c_row8_col0, #T_95af3fe7a570da7c_row9_col0, #T_95af3fe7a570da7c_row10_col0, #T_95af3fe7a570da7c_row11_col0, #T_95af3fe7a570da7c_row12_col0 {
+  background-color: rgba(0,0,0,0);
+}
 </style>
 <table id="T_95af3fe7a570da7c">
   <thead>
@@ -204,6 +210,22 @@ be found for $2x$ within the range of $[0^\circ, 720^\circ]$
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
+}
+#T_95af3fe7a570da7c_row0_col0, #T_95af3fe7a570da7c_row1_col0, #T_95af3fe7a570da7c_row2_col0 {
+  background-color: rgba(255,194,10, 0.2);
+  background-color: rgba(0,0,0,0);
+}
+#T_95af3fe7a570da7c_row3_col0 {
+  background-color: rgba(255,194,10, 0.2);
+  background-color: rgba(0,150,200, 0.2);
+}
+#T_95af3fe7a570da7c_row4_col0, #T_95af3fe7a570da7c_row5_col0 {
+  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,150,200, 0.2);
+}
+#T_95af3fe7a570da7c_row6_col0, #T_95af3fe7a570da7c_row7_col0, #T_95af3fe7a570da7c_row8_col0, #T_95af3fe7a570da7c_row9_col0, #T_95af3fe7a570da7c_row10_col0, #T_95af3fe7a570da7c_row11_col0, #T_95af3fe7a570da7c_row12_col0 {
+  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0);
 }
 </style>
 <table id="T_95af3fe7a570da7c">

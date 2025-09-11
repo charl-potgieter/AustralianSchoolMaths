@@ -37,7 +37,9 @@ if __name__ == "__main__":
     maths_website.copy_provisional_notes_to_web_pages()
     append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
 
-    # mf_1_formulas = formulas_by_year.per_state_and_topic_code("NSW", "MA-F1")
+    test_formulas = formulas_by_year.per_state_and_topic_code("NSW", "MA-F1")
+    print(test_formulas.proof_required_items)
+
     # print(mf_1_formulas.data["Proof_required"])
     # print(mf_1_formulas.data["On_formula_sheet"])
 

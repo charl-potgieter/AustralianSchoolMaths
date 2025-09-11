@@ -205,6 +205,12 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
   font-size: 1em;
   padding: 1.5em;
 }
+#T_bf1cd3b840af6642_row0_col0, #T_bf1cd3b840af6642_row1_col0, #T_bf1cd3b840af6642_row2_col0, #T_bf1cd3b840af6642_row3_col0, #T_bf1cd3b840af6642_row4_col0, #T_bf1cd3b840af6642_row5_col0, #T_bf1cd3b840af6642_row9_col0, #T_bf1cd3b840af6642_row10_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
+#T_bf1cd3b840af6642_row6_col0, #T_bf1cd3b840af6642_row7_col0, #T_bf1cd3b840af6642_row8_col0 {
+  background-color: rgba(0,0,0,0);
+}
 </style>
 <table id="T_bf1cd3b840af6642">
   <thead>
@@ -258,6 +264,18 @@ Note that in the above formulas the "a" needs to multiply not just the x but the
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
+}
+#T_bf1cd3b840af6642_row0_col0, #T_bf1cd3b840af6642_row1_col0, #T_bf1cd3b840af6642_row2_col0 {
+  background-color: rgba(255,194,10, 0.2);
+  background-color: rgba(0,0,0,0);
+}
+#T_bf1cd3b840af6642_row3_col0, #T_bf1cd3b840af6642_row4_col0, #T_bf1cd3b840af6642_row5_col0, #T_bf1cd3b840af6642_row9_col0, #T_bf1cd3b840af6642_row10_col0 {
+  background-color: rgba(255,194,10, 0.2);
+  background-color: rgba(0,150,200, 0.2);
+}
+#T_bf1cd3b840af6642_row6_col0, #T_bf1cd3b840af6642_row7_col0, #T_bf1cd3b840af6642_row8_col0 {
+  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0);
 }
 </style>
 <table id="T_bf1cd3b840af6642">

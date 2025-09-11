@@ -165,6 +165,12 @@ title: 'Probability and Discrete Probability Distributions'
   font-size: 1em;
   padding: 1.5em;
 }
+#T_cce5224115d804b8_row0_col0, #T_cce5224115d804b8_row3_col0, #T_cce5224115d804b8_row5_col0, #T_cce5224115d804b8_row6_col0, #T_cce5224115d804b8_row8_col0, #T_cce5224115d804b8_row10_col0, #T_cce5224115d804b8_row12_col0 {
+  background-color: rgba(0,0,0,0);
+}
+#T_cce5224115d804b8_row1_col0, #T_cce5224115d804b8_row2_col0, #T_cce5224115d804b8_row4_col0, #T_cce5224115d804b8_row7_col0, #T_cce5224115d804b8_row9_col0, #T_cce5224115d804b8_row11_col0 {
+  background-color: rgba(255,194,10, 0.2);
+}
 </style>
 <table id="T_cce5224115d804b8">
   <thead>
@@ -225,6 +231,22 @@ title: 'Probability and Discrete Probability Distributions'
   text-align: left;
   font-size: 1em;
   padding: 1.5em;
+}
+#T_cce5224115d804b8_row0_col0, #T_cce5224115d804b8_row5_col0, #T_cce5224115d804b8_row6_col0, #T_cce5224115d804b8_row8_col0, #T_cce5224115d804b8_row10_col0, #T_cce5224115d804b8_row12_col0 {
+  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0);
+}
+#T_cce5224115d804b8_row1_col0 {
+  background-color: rgba(255,194,10, 0.2);
+  background-color: rgba(0,150,200, 0.2);
+}
+#T_cce5224115d804b8_row2_col0, #T_cce5224115d804b8_row4_col0, #T_cce5224115d804b8_row7_col0, #T_cce5224115d804b8_row9_col0, #T_cce5224115d804b8_row11_col0 {
+  background-color: rgba(255,194,10, 0.2);
+  background-color: rgba(0,0,0,0);
+}
+#T_cce5224115d804b8_row3_col0 {
+  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,150,200, 0.2);
 }
 </style>
 <table id="T_cce5224115d804b8">
