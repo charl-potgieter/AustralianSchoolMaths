@@ -187,65 +187,6 @@ class _FormulaTable:
             else default_value
         )
 
-    # def _table_no_higlights(self) -> str:
-    #     """Returns table with no highlights"""
-    #     return_table = _StyledTable(self._to_dataframe())
-    #     if self._table_type.has_hidden_column_headers:
-    #         return_table.hide_column_headers()
-    #     if self._table_type.has_hidden_row_headers:
-    #         return_table.hide_row_headers()
-    #     return return_table.to_html(prefix="standard")
-    #
-    # def _table_formula_sheet_higlights(self) -> str:
-    #     """Returns table with formulas on formula sheet higlighted"""
-    #     return_table = _StyledTable(self._to_dataframe())
-    #     if self._table_type.has_hidden_column_headers:
-    #         return_table.hide_column_headers()
-    #     if self._table_type.has_hidden_row_headers:
-    #         return_table.hide_row_headers()
-    #     return_table.highlight_values_in_list(
-    #         self._formulas.formula_sheet_items,
-    #         columns_to_highlight=self._table_type.formula_columns,
-    #     )
-    #     return return_table.to_html(prefix="formula_sheet")
-    #
-    # def _table_proofs_required_higlights(self) -> str:
-    #     """Returns table with formulas where proofs are required higlighted"""
-    #     return_table = _StyledTable(self._to_dataframe())
-    #     if self._table_type.has_hidden_column_headers:
-    #         return_table.hide_column_headers()
-    #     if self._table_type.has_hidden_row_headers:
-    #         return_table.hide_row_headers()
-    #     return_table.highlight_values_in_list(
-    #         self._formulas.proofs_required_items,
-    #         columns_to_highlight=self._table_type.formula_columns,
-    #         rgba="0,150,200, 0.2",
-    #     )
-    #     return return_table.to_html(prefix="proof_required")
-    #
-    # def to_markdown(self) -> str:
-    #     if not self._formulas.contains_data:
-    #         return ""
-    #     if not self.has_tabs:
-    #         return_value = self._table_no_higlights()
-    #     else:
-    #         tabs = TableTabs()
-    #         tabs.add_tab("Standard view", self._table_no_higlights())
-    #         if self.contains_formula_sheet_items:
-    #             tabs.add_tab(
-    #                 "Formula sheet",
-    #                 "Items on formula sheet are highlighted \n<br>\n"
-    #                 + self._table_formula_sheet_higlights(),
-    #             )
-    #         if self.contains_proof_required_items:
-    #             tabs.add_tab(
-    #                 "Proofs required",
-    #                 "Items where proofs required are highlighted \n<br>\n"
-    #                 + self._table_proofs_required_higlights(),
-    #             )
-    #         return_value = tabs.to_markdown()
-    #     return return_value
-
 
 class FormulaTableSimple(_FormulaTable):
     """Simple formula table implementation of abstract class FormulaTableType"""
