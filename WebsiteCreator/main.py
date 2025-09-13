@@ -1,10 +1,11 @@
 from website import WebSite
 from data_sources import DataSource
 from formulas import Formulas
+from formatters import TabFormatter, HugoTabFormatter
 
 
 def append_simple_formula_tables_to_notes(
-    formulas: Formulas, maths_website: WebSite
+    formulas: Formulas, tab_formatter: TabFormatter, maths_website: WebSite
 ):
     for state, topic in formulas.unique_state_and_topic_codes:
         selected_formulas = formulas.per_state_and_topic_code(state, topic)
@@ -15,7 +16,7 @@ def append_simple_formula_tables_to_notes(
             print("Adding formulas to " + topic + "\n")
             table = selected_formulas.to_formula_table_simple()
             selected_web_page.append_content(
-                "\n" + "### Formulas\n" + table.to_string()
+                "\n" + "### Formulas\n" + table.to_string(tab_formatter)
             )
         else:
             # TODO: Change below to error handling once all web pages are
@@ -35,4 +36,8 @@ if __name__ == "__main__":
     maths_website = WebSite()
     maths_website.delete_content()
     maths_website.copy_provisional_notes_to_web_pages()
-    append_simple_formula_tables_to_notes(formulas_by_year, maths_website)
+
+    tab_formatter = HugoTabFormatter()
+    append_simple_formula_tables_to_notes(
+        formulas_by_year, tab_formatter, maths_website
+    )

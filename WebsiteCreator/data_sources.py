@@ -95,8 +95,7 @@ class DataSource:
             right_on=["State", "Dependency"],
         )
         return_value = return_value.drop("Dependency", axis="columns")
-        # Re-order cols
-        return_value = return_value[
+        new_column_order = pd.Index(
             [
                 "State",
                 "Subject",
@@ -113,5 +112,6 @@ class DataSource:
                 "Proof_required",
                 "Comment",
             ]
-        ]
+        )
+        return_value.reindex(columns=new_column_order)
         return return_value
