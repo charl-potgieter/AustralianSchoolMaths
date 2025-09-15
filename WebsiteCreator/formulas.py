@@ -79,7 +79,7 @@ class Formulas:
     def proof_required_items(self) -> list:
         return list(self.data.loc[self.data["Proof_required"], "Formula"])
 
-    def to_formula_display(
+    def to_formula_display_string(
         self, table_type: TableType, formatter: WebSiteFormatter
     ) -> str:
         formula_display = _FormulaDisplay(self, table_type, formatter)
@@ -180,8 +180,9 @@ class _FormulaDisplay:
 
 class _FormulaTable:
     def __init__(self, formulas: Formulas, highlight_type: HighlightType):
-        # This is performed in 2 steps to allow child classes to override
-        # parent properties before they are applied to the table
+        # This is performed in 3 steps to allow child classes to override
+        # parent properties with the _customise_properties method before they
+        # are applied to the table
         self._set_table_properties(formulas, highlight_type)
         self._customise_properties()
         self._apply_table_properties()
@@ -190,7 +191,7 @@ class _FormulaTable:
         self, formulas: Formulas, highlight_type: HighlightType
     ):
         self._formulas = formulas
-        self._displaydata = self._formulas.data
+        self._display_data = self._formulas.data
         self._has_hidden_column_headers = False
         self._has_hidden_row_headers = False
         self._highlight_type = highlight_type
@@ -205,7 +206,7 @@ class _FormulaTable:
         self._apply_highlights()
 
     def _create_styled_table(self) -> pd.io.formats.style.Styler:
-        return_value = self._displaydata.style.set_table_styles(
+        return_value = self._display_data.style.set_table_styles(
             [
                 {
                     "selector": "th.col_heading",
@@ -247,7 +248,9 @@ class _FormulaTable:
         """
         return self._highlight_type.name + self._formulas._stable_uuid
 
-    def _highlight_selected_values(self, items_to_highlight, rgba) -> None:
+    def _highlight_selected_values(
+        self, items_to_highlight: list, rgba: str
+    ) -> None:
         format_value = "background-color:rgba(" + rgba + ");"
         default_value = "background-color:rgba(0,0,0,0);"
         self._styled_table.map(

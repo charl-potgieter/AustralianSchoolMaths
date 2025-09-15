@@ -20,7 +20,7 @@ def append_simple_formula_tables_to_notes(
             selected_web_page.append_content(
                 "\n"
                 + "### Formulas\n"
-                + selected_formulas.to_formula_display(
+                + selected_formulas.to_formula_display_string(
                     table_type.SIMPLE, site_formatter
                 )
             )
