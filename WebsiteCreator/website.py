@@ -48,8 +48,8 @@ class WebSite:
         return return_value
 
     @property
-    def _provisional_note_dir(self) -> str:
-        return_value = os.path.join(self._this_file_dir, "content_provisional")
+    def _content_ex_formulas_dir(self) -> str:
+        return_value = os.path.join(self._this_file_dir, "content_ex_formulas")
         return return_value
 
     def _delete_folder_contents(self, dir_to_delete):
@@ -67,7 +67,7 @@ class WebSite:
     def copy_provisional_notes_to_web_pages(self):
         if self._content_dir_is_empty:
             shutil.copytree(
-                src=self._provisional_note_dir,
+                src=self._content_ex_formulas_dir,
                 dst=self._content_dir,
                 dirs_exist_ok=True,
             )
