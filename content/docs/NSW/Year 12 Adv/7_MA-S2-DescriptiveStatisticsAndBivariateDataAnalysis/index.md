@@ -1,3 +1,8 @@
+---
+weight: 7
+title: 'Descriptive Statistics and Bivariate Data Analysis'
+---
+
 ###   Concepts 
 
  - categorical data

@@ -1,6 +1,9 @@
+---
+weight: 3
+title: 'Differential Calculus'
+---
+
 ###   Notes 
-
-
 
 #### Differentiation of trigonometric, exponential and logarithmic functions
 

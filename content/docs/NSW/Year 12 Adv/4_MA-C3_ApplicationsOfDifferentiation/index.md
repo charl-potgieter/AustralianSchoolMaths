@@ -1,3 +1,8 @@
+---
+weight: 4
+title: 'Applications of Differentiation'
+---
+
 ###   Concepts 
  - concatvity
  - local min or max

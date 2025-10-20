@@ -1,3 +1,8 @@
+---
+weight: 6
+title: 'Modelling Financial Situations'
+---
+
 ###   Concepts 
  - annuities
  - sequence

@@ -1,3 +1,8 @@
+---
+weight: 5
+title: 'Integral Calculus'
+---
+
 ###   Concepts 
 
  - anti-derivative / indefinate integral / pimitive

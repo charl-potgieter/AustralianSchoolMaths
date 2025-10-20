@@ -1,3 +1,9 @@
+---
+weight: 2
+title: 'Trigonometric functions and graphs'
+---
+
+
 ###   Notes 
 
  - Understand the transformation of functions in the form y=kf(a(x+b))+c, where f(x) is a trigonometric function such as sin x, cos x etc.

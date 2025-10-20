@@ -1,3 +1,9 @@
+---
+weight: 8
+title: 'Random Variables'
+---
+
+
 ###   Concepts 
 
  - random variable
