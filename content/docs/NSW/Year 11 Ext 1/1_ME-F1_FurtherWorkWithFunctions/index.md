@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: 'Graphing techniques'
+title: 'Further work with functions'
 ---
 
 ###   Concepts 

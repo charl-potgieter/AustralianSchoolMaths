@@ -1,6 +1,6 @@
 ---
 weight: 5
-title: 'Logarithms and Exponentials'
+title: 'Logarithms and exponentials'
 ---
 
 ## Logarithms and Exponentials

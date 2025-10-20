@@ -1,3 +1,9 @@
+---
+weight: 4
+title: 'Further trigonmetric identities'
+---
+
+
 ###   Notes 
 
 **Sum and difference expansions and double angles** <br>

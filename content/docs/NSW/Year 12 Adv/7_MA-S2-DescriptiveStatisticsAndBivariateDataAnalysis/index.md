@@ -1,6 +1,6 @@
 ---
 weight: 7
-title: 'Descriptive Statistics and Bivariate Data Analysis'
+title: 'Descriptive statistics and bivariate data analysis'
 ---
 
 ###   Concepts 

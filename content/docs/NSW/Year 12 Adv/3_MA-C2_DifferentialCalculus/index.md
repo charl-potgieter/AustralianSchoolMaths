@@ -1,6 +1,6 @@
 ---
 weight: 3
-title: 'Differential Calculus'
+title: 'Differential calculus'
 ---
 
 ###   Notes 

@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "Working with Functions"
+title: "Working with functions"
 ---
 
 ## Working with Functions

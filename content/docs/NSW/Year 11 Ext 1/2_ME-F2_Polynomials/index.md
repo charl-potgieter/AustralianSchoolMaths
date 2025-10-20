@@ -1,3 +1,8 @@
+---
+weight: 2
+title: 'Polynomials'
+---
+
 ###   Concepts 
 
 

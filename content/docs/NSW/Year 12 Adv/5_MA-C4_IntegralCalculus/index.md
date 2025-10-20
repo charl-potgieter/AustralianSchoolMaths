@@ -1,6 +1,6 @@
 ---
 weight: 5
-title: 'Integral Calculus'
+title: 'Integral calculus'
 ---
 
 ###   Concepts 

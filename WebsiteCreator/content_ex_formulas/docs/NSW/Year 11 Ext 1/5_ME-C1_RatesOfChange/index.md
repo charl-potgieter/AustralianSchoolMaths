@@ -1,3 +1,10 @@
+---
+weight: 5
+title: 'Rates of change'
+---
+
+
+
 ###   Concepts 
 
 

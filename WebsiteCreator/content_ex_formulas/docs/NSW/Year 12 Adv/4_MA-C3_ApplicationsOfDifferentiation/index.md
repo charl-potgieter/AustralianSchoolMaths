@@ -1,6 +1,6 @@
 ---
 weight: 4
-title: 'Applications of Differentiation'
+title: 'Applications of differentiation'
 ---
 
 ###   Concepts 

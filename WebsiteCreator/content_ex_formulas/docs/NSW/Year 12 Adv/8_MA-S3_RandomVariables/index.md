@@ -1,6 +1,6 @@
 ---
 weight: 8
-title: 'Random Variables'
+title: 'Random variables'
 ---
 
 

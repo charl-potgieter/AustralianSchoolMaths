@@ -1,3 +1,9 @@
+---
+weight: 6
+title: 'Working with combinatorics'
+---
+
+
 ###   Concepts 
 
  - arrangements

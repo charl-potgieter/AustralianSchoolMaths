@@ -1,6 +1,6 @@
 ---
 weight: 6
-title: 'Probability and Discrete Probability Distributions'
+title: 'Probability and discrete probability distributions'
 ---
 
 ## Probability and Discrete Probability Distributions

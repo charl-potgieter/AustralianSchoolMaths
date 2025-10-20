@@ -1,6 +1,6 @@
 ---
 weight: 4
-title: 'Introduction to Differentiation'
+title: 'Introduction to differentiation'
 ---
 
 ## Introduction to Differentiation

@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: 'Graphing Techniques'
+title: 'Graphing techniques'
 ---
 
 ###   Concepts 

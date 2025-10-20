@@ -1,6 +1,6 @@
 ---
 weight: 3
-title: 'Trigonometric Functions and Identities'
+title: 'Trigonometric functions and identities'
 ---
 
 ## Trigonometric Functions and Identities

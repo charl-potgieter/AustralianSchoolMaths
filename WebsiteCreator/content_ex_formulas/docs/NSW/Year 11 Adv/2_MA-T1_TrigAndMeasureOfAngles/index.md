@@ -1,6 +1,6 @@
 ---
 weight: 2
-title: 'Trigonometry and Measure of Angles'
+title: 'Trigonometry and measure of angles'
 ---
 
 ## Trigonometry and Measure of Angles
