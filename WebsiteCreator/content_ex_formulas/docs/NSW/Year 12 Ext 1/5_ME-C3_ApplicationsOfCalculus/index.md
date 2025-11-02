@@ -1,6 +1,6 @@
 ---
 weight: 5
-title: 'Applications of Calculus'
+title: 'Applications of calculus'
 ---
 
 ###   Concepts 

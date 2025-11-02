@@ -58,7 +58,7 @@ title: 'Descriptive statistics and bivariate data analysis'
  - Numerical data can be discrete or continuous
 
  - Displaying numerical data:
-    *Frequency table
+    * Frequency table
     * histogram (centre of column is lined up with value on x-axis.  No gap between columns) 
     * frequency polygon (line graph displaying frequency, starts and ends on x-axis) 
     * cumulative frequency histogram 
