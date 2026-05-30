@@ -68,10 +68,11 @@ title: 'Descriptive statistics and bivariate data analysis'
     * five-number summary
     * box plot (box-and-whisker-plot)
 
+<br>
 
- - Frequency table
+-  **Frequency table**
 
-![Frequenct Table](FrequencyDistribtionTable.png)
+![Frequency Table](FrequencyDistributionTable.png)
 
 
  - 3 Measures of central tendency:
